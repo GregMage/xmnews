@@ -32,7 +32,7 @@ define('_MA_XMNEWS_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE', 'You must enable in xm
 define('_MA_XMNEWS_ERROR', 'Error');
 define('_MA_XMNEWS_ERROR_NACTIVE', 'Error: Disable content!');
 define('_MA_XMNEWS_ERROR_NOACESSCATEGORY', 'You don\'t have access to any categories');
-define('_MA_XMNEWSE_ERROR_NONEWS', 'There are no news in the database');
+define('_MA_XMNEWS_ERROR_NONEWS', 'There are no news in the database');
 define('_MA_XMNEWS_ERROR_NOCATEGORY', 'There are no categories in the database');
 define('_MA_XMNEWS_ERROR_WEIGHT', 'Weight must be a number');
 
@@ -72,7 +72,27 @@ define('_MA_XMNEWS_CATEGORY_DORATING', 'View rating (Default value of news)');
 define('_MA_XMNEWS_CATEGORY_DOCOMMENT', 'View comment (Default value of news)');
 
 // News
-
+define('_MA_XMNEWS_WFV', 'Waiting for validation');
+define('_MA_XMNEWS_NEWS_CATEGORY', 'Category');
+define('_MA_XMNEWS_NEWS_TITLE', 'Title');
+define('_MA_XMNEWS_NEWS_DESC', 'Description');
+define('_MA_XMNEWS_NEWS_NEWS', 'News');
+define('_MA_XMNEWS_NEWS_FORMPATH', 'Files are in: %s');
+define('_MA_XMNEWS_NEWS_UPLOAD', 'Upload');
+define('_MA_XMNEWS_NEWS_UPLOADSIZE', 'Maximum size: %s kB');
+define('_MA_XMNEWS_NEWS_LOGOFILE', 'Logo file');
+define('_AM_XMNEWS_NEWS_KEYWORD', 'Meta keywords');
+define('_MA_XMNEWS_NEWS_USERID', 'Author');
+define('_MA_XMNEWS_NEWS_DOUSER', 'View user');
+define('_MA_XMNEWS_NEWS_DODATE', 'View date');
+define('_MA_XMNEWS_NEWS_DOMDATE', 'View modified date');
+define('_MA_XMNEWS_NEWS_DOHITS', 'View hits');
+define('_MA_XMNEWS_NEWS_DORATING', 'View rating');
+define('_MA_XMNEWS_NEWS_DOCOMMENT', 'View comment');
+define('_MA_XMNEWS_NEWS_DATEUPDATE', 'Update the publication date');
+define('_MA_XMNEWS_NEWS_DATE', 'Publication date');
+define('_MA_XMNEWS_NEWS_MDATEUPDATE', 'Update the modification date');
+define('_MA_XMNEWS_NEWS_RESETMDATE', 'Reset (empty date)');
 
 // permission
 define('_MA_XMNEWS_PERMISSION_VIEW', 'View Permissions');

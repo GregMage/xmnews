@@ -22,7 +22,6 @@ CREATE TABLE `xmnews_news` (
   `news_description`    text,
   `news_news`    		text,
   `news_mkeyword`   	text,
-  `news_mdescription`  	text,
   `news_logo`           varchar(50)             NOT NULL DEFAULT '',
   `news_userid`         smallint(5)  unsigned   NOT NULL default '0',
   `news_date`           int(10)      unsigned   NOT NULL DEFAULT '0',

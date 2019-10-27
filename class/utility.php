@@ -22,6 +22,24 @@
  */
 class XmnewsUtility
 {
+	/**
+     * Fonction qui liste les catégories qui respectent la permission demandée
+     * @param string   $permtype	Type de permission
+     * @return array   $cat		    Liste des catégorie qui correspondent à la permission
+     */
+	public static function getPermissionCat($permtype = 'xmnews_view')
+    {
+        global $xoopsUser;
+        $cat = array();
+        $helper = Xmf\Module\Helper::getHelper('xmnews');
+        $moduleHandler = $helper->getModule();
+        $groups = is_object($xoopsUser) ? $xoopsUser->getGroups() : XOOPS_GROUP_ANONYMOUS;
+        $gpermHandler = xoops_getHandler('groupperm');
+        $cat = $gpermHandler->getItemIds($permtype, $groups, $moduleHandler->getVar('mid'));
+
+        return $cat;
+    }
+
     public static function newsNamePerCat($category_id)
     {
         include __DIR__ . '/../include/common.php';

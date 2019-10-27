@@ -13,8 +13,8 @@
 <{if $warning_message != ''}>
     <div class="xm-warning-msg xo-actions">
         <{$warning_message}>
-		<a class="tooltip" href="article.php?article_status=2" title="<{$smarty.const._MA_XMARTICLE_VIEW}>">
-			<img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._MA_XMARTICLE_VIEW}>">
+		<a class="tooltip" href="news.php?news_status=2" title="<{$smarty.const._MA_XMNEWS_VIEW}>">
+			<img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._MA_XMNEWS_VIEW}>">
 		</a>
     </div>
 <{/if}>
@@ -25,59 +25,59 @@
 <{/if}>
 <{if $filter}>
 	<div align="right">
-		<form id="form_article_tri" name="form_article_tri" method="get" action="article.php">
-			<{$smarty.const._MA_XMARTICLE_ARTICLE_CATEGORY}>
-			<select name="article_filter" id="article_filter" onchange="location='article.php?start=<{$start}>&article_status=<{$article_status}>&article_cid='+this.options[this.selectedIndex].value">
-				<{$article_cid_options}>
+		<form id="form_news_tri" name="form_news_tri" method="get" action="news.php">
+			<{$smarty.const._MA_XMNEWS_NEWS_CATEGORY}>
+			<select name="news_filter" id="news_filter" onchange="location='news.php?start=<{$start}>&news_status=<{$news_status}>&news_cid='+this.options[this.selectedIndex].value">
+				<{$news_cid_options}>
 			<select>
-			<{$smarty.const._MA_XMARTICLE_STATUS}>
-			<select name="article_filter" id="article_filter" onchange="location='article.php?start=<{$start}>&article_cid=<{$article_cid}>&article_status='+this.options[this.selectedIndex].value">
-				<{$article_status_options}>
+			<{$smarty.const._MA_XMNEWS_STATUS}>
+			<select name="news_filter" id="news_filter" onchange="location='news.php?start=<{$start}>&news_cid=<{$news_cid}>&news_status='+this.options[this.selectedIndex].value">
+				<{$news_status_options}>
 			<select>
 		</form>
 	</div>
 <{/if}>
-<{if $article_count != 0}>
+<{if $news_count != 0}>
     <table id="xo-xmcontact-sorter" cellspacing="1" class="outer tablesorter">
         <thead>
         <tr>
-            <th class="txtcenter width10"><{$smarty.const._MA_XMARTICLE_ARTICLE_LOGO}></th>
-            <th class="txtleft width20"><{$smarty.const._MA_XMARTICLE_ARTICLE_CATEGORY}></th>
-            <th class="txtleft width15"><{$smarty.const._MA_XMARTICLE_ARTICLE_NAME}></th>
-            <th class="txtleft width10"><{$smarty.const._MA_XMARTICLE_ARTICLE_REFERENCE}></th>
-            <th class="txtleft"><{$smarty.const._MA_XMARTICLE_ARTICLE_DESC}></th>
-            <th class="txtcenter width5"><{$smarty.const._MA_XMARTICLE_STATUS}></th>
-            <th class="txtcenter width10"><{$smarty.const._MA_XMARTICLE_ACTION}></th>
+            <th class="txtcenter width10"><{$smarty.const._MA_XMNEWS_NEWS_LOGO}></th>
+            <th class="txtleft width20"><{$smarty.const._MA_XMNEWS_NEWS_CATEGORY}></th>
+            <th class="txtleft width15"><{$smarty.const._MA_XMNEWS_NEWS_NAME}></th>
+            <th class="txtleft width10"><{$smarty.const._MA_XMNEWS_NEWS_REFERENCE}></th>
+            <th class="txtleft"><{$smarty.const._MA_XMNEWS_NEWS_DESC}></th>
+            <th class="txtcenter width5"><{$smarty.const._MA_XMNEWS_STATUS}></th>
+            <th class="txtcenter width10"><{$smarty.const._MA_XMNEWS_ACTION}></th>
         </tr>
         </thead>
         <tbody>
-        <{foreach item=article from=$article}>
+        <{foreach item=news from=$news}>
             <tr class="<{cycle values='even,odd'}> alignmiddle">
-                <td class="txtcenter"><{$article.logo}></td>
-                <td class="txtleft"><{$article.category}></td>
-                <td class="txtleft"><{$article.name}></td>
-                <td class="txtleft"><{$article.cat_reference}><{$article.reference}></td>
-                <td class="txtleft"><{$article.description}></td>
+                <td class="txtcenter"><{$news.logo}></td>
+                <td class="txtleft"><{$news.category}></td>
+                <td class="txtleft"><{$news.name}></td>
+                <td class="txtleft"><{$news.cat_reference}><{$news.reference}></td>
+                <td class="txtleft"><{$news.description}></td>
                 <td class="xo-actions txtcenter">
-                    <img id="loading_sml<{$article.id}>" src="../assets/images/spinner.gif" style="display:none;" title="<{$smarty.const._AM_SYSTEM_LOADING}>"
-                    alt="<{$smarty.const._AM_SYSTEM_LOADING}>"><img class="cursorpointer tooltip" id="sml<{$article.id}>"
-                    onclick="system_setStatus( { op: 'article_update_status', article_id: <{$article.id}>, article_status: <{$article.status}> }, 'sml<{$article.id}>', 'article.php' )"
-                    src="<{if $article.status == 1}><{xoAdminIcons success.png}><{/if}><{if $article.status == 0}><{xoAdminIcons cancel.png}><{/if}><{if $article.status == 2}><{xoAdminIcons messagebox_warning.png}><{/if}>"
-                    alt="<{if $article.status == 1}><{$smarty.const._MA_XMARTICLE_STATUS_NA}><{/if}><{if $article.status == 0 || $article.status == 2}><{$smarty.const._MA_XMARTICLE_STATUS_A}><{/if}>"
-                    title="<{if $article.status == 1}><{$smarty.const._MA_XMARTICLE_STATUS_NA}><{/if}><{if $article.status == 0 || $article.status == 2}><{$smarty.const._MA_XMARTICLE_STATUS_A}><{/if}>">
+                    <img id="loading_sml<{$news.id}>" src="../assets/images/spinner.gif" style="display:none;" title="<{$smarty.const._AM_SYSTEM_LOADING}>"
+                    alt="<{$smarty.const._AM_SYSTEM_LOADING}>"><img class="cursorpointer tooltip" id="sml<{$news.id}>"
+                    onclick="system_setStatus( { op: 'news_update_status', news_id: <{$news.id}>, news_status: <{$news.status}> }, 'sml<{$news.id}>', 'news.php' )"
+                    src="<{if $news.status == 1}><{xoAdminIcons success.png}><{/if}><{if $news.status == 0}><{xoAdminIcons cancel.png}><{/if}><{if $news.status == 2}><{xoAdminIcons messagebox_warning.png}><{/if}>"
+                    alt="<{if $news.status == 1}><{$smarty.const._MA_XMNEWS_STATUS_NA}><{/if}><{if $news.status == 0 || $news.status == 2}><{$smarty.const._MA_XMNEWS_STATUS_A}><{/if}>"
+                    title="<{if $news.status == 1}><{$smarty.const._MA_XMNEWS_STATUS_NA}><{/if}><{if $news.status == 0 || $news.status == 2}><{$smarty.const._MA_XMNEWS_STATUS_A}><{/if}>">
                 </td>
                 <td class="xo-actions txtcenter">
-					<a class="tooltip" href="../viewarticle.php?category_id=<{$article.cid}>&amp;article_id=<{$article.id}>" title="<{$smarty.const._MA_XMARTICLE_VIEW}>">
-                        <img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._MA_XMARTICLE_VIEW}>">
+					<a class="tooltip" href="../viewnews.php?category_id=<{$news.cid}>&amp;news_id=<{$news.id}>" title="<{$smarty.const._MA_XMNEWS_VIEW}>">
+                        <img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._MA_XMNEWS_VIEW}>">
                     </a>
-					<a class="tooltip" href="article.php?op=clone&amp;article_id=<{$article.id}>" title="<{$smarty.const._MA_XMARTICLE_CLONE}>">
-                        <img src="<{xoAdminIcons clone.png}>" alt="<{$smarty.const._MA_XMARTICLE_CLONE}>">
+					<a class="tooltip" href="news.php?op=clone&amp;news_id=<{$news.id}>" title="<{$smarty.const._MA_XMNEWS_CLONE}>">
+                        <img src="<{xoAdminIcons clone.png}>" alt="<{$smarty.const._MA_XMNEWS_CLONE}>">
                     </a>
-                    <a class="tooltip" href="article.php?op=edit&amp;article_id=<{$article.id}>" title="<{$smarty.const._MA_XMARTICLE_EDIT}>">
-                        <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._MA_XMARTICLE_EDIT}>">
+                    <a class="tooltip" href="news.php?op=edit&amp;news_id=<{$news.id}>" title="<{$smarty.const._MA_XMNEWS_EDIT}>">
+                        <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._MA_XMNEWS_EDIT}>">
                     </a>
-                    <a class="tooltip" href="article.php?op=del&amp;article_id=<{$article.id}>" title="<{$smarty.const._MA_XMARTICLE_DEL}>">
-                        <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._MA_XMARTICLE_DEL}>">
+                    <a class="tooltip" href="news.php?op=del&amp;news_id=<{$news.id}>" title="<{$smarty.const._MA_XMNEWS_DEL}>">
+                        <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._MA_XMNEWS_DEL}>">
                     </a>
                 </td>
             </tr>
