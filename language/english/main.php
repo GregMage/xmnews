@@ -56,6 +56,7 @@ define('_MA_XMNEWS_CATEGORY_DESC', 'Description');
 define('_MA_XMNEWS_CATEGORY_FORMPATH', 'Files are in: %s');
 define('_MA_XMNEWS_CATEGORY_LOGO', 'Logo');
 define('_MA_XMNEWS_CATEGORY_LOGOFILE', 'Logo file');
+define('_MA_XMNEWS_CATEGORY_LOGOFILE_DSC', 'Default logo for new news in this category');
 define('_MA_XMNEWS_CATEGORY_NAME', 'Name');
 define('_MA_XMNEWS_CATEGORY_SUREDEL', 'Sure to delete this category? %s');
 define('_MA_XMNEWS_CATEGORY_THEREARENEWS', 'There are <strong>%s</strong> news in this category!');
@@ -64,12 +65,14 @@ define('_MA_XMNEWS_CATEGORY_UPLOADSIZE', 'Maximum size: %s kB');
 define('_MA_XMNEWS_CATEGORY_WARNINGDELNEWS', '<strong>Warning, the following items will also be removed!</strong>');
 define('_MA_XMNEWS_CATEGORY_WEIGHT', 'Weight');
 
-define('_MA_XMNEWS_CATEGORY_DOUSER', 'View user (Default value of news)');
-define('_MA_XMNEWS_CATEGORY_DODATE', 'View date (Default value of news)');
-define('_MA_XMNEWS_CATEGORY_DOMDATE', 'View modified date (Default value of news)');
-define('_MA_XMNEWS_CATEGORY_DOHITS', 'View hits (Default value of news)');
-define('_MA_XMNEWS_CATEGORY_DORATING', 'View rating (Default value of news)');
-define('_MA_XMNEWS_CATEGORY_DOCOMMENT', 'View comment (Default value of news)');
+define('_MA_XMNEWS_CATEGORY_DOUSER', 'View user');
+define('_MA_XMNEWS_CATEGORY_DODATE', 'View date');
+define('_MA_XMNEWS_CATEGORY_DOMDATE', 'View modified date');
+define('_MA_XMNEWS_CATEGORY_DOHITS', 'View hits');
+define('_MA_XMNEWS_CATEGORY_DORATING', 'View rating');
+define('_MA_XMNEWS_CATEGORY_DOCOMMENT', 'View comment');
+define('_MA_XMNEWS_CATEGORY_DODSC', 'Default value for new news in this category');
+
 
 // News
 define('_MA_XMNEWS_WFV', 'Waiting for validation');
@@ -81,14 +84,9 @@ define('_MA_XMNEWS_NEWS_FORMPATH', 'Files are in: %s');
 define('_MA_XMNEWS_NEWS_UPLOAD', 'Upload');
 define('_MA_XMNEWS_NEWS_UPLOADSIZE', 'Maximum size: %s kB');
 define('_MA_XMNEWS_NEWS_LOGOFILE', 'Logo file');
-define('_AM_XMNEWS_NEWS_KEYWORD', 'Meta keywords');
+define('_MA_XMNEWS_NEWS_KEYWORD', 'Meta keywords');
+define('_MA_XMNEWS_NEWS_KEYWORD_DSC', 'The keywords meta tag is a series of keywords that represents the content of your news. Type in keywords with each separated by a comma or a space in between. (Ex. XOOPS, PHP, mySQL, portal system)');
 define('_MA_XMNEWS_NEWS_USERID', 'Author');
-define('_MA_XMNEWS_NEWS_DOUSER', 'View user');
-define('_MA_XMNEWS_NEWS_DODATE', 'View date');
-define('_MA_XMNEWS_NEWS_DOMDATE', 'View modified date');
-define('_MA_XMNEWS_NEWS_DOHITS', 'View hits');
-define('_MA_XMNEWS_NEWS_DORATING', 'View rating');
-define('_MA_XMNEWS_NEWS_DOCOMMENT', 'View comment');
 define('_MA_XMNEWS_NEWS_DATEUPDATE', 'Update the publication date');
 define('_MA_XMNEWS_NEWS_DATE', 'Publication date');
 define('_MA_XMNEWS_NEWS_MDATEUPDATE', 'Update the modification date');

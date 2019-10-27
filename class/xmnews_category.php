@@ -187,26 +187,39 @@ class xmnews_category extends XoopsObject
         $fileseltray_img->addElement(new XoopsFormFile(_MA_XMNEWS_CATEGORY_UPLOAD, 'category_logo', $upload_size), false);
         $fileseltray_img->addElement(new XoopsFormLabel(''), false);
         $imgtray_img->addElement($fileseltray_img);
+		$imgtray_img->setDescription(_MA_XMNEWS_CATEGORY_LOGOFILE_DSC);
         $form->addElement($imgtray_img);
 		
 		// douser
-		$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOUSER, 'category_douser', $this->getVar('category_douser')));
+		$douser = new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOUSER, 'category_douser', $this->getVar('category_douser'));
+		$douser->setDescription(_MA_XMNEWS_CATEGORY_DODSC);
+		$form->addElement($douser, false);
 		
 		// dodate
-		$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DODATE, 'category_dodate', $this->getVar('category_dodate')));
+		$dodate = new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DODATE, 'category_dodate', $this->getVar('category_dodate'));
+		$dodate->setDescription(_MA_XMNEWS_CATEGORY_DODSC);
+		$form->addElement($dodate, false);
 		
 		// domdate
-		$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOMDATE, 'category_domdate', $this->getVar('category_domdate')));
+		$domdate = new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOMDATE, 'category_domdate', $this->getVar('category_domdate'));
+		$domdate->setDescription(_MA_XMNEWS_CATEGORY_DODSC);
+		$form->addElement($domdate, false);
 		
 		// dohits
-		$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOHITS, 'category_dohits', $this->getVar('category_dohits')));
+		$dohits = new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOHITS, 'category_dohits', $this->getVar('category_dohits'));
+		$dohits->setDescription(_MA_XMNEWS_CATEGORY_DODSC);
+		$form->addElement($dohits, false);
 		
 		// dorating 
-		//$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'category_dorating', $this->getVar('category_dorating')));
+		/*$dorating = new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'category_dorating', $this->getVar('category_dorating'));
+		$dorating->setDescription(_MA_XMNEWS_CATEGORY_DODSC);
+		$form->addElement($dorating, false);*/
 		$form->addElement(new XoopsFormHidden('category_dorating', 0));
 		
 		// docomment
-		$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOCOMMENT, 'category_docomment', $this->getVar('category_docomment')));		
+		$docomment = new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOCOMMENT, 'category_docomment', $this->getVar('category_docomment'));
+		$docomment->setDescription(_MA_XMNEWS_CATEGORY_DODSC);
+		$form->addElement($docomment, false);		
 		
         // weight
         $form->addElement(new XoopsFormText(_MA_XMNEWS_CATEGORY_WEIGHT, 'category_weight', 5, 5, $weight), true);
