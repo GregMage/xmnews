@@ -62,9 +62,11 @@ class xmnews_category extends XoopsObject
      */
     public function saveCategory($categoryHandler, $action = false)
     {
-        if ($action === false) {
+        $upload_size = 500000;
+		if ($action === false) {
             $action = $_SERVER['REQUEST_URI'];
         }
+		include __DIR__ . '/../include/common.php';
         $error_message = '';
         // test error
         if ((int)$_REQUEST['category_weight'] == 0 && $_REQUEST['category_weight'] != '0') {
@@ -72,16 +74,16 @@ class xmnews_category extends XoopsObject
             $this->setVar('category_weight', 0);
         }
         //logo
-        $uploadirectory = '/xmnews/images';
+        $uploadirectory = $path_logo . '/category';		
         if ($_FILES['category_logo']['error'] != UPLOAD_ERR_NO_FILE) {
             include_once XOOPS_ROOT_PATH . '/class/uploader.php';
-            $uploader_category_img = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . $uploadirectory, ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/x-png', 'image/png'], $upload_size, null, null);
+            $uploader_category_img = new XoopsMediaUploader($uploadirectory, ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/x-png', 'image/png'], $upload_size, null, null);
             if ($uploader_category_img->fetchMedia('category_logo')) {
                 $uploader_category_img->setPrefix('category_');
                 if (!$uploader_category_img->upload()) {
                     $error_message .= $uploader_category_img->getErrors() . '<br>';
                 } else {
-                    $this->setVar('category_logo', $uploader_category_img->getSavedFileName());
+                    $this->setVar('category_logo', 'category/' . $uploader_category_img->getSavedFileName());
                 }
             } else {
                 $error_message .= $uploader_category_img->getErrors();
@@ -160,16 +162,16 @@ class xmnews_category extends XoopsObject
         $editor_configs           = [];
         $editor_configs['name']   = 'category_description';
         $editor_configs['value']  = $this->getVar('category_description', 'e');
-        $editor_configs['rows']   = 20;
+        $editor_configs['rows']   = 5;
         $editor_configs['cols']   = 160;
         $editor_configs['width']  = '100%';
         $editor_configs['height'] = '400px';
-        $editor_configs['editor'] = $helper->getConfig('admin_editor', 'Plain Text');
+        $editor_configs['editor'] = $helper->getConfig('general_editor', 'Plain Text');
         $form->addElement(new XoopsFormEditor(_MA_XMNEWS_CATEGORY_DESC, 'category_description', $editor_configs), false);
         // logo
         $blank_img           = $this->getVar('category_logo') ?: 'category/blank.gif';
-        $uploadirectorytext  = '/uploads/xmnews/images/category';
-        $uploadirectory      = '/uploads/xmnews/images';
+		$uploadirectory      = str_replace(XOOPS_URL, '', $url_logo);
+		$uploadirectorytext  = $uploadirectory . 'category';
         $imgtray_img         = new XoopsFormElementTray(_MA_XMNEWS_CATEGORY_LOGOFILE . '<br><br>' . sprintf(_MA_XMNEWS_CATEGORY_UPLOADSIZE, $upload_size / 1000), '<br>');
         $imgpath_img         = sprintf(_MA_XMNEWS_CATEGORY_FORMPATH, $uploadirectorytext);
         $imageselect_img     = new XoopsFormSelect($imgpath_img, 'category_logo', $blank_img);
