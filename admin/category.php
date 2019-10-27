@@ -147,24 +147,24 @@ switch ($op) {
                     $permHelper->deletePermissionForItem('xmnews_view', $category_id);
                     $permHelper->deletePermissionForItem('xmnews_submit', $category_id);
                     // Del news
-                    /*$criteria = new CriteriaCompo();
+                    $criteria = new CriteriaCompo();
                     $criteria->add(new Criteria('news_cid', $category_id));
                     $news_arr = $newsHandler->getall($criteria);
-                    if (count($news_arr) > 0){
+                    if (!empty($news_arr)){
                         foreach (array_keys($news_arr) as $i) {
                             $objnews = $newsHandler->get($news_arr[$i]->getVar('news_id'));
-                            $newsHandler->delete($objarticle) or $objarticle->getHtmlErrors();
+                            $newsHandler->delete($objnews) or $objarticle->getHtmlErrors();
 							
 							//Del Notification and comment
-							$helper = \Xmf\Module\Helper::getHelper('xmnews');
+							/*$helper = \Xmf\Module\Helper::getHelper('xmnews');
 							$moduleid = $helper->getModule()->getVar('mid');
 							xoops_notification_deletebyitem($moduleid, 'news', $i);
-							xoops_comment_delete($moduleid, $i);
+							xoops_comment_delete($moduleid, $i);*/
                         }
                     }
 					
 					//Del Notification
-					xoops_notification_deletebyitem($moduleid, 'category', $category_id);*/
+					//xoops_notification_deletebyitem($moduleid, 'category', $category_id);
                     
                     redirect_header('category.php', 2, _MA_XMNEWS_REDIRECT_SAVE);
                 } else {

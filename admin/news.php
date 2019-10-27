@@ -57,7 +57,7 @@ switch ($op) {
         // Status
         $news_status = Request::getInt('news_status', 10);
         $xoopsTpl->assign('news_status', $news_status);
-        $status_options         = [1 => _MA_XMNEWS_STATUS_A, 0 => _MA_XMNEWS_STATUS_NA, 2 => _MA_XMNEWS_WFV];
+        $status_options         = [1 => _MA_XMNEWS_STATUS_A, 0 => _MA_XMNEWS_STATUS_NA, 2 => _MA_XMNEWS_NEWS_WFV];
 		$news_status_options = '<option value="10"' . ($news_status == 0 ? ' selected="selected"' : '') . '>' . _ALL .'</option>';
         foreach (array_keys($status_options) as $i) {
             $news_status_options .= '<option value="' . $i . '"' . ($news_status == $i ? ' selected="selected"' : '') . '>' . $status_options[$i] . '</option>';
@@ -69,12 +69,12 @@ switch ($op) {
 		$criteria->add(new Criteria('news_status', 2));
 		$Waiting_news = $newsHandler->getCount($criteria);
 		if ($Waiting_news > 0){
-			$xoopsTpl->assign('warning_message', sprintf(_MA_XMNEWS_WAITING, $Waiting_news));
+			$xoopsTpl->assign('warning_message', sprintf(_MA_XMNEWS_NEWS_WAITING, $Waiting_news));
 		}		
         
         // Criteria
         $criteria = new CriteriaCompo();
-        $criteria->setSort('news_name');
+        $criteria->setSort('news_title');
         $criteria->setOrder('ASC');
         $criteria->setStart($start);
         $criteria->setLimit($nb_limit);
@@ -96,12 +96,12 @@ switch ($op) {
                 $news['id']              = $news_id;
                 $news['category']        = $news_arr[$i]->getVar('category_name');
 				$news['cid']             = $news_arr[$i]->getVar('news_cid');
-                $news['name']            = $news_arr[$i]->getVar('news_name');
+                $news['title']           = $news_arr[$i]->getVar('news_title');
                 $news['reference']       = $news_arr[$i]->getVar('news_reference');
                 $news['description']     = \Xmf\Metagen::generateDescription($news_arr[$i]->getVar('news_description', 'show'), 30);
                 $news['status']          = $news_arr[$i]->getVar('news_status');
                 $news_img                = $news_arr[$i]->getVar('news_logo') ?: 'blank.gif';
-                $news['logo']          = '<img src="' . $url_logo_news . $news_img . '" alt="' . $news_img . '">';
+                $news['logo']          = '<img src="' . $url_logo . $news_img . '" alt="' . $news_img . '">';
                 $xoopsTpl->append_by_ref('news', $news);
                 unset($news);
             }
@@ -175,8 +175,8 @@ switch ($op) {
         if ($news_id == 0) {
             $xoopsTpl->assign('error_message', _MA_XMNEWS_ERROR_NONEWS);
         } else {
-            $cloneobj = XmnewsUtility::cloneArticle($news_id);
-            $form = $cloneobj->getForm($cloneobj->getVar('news_cid'), $news_id, 'news.php');
+            $cloneobj = XmnewsUtility::cloneNews($news_id, 'news.php');
+            $form = $cloneobj->getForm($cloneobj->getVar('news_cid'), 'news.php', true);
             $xoopsTpl->assign('form', $form->render());
         }
         break;
@@ -192,18 +192,17 @@ switch ($op) {
         } else {
             $obj = $newsHandler->get($news_id);
         }
-        $error_message = $obj->savenews($newsHandler, 'news.php');
+        $error_message = $obj->saveNews($newsHandler, 'news.php');
         if ($error_message != ''){
             $xoopsTpl->assign('error_message', $error_message);
 			$news_cid = Request::getInt('news_cid', 0);
 			$form = $obj->getForm($news_cid);
             $xoopsTpl->assign('form', $form->render());
-        }
-        
+        }        
         break;
         
     // del
-    case 'del':    
+    case 'del':
         $news_id = Request::getInt('news_id', 0);
         if ($news_id == 0) {
             $xoopsTpl->assign('error_message', _MA_XMNEWS_ERROR_NONEWS);
@@ -214,37 +213,18 @@ switch ($op) {
                 if (!$GLOBALS['xoopsSecurity']->check()) {
                     redirect_header('news.php', 3, implode('<br>', $GLOBALS['xoopsSecurity']->getErrors()));
                 }
-                if ($newsHandler->delete($obj)) {
-                    //Del logo
-                    if ($obj->getVar('news_logo') != 'blank.gif') {
-                        $urlfile = $path_logo_news . $obj->getVar('news_logo');
-                        if (is_file($urlfile)) {
-                            chmod($urlfile, 0777);
-                            unlink($urlfile);
-                        }
-                    }
-                    //Del fielddata
-                    XmnewsUtility::delFilddataArticle($news_id);
-					
-					//Del Notification and comment
-					$helper = \Xmf\Module\Helper::getHelper('xmnews');
-					$moduleid = $helper->getModule()->getVar('mid');
-					xoops_notification_deletebyitem($moduleid, 'news', $news_id);
-					xoops_comment_delete($moduleid, $news_id);
-						
-                    redirect_header('news.php', 2, _MA_XMNEWS_REDIRECT_SAVE);
-                } else {
-                    $xoopsTpl->assign('error_message', $obj->getHtmlErrors());
-                }
+				$error_message = $obj->delNews($newsHandler, 'news.php');
+				if ($error_message != ''){
+					$xoopsTpl->assign('error_message', $error_message);
+				}
             } else {
                 $news_img = $obj->getVar('news_logo') ?: 'blank.gif';
                 xoops_confirm(['surdel' => true, 'news_id' => $news_id, 'op' => 'del'], $_SERVER['REQUEST_URI'], 
-                                    sprintf(_MA_XMNEWS_NEWS_SUREDEL, $obj->getVar('news_name')) . '<br>
-                                    <img src="' . $url_logo_news . $news_img . '" title="' . 
+                                    sprintf(_MA_XMNEWS_NEWS_SUREDEL, $obj->getVar('news_title')) . '<br>
+                                    <img src="' . $url_logo . $news_img . '" title="' . 
                                     $obj->getVar('news_name') . '"><br>');
             }
-        }
-        
+        }        
         break;
         
     // Update status

@@ -42,9 +42,8 @@
         <thead>
         <tr>
             <th class="txtcenter width10"><{$smarty.const._MA_XMNEWS_NEWS_LOGO}></th>
-            <th class="txtleft width20"><{$smarty.const._MA_XMNEWS_NEWS_CATEGORY}></th>
-            <th class="txtleft width15"><{$smarty.const._MA_XMNEWS_NEWS_NAME}></th>
-            <th class="txtleft width10"><{$smarty.const._MA_XMNEWS_NEWS_REFERENCE}></th>
+            <th class="txtleft width15"><{$smarty.const._MA_XMNEWS_NEWS_CATEGORY}></th>
+            <th class="txtleft width15"><{$smarty.const._MA_XMNEWS_NEWS_TITLE}></th>
             <th class="txtleft"><{$smarty.const._MA_XMNEWS_NEWS_DESC}></th>
             <th class="txtcenter width5"><{$smarty.const._MA_XMNEWS_STATUS}></th>
             <th class="txtcenter width10"><{$smarty.const._MA_XMNEWS_ACTION}></th>
@@ -55,8 +54,7 @@
             <tr class="<{cycle values='even,odd'}> alignmiddle">
                 <td class="txtcenter"><{$news.logo}></td>
                 <td class="txtleft"><{$news.category}></td>
-                <td class="txtleft"><{$news.name}></td>
-                <td class="txtleft"><{$news.cat_reference}><{$news.reference}></td>
+                <td class="txtleft"><{$news.title}></td>
                 <td class="txtleft"><{$news.description}></td>
                 <td class="xo-actions txtcenter">
                     <img id="loading_sml<{$news.id}>" src="../assets/images/spinner.gif" style="display:none;" title="<{$smarty.const._AM_SYSTEM_LOADING}>"

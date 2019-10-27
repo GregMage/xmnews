@@ -75,7 +75,8 @@ define('_MA_XMNEWS_CATEGORY_DODSC', 'Default value for new news in this category
 
 
 // News
-define('_MA_XMNEWS_WFV', 'Waiting for validation');
+define('_MA_XMNEWS_NEWS_WFV', 'Waiting for validation');
+define('_MA_XMNEWS_NEWS_WAITING', 'There are <strong>%s</strong> articles waiting for validation!');
 define('_MA_XMNEWS_NEWS_CATEGORY', 'Category');
 define('_MA_XMNEWS_NEWS_TITLE', 'Title');
 define('_MA_XMNEWS_NEWS_DESC', 'Description');
@@ -84,6 +85,7 @@ define('_MA_XMNEWS_NEWS_FORMPATH', 'Files are in: %s');
 define('_MA_XMNEWS_NEWS_UPLOAD', 'Upload');
 define('_MA_XMNEWS_NEWS_UPLOADSIZE', 'Maximum size: %s kB');
 define('_MA_XMNEWS_NEWS_LOGOFILE', 'Logo file');
+define('_MA_XMNEWS_NEWS_LOGO', 'Logo');
 define('_MA_XMNEWS_NEWS_KEYWORD', 'Meta keywords');
 define('_MA_XMNEWS_NEWS_KEYWORD_DSC', 'The keywords meta tag is a series of keywords that represents the content of your news. Type in keywords with each separated by a comma or a space in between. (Ex. XOOPS, PHP, mySQL, portal system)');
 define('_MA_XMNEWS_NEWS_USERID', 'Author');
@@ -91,6 +93,8 @@ define('_MA_XMNEWS_NEWS_DATEUPDATE', 'Update the publication date');
 define('_MA_XMNEWS_NEWS_DATE', 'Publication date');
 define('_MA_XMNEWS_NEWS_MDATEUPDATE', 'Update the modification date');
 define('_MA_XMNEWS_NEWS_RESETMDATE', 'Reset (empty date)');
+define('_MA_XMNEWS_NEWS_SUREDEL', 'Sure to delete this news? %s');
+define('_MA_XMNEWS_CLONE_NAME', 'CLONE');
 
 // permission
 define('_MA_XMNEWS_PERMISSION_VIEW', 'View Permissions');
