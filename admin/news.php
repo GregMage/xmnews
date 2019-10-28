@@ -145,7 +145,6 @@ switch ($op) {
         if ($news_category == 0) {
             $xoopsTpl->assign('error_message', _MA_XMNEWS_ERROR_NOCATEGORY);
         } else {
-            $category = $categoryHandler->get($news_category);
             $obj  = $newsHandler->create();
             $form = $obj->getForm($news_category);
             $xoopsTpl->assign('form', $form->render());
