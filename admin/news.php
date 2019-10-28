@@ -100,8 +100,12 @@ switch ($op) {
                 $news['reference']       = $news_arr[$i]->getVar('news_reference');
                 $news['description']     = \Xmf\Metagen::generateDescription($news_arr[$i]->getVar('news_description', 'show'), 30);
                 $news['status']          = $news_arr[$i]->getVar('news_status');
-                $news_img                = $news_arr[$i]->getVar('news_logo') ?: 'blank.gif';
-                $news['logo']          = '<img src="' . $url_logo . $news_img . '" alt="' . $news_img . '" style="max-width:100px">';
+                $news_img                = $news_arr[$i]->getVar('news_logo');
+				if ($news_img == ''){
+					$news['logo']        = '';
+				} else {
+					$news['logo']        = '<img src="' . $url_logo . $news_img . '" alt="' . $news_img . '" style="max-width:100px">';
+				}
                 $xoopsTpl->append_by_ref('news', $news);
                 unset($news);
             }

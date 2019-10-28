@@ -139,7 +139,7 @@ class xmnews_news extends XoopsObject
 			$blank_img = $category->getVar('category_logo');
 			// category        
 			$category_img = $category->getVar('category_logo');
-			$form->addElement(new xoopsFormLabel (_MA_XMNEWS_NEWS_CATEGORY, '<img src="' . $url_logo .  $category_img . '" alt="' . $category_img . '" /> <strong>' . $category->getVar('category_name') . '</strong>'));
+			$form->addElement(new xoopsFormLabel (_MA_XMNEWS_NEWS_CATEGORY, '<img src="' . $url_logo .  $category_img . '" alt="' . $category_img . '" style="max-width:100px" /> <strong>' . $category->getVar('category_name') . '</strong>'));
 			$form->addElement(new XoopsFormHidden('news_cid', $category_id));
 		}
         
@@ -174,7 +174,10 @@ class xmnews_news extends XoopsObject
         $imgpath_img         = sprintf(_MA_XMNEWS_CATEGORY_FORMPATH, $uploadirectory);
         $imageselect_img     = new XoopsFormSelect($imgpath_img, 'news_logo', $blank_img);
         $image_array_img = XoopsLists::getImgListAsArray($path_logo . 'news/');
-        $imageselect_img->addOption("$blank_img", $blank_img);
+        $imageselect_img->addOption("", _MA_XMNEWS_CATEGORY_EMPTY);
+		if ($blank_img != ''){
+			$imageselect_img->addOption("$blank_img", $blank_img);
+		}
 		if (!$this->isNew() || $clone == true) {
 			if (strpos($this->getVar('news_logo'), 'category') === False){
 				$img_cat = $category->getVar('category_logo');
@@ -187,7 +190,7 @@ class xmnews_news extends XoopsObject
         }
         $imageselect_img->setExtra("onchange='showImgSelected(\"image_img2\", \"news_logo\", \"" . $uploadirectory . "\", \"\", \"" . XOOPS_URL . "\")'");
         $imgtray_img->addElement($imageselect_img, false);
-        $imgtray_img->addElement(new XoopsFormLabel('', "<br><img src='" . XOOPS_URL . '/' . $uploadirectory . '/' . $blank_img . "' name='image_img2' id='image_img2' alt=''>"));
+        $imgtray_img->addElement(new XoopsFormLabel('', "<br><img src='" . XOOPS_URL . '/' . $uploadirectory . '/' . $blank_img . "' name='image_img2' id='image_img2' alt='' style='max-width:100px'>"));
         $fileseltray_img = new XoopsFormElementTray('<br>', '<br><br>');
         $fileseltray_img->addElement(new XoopsFormFile(_MA_XMNEWS_CATEGORY_UPLOAD, 'news_logo', $upload_size), false);
         $fileseltray_img->addElement(new XoopsFormLabel(''), false);

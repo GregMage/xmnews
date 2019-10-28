@@ -53,8 +53,12 @@ switch ($op) {
                 $category['description']     = \Xmf\Metagen::generateDescription($category_arr[$i]->getVar('category_description', 'show'), 30);
                 $category['weight']          = $category_arr[$i]->getVar('category_weight');
                 $category['status']          = $category_arr[$i]->getVar('category_status');
-                $category_img                = $category_arr[$i]->getVar('category_logo') ?: 'blank.gif';
-                $category['logo']        	 = '<img src="' . $url_logo . $category_img . '" alt="' . $category_img . '" style="max-width:100px">';
+                $category_img                = $category_arr[$i]->getVar('category_logo');
+				if ($category_img == ''){
+					$category['logo']        = '';
+				} else {
+					$category['logo']        = '<img src="' . $url_logo . $category_img . '" alt="' . $category_img . '" style="max-width:100px">';
+				}
                 $xoopsTpl->append_by_ref('category', $category);
                 unset($category);
             }

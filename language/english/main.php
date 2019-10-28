@@ -72,6 +72,7 @@ define('_MA_XMNEWS_CATEGORY_DOHITS', 'View hits');
 define('_MA_XMNEWS_CATEGORY_DORATING', 'View rating');
 define('_MA_XMNEWS_CATEGORY_DOCOMMENT', 'View comment');
 define('_MA_XMNEWS_CATEGORY_DODSC', 'Default value for new news in this category');
+define('_MA_XMNEWS_CATEGORY_EMPTY', 'Empty');
 
 
 // News
@@ -81,10 +82,6 @@ define('_MA_XMNEWS_NEWS_CATEGORY', 'Category');
 define('_MA_XMNEWS_NEWS_TITLE', 'Title');
 define('_MA_XMNEWS_NEWS_DESC', 'Description');
 define('_MA_XMNEWS_NEWS_NEWS', 'News');
-define('_MA_XMNEWS_NEWS_FORMPATH', 'Files are in: %s');
-define('_MA_XMNEWS_NEWS_UPLOAD', 'Upload');
-define('_MA_XMNEWS_NEWS_UPLOADSIZE', 'Maximum size: %s kB');
-define('_MA_XMNEWS_NEWS_LOGOFILE', 'Logo file');
 define('_MA_XMNEWS_NEWS_LOGO', 'Logo');
 define('_MA_XMNEWS_NEWS_KEYWORD', 'Meta keywords');
 define('_MA_XMNEWS_NEWS_KEYWORD_DSC', 'The keywords meta tag is a series of keywords that represents the content of your news. Type in keywords with each separated by a comma or a space in between. (Ex. XOOPS, PHP, mySQL, portal system)');
