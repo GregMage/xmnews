@@ -45,6 +45,7 @@
             <th class="txtleft width15"><{$smarty.const._MA_XMNEWS_NEWS_CATEGORY}></th>
             <th class="txtleft width15"><{$smarty.const._MA_XMNEWS_NEWS_TITLE}></th>
             <th class="txtleft"><{$smarty.const._MA_XMNEWS_NEWS_DESC}></th>
+            <th class="txtcenter width10"><{$smarty.const._MA_XMNEWS_NEWS_DATE}></th>
             <th class="txtcenter width5"><{$smarty.const._MA_XMNEWS_STATUS}></th>
             <th class="txtcenter width10"><{$smarty.const._MA_XMNEWS_ACTION}></th>
         </tr>
@@ -56,6 +57,7 @@
                 <td class="txtleft"><{$news.category}></td>
                 <td class="txtleft"><{$news.title}></td>
                 <td class="txtleft"><{$news.description}></td>
+				<td class="txtcenter"><{$news.date}></td>
                 <td class="xo-actions txtcenter">
                     <img id="loading_sml<{$news.id}>" src="../assets/images/spinner.gif" style="display:none;" title="<{$smarty.const._AM_SYSTEM_LOADING}>"
                     alt="<{$smarty.const._AM_SYSTEM_LOADING}>"><img class="cursorpointer tooltip" id="sml<{$news.id}>"

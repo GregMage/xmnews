@@ -97,7 +97,7 @@ switch ($op) {
                 $news['category']        = $news_arr[$i]->getVar('category_name');
 				$news['cid']             = $news_arr[$i]->getVar('news_cid');
                 $news['title']           = $news_arr[$i]->getVar('news_title');
-                $news['reference']       = $news_arr[$i]->getVar('news_reference');
+                $news['date']       	 = formatTimestamp($news_arr[$i]->getVar('news_date'), 'm');
                 $news['description']     = \Xmf\Metagen::generateDescription($news_arr[$i]->getVar('news_description', 'show'), 30);
                 $news['status']          = $news_arr[$i]->getVar('news_status');
                 $news_img                = $news_arr[$i]->getVar('news_logo');

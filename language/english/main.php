@@ -18,10 +18,10 @@
  */
 
 // Button
-define('_MA_XMNEWS_NEWS_ADD', 'Add news');
-define('_MA_XMNEWS_NEWS_LIST', 'News list');
 define('_MA_XMNEWS_CATEGORY_ADD', 'Add category');
 define('_MA_XMNEWS_CATEGORY_LIST', 'Category list');
+define('_MA_XMNEWS_NEWS_ADD', 'Add news');
+define('_MA_XMNEWS_NEWS_LIST', 'News list');
 define('_MA_XMNEWS_REDIRECT_SAVE', 'Successfully saved');
  
 // Admin
@@ -32,8 +32,8 @@ define('_MA_XMNEWS_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE', 'You must enable in xm
 define('_MA_XMNEWS_ERROR', 'Error');
 define('_MA_XMNEWS_ERROR_NACTIVE', 'Error: Disable content!');
 define('_MA_XMNEWS_ERROR_NOACESSCATEGORY', 'You don\'t have access to any categories');
-define('_MA_XMNEWS_ERROR_NONEWS', 'There are no news in the database');
 define('_MA_XMNEWS_ERROR_NOCATEGORY', 'There are no categories in the database');
+define('_MA_XMNEWS_ERROR_NONEWS', 'There are no news in the database');
 define('_MA_XMNEWS_ERROR_WEIGHT', 'Weight must be a number');
 
 // Info message
@@ -53,6 +53,14 @@ define('_MA_XMNEWS_VIEW', 'View');
 
 // Category
 define('_MA_XMNEWS_CATEGORY_DESC', 'Description');
+define('_MA_XMNEWS_CATEGORY_DOCOMMENT', 'View comment');
+define('_MA_XMNEWS_CATEGORY_DODSC', 'Default value for new news in this category');
+define('_MA_XMNEWS_CATEGORY_DODATE', 'View date');
+define('_MA_XMNEWS_CATEGORY_DOHITS', 'View hits');
+define('_MA_XMNEWS_CATEGORY_DOMDATE', 'View modified date');
+define('_MA_XMNEWS_CATEGORY_DORATING', 'View rating');
+define('_MA_XMNEWS_CATEGORY_DOUSER', 'View user');
+define('_MA_XMNEWS_CATEGORY_EMPTY', 'Empty');
 define('_MA_XMNEWS_CATEGORY_FORMPATH', 'Files are in: %s');
 define('_MA_XMNEWS_CATEGORY_LOGO', 'Logo');
 define('_MA_XMNEWS_CATEGORY_LOGOFILE', 'Logo file');
@@ -65,33 +73,23 @@ define('_MA_XMNEWS_CATEGORY_UPLOADSIZE', 'Maximum size: %s kB');
 define('_MA_XMNEWS_CATEGORY_WARNINGDELNEWS', '<strong>Warning, the following items will also be removed!</strong>');
 define('_MA_XMNEWS_CATEGORY_WEIGHT', 'Weight');
 
-define('_MA_XMNEWS_CATEGORY_DOUSER', 'View user');
-define('_MA_XMNEWS_CATEGORY_DODATE', 'View date');
-define('_MA_XMNEWS_CATEGORY_DOMDATE', 'View modified date');
-define('_MA_XMNEWS_CATEGORY_DOHITS', 'View hits');
-define('_MA_XMNEWS_CATEGORY_DORATING', 'View rating');
-define('_MA_XMNEWS_CATEGORY_DOCOMMENT', 'View comment');
-define('_MA_XMNEWS_CATEGORY_DODSC', 'Default value for new news in this category');
-define('_MA_XMNEWS_CATEGORY_EMPTY', 'Empty');
-
-
 // News
-define('_MA_XMNEWS_NEWS_WFV', 'Waiting for validation');
-define('_MA_XMNEWS_NEWS_WAITING', 'There are <strong>%s</strong> articles waiting for validation!');
+define('_MA_XMNEWS_CLONE_NAME', 'CLONE');
 define('_MA_XMNEWS_NEWS_CATEGORY', 'Category');
-define('_MA_XMNEWS_NEWS_TITLE', 'Title');
+define('_MA_XMNEWS_NEWS_DATE', 'Publication date');
+define('_MA_XMNEWS_NEWS_DATEUPDATE', 'Update the publication date');
 define('_MA_XMNEWS_NEWS_DESC', 'Description');
-define('_MA_XMNEWS_NEWS_NEWS', 'News');
-define('_MA_XMNEWS_NEWS_LOGO', 'Logo');
 define('_MA_XMNEWS_NEWS_KEYWORD', 'Meta keywords');
 define('_MA_XMNEWS_NEWS_KEYWORD_DSC', 'The keywords meta tag is a series of keywords that represents the content of your news. Type in keywords with each separated by a comma or a space in between. (Ex. XOOPS, PHP, mySQL, portal system)');
-define('_MA_XMNEWS_NEWS_USERID', 'Author');
-define('_MA_XMNEWS_NEWS_DATEUPDATE', 'Update the publication date');
-define('_MA_XMNEWS_NEWS_DATE', 'Publication date');
+define('_MA_XMNEWS_NEWS_LOGO', 'Logo');
 define('_MA_XMNEWS_NEWS_MDATEUPDATE', 'Update the modification date');
+define('_MA_XMNEWS_NEWS_NEWS', 'News');
 define('_MA_XMNEWS_NEWS_RESETMDATE', 'Reset (empty date)');
 define('_MA_XMNEWS_NEWS_SUREDEL', 'Sure to delete this news? %s');
-define('_MA_XMNEWS_CLONE_NAME', 'CLONE');
+define('_MA_XMNEWS_NEWS_TITLE', 'Title');
+define('_MA_XMNEWS_NEWS_USERID', 'Author');
+define('_MA_XMNEWS_NEWS_WAITING', 'There are <strong>%s</strong> articles waiting for validation!');
+define('_MA_XMNEWS_NEWS_WFV', 'Waiting for validation');
 
 // permission
 define('_MA_XMNEWS_PERMISSION_VIEW', 'View Permissions');
