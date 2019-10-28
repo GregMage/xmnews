@@ -115,7 +115,7 @@ class xmnews_news extends XoopsObject
         $form = new XoopsThemeForm($title, 'form', $action, 'post', true);
         $form->setExtra('enctype="multipart/form-data"');
 		
-        if (!$this->isNew() || $clone = true) {
+        if (!$this->isNew() || $clone == true) {
             $form->addElement(new XoopsFormHidden('news_id', $this->getVar('news_id')));
             $category_id = $this->getVar('news_cid');
 			$blank_img = $this->getVar('news_logo');
@@ -175,7 +175,7 @@ class xmnews_news extends XoopsObject
         $imageselect_img     = new XoopsFormSelect($imgpath_img, 'news_logo', $blank_img);
         $image_array_img = XoopsLists::getImgListAsArray($path_logo . 'news/');
         $imageselect_img->addOption("$blank_img", $blank_img);
-		if (!$this->isNew() || $clone = true) {
+		if (!$this->isNew() || $clone == true) {
 			if (strpos($this->getVar('news_logo'), 'category') === False){
 				$img_cat = $category->getVar('category_logo');
 				$imageselect_img->addOption("$img_cat", $img_cat);
@@ -204,7 +204,7 @@ class xmnews_news extends XoopsObject
             xoops_load('utility', 'xmdoc');
             XmdocUtility::renderDocForm($form, 'xmnews', $this->getVar('news_id'));
         }
-		 if (!$this->isNew() || $clone = true) {		
+		 if (!$this->isNew() || $clone == true) {		
 			// douser
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOUSER, 'news_douser', $this->getVar('news_douser')));		
 			// dodate
