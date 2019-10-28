@@ -101,7 +101,7 @@ switch ($op) {
                 $news['description']     = \Xmf\Metagen::generateDescription($news_arr[$i]->getVar('news_description', 'show'), 30);
                 $news['status']          = $news_arr[$i]->getVar('news_status');
                 $news_img                = $news_arr[$i]->getVar('news_logo') ?: 'blank.gif';
-                $news['logo']          = '<img src="' . $url_logo . $news_img . '" alt="' . $news_img . '">';
+                $news['logo']          = '<img src="' . $url_logo . $news_img . '" alt="' . $news_img . '" style="max-width:100px">';
                 $xoopsTpl->append_by_ref('news', $news);
                 unset($news);
             }
@@ -221,7 +221,7 @@ switch ($op) {
                 xoops_confirm(['surdel' => true, 'news_id' => $news_id, 'op' => 'del'], $_SERVER['REQUEST_URI'], 
                                     sprintf(_MA_XMNEWS_NEWS_SUREDEL, $obj->getVar('news_title')) . '<br>
                                     <img src="' . $url_logo . $news_img . '" title="' . 
-                                    $obj->getVar('news_name') . '"><br>');
+                                    $obj->getVar('news_name') . '" style="max-width:100px"><br>');
             }
         }        
         break;

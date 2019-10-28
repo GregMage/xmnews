@@ -54,7 +54,7 @@ switch ($op) {
                 $category['weight']          = $category_arr[$i]->getVar('category_weight');
                 $category['status']          = $category_arr[$i]->getVar('category_status');
                 $category_img                = $category_arr[$i]->getVar('category_logo') ?: 'blank.gif';
-                $category['logo']        	 = '<img src="' . $url_logo . $category_img . '" alt="' . $category_img . '">';
+                $category['logo']        	 = '<img src="' . $url_logo . $category_img . '" alt="' . $category_img . '" style="max-width:100px">';
                 $xoopsTpl->append_by_ref('category', $category);
                 unset($category);
             }
@@ -173,7 +173,7 @@ switch ($op) {
             } else {
                 $category_img = $obj->getVar('category_logo') ?: 'blank.gif';
                 xoops_confirm(['surdel' => true, 'category_id' => $category_id, 'op' => 'del'], $_SERVER['REQUEST_URI'], sprintf(_MA_XMNEWS_CATEGORY_SUREDEL, $obj->getVar('category_name')) . '<br>
-                                    <img src="' . $url_logo . $category_img . '" title="' . $obj->getVar('category_name') . '"><br>' . XmnewsUtility::newsNamePerCat($category_id));
+                                    <img src="' . $url_logo . $category_img . '" title="' . $obj->getVar('category_name') . '" style="max-width:100px"><br>' . XmnewsUtility::newsNamePerCat($category_id));
             }
         }
         
