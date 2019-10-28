@@ -155,7 +155,7 @@ class xmnews_news extends XoopsObject
         $editor_configs['width']  = '100%';
         $editor_configs['height'] = '400px';
         $editor_configs['editor'] = $helper->getConfig('general_editor', 'Plain Text');
-        $form->addElement(new XoopsFormEditor(_MA_XMNEWS_NEWS_DESC, 'news_description', $editor_configs), true);
+        $form->addElement(new XoopsFormEditor(_MA_XMNEWS_NEWS_DESC, 'news_description', $editor_configs), false);
 		
 		// news
         $editor_configs           =array();

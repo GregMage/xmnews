@@ -78,7 +78,7 @@ define('_MA_XMNEWS_CLONE_NAME', 'CLONE');
 define('_MA_XMNEWS_NEWS_CATEGORY', 'Category');
 define('_MA_XMNEWS_NEWS_DATE', 'Publication date');
 define('_MA_XMNEWS_NEWS_DATEUPDATE', 'Update the publication date');
-define('_MA_XMNEWS_NEWS_DESC', 'Description');
+define('_MA_XMNEWS_NEWS_DESC', 'Abstract');
 define('_MA_XMNEWS_NEWS_KEYWORD', 'Meta keywords');
 define('_MA_XMNEWS_NEWS_KEYWORD_DSC', 'The keywords meta tag is a series of keywords that represents the content of your news. Type in keywords with each separated by a comma or a space in between. (Ex. XOOPS, PHP, mySQL, portal system)');
 define('_MA_XMNEWS_NEWS_LOGO', 'Logo');
