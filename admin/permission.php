@@ -27,16 +27,16 @@ $moduleAdmin->displayNavigation('permission.php');
 
 // Get permission
 $permission = Request::getInt('permission', 1);
-$tab_perm   = [1 => _MA_XMNEWS_PERMISSION_VIEW, 2 => _MA_XMNEWS_PERMISSION_SUBMIT, 3 => _MA_XMNEWS_PERMISSION_OTHER];
+$tab_perm   = [1 => _MA_XMNEWS_PERMISSION_VIEW, 2 => _MA_XMNEWS_PERMISSION_SUBMIT, 3 => _MA_XMNEWS_PERMISSION_AUTOAPPROVE, 4 => _MA_XMNEWS_PERMISSION_DELETE, 5 => _MA_XMNEWS_PERMISSION_OTHER];
 
 // Category
 $criteria = new CriteriaCompo();
 $category_arr = $categoryHandler->getall($criteria);
 if (count($category_arr) > 0) {
-    $tab_perm = [1 => _MA_XMNEWS_PERMISSION_VIEW, 2 => _MA_XMNEWS_PERMISSION_SUBMIT, 3 => _MA_XMNEWS_PERMISSION_OTHER];
+    $tab_perm = [1 => _MA_XMNEWS_PERMISSION_VIEW, 2 => _MA_XMNEWS_PERMISSION_SUBMIT, 3 => _MA_XMNEWS_PERMISSION_AUTOAPPROVE, 4 => _MA_XMNEWS_PERMISSION_DELETE, 5 => _MA_XMNEWS_PERMISSION_OTHER];
 } else {
-    $tab_perm = [3 => _MA_XMNEWS_PERMISSION_OTHER];
-    $permission = 3;
+    $tab_perm = [5 => _MA_XMNEWS_PERMISSION_OTHER];
+    $permission = 5;
 }
 $permission_options = '';
 foreach (array_keys($tab_perm) as $i) {
@@ -63,14 +63,30 @@ switch ($permission) {
         }
         break;
 
-    case 3:    // Other permission
+	case 3:    // Auto approve permission
+        $formTitle = _MA_XMNEWS_PERMISSION_AUTOAPPROVE;
+        $permissionName = 'xmnews_autoapprove';
+        $permissionDescription = _MA_XMNEWS_PERMISSION_AUTOAPPROVE_DSC;
+        foreach (array_keys($category_arr) as $i) {
+            $global_perms_array[$i] = $category_arr[$i]->getVar('category_name');
+        }
+        break;
+
+	case 4:    // Del permission
+        $formTitle = _MA_XMNEWS_PERMISSION_DELETE;
+        $permissionName = 'xmnews_delete';
+        $permissionDescription = _MA_XMNEWS_PERMISSION_DELETE_DSC;
+        foreach (array_keys($category_arr) as $i) {
+            $global_perms_array[$i] = $category_arr[$i]->getVar('category_name');
+        }
+        break;
+
+    case 5:    // Other permission
         $formTitle = _MA_XMNEWS_PERMISSION_OTHER;
         $permissionName = 'xmnews_other';
         $permissionDescription = _MA_XMNEWS_PERMISSION_OTHER_DSC;
         $global_perms_array    = [
-            '4' => _MA_XMNEWS_PERMISSION_OTHER_4 ,
-            '8' => _MA_XMNEWS_PERMISSION_OTHER_8,
-            '16' => _MA_XMNEWS_PERMISSION_OTHER_16
+            '4' => _MA_XMNEWS_PERMISSION_OTHER_4
         ];
         break;
 }
