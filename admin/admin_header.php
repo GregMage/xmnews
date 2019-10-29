@@ -36,6 +36,4 @@ $helper->loadLanguage('main');
 
 // Config
 $nb_limit  = $helper->getConfig('admin_perpage', 15);
-$url_logo  = XOOPS_UPLOAD_URL . '/xmnews/images/';
-$path_logo = XOOPS_UPLOAD_PATH . '/xmnews/images/';
 xoops_cp_header();
