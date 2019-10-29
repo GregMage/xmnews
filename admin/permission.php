@@ -72,7 +72,7 @@ switch ($permission) {
         }
         break;
 
-	case 4:    // Del permission
+	case 4:    // Delete permission
         $formTitle = _MA_XMNEWS_PERMISSION_DELETE;
         $permissionName = 'xmnews_delete';
         $permissionDescription = _MA_XMNEWS_PERMISSION_DELETE_DSC;

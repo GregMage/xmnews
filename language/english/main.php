@@ -106,8 +106,10 @@ define('_MA_XMNEWS_PERMISSION_DELETE_DSC', 'Select groups that can delete a news
 define('_MA_XMNEWS_PERMISSION_DELETE_THIS', 'Select groups that can delete in this category');
 define('_MA_XMNEWS_PERMISSION_OTHER', 'Other permissions');
 define('_MA_XMNEWS_PERMISSION_OTHER_DSC', 'Select groups that can:');
-define('_MA_XMNEWS_PERMISSION_OTHER_4', 'Rate (not yet implanted)');
+define('_MA_XMNEWS_PERMISSION_OTHER_4', 'Permission to clone');
+define('_MA_XMNEWS_PERMISSION_OTHER_8', 'Rate (not yet implanted)');
 
 // user
 define('_MA_XMNEWS_HOME', 'News home page');
+define('_MA_XMNEWS_SELECTCATEGORY', 'Select a category to add an item to');
 

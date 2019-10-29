@@ -1,2 +1,19 @@
 .xmnews {
 }
+
+.xm-category-list {
+    margin-bottom: 10px;
+}
+
+.xm-category-list img {
+    max-width: 100%;
+}
+
+a.xm-category-image {
+    margin: 10px 0 10px 0;
+    display: block;
+    text-align: center;
+    max-height: 130px;
+    min-height: 130px;
+}
+
