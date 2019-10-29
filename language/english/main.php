@@ -108,3 +108,6 @@ define('_MA_XMNEWS_PERMISSION_OTHER', 'Other permissions');
 define('_MA_XMNEWS_PERMISSION_OTHER_DSC', 'Select groups that can:');
 define('_MA_XMNEWS_PERMISSION_OTHER_4', 'Rate (not yet implanted)');
 
+// user
+define('_MA_XMNEWS_HOME', 'News home page');
+
