@@ -82,10 +82,7 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
 				$xoopsTpl->assign('error_message', _MA_XMNEWS_ERROR_NOCATEGORY);
 			} else {
 				// Get Permission to submit in category
-				$submitPermissionCat = XmnewsUtility::getPermissionCat('xmnews_submit');			
-				if (!in_array($category_id, $submitPermissionCat)) {
-					redirect_header('action.php?op=add', 2, _NOPERM);
-				}
+				$permHelper->checkPermissionRedirect('xmnews_submit', $category_id, 'action.php?op=add', 2, _NOPERM);
                 $obj  = $newsHandler->create();
                 $form = $obj->getForm($category_id);
                 $xoopsTpl->assign('form', $form->render());;
@@ -100,10 +97,7 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
             } else {
 				$obj  = $newsHandler->get($news_id);
 				// Get Permission to submit in category
-				$submitPermissionCat = XmnewsUtility::getPermissionCat('xmnews_submit');
-				if (!in_array($obj->getVar('news_cid'), $submitPermissionCat)) {
-					redirect_header('index.php', 2, _NOPERM);
-				}
+				$permHelper->checkPermissionRedirect('xmnews_submit', $obj->getVar('news_cid'), 'index.php', 2, _NOPERM);
                 $form = $obj->getForm();
                 $xoopsTpl->assign('form', $form->render());
             }
@@ -127,10 +121,7 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
         case 'save':
 			$news_cid = Request::getInt('news_cid', 0);
 			// Get Permission to submit in category
-			$submitPermissionCat = XmnewsUtility::getPermissionCat('xmnews_submit');			
-			if (!in_array($news_cid, $submitPermissionCat)) {
-				redirect_header('index.php', 2, _NOPERM);
-			}
+			$permHelper->checkPermissionRedirect('xmnews_submit', $news_cid, 'index.php', 2, _NOPERM);
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 redirect_header('index.php', 3, implode('<br>', $GLOBALS['xoopsSecurity']->getErrors()));
             }
@@ -158,10 +149,7 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
 				$surdel = Request::getBool('surdel', false);
 				$obj  = $newsHandler->get($news_id);
 				// Get Permission to delete in category
-				$delPermissionCat = XmnewsUtility::getPermissionCat('xmnews_delete');
-				if (!in_array($obj->getVar('news_cid'), $delPermissionCat)) {
-					redirect_header('index.php', 2, _NOPERM);
-				}		
+				$permHelper->checkPermissionRedirect('xmnews_delete', $obj->getVar('news_cid'), 'index.php', 2, _NOPERM);	
 				if ($surdel === true) {
 					if (!$GLOBALS['xoopsSecurity']->check()) {
 						redirect_header('index.php', 3, implode('<br>', $GLOBALS['xoopsSecurity']->getErrors()));
