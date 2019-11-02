@@ -51,7 +51,13 @@ if ($helper->isUserAdmin() != true){
 	if ($category->getVar('category_status') == 0 || $news->getVar('news_status') != 1) {
 		redirect_header('index.php', 2, _MA_XMNEWS_ERROR_NACTIVE);
 	}
+	// redirection si la news n'est pas encore publiée
+	if ($news->getVar('news_date') > time()) {
+		redirect_header('index.php', 2, _MA_XMNEWS_ERROR_NPUBLISHED);
+	}
+	
 }
+
 //permission
 $xoopsTpl->assign('perm_clone', $permHelper->checkPermission('xmnews_other', 4));
 $xoopsTpl->assign('perm_edit', $permHelper->checkPermission('xmnews_submit', $category_id));
