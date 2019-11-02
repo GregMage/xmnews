@@ -67,7 +67,7 @@
                     title="<{if $news.status == 1}><{$smarty.const._MA_XMNEWS_STATUS_NA}><{/if}><{if $news.status == 0 || $news.status == 2}><{$smarty.const._MA_XMNEWS_STATUS_A}><{/if}>">
                 </td>
                 <td class="xo-actions txtcenter">
-					<a class="tooltip" href="../viewnews.php?category_id=<{$news.cid}>&amp;news_id=<{$news.id}>" title="<{$smarty.const._MA_XMNEWS_VIEW}>">
+					<a class="tooltip" href="../article.php?news_id=<{$news.id}>" title="<{$smarty.const._MA_XMNEWS_VIEW}>">
                         <img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._MA_XMNEWS_VIEW}>"></a>
 					<a class="tooltip" href="news.php?op=clone&amp;news_id=<{$news.id}>" title="<{$smarty.const._MA_XMNEWS_CLONE}>">
                         <img src="<{xoAdminIcons clone.png}>" alt="<{$smarty.const._MA_XMNEWS_CLONE}>"></a>

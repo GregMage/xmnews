@@ -419,7 +419,7 @@ class xmnews_news extends XoopsObject
 						redirect_header('index.php', 2, _MA_XMNEWS_REDIRECT_SAVE);
 					}
                     if ($action == 'article.php'){
-                        redirect_header('article.php?category_id=' . $news_cid . '&news_id=' . $news_id, 2, _MA_XMNEWS_REDIRECT_SAVE);
+                        redirect_header('article.php?news_id=' . $news_id, 2, _MA_XMNEWS_REDIRECT_SAVE);
                     } else {
                         redirect_header($action, 2, _MA_XMNEWS_REDIRECT_SAVE);
                     }

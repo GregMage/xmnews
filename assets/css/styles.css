@@ -17,3 +17,18 @@ a.xm-category-image {
     min-height: 130px;
 }
 
+.xm-news-general {
+    padding-bottom: 5px;
+}
+
+.xm-news-general-button {
+    text-align: center;
+	padding-top: 15px;
+}
+
+.xm-news-general.row {
+    font-weight: bold;
+    color: #999;
+    font-size: 1em;
+}
+
