@@ -68,17 +68,13 @@
                 </td>
                 <td class="xo-actions txtcenter">
 					<a class="tooltip" href="../viewnews.php?category_id=<{$news.cid}>&amp;news_id=<{$news.id}>" title="<{$smarty.const._MA_XMNEWS_VIEW}>">
-                        <img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._MA_XMNEWS_VIEW}>">
-                    </a>
+                        <img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._MA_XMNEWS_VIEW}>"></a>
 					<a class="tooltip" href="news.php?op=clone&amp;news_id=<{$news.id}>" title="<{$smarty.const._MA_XMNEWS_CLONE}>">
-                        <img src="<{xoAdminIcons clone.png}>" alt="<{$smarty.const._MA_XMNEWS_CLONE}>">
-                    </a>
+                        <img src="<{xoAdminIcons clone.png}>" alt="<{$smarty.const._MA_XMNEWS_CLONE}>"></a>
                     <a class="tooltip" href="news.php?op=edit&amp;news_id=<{$news.id}>" title="<{$smarty.const._MA_XMNEWS_EDIT}>">
-                        <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._MA_XMNEWS_EDIT}>">
-                    </a>
+                        <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._MA_XMNEWS_EDIT}>"></a>
                     <a class="tooltip" href="news.php?op=del&amp;news_id=<{$news.id}>" title="<{$smarty.const._MA_XMNEWS_DEL}>">
-                        <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._MA_XMNEWS_DEL}>">
-                    </a>
+                        <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._MA_XMNEWS_DEL}>"></a>
                 </td>
             </tr>
         <{/foreach}>
