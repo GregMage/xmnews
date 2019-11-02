@@ -343,15 +343,15 @@ class xmnews_news extends XoopsObject
             $this->setVar('news_userid', !empty($xoopsUser) ? $xoopsUser->getVar('uid') : 0);
         }
 		if (isset($_POST['news_tempdate'])) {
-			$this->setVar('news_date', strtotime(Xmf\Request::getString('news_tempdate', '')));
+			$news_date = Xmf\Request::getArray('news_tempdate', []);
+			$this->setVar('news_date', strtotime($news_date['date']) + $news_date['time']);
         }		
 		if (isset($_POST['news_date'])) {
 			if ($_POST['date_update'] == 'Y'){
-				$this->setVar('news_date', strtotime(Xmf\Request::getString('news_date', '')));
+				$news_date = Xmf\Request::getArray('news_date', []);
+				$this->setVar('news_date', strtotime($news_date['date']) + $news_date['time']);
 			}
 			$this->setVar('news_mdate', time());
-        } else {
-			$this->setVar('news_date', time());
         }
 		if (isset($_POST['news_mdate'])) {
 			if ($_POST['mdate_update'] == 'Y'){
