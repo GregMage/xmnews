@@ -118,7 +118,7 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
                 $xoopsTpl->assign('error_message', _MA_XMNEWS_ERROR_NONEWS);
             } else {
                 $cloneobj = XmnewsUtility::cloneNews($news_id);
-                $form     = $cloneobj->getForm($cloneobj->getVar('news_cid'), $news_id, 'action.php', true);
+                $form     = $cloneobj->getForm($cloneobj->getVar('news_cid'), 'action.php', true);
                 $xoopsTpl->assign('form', $form->render());
             }
             break;
@@ -158,15 +158,15 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
 				$surdel = Request::getBool('surdel', false);
 				$obj  = $newsHandler->get($news_id);
 				// Get Permission to delete in category
-				$submitPermissionCat = XmnewsUtility::getPermissionCat('xmnews_delete');
-				if (!in_array($obj->getVar('news_cid'), $submitPermissionCat)) {
+				$delPermissionCat = XmnewsUtility::getPermissionCat('xmnews_delete');
+				if (!in_array($obj->getVar('news_cid'), $delPermissionCat)) {
 					redirect_header('index.php', 2, _NOPERM);
 				}		
 				if ($surdel === true) {
 					if (!$GLOBALS['xoopsSecurity']->check()) {
-						redirect_header('news.php', 3, implode('<br>', $GLOBALS['xoopsSecurity']->getErrors()));
+						redirect_header('index.php', 3, implode('<br>', $GLOBALS['xoopsSecurity']->getErrors()));
 					}
-					$error_message = $obj->delNews($newsHandler, 'news.php');
+					$error_message = $obj->delNews($newsHandler, 'index.php');
 					if ($error_message != ''){
 						$xoopsTpl->assign('error_message', $error_message);
 					}
