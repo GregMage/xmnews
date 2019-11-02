@@ -69,7 +69,7 @@ $xoopsTpl->assign('news', $news->getVar('news_news'));
 $xoopsTpl->assign('counter', $news->getVar('news_counter'));
 $xoopsTpl->assign('rating', number_format($news->getVar('news_rating'), 1));
 $xoopsTpl->assign('votes', sprintf(_MA_XMNEWS_NEWS_VOTES, $news->getVar('news_votes')));
-$xoopsTpl->assign('date', formatTimestamp($news->getVar('news_date'), 's'));
+$xoopsTpl->assign('date', formatTimestamp($news->getVar('news_date'), 'm'));
 if ($news->getVar('news_mdate') != 0) {
     $xoopsTpl->assign('mdate', formatTimestamp($news->getVar('news_mdate'), 's'));
 }
