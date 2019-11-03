@@ -124,7 +124,7 @@ if (xoops_isActiveModule('xmdoc') && $helper->getConfig('general_xmdoc', 0) == 1
 // pagetitle
 $xoopsTpl->assign('xoops_pagetitle', \Xmf\Metagen::generateSeoTitle($news->getVar('news_title') . '-' . $xoopsModule->name()));
 //description
-$xoTheme->addMeta('meta', 'description', \Xmf\Metagen::generateDescription($news->getVar('new_description'), 30));
+$xoTheme->addMeta('meta', 'description', \Xmf\Metagen::generateDescription($news->getVar('news_description'), 30));
 //keywords
 if ('' == $news->getVar('news_mkeyword')) {
     $keywords = \Xmf\Metagen::generateKeywords($news->getVar('news_news'), 10);    
