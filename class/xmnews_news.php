@@ -435,7 +435,7 @@ class xmnews_news extends XoopsObject
 	/**
      * @return mixed
      */
-    public function delNews($newsHandler, $action = false)
+    public function delNews($newsHandler, $news_id, $action = false)
     {
 		if ($action === false) {
             $action = $_SERVER['REQUEST_URI'];
@@ -454,10 +454,10 @@ class xmnews_news extends XoopsObject
 				}
 			}
 			//Del Notification and comment
-			/*$helper = \Xmf\Module\Helper::getHelper('xmnews');
+			$helper = \Xmf\Module\Helper::getHelper('xmnews');
 			$moduleid = $helper->getModule()->getVar('mid');
-			xoops_notification_deletebyitem($moduleid, 'news', $news_id);
-			xoops_comment_delete($moduleid, $news_id);*/
+			//xoops_notification_deletebyitem($moduleid, 'news', $news_id);
+			xoops_comment_delete($moduleid, $news_id);
 			redirect_header($action, 2, _MA_XMNEWS_REDIRECT_SAVE);
 			
 		} else {

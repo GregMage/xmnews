@@ -154,7 +154,7 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
 					if (!$GLOBALS['xoopsSecurity']->check()) {
 						redirect_header('index.php', 3, implode('<br>', $GLOBALS['xoopsSecurity']->getErrors()));
 					}
-					$error_message = $obj->delNews($newsHandler, 'index.php');
+					$error_message = $obj->delNews($newsHandler, $news_id, 'index.php');
 					if ($error_message != ''){
 						$xoopsTpl->assign('error_message', $error_message);
 					}

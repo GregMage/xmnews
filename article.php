@@ -33,7 +33,7 @@ if ($news_id == 0) {
 }
 $news  = $newsHandler->get($news_id);
 if (empty($news)) {
-    redirect_header('index.php', 2, _MA_XMNEWS_ERROR_NOARTICLE);
+    redirect_header('index.php', 2, _MA_XMNEWS_ERROR_NONEWS);
 }
 $category_id = $news->getVar('news_cid');
 
@@ -133,5 +133,5 @@ if ('' == $news->getVar('news_mkeyword')) {
     $xoTheme->addMeta('meta', 'keywords', $news->getVar('news_mkeyword'));
 }
 
-//include XOOPS_ROOT_PATH.'/include/comment_view.php';
+include XOOPS_ROOT_PATH.'/include/comment_view.php';
 include XOOPS_ROOT_PATH . '/footer.php';

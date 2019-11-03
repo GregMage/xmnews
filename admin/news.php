@@ -216,7 +216,7 @@ switch ($op) {
                 if (!$GLOBALS['xoopsSecurity']->check()) {
                     redirect_header('news.php', 3, implode('<br>', $GLOBALS['xoopsSecurity']->getErrors()));
                 }
-				$error_message = $obj->delNews($newsHandler, 'news.php');
+				$error_message = $obj->delNews($newsHandler, $news_id, 'news.php');
 				if ($error_message != ''){
 					$xoopsTpl->assign('error_message', $error_message);
 				}

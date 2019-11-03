@@ -38,13 +38,13 @@ $modversion['sub'][]   = [
 ];
 
 // Comments
-/*$modversion['hasComments'] = 1;
+$modversion['hasComments'] = 1;
 $modversion['comments']['itemName']            = 'news_id';
-$modversion['comments']['pageName']            = 'viewnews.php';
-$modversion['comments']['extraParams']         = ['category_id'];
+$modversion['comments']['pageName']            = 'article.php';
+//$modversion['comments']['extraParams']         = ['category_id'];
 $modversion['comments']['callbackFile']        = 'include/comment_functions.php';
 $modversion['comments']['callback']['approve'] = 'content_com_approve';
-$modversion['comments']['callback']['update']  = 'content_com_update';*/
+$modversion['comments']['callback']['update']  = 'content_com_update';
 
 // Search
 $modversion['hasSearch'] = 1;
