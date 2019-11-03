@@ -27,11 +27,11 @@
 	<div align="right">
 		<form id="form_news_tri" name="form_news_tri" method="get" action="news.php">
 			<{$smarty.const._MA_XMNEWS_NEWS_CATEGORY}>
-			<select name="news_filter" id="news_filter" onchange="location='news.php?start=<{$start}>&news_status=<{$news_status}>&news_cid='+this.options[this.selectedIndex].value">
+			<select name="news_filter" id="news_filter" onchange="location='news.php?news_status=<{$news_status}>&news_cid='+this.options[this.selectedIndex].value">
 				<{$news_cid_options}>
 			<select>
 			<{$smarty.const._MA_XMNEWS_STATUS}>
-			<select name="news_filter" id="news_filter" onchange="location='news.php?start=<{$start}>&news_cid=<{$news_cid}>&news_status='+this.options[this.selectedIndex].value">
+			<select name="news_filter" id="news_filter" onchange="location='news.php?news_cid=<{$news_cid}>&news_status='+this.options[this.selectedIndex].value">
 				<{$news_status_options}>
 			<select>
 		</form>
