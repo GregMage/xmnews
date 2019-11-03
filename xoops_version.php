@@ -47,9 +47,9 @@ $modversion['comments']['callback']['approve'] = 'content_com_approve';
 $modversion['comments']['callback']['update']  = 'content_com_update';*/
 
 // Search
-/*$modversion['hasSearch'] = 1;
+$modversion['hasSearch'] = 1;
 $modversion['search']['file'] = 'include/search.inc.php';
-$modversion['search']['func'] = 'xmnews_search';*/
+$modversion['search']['func'] = 'xmnews_search';
 
 // Admin things
 $modversion['hasAdmin']    = 1;
