@@ -390,12 +390,12 @@ class xmnews_news extends XoopsObject
                     $error_message .= XmdocUtility::saveDocuments('xmnews', $news_id);
                 }
 				//Notification global: new_news, category: new_news, news: approve_news
-				/*$category = $categoryHandler->get($news_cid);
+				$category = $categoryHandler->get($news_cid);
 				$tags = [];
 				$tags['NEWS_TITLE'] = Xmf\Request::getString('news_title', '');
-				$tags['NEWS_URL'] = XOOPS_URL . '/modules/xmnews/viewnews.php?category_id=' . $news_cid . '&news_id=' . $news_id;
+				$tags['NEWS_URL'] = XOOPS_URL . '/modules/xmnews/article.php?news_id=' . $news_id;
 				$tags['CATEGORY_NAME'] = $category->getVar('category_name');
-				$tags['CATEGORY_URL'] =  XOOPS_URL . '/modules/xmnews/viewcat.php?category_id=' . $news_cid;
+				$tags['CATEGORY_URL'] =  XOOPS_URL . '/modules/xmnews/index.php?news_cid=' . $news_cid;
 				$notificationHandler = xoops_getHandler('notification');
 				$notificationHandler->triggerEvent('global', 0, 'new_news', $tags);
 				$notificationHandler->triggerEvent('category', $news_cid, 'new_news', $tags);
@@ -412,7 +412,7 @@ class xmnews_news extends XoopsObject
 				// Notification news: approve_news
 				if (Xmf\Request::getInt('news_notify', 0) == 1){
 					$notificationHandler->subscribe('news', $news_id, 'approve_news', XOOPS_NOTIFICATION_MODE_SENDONCETHENDELETE);
-				}*/
+				}
 				
 				if ($error_message == ''){
 					if ($this->getVar('news_status') == 2 && $action != 'news.php'){
@@ -456,7 +456,7 @@ class xmnews_news extends XoopsObject
 			//Del Notification and comment
 			$helper = \Xmf\Module\Helper::getHelper('xmnews');
 			$moduleid = $helper->getModule()->getVar('mid');
-			//xoops_notification_deletebyitem($moduleid, 'news', $news_id);
+			xoops_notification_deletebyitem($moduleid, 'news', $news_id);
 			xoops_comment_delete($moduleid, $news_id);
 			redirect_header($action, 2, _MA_XMNEWS_REDIRECT_SAVE);
 			

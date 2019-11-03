@@ -81,4 +81,7 @@
 			<{$smarty.const._MA_XMNEWS_ERROR_NONEWS}>
 		</div>
 	<{/if}>	
+	<div style="margin:3px; padding: 3px;">
+		<{include file='db:system_notification_select.tpl'}>
+    </div>
 </div><!-- .xmnews -->

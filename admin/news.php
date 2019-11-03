@@ -244,8 +244,8 @@ switch ($op) {
             if ($newsHandler->insert($obj)) {
 				//Notification news: approve_news
 				$tags = [];
-				$tags['NEWS_NAME'] = $obj->getVar('news_name');
-				$tags['NEWS_URL'] = XOOPS_URL . '/modules/xmnews/viewnews.php?category_id=' . $obj->getVar('news_cid') . '&news_id=' . $news_id;
+				$tags['NEWS_TITLE'] = $obj->getVar('news_title');
+				$tags['NEWS_URL'] = XOOPS_URL . '/modules/xmnews/article.php?news_id=' . $news_id;
 				$notificationHandler = xoops_getHandler('notification');
 				$notificationHandler->triggerEvent('news', $news_id, 'approve_news', $tags);
                 exit;

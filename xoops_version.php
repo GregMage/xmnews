@@ -41,7 +41,6 @@ $modversion['sub'][]   = [
 $modversion['hasComments'] = 1;
 $modversion['comments']['itemName']            = 'news_id';
 $modversion['comments']['pageName']            = 'article.php';
-//$modversion['comments']['extraParams']         = ['category_id'];
 $modversion['comments']['callbackFile']        = 'include/comment_functions.php';
 $modversion['comments']['callback']['approve'] = 'content_com_approve';
 $modversion['comments']['callback']['update']  = 'content_com_update';
@@ -163,10 +162,85 @@ $modversion['config'][] = [
     'valuetype' => 'textbox',
     'default' => 'head',
 ];
-/*$modversion['hasNotification'] = 1;
+$modversion['hasNotification'] = 1;
 $modversion['notification']['lookup_file'] = 'include/notification.inc.php';
-$modversion['notification']['lookup_func'] = 'xmarticle_notify_iteminfo';*/
+$modversion['notification']['lookup_func'] = 'xmnews_notify_iteminfo';
 
+$modversion['notification']['category'][] = [
+    'name' => 'global',
+    'title' => _MI_XMNEWS_NOTIFICATION_GLOBAL,
+    'description' => _MI_XMNEWS_NOTIFICATION_GLOBAL_DESC,
+    'subscribe_from' => ['index.php', 'article.php'],
+];
+
+$modversion['notification']['event'][] = [
+    'name' => 'new_article',
+    'category' => 'global',
+    'title' =>  _MI_XMNEWS_NOTIFICATION_GLOBAL_NEWNEWS,
+    'caption' => _MI_XMNEWS_NOTIFICATION_GLOBAL_NEWNEWS_CAP,
+    'description' => _MI_XMNEWS_NOTIFICATION_GLOBAL_NEWNEWS_DESC,
+    'mail_template' => 'global_newnews',
+    'mail_subject' => _MI_XMNEWS_NOTIFICATION_GLOBAL_NEWNEWS_SBJ,
+];
+
+$modversion['notification']['event'][] = [
+    'name' => 'submit_news',
+    'category' => 'global',
+    'title' =>  _MI_XMNEWS_NOTIFICATION_GLOBAL_SUBMITNEWS,
+    'caption' => _MI_XMNEWS_NOTIFICATION_GLOBAL_SUBMITNEWS_CAP,
+    'description' => _MI_XMNEWS_NOTIFICATION_GLOBAL_SUBMITNEWS_DESC,
+    'mail_template' => 'global_submitnews',
+    'mail_subject' => _MI_XMNEWS_NOTIFICATION_GLOBAL_SUBMITNEWS_SBJ,
+    'admin_only' => 1,
+];
+
+$modversion['notification']['category'][] = [
+    'name' => 'category',
+    'title' => _MI_XMNEWS_NOTIFICATION_CATEGORY,
+    'description' => _MI_XMNEWS_NOTIFICATION_CATEGORY_DESC,
+    'subscribe_from' => ['index.php', 'article.php'],
+    'item_name' => 'news_cid',
+];
+
+$modversion['notification']['event'][] = [
+    'name' => 'new_news',
+    'category' => 'category',
+    'title' =>  _MI_XMNEWS_NOTIFICATION_CATEGORY_NEWNEWS,
+    'caption' => _MI_XMNEWS_NOTIFICATION_CATEGORY_NEWNEWS_CAP,
+    'description' => _MI_XMNEWS_NOTIFICATION_CATEGORY_NEWNEWS_DESC,
+    'mail_template' => 'category_newnews',
+    'mail_subject' => _MI_XMNEWS_NOTIFICATION_CATEGORY_NEWNEWS_SBJ,
+];
+
+$modversion['notification']['category'][] = [
+    'name' => 'news',
+    'title' => _MI_XMNEWS_NOTIFICATION_NEWS,
+    'description' => _MI_XMNEWS_NOTIFICATION_NEWS_DESC,
+    'subscribe_from' => 'article.php',
+    'item_name' => 'news_id',
+    'allow_bookmark' => 1,
+];
+
+$modversion['notification']['event'][] = [
+    'name' => 'modified_news',
+    'category' => 'news',
+    'title' =>  _MI_XMNEWS_NOTIFICATION_NEWS_MODIFIEDNEWS,
+    'caption' => _MI_XMNEWS_NOTIFICATION_NEWS_MODIFIEDNEWS_CAP,
+    'description' => _MI_XMNEWS_NOTIFICATION_NEWS_MODIFIEDNEWS_DESC,
+    'mail_template' => 'news_modifiednews',
+    'mail_subject' => _MI_XMNEWS_NOTIFICATION_NEWS_MODIFIEDNEWS_SBJ,
+];
+
+$modversion['notification']['event'][] = [
+    'name' => 'approve_news',
+    'category' => 'news',
+    'invisible' => 1,
+    'title' =>  _MI_XMNEWS_NOTIFICATION_NEWS_APPROVE,
+    'caption' => _MI_XMNEWS_NOTIFICATION_NEWS_APPROVE_CAP,
+    'description' => _MI_XMNEWS_NOTIFICATION_NEWS_APPROVE_DESC,
+    'mail_template' => 'news_approvenews',
+    'mail_subject' => _MI_XMNEWS_NOTIFICATION_NEWS_APPROVE_SBJ,
+];
 
 // About stuff
 $modversion['module_status'] = 'Alpha';
