@@ -1,7 +1,7 @@
 <div class="xmmews">
     <ol class="breadcrumb">
         <li><a href="index.php"><{$smarty.const._MA_XMNEWS_HOME}></a></li>
-        <li><a href="index.php?category_id=<{$category_id}>"><{$category_name}></a></li>
+        <li><a href="index.php?news_cid=<{$category_id}>"><{$category_name}></a></li>
         <li class="active"><{$title}></li>
     </ol>
 	<{if $status == 2}>
@@ -22,7 +22,6 @@
         </div>
         <div class="media-body">
             <h2 class="media-heading"><{$title}></h2>
-            <{$abstract}>
         </div>
     </div>
 	<div>

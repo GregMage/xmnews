@@ -25,11 +25,11 @@ xoops_load('utility', basename(__DIR__));
 
 use Xmf\Module\Helper;
 
-$helper     = Helper::getHelper('xmarticle');
+$helper     = Helper::getHelper('xmnews');
 $permHelper = new \Xmf\Module\Helper\Permission();
 
 // Load language files
 $helper->loadLanguage('main');
 
 // Config
-$nb_limit           = $helper->getConfig('general_perpage', 15);
+$nb_limit = $helper->getConfig('general_perpage', 15);

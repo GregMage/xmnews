@@ -87,10 +87,14 @@ define('_MA_XMNEWS_NEWS_KEYWORD_DSC', 'The keywords meta tag is a series of keyw
 define('_MA_XMNEWS_NEWS_LOGO', 'Logo');
 define('_MA_XMNEWS_NEWS_MDATE', 'Modification date');
 define('_MA_XMNEWS_NEWS_MDATEUPDATE', 'Update the modification date');
+define('_MA_XMNEWS_NEWS_MORE', 'Read the complete article');
 define('_MA_XMNEWS_NEWS_NEWS', 'News');
+define('_MA_XMNEWS_NEWS_ON', 'on');
+define('_MA_XMNEWS_NEWS_PUBLISHEDBY', 'Published by');
 define('_MA_XMNEWS_NEWS_RATING', 'Rating');
 define('_MA_XMNEWS_NEWS_READING', 'Reading');
 define('_MA_XMNEWS_NEWS_RESETMDATE', 'Reset (empty date)');
+define('_MA_XMNEWS_NEWS_SELECTCATEGORY', 'Select a category to filter news');
 define('_MA_XMNEWS_NEWS_SUREDEL', 'Sure to delete this news? %s');
 define('_MA_XMNEWS_NEWS_TITLE', 'Title');
 define('_MA_XMNEWS_NEWS_USERID', 'Author');
