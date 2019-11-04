@@ -76,6 +76,53 @@ $modversion['templates'][] = ['file' => 'xmnews_index.tpl', 'description' => '']
 $modversion['templates'][] = ['file' => 'xmnews_article.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'xmnews_action.tpl', 'description' => ''];
 
+// Blocks
+$modversion['blocks'][] = array(
+    'file'        => 'xmnews_blocks.php',
+    'name'        => _MI_XMNEWS_BLOCK_DATE,
+    'description' => _MI_XMNEWS_BLOCK_DATE_DESC,
+    'show_func'   => 'block_xmnews_show',
+    'edit_func'   => 'block_xmnews_edit',
+	'options'     => '0|5|date',
+    'template'    => 'xmnews_block.tpl'
+);
+$modversion['blocks'][] = array(
+    'file'        => 'xmnews_blocks.php',
+    'name'        => _MI_XMNEWS_BLOCK_HITS,
+    'description' => _MI_XMNEWS_BLOCK_HITS_DESC,
+    'show_func'   => 'block_xmnews_show',
+    'edit_func'   => 'block_xmnews_edit',
+	'options'     => '0|5|hits',
+    'template'    => 'xmnews_block.tpl'
+);
+$modversion['blocks'][] = array(
+    'file'        => 'xmnews_blocks.php',
+    'name'        => _MI_XMNEWS_BLOCK_RATING,
+    'description' => _MI_XMNEWS_BLOCK_RATING_DESC,
+    'show_func'   => 'block_xmnews_show',
+    'edit_func'   => 'block_xmnews_edit',
+	'options'     => '0|5|rating',
+    'template'    => 'xmnews_block.tpl'
+);
+$modversion['blocks'][] = array(
+    'file'        => 'xmnews_blocks.php',
+    'name'        => _MI_XMNEWS_BLOCK_RANDOM,
+    'description' => _MI_XMNEWS_BLOCK_RANDOM_DESC,
+    'show_func'   => 'block_xmnews_show',
+    'edit_func'   => 'block_xmnews_edit',
+	'options'     => '0|5|random',
+    'template'    => 'xmnews_block.tpl'
+);
+$modversion['blocks'][] = array(
+    'file'        => 'xmnews_blocks.php',
+    'name'        => _MI_XMNEWS_BLOCK_WAITING,
+    'description' => _MI_XMNEWS_BLOCK_WAITING_DESC,
+    'show_func'   => 'block_xmnews_show',
+    'edit_func'   => 'block_xmnews_edit',
+	'options'     => '0|5|waiting',
+    'template'    => 'xmnews_block_waiting.tpl'
+);
+
 // Configs
 $modversion['config'] = [];
 

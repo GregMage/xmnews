@@ -47,19 +47,19 @@
 					<div class="media-body">
 						<h2 class="media-heading"><{$news.title}></h2>
 						
-						<div class="xm-news-index-info"><span class="glyphicon glyphicon-user" title="<{$smarty.const._MA_XMNEWS_NEWS_PUBLISHEDBY}>"></span>
+						<div class="xmnews-index-info"><span class="glyphicon glyphicon-user" title="<{$smarty.const._MA_XMNEWS_NEWS_PUBLISHEDBY}>"></span>
 							<{$smarty.const._MA_XMNEWS_NEWS_PUBLISHEDBY}> <{$news.author}>
 						</div>
-						<div class="xm-news-index-info"><span class="glyphicon glyphicon-calendar" title="<{$smarty.const._MA_XMNEWS_NEWS_DATE}>"></span>
+						<div class="xmnews-index-info"><span class="glyphicon glyphicon-calendar" title="<{$smarty.const._MA_XMNEWS_NEWS_DATE}>"></span>
 							<{$smarty.const._MA_XMNEWS_NEWS_ON}> <{$news.date}>
 						</div>
-						<div class="xm-news-index-info"><span class="glyphicon glyphicon-repeat" title="<{$smarty.const._MA_XMNEWS_NEWS_READING}>"></span>
+						<div class="xmnews-index-info"><span class="glyphicon glyphicon-repeat" title="<{$smarty.const._MA_XMNEWS_NEWS_READING}>"></span>
 							<{$smarty.const._MA_XMNEWS_NEWS_READING}> <{$news.counter}>
 						</div>
 					</div>
 					<{$news.description}>
 				</div>		
-				<div class="xm-news-index-button">
+				<div class="xmnews-index-button">
 					<div class="btn-group" role="group" aria-label="...">
 						<a href="article.php?news_id=<{$news.id}>">
 							<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-menu-right"></span> <{$smarty.const._MA_XMNEWS_NEWS_MORE}></button>

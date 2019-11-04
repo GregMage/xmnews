@@ -103,6 +103,9 @@ define('_MA_XMNEWS_NEWS_VOTES', '(%s Votes)');
 define('_MA_XMNEWS_NEWS_WAITING', 'There are <strong>%s</strong> articles waiting for validation!');
 define('_MA_XMNEWS_NEWS_WFV', 'Waiting for validation');
 
+// blocks
+define('_MA_XMNEWS_BLOCKS_DATE', 'Date');
+
 // permission
 define('_MA_XMNEWS_PERMISSION_VIEW', 'View Permissions');
 define('_MA_XMNEWS_PERMISSION_VIEW_DSC', 'Select groups that can view a news in categories');

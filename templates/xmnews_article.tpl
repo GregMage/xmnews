@@ -43,7 +43,7 @@
             <h3 class="panel-title"><{$smarty.const._MA_XMNEWS_GENINFORMATION}></h3>
         </div>
         <div class="panel-body">
-			<div class="row xm-news-general">
+			<div class="row xmnews-general">
 				<{if $dodate == 1}>
 				<div class="col-md-6"><span class="glyphicon glyphicon-calendar" title="<{$smarty.const._MA_XMNEWS_NEWS_DATE}>"></span>
 					<{$smarty.const._MA_XMNEWS_NEWS_DATE}>: <{$date}>
@@ -57,14 +57,14 @@
 			</div>
 			<{if $domdate == 1}>
 			<{if $mdate}>
-			<div class="row xm-news-general">
+			<div class="row xmnews-general">
 				<div class="col-md-6"><span class="glyphicon glyphicon-calendar" title="<{$smarty.const._MA_XMNEWS_NEWS_MDATE}>"></span>
 					<{$smarty.const._MA_XMNEWS_NEWS_MDATE}>: <{$mdate}>
 				</div>
 			</div>
 			<{/if}>
 			<{/if}>
-			<div class="row xm-news-general">
+			<div class="row xmnews-general">
 				<{if $dohits == 1}>
 				<div class="col-md-6"><span class="glyphicon glyphicon-repeat" title="<{$smarty.const._MA_XMNEWS_NEWS_READING}>"></span>
 					<{$smarty.const._MA_XMNEWS_NEWS_READING}>: <{$counter}>
@@ -76,7 +76,7 @@
 				</div>
 				<{/if}>
 			</div>
-			<div class="xm-news-general-button">
+			<div class="xmnews-general-button">
 				<div class="btn-group" role="group" aria-label="...">
 					<{if $perm_clone == true}>
 					<a href="action.php?op=clone&amp;news_id=<{$news_id}>">

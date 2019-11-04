@@ -17,15 +17,15 @@
             <li><a href="index.php"><{$smarty.const._MA_XMNEWS_HOME}></a></li>
             <li class="active"><{$smarty.const._MA_XMNEWS_SELECTCATEGORY}></li>
         </ol>
-		<div class="xm-category row">
+		<div class="xmnews-category row">
 			<{foreach item=category from=$categories}>
-				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 xm-category-list">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 xmnews-category-list">
 					<a class="btn btn-primary btn-md btn-block" title="<{$category.name}>"
 					   href="action.php?op=loadnews&category_id=<{$category.id}>">
 						<{$category.name}>
 					</a>
 
-					<a title="<{$category.name}>" href="action.php?op=loadnews&category_id=<{$category.id}>" class="xm-category-image">
+					<a title="<{$category.name}>" href="action.php?op=loadnews&category_id=<{$category.id}>" class="xmnews-category-image">
 						<img src="<{$category.logo}>" alt="<{$category.name}>" >
 					</a>
 
@@ -53,9 +53,9 @@
 					</div>
 					<!-- End Category Description -->
 				</div>
-				<!-- .xm-category-list -->
+				<!-- .xmnews-category-list -->
 			<{/foreach}>
-		</div><!-- .xm-category -->
+		</div><!-- .xmnews-category -->
 		<div class="clear spacer"></div>
 		<{if $nav_menu}>
 			<div class="floatright"><{$nav_menu}></div>
