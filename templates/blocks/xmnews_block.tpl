@@ -1,5 +1,5 @@
 <{foreach item=news from=$block.news}>
-	<div class="col-sm-4 col-md-4 xmnews-minibox">		
+	<div class="col-xs-12 col-sm-6 col-md-4 xmnews-minibox">		
 		<div class="xmnews-logo">
 			<{if $news.logo != ''}>		
 			<img src="<{$news.logo}>" alt="<{$news.title}>">
@@ -30,7 +30,7 @@
 			<{$news.description|truncateHtml:20:'...'}>
 		</div>
 
-		<a class="btn btn-primary col-md-9" title="<{$news.title}>"
+		<a class="btn btn-primary col-xs-12 col-sm-10 col-md-8" title="<{$news.title}>"
 		   href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$news.id}>">
 			<{$smarty.const._MA_XMNEWS_NEWS_MORE}>
 		</a>
