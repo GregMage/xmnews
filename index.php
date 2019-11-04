@@ -81,7 +81,7 @@ if ($news_count > 0) {
 		$news['title']           = $news_arr[$i]->getVar('news_title');
 		$news['author']          = XoopsUser::getUnameFromId($news_arr[$i]->getVar('news_userid'));
 		$news['date']       	 = formatTimestamp($news_arr[$i]->getVar('news_date'), 'm');
-		$news['description']     = \Xmf\Metagen::generateDescription($news_arr[$i]->getVar('news_description', 'show'), 30);
+		$news['description']     = $news_arr[$i]->getVar('news_description');
 		$news['counter']         = $news_arr[$i]->getVar('news_counter');
 		$news_img                = $news_arr[$i]->getVar('news_logo');
 		if ($news_img == ''){
