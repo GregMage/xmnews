@@ -45,12 +45,12 @@
         <div class="panel-body">
 			<div class="row xmnews-general">
 				<{if $dodate == 1}>
-				<div class="col-md-6"><span class="glyphicon glyphicon-calendar" title="<{$smarty.const._MA_XMNEWS_NEWS_DATE}>"></span>
+				<div class="col-xs-12 col-sm-6 col-md-6"><span class="glyphicon glyphicon-calendar" title="<{$smarty.const._MA_XMNEWS_NEWS_DATE}>"></span>
 					<{$smarty.const._MA_XMNEWS_NEWS_DATE}>: <{$date}>
 				</div>
 				<{/if}>
 				<{if $douser == 1}>
-				<div class="col-md-6"><span class="glyphicon glyphicon-user" title="<{$smarty.const._MA_XMNEWS_NEWS_AUTHOR}>"></span>
+				<div class="col-xs-12 col-sm-6 col-md-6"><span class="glyphicon glyphicon-user" title="<{$smarty.const._MA_XMNEWS_NEWS_AUTHOR}>"></span>
 					<{$smarty.const._MA_XMNEWS_NEWS_AUTHOR}>: <{$author}>
 				</div>
 				<{/if}>
@@ -58,7 +58,7 @@
 			<{if $domdate == 1}>
 			<{if $mdate}>
 			<div class="row xmnews-general">
-				<div class="col-md-6"><span class="glyphicon glyphicon-calendar" title="<{$smarty.const._MA_XMNEWS_NEWS_MDATE}>"></span>
+				<div class="col-xs-12 col-sm-6 col-md-6"><span class="glyphicon glyphicon-calendar" title="<{$smarty.const._MA_XMNEWS_NEWS_MDATE}>"></span>
 					<{$smarty.const._MA_XMNEWS_NEWS_MDATE}>: <{$mdate}>
 				</div>
 			</div>
@@ -66,12 +66,12 @@
 			<{/if}>
 			<div class="row xmnews-general">
 				<{if $dohits == 1}>
-				<div class="col-md-6"><span class="glyphicon glyphicon-repeat" title="<{$smarty.const._MA_XMNEWS_NEWS_READING}>"></span>
+				<div class="col-xs-12 col-sm-6 col-md-6"><span class="glyphicon glyphicon-repeat" title="<{$smarty.const._MA_XMNEWS_NEWS_READING}>"></span>
 					<{$smarty.const._MA_XMNEWS_NEWS_READING}>: <{$counter}>
 				</div>
 				<{/if}>
 				<{if $dorating == 1}>
-				<div class="col-md-6"><span class="glyphicon glyphicon-star-empty" title="<{$smarty.const._MA_XMNEWS_NEWS_RATING}>"></span>
+				<div class="col-xs-12 col-sm-6 col-md-6"><span class="glyphicon glyphicon-star-empty" title="<{$smarty.const._MA_XMNEWS_NEWS_RATING}>"></span>
 					<{$smarty.const._MA_XMNEWS_NEWS_RATING}>: <{$rating}> <{$votes}>
 				</div>
 				<{/if}>
