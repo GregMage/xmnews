@@ -28,7 +28,11 @@
         <tbody>
         <{foreach item=category from=$category}>
             <tr class="<{cycle values='even,odd'}> alignmiddle">
-                <td class="txtcenter"><{$category.logo}></td>
+				<td class="txtcenter">
+					<{if $category.logo != ''}>		
+					<img src="<{$category.logo}>" alt="<{$category.name}>" style="max-width:150px">
+					<{/if}>
+				</td>
                 <td class="txtleft"><{$category.name}></td>
                 <td class="txtleft"><{$category.description}></td>                
                 <td class="txtcenter"><{$category.weight}></td>

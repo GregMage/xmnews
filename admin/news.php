@@ -104,7 +104,7 @@ switch ($op) {
 				if ($news_img == ''){
 					$news['logo']        = '';
 				} else {
-					$news['logo']        = '<img src="' . $url_logo . $news_img . '" alt="' . $news_img . '" style="max-width:100px">';
+					$news['logo']        = $url_logo . $news_img;
 				}
                 $xoopsTpl->append_by_ref('news', $news);
                 unset($news);

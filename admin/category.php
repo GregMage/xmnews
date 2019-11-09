@@ -57,7 +57,7 @@ switch ($op) {
 				if ($category_img == ''){
 					$category['logo']        = '';
 				} else {
-					$category['logo']        = '<img src="' . $url_logo . $category_img . '" alt="' . $category_img . '" style="max-width:100px">';
+					$category['logo']        = $url_logo . $category_img;
 				}
                 $xoopsTpl->append_by_ref('category', $category);
                 unset($category);

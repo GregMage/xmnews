@@ -53,7 +53,11 @@
         <tbody>
         <{foreach item=news from=$news}>
             <tr class="<{cycle values='even,odd'}> alignmiddle">
-                <td class="txtcenter"><{$news.logo}></td>
+				<td class="txtcenter">
+					<{if $news.logo != ''}>		
+					<img src="<{$news.logo}>" alt="<{$news.title}>" style="max-width:150px">
+					<{/if}>
+				</td>
                 <td class="txtleft"><{$news.category}></td>
                 <td class="txtleft"><{$news.title}></td>
                 <td class="txtleft"><{$news.description}></td>
