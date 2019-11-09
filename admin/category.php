@@ -162,15 +162,15 @@ switch ($op) {
                             $newsHandler->delete($objnews) or $objarticle->getHtmlErrors();
 							
 							//Del Notification and comment
-							/*$helper = \Xmf\Module\Helper::getHelper('xmnews');
+							$helper = \Xmf\Module\Helper::getHelper('xmnews');
 							$moduleid = $helper->getModule()->getVar('mid');
 							xoops_notification_deletebyitem($moduleid, 'news', $i);
-							xoops_comment_delete($moduleid, $i);*/
+							xoops_comment_delete($moduleid, $i);
                         }
                     }
 					
 					//Del Notification
-					//xoops_notification_deletebyitem($moduleid, 'category', $category_id);
+					xoops_notification_deletebyitem($moduleid, 'category', $category_id);
                     
                     redirect_header('category.php', 2, _MA_XMNEWS_REDIRECT_SAVE);
                 } else {
