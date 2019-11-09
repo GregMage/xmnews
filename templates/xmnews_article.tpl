@@ -17,7 +17,7 @@
     <div class="media">
         <div class="media-left">
 			<{if $logo != ''}>
-            <img class="media-object" src="<{$logo}>" alt="<{$title}>" style="max-width:150px">
+            <img class="media-object" src="<{$logo}>" alt="<{$title}>">
 			<{/if}>
         </div>
         <div class="media-body">
