@@ -26,7 +26,7 @@ define('_MA_XMNEWS_REDIRECT_SAVE', 'Successfully saved');
  
 // Admin
 define('_MA_XMNEWS_INDEXCONFIG_XMDOC_WARNINGNOTINSTALLED', 'You have not installed the xmdoc module, this module is required if you want to add documents to the news');
-define('_MA_XMNEWS_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE', 'You must enable in xmarticle preferences the use of xmdoc (if you want to add documents)');
+define('_MA_XMNEWS_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE', 'You must enable in xmnews preferences the use of xmdoc (if you want to add documents)');
  
 // Error message
 define('_MA_XMNEWS_ERROR', 'Error');
@@ -62,10 +62,12 @@ define('_MA_XMNEWS_INDEX_SERVERUPLOADSTATUS', 'Server uploads status: ');
 define('_MA_XMNEWS_INDEX_MAXPOSTSIZE', 'Max post size permitted (post_max_size directive in php.ini): ');
 define('_MA_XMNEWS_INDEX_MAXUPLOADSIZE', 'Max upload size permitted (upload_max_filesize directive in php.ini): ');
 define('_MA_XMNEWS_INDEX_MEMORYLIMIT', 'Memory limit (memory_limit directive in php.ini): ');
+define('_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED', 'You have not installed the xmsocial module, this module is required if you want to rate news');
+define('_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE', 'You must enable in xmnews preferences the use of xmsocial (if you want to rate news)');
 
 // Category
 define('_MA_XMNEWS_CATEGORY_DESC', 'Description');
-define('_MA_XMNEWS_CATEGORY_DOCOMMENT', 'View comment');
+define('_MA_XMNEWS_CATEGORY_DOCOMMENT', 'View comments');
 define('_MA_XMNEWS_CATEGORY_DODSC', 'Default value for new news in this category');
 define('_MA_XMNEWS_CATEGORY_DODATE', 'View date');
 define('_MA_XMNEWS_CATEGORY_DOHITS', 'View hits');
@@ -98,7 +100,7 @@ define('_MA_XMNEWS_NEWS_KEYWORD_DSC', 'The keywords meta tag is a series of keyw
 define('_MA_XMNEWS_NEWS_LOGO', 'Logo');
 define('_MA_XMNEWS_NEWS_MDATE', 'Modification date');
 define('_MA_XMNEWS_NEWS_MDATEUPDATE', 'Update the modification date');
-define('_MA_XMNEWS_NEWS_MORE', 'Read the complete article');
+define('_MA_XMNEWS_NEWS_MORE', 'Read the complete newss');
 define('_MA_XMNEWS_NEWS_NEWS', 'News');
 define('_MA_XMNEWS_NEWS_ON', 'on');
 define('_MA_XMNEWS_NEWS_PUBLISHEDBY', 'Published by');
@@ -111,7 +113,7 @@ define('_MA_XMNEWS_NEWS_TITLE', 'Title');
 define('_MA_XMNEWS_NEWS_USERID', 'Author');
 define('_MA_XMNEWS_NEWS_XMDOC', 'Documents');
 define('_MA_XMNEWS_NEWS_VOTES', '(%s Votes)');
-define('_MA_XMNEWS_NEWS_WAITING', 'There are <strong>%s</strong> articles waiting for validation!');
+define('_MA_XMNEWS_NEWS_WAITING', 'There are <strong>%s</strong> news waiting for validation!');
 define('_MA_XMNEWS_NEWS_WFV', 'Waiting for validation');
 
 // blocks
