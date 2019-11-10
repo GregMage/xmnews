@@ -96,8 +96,8 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
                 $xoopsTpl->assign('error_message', _MA_XMNEWS_ERROR_NONEWS);
             } else {
 				$obj  = $newsHandler->get($news_id);
-				// Get Permission to submit in category
-				$permHelper->checkPermissionRedirect('xmnews_submit', $obj->getVar('news_cid'), 'index.php', 2, _NOPERM);
+				// Get Permission to edit in category
+				$permHelper->checkPermissionRedirect('xmnews_editapprove', $obj->getVar('news_cid'), 'index.php', 2, _NOPERM);
                 $form = $obj->getForm();
                 $xoopsTpl->assign('form', $form->render());
             }
@@ -105,13 +105,13 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
 
         // Clone
         case 'clone':
-			// permission to clone
-            $permHelper->checkPermissionRedirect('xmnews_other', 4, 'index.php', 2, _NOPERM);
             $news_id = Request::getInt('news_id', 0);
             if ($news_id == 0) {
                 $xoopsTpl->assign('error_message', _MA_XMNEWS_ERROR_NONEWS);
             } else {
                 $cloneobj = XmnewsUtility::cloneNews($news_id);
+				// Get Permission to edit in category
+				$permHelper->checkPermissionRedirect('xmnews_editapprove', $cloneobj->getVar('news_cid'), 'index.php', 2, _NOPERM);
                 $form     = $cloneobj->getForm($cloneobj->getVar('news_cid'), 'action.php', true);
                 $xoopsTpl->assign('form', $form->render());
             }

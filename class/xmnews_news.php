@@ -267,9 +267,9 @@ class xmnews_news extends XoopsObject
 				$form->addElement(new XoopsFormDateTime(_MA_XMNEWS_NEWS_DATE, 'news_tempdate', '', time()), false);
 			}
 		}
-        // permission Auto approve submitted news		
+        // permission edit and approve submitted news		
         $permHelper = new \Xmf\Module\Helper\Permission();
-		$permission = $permHelper->checkPermission('xmnews_autoapprove', $category_id);
+		$permission = $permHelper->checkPermission('xmnews_editapprove', $category_id);
         if ($permission == true || $helper->isUserAdmin() == true){
             // status
             $form_status = new XoopsFormRadio(_MA_XMNEWS_STATUS, 'news_status', $this->getVar('news_status'));
@@ -359,9 +359,9 @@ class xmnews_news extends XoopsObject
 				$this->setVar('news_mdate', 0);
 			}
         }
-		// permission Auto approve submitted news		
+		// permission edit and approve submitted news		
         $permHelper = new \Xmf\Module\Helper\Permission();
-		$permission = $permHelper->checkPermission('xmnews_autoapprove', $news_cid);
+		$permission = $permHelper->checkPermission('xmnews_editapprove', $news_cid);
         if ($permission == false){
             $this->setVar('news_status', 2);
         } else {

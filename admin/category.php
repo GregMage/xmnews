@@ -150,7 +150,7 @@ switch ($op) {
                     $permHelper = new \Xmf\Module\Helper\Permission();
                     $permHelper->deletePermissionForItem('xmnews_view', $category_id);
                     $permHelper->deletePermissionForItem('xmnews_submit', $category_id);
-                    $permHelper->deletePermissionForItem('xmnews_autoapprove', $category_id);
+                    $permHelper->deletePermissionForItem('xmnews_editapprove', $category_id);
                     $permHelper->deletePermissionForItem('xmnews_delete', $category_id);
                     // Del news
                     $criteria = new CriteriaCompo();

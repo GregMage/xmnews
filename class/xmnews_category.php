@@ -116,9 +116,9 @@ class xmnews_category extends XoopsObject
                 // permission submit
                 $groups_submit = \Xmf\Request::getArray('xmnews_submit_perms', [], 'POST');
                 $permHelper->savePermissionForItem('xmnews_submit', $perm_id, $groups_submit);
-				// permission autoapprove
-                $groups_submit = \Xmf\Request::getArray('xmnews_autoapprove_perms', [], 'POST');
-                $permHelper->savePermissionForItem('xmnews_autoapprove', $perm_id, $groups_submit);
+				// permission edit and approve
+                $groups_submit = \Xmf\Request::getArray('xmnews_editapprove_perms', [], 'POST');
+                $permHelper->savePermissionForItem('xmnews_editapprove', $perm_id, $groups_submit);
 				// permission delete
                 $groups_submit = \Xmf\Request::getArray('xmnews_delete_perms', [], 'POST');
                 $permHelper->savePermissionForItem('xmnews_delete', $perm_id, $groups_submit);
@@ -241,7 +241,7 @@ class xmnews_category extends XoopsObject
         $permHelper = new \Xmf\Module\Helper\Permission();
         $form->addElement($permHelper->getGroupSelectFormForItem('xmnews_view', $this->getVar('category_id'), _MA_XMNEWS_PERMISSION_VIEW_THIS, 'xmnews_view_perms', true));
         $form->addElement($permHelper->getGroupSelectFormForItem('xmnews_submit', $this->getVar('category_id'), _MA_XMNEWS_PERMISSION_SUBMIT_THIS, 'xmnews_submit_perms', true));
-        $form->addElement($permHelper->getGroupSelectFormForItem('xmnews_autoapprove', $this->getVar('category_id'), _MA_XMNEWS_PERMISSION_AUTOAPPROVE_THIS, 'xmnews_autoapprove_perms', true));
+        $form->addElement($permHelper->getGroupSelectFormForItem('xmnews_editapprove', $this->getVar('category_id'), _MA_XMNEWS_PERMISSION_EDITAPPROVE_THIS, 'xmnews_editapprove_perms', true));
         $form->addElement($permHelper->getGroupSelectFormForItem('xmnews_delete', $this->getVar('category_id'), _MA_XMNEWS_PERMISSION_DELETE_THIS, 'xmnews_delete_perms', true));
 
         $form->addElement(new XoopsFormHidden('op', 'save'));

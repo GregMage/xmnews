@@ -124,16 +124,12 @@ define('_MA_XMNEWS_PERMISSION_VIEW_THIS', 'Select groups that can view in this c
 define('_MA_XMNEWS_PERMISSION_SUBMIT', 'Submit permission');
 define('_MA_XMNEWS_PERMISSION_SUBMIT_DSC', 'Select groups that can submit a news in categories');
 define('_MA_XMNEWS_PERMISSION_SUBMIT_THIS', 'Select groups that can submit in this category');
-define('_MA_XMNEWS_PERMISSION_AUTOAPPROVE', 'auto approve permission');
-define('_MA_XMNEWS_PERMISSION_AUTOAPPROVE_DSC', 'Select groups that can auto approve a news in categories');
-define('_MA_XMNEWS_PERMISSION_AUTOAPPROVE_THIS', 'Select groups that can auto approvein this category');
+define('_MA_XMNEWS_PERMISSION_EDITAPPROVE', 'Edit and approve permission');
+define('_MA_XMNEWS_PERMISSION_EDITAPPROVE_DSC', 'Select groups that can edit and approve a news in categories');
+define('_MA_XMNEWS_PERMISSION_EDITAPPROVE_THIS', 'Select groups that can edit and approve in this category');
 define('_MA_XMNEWS_PERMISSION_DELETE', 'Delete permission');
 define('_MA_XMNEWS_PERMISSION_DELETE_DSC', 'Select groups that can delete a news in categories');
 define('_MA_XMNEWS_PERMISSION_DELETE_THIS', 'Select groups that can delete in this category');
-define('_MA_XMNEWS_PERMISSION_OTHER', 'Other permissions');
-define('_MA_XMNEWS_PERMISSION_OTHER_DSC', 'Select groups that can:');
-define('_MA_XMNEWS_PERMISSION_OTHER_4', 'Permission to clone');
-define('_MA_XMNEWS_PERMISSION_OTHER_8', 'Rate (not yet implanted)');
 
 // user
 define('_MA_XMNEWS_HOME', 'News home page');
