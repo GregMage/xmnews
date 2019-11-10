@@ -100,4 +100,43 @@ class XmnewsUtility
 
         return $news_title;
     }
+	
+	public static function getServerStats()
+    {
+        $moduleDirName      = basename(dirname(dirname(__DIR__)));
+        $moduleDirNameUpper = mb_strtoupper($moduleDirName);
+        xoops_loadLanguage('common', $moduleDirName);
+        $html = '';
+        $html .= "<fieldset><legend style='font-weight: bold; color: #900;'>" . _MA_XMNEWS_INDEX_IMAGEINFO . "</legend>\n";
+        $html .= "<div style='padding: 8px;'>\n";
+        $html .= '<div>' . _MA_XMNEWS_INDEX_SPHPINI . "</div>\n";
+        $html .= "<ul>\n";
+        $downloads = ini_get('file_uploads') ? '<span style="color: #008000;">' . _MA_XMNEWS_INDEX_ON . '</span>' : '<span style="color: #ff0000;">' . _MA_XMNEWS_INDEX_OFF . '</span>';
+        $html      .= '<li>' . _MA_XMNEWS_INDEX_SERVERUPLOADSTATUS . $downloads;
+        $html .= '<li>' . _MA_XMNEWS_INDEX_MAXUPLOADSIZE . ' <b><span style="color: #0000ff;">' . ini_get('upload_max_filesize') . "</span></b>\n";
+        $html .= '<li>' . _MA_XMNEWS_INDEX_MAXPOSTSIZE . ' <b><span style="color: #0000ff;">' . ini_get('post_max_size') . "</span></b>\n";
+        $html .= '<li>' . _MA_XMNEWS_INDEX_MEMORYLIMIT . ' <b><span style="color: #0000ff;">' . ini_get('memory_limit') . "</span></b>\n";
+        $html .= "</ul>\n";
+        $html .= '</div>';
+        $html .= '</fieldset><br>';
+
+        return $html;
+    }
+	
+	public static function returnBytes($val)
+	{
+		switch (mb_substr($val, -1)) {
+			case 'K':
+			case 'k':
+				return (int)$val * 1024;
+			case 'M':
+			case 'm':
+				return (int)$val * 1048576;
+			case 'G':
+			case 'g':
+				return (int)$val * 1073741824;
+			default:
+				return $val;
+		}
+	}
 }

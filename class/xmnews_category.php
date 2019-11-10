@@ -62,7 +62,6 @@ class xmnews_category extends XoopsObject
      */
     public function saveCategory($categoryHandler, $action = false)
     {
-        $upload_size = 500000;
 		if ($action === false) {
             $action = $_SERVER['REQUEST_URI'];
         }
@@ -138,7 +137,6 @@ class xmnews_category extends XoopsObject
      */
     public function getForm($action = false)
     {
-        $upload_size = 500000;
         $helper      = \Xmf\Module\Helper::getHelper('xmnews');
         if ($action === false) {
             $action = $_SERVER['REQUEST_URI'];

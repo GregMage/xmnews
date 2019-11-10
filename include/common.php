@@ -25,6 +25,8 @@ $helper = Helper::getHelper(basename(dirname(__DIR__)));
 $url_logo  = XOOPS_UPLOAD_URL . '/xmnews/images/';
 $path_logo = XOOPS_UPLOAD_PATH . '/xmnews/images/';
 
+$upload_size = $helper->getConfig('general_maxuploadsize', 104858);
+
 // Get handler
 $categoryHandler  = $helper->getHandler('xmnews_category');
 $newsHandler  = $helper->getHandler('xmnews_news');

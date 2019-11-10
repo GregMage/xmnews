@@ -23,6 +23,13 @@ require __DIR__ . '/admin_header.php';
 
 $moduleAdmin = Admin::getInstance();
 $moduleAdmin->displayNavigation('index.php');
+
+$iniPostMaxSize = XmnewsUtility::returnBytes(ini_get('post_max_size'));
+$iniUploadMaxFileSize = XmnewsUtility::returnBytes(ini_get('upload_max_filesize'));
+if (min($iniPostMaxSize, $iniUploadMaxFileSize) < $helper->getConfig('general_maxuploadsize', 104858)) {
+	echo '<div class="errorMsg" style="text-align: left;">' . _MA_XMNEWS_ERROR_SIZE . '</div>';	
+}
+
 $moduleAdmin->addConfigModuleVersion('system', 212);
 // xmdoc
 if (xoops_isActiveModule('xmdoc')){
@@ -42,4 +49,7 @@ foreach (array_keys( $folder) as $i) {
 }
 $moduleAdmin->displayIndex();
 
+
+
+echo XmnewsUtility::getServerStats();
 require __DIR__ . '/admin_footer.php';

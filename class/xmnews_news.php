@@ -101,7 +101,6 @@ class xmnews_news extends XoopsObject
     public function getForm($category_id = 0, $action = false, $clone = false)
     {
         global $xoopsUser;
-        $upload_size = 512000;
         $helper      = \Xmf\Module\Helper::getHelper('xmnews');
         if ($action === false) {
             $action = $_SERVER['REQUEST_URI'];
@@ -305,7 +304,6 @@ class xmnews_news extends XoopsObject
         include __DIR__ . '/../include/common.php';
         $helper = \Xmf\Module\Helper::getHelper('xmnews');
         $error_message = '';
-		$upload_size = 512000;
 		
         //logo
 		$uploadirectory = $path_logo . '/news';

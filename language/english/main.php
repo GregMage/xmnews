@@ -35,6 +35,7 @@ define('_MA_XMNEWS_ERROR_NOACESSCATEGORY', 'You don\'t have access to any catego
 define('_MA_XMNEWS_ERROR_NOCATEGORY', 'There are no categories in the database');
 define('_MA_XMNEWS_ERROR_NONEWS', 'There are no news in the database');
 define('_MA_XMNEWS_ERROR_NPUBLISHED', 'This news is not published yet');
+define('_MA_XMNEWS_ERROR_SIZE', "The size in préférence (Max uploaded files size) exceeds the maximum values defined in 'post_max_size' or 'upload_max_filesize' in your configuration in php.ini");
 define('_MA_XMNEWS_ERROR_WEIGHT', 'Weight must be a number');
 
 // Info message
@@ -51,6 +52,16 @@ define('_MA_XMNEWS_STATUS', 'Status');
 define('_MA_XMNEWS_STATUS_A', 'Active');
 define('_MA_XMNEWS_STATUS_NA', 'Disabled');
 define('_MA_XMNEWS_VIEW', 'View');
+
+//Index
+define('_MA_XMNEWS_INDEX_IMAGEINFO', 'Server status');
+define('_MA_XMNEWS_INDEX_SPHPINI', "<span style='font-weight: bold;'>Information taken from PHP ini file:</span>");
+define('_MA_XMNEWS_INDEX_ON', "<span style='font-weight: bold;'>ON</span>");
+define('_MA_XMNEWS_INDEX_OFF', "<span style='font-weight: bold;'>OFF</span>");
+define('_MA_XMNEWS_INDEX_SERVERUPLOADSTATUS', 'Server uploads status: ');
+define('_MA_XMNEWS_INDEX_MAXPOSTSIZE', 'Max post size permitted (post_max_size directive in php.ini): ');
+define('_MA_XMNEWS_INDEX_MAXUPLOADSIZE', 'Max upload size permitted (upload_max_filesize directive in php.ini): ');
+define('_MA_XMNEWS_INDEX_MEMORYLIMIT', 'Memory limit (memory_limit directive in php.ini): ');
 
 // Category
 define('_MA_XMNEWS_CATEGORY_DESC', 'Description');
