@@ -16,6 +16,8 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
+use Xmf\Request;
+use Xmf\Module\Helper;
 
 defined('XOOPS_ROOT_PATH') || exit('Restricted access.');
 
@@ -88,20 +90,20 @@ class xmnews_category extends XoopsObject
                 $error_message .= $uploader_category_img->getErrors();
             }
         } else {
-            $this->setVar('category_logo', Xmf\Request::getString('category_logo', ''));
+            $this->setVar('category_logo', Request::getString('category_logo', ''));
         }
-        $this->setVar('category_name', Xmf\Request::getString('category_name', ''));
-        $this->setVar('category_description', Xmf\Request::getText('category_description', ''));
-        $this->setVar('category_douser', Xmf\Request::getInt('category_douser', 1));
-        $this->setVar('category_dodate', Xmf\Request::getInt('category_dodate', 1));
-        $this->setVar('category_domdate', Xmf\Request::getInt('category_domdate', 1));
-        $this->setVar('category_dohits', Xmf\Request::getInt('category_dohits', 1));
-        $this->setVar('category_dorating', Xmf\Request::getInt('category_dorating', 1));
-        $this->setVar('category_docomment', Xmf\Request::getInt('category_docomment', 1));
-        $this->setVar('category_status', Xmf\Request::getInt('category_status', 1));
+        $this->setVar('category_name', Request::getString('category_name', ''));
+        $this->setVar('category_description', Request::getText('category_description', ''));
+        $this->setVar('category_douser', Request::getInt('category_douser', 1));
+        $this->setVar('category_dodate', Request::getInt('category_dodate', 1));
+        $this->setVar('category_domdate', Request::getInt('category_domdate', 1));
+        $this->setVar('category_dohits', Request::getInt('category_dohits', 1));
+        $this->setVar('category_dorating', Request::getInt('category_dorating', 1));
+        $this->setVar('category_docomment', Request::getInt('category_docomment', 1));
+        $this->setVar('category_status', Request::getInt('category_status', 1));
 
          if ($error_message == '') {
-            $this->setVar('category_weight', Xmf\Request::getInt('category_weight', 0));
+            $this->setVar('category_weight', Request::getInt('category_weight', 0));
             if ($categoryHandler->insert($this)) {
                 // permissions
                 if ($this->get_new_enreg() == 0) {
@@ -109,21 +111,21 @@ class xmnews_category extends XoopsObject
                 } else {
                     $perm_id = $this->get_new_enreg();
                 }
-                $permHelper = new \Xmf\Module\Helper\Permission();
+                $permHelper = new Helper\Permission();
                 // permission view abstract
-                $groups_view = \Xmf\Request::getArray('xmnews_viewabstract_perms', [], 'POST');
+                $groups_view = Request::getArray('xmnews_viewabstract_perms', [], 'POST');
                 $permHelper->savePermissionForItem('xmnews_viewabstract', $perm_id, $groups_view);
 				// permission viewnews
-                $groups_view = \Xmf\Request::getArray('xmnews_viewnews_perms', [], 'POST');
+                $groups_view = Request::getArray('xmnews_viewnews_perms', [], 'POST');
                 $permHelper->savePermissionForItem('xmnews_viewnews', $perm_id, $groups_view);
                 // permission submit
-                $groups_submit = \Xmf\Request::getArray('xmnews_submit_perms', [], 'POST');
+                $groups_submit = Request::getArray('xmnews_submit_perms', [], 'POST');
                 $permHelper->savePermissionForItem('xmnews_submit', $perm_id, $groups_submit);
 				// permission edit and approve
-                $groups_submit = \Xmf\Request::getArray('xmnews_editapprove_perms', [], 'POST');
+                $groups_submit = Request::getArray('xmnews_editapprove_perms', [], 'POST');
                 $permHelper->savePermissionForItem('xmnews_editapprove', $perm_id, $groups_submit);
 				// permission delete
-                $groups_submit = \Xmf\Request::getArray('xmnews_delete_perms', [], 'POST');
+                $groups_submit = Request::getArray('xmnews_delete_perms', [], 'POST');
                 $permHelper->savePermissionForItem('xmnews_delete', $perm_id, $groups_submit);
 				redirect_header($action, 2, _MA_XMNEWS_REDIRECT_SAVE);
             } else {
@@ -140,7 +142,7 @@ class xmnews_category extends XoopsObject
      */
     public function getForm($action = false)
     {
-        $helper      = \Xmf\Module\Helper::getHelper('xmnews');
+        $helper      = Helper::getHelper('xmnews');
         if ($action === false) {
             $action = $_SERVER['REQUEST_URI'];
         }
@@ -241,7 +243,7 @@ class xmnews_category extends XoopsObject
         $form->addElement($form_status);
 
         // permission
-        $permHelper = new \Xmf\Module\Helper\Permission();
+        $permHelper = new Helper\Permission();
         $form->addElement($permHelper->getGroupSelectFormForItem('xmnews_viewabstract', $this->getVar('category_id'), _MA_XMNEWS_PERMISSION_VIEW_ABSTRACT_THIS, 'xmnews_viewabstract_perms', true));
         $form->addElement($permHelper->getGroupSelectFormForItem('xmnews_viewnews', $this->getVar('category_id'), _MA_XMNEWS_PERMISSION_VIEW_NEWS_THIS, 'xmnews_viewnews_perms', true));
         $form->addElement($permHelper->getGroupSelectFormForItem('xmnews_submit', $this->getVar('category_id'), _MA_XMNEWS_PERMISSION_SUBMIT_THIS, 'xmnews_submit_perms', true));

@@ -16,6 +16,8 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
+use Xmf\Request;
+use Xmf\Module\Helper;
 
 defined('XOOPS_ROOT_PATH') || exit('Restricted access.');
 
@@ -103,7 +105,7 @@ class xmnews_news extends XoopsObject
     public function getForm($category_id = 0, $action = false, $clone = false)
     {
         global $xoopsUser;
-        $helper      = \Xmf\Module\Helper::getHelper('xmnews');
+        $helper      = Helper::getHelper('xmnews');
         if ($action === false) {
             $action = $_SERVER['REQUEST_URI'];
         }
@@ -270,7 +272,7 @@ class xmnews_news extends XoopsObject
 			}
 		}
         // permission edit and approve submitted news		
-        $permHelper = new \Xmf\Module\Helper\Permission();
+        $permHelper = new Helper\Permission();
 		$permission = $permHelper->checkPermission('xmnews_editapprove', $category_id);
         if ($permission == true || $helper->isUserAdmin() == true){
             // status
@@ -304,7 +306,7 @@ class xmnews_news extends XoopsObject
             $action = $_SERVER['REQUEST_URI'];
         }
         include __DIR__ . '/../include/common.php';
-        $helper = \Xmf\Module\Helper::getHelper('xmnews');
+        $helper = Helper::getHelper('xmnews');
         $error_message = '';
 		
         //logo
@@ -323,51 +325,51 @@ class xmnews_news extends XoopsObject
                 $error_message .= $uploader_news_img->getErrors();
             }
         } else {
-            $this->setVar('news_logo', Xmf\Request::getString('news_logo', ''));
+            $this->setVar('news_logo', Request::getString('news_logo', ''));
         }
-        $this->setVar('news_title', Xmf\Request::getString('news_title', ''));
-        $this->setVar('news_description', Xmf\Request::getText('news_description', ''));
-        $this->setVar('news_news', Xmf\Request::getText('news_news', ''));
-        $this->setVar('news_mkeyword', Xmf\Request::getString('news_mkeyword', ''));
-        $this->setVar('news_douser', Xmf\Request::getInt('news_douser', 1));
-        $this->setVar('news_dodate', Xmf\Request::getInt('news_dodate', 1));
-        $this->setVar('news_domdate', Xmf\Request::getInt('news_domdate', 1));
-        $this->setVar('news_dohits', Xmf\Request::getInt('news_dohits', 1));
-        $this->setVar('news_dorating', Xmf\Request::getInt('news_dorating', 1));
-        $this->setVar('news_docomment', Xmf\Request::getInt('news_docomment', 1));		
-        $news_cid = Xmf\Request::getInt('news_cid', 0);
+        $this->setVar('news_title', Request::getString('news_title', ''));
+        $this->setVar('news_description', Request::getText('news_description', ''));
+        $this->setVar('news_news', Request::getText('news_news', ''));
+        $this->setVar('news_mkeyword',Request::getString('news_mkeyword', ''));
+        $this->setVar('news_douser', Request::getInt('news_douser', 1));
+        $this->setVar('news_dodate', Request::getInt('news_dodate', 1));
+        $this->setVar('news_domdate', Request::getInt('news_domdate', 1));
+        $this->setVar('news_dohits', Request::getInt('news_dohits', 1));
+        $this->setVar('news_dorating', Request::getInt('news_dorating', 1));
+        $this->setVar('news_docomment', Request::getInt('news_docomment', 1));		
+        $news_cid = Request::getInt('news_cid', 0);
         $this->setVar('news_cid', $news_cid);
 		if (isset($_POST['news_userid'])) {
-            $this->setVar('news_userid', Xmf\Request::getInt('news_userid', 0));
+            $this->setVar('news_userid', Request::getInt('news_userid', 0));
         } else {
             $this->setVar('news_userid', !empty($xoopsUser) ? $xoopsUser->getVar('uid') : 0);
         }
 		if (isset($_POST['news_tempdate'])) {
-			$news_date = Xmf\Request::getArray('news_tempdate', []);
+			$news_date = Request::getArray('news_tempdate', []);
 			$this->setVar('news_date', strtotime($news_date['date']) + $news_date['time']);
         }		
 		if (isset($_POST['news_date'])) {
 			if ($_POST['date_update'] == 'Y'){
-				$news_date = Xmf\Request::getArray('news_date', []);
+				$news_date = Request::getArray('news_date', []);
 				$this->setVar('news_date', strtotime($news_date['date']) + $news_date['time']);
 			}
 			$this->setVar('news_mdate', time());
         }
 		if (isset($_POST['news_mdate'])) {
 			if ($_POST['mdate_update'] == 'Y'){
-				$this->setVar('news_mdate', strtotime(Xmf\Request::getString('news_mdate', '')));
+				$this->setVar('news_mdate', strtotime(Request::getString('news_mdate', '')));
 			}
 			if ($_POST['mdate_update'] == 'R'){
 				$this->setVar('news_mdate', 0);
 			}
         }
 		// permission edit and approve submitted news		
-        $permHelper = new \Xmf\Module\Helper\Permission();
+        $permHelper = new Helper\Permission();
 		$permission = $permHelper->checkPermission('xmnews_editapprove', $news_cid);
         if ($permission == false){
             $this->setVar('news_status', 2);
         } else {
-            $this->setVar('news_status', Xmf\Request::getInt('news_status', 1));
+            $this->setVar('news_status', Request::getInt('news_status', 1));
         }      
 		// Captcha
         if ($helper->getConfig('general_captcha', 0) == 1) {
@@ -392,7 +394,7 @@ class xmnews_news extends XoopsObject
 				//Notification global: new_news, category: new_news, news: approve_news
 				$category = $categoryHandler->get($news_cid);
 				$tags = [];
-				$tags['NEWS_TITLE'] = Xmf\Request::getString('news_title', '');
+				$tags['NEWS_TITLE'] = Request::getString('news_title', '');
 				$tags['NEWS_URL'] = XOOPS_URL . '/modules/xmnews/article.php?news_id=' . $news_id;
 				$tags['CATEGORY_NAME'] = $category->getVar('category_name');
 				$tags['CATEGORY_URL'] =  XOOPS_URL . '/modules/xmnews/index.php?news_cid=' . $news_cid;
@@ -410,7 +412,7 @@ class xmnews_news extends XoopsObject
 					$notificationHandler->triggerEvent('news', $news_id, 'modified_news', $tags);
 				}
 				// Notification news: approve_news
-				if (Xmf\Request::getInt('news_notify', 0) == 1){
+				if (Request::getInt('news_notify', 0) == 1){
 					$notificationHandler->subscribe('news', $news_id, 'approve_news', XOOPS_NOTIFICATION_MODE_SENDONCETHENDELETE);
 				}
 				
@@ -454,7 +456,7 @@ class xmnews_news extends XoopsObject
 				}
 			}
 			//Del Notification and comment
-			$helper = \Xmf\Module\Helper::getHelper('xmnews');
+			$helper = Helper::getHelper('xmnews');
 			$moduleid = $helper->getModule()->getVar('mid');
 			xoops_notification_deletebyitem($moduleid, 'news', $news_id);
 			xoops_comment_delete($moduleid, $news_id);

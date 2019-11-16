@@ -49,7 +49,5 @@ foreach (array_keys( $folder) as $i) {
 }
 $moduleAdmin->displayIndex();
 
-
-
 echo XmnewsUtility::getServerStats();
 require __DIR__ . '/admin_footer.php';

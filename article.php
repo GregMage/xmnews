@@ -18,6 +18,7 @@
  */
 
 use \Xmf\Request;
+use \Xmf\Metagen;
 
 include_once __DIR__ . '/header.php';
 $GLOBALS['xoopsOption']['template_main'] = 'xmnews_article.tpl';
@@ -131,12 +132,12 @@ if (xoops_isActiveModule('xmdoc') && $helper->getConfig('general_xmdoc', 0) == 1
 }
 //SEO
 // pagetitle
-$xoopsTpl->assign('xoops_pagetitle', \Xmf\Metagen::generateSeoTitle($news->getVar('news_title') . '-' . $xoopsModule->name()));
+$xoopsTpl->assign('xoops_pagetitle', Metagen::generateSeoTitle($news->getVar('news_title') . '-' . $xoopsModule->name()));
 //description
-$xoTheme->addMeta('meta', 'description', \Xmf\Metagen::generateDescription($news->getVar('news_description'), 30));
+$xoTheme->addMeta('meta', 'description', Metagen::generateDescription($news->getVar('news_description'), 30));
 //keywords
 if ('' == $news->getVar('news_mkeyword')) {
-    $keywords = \Xmf\Metagen::generateKeywords($news->getVar('news_news'), 10);    
+    $keywords = Metagen::generateKeywords($news->getVar('news_news'), 10);    
     $xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
 } else {
     $xoTheme->addMeta('meta', 'keywords', $news->getVar('news_mkeyword'));
