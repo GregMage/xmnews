@@ -36,6 +36,8 @@ class xmnews_news extends XoopsObject
         $this->initVar('news_title', XOBJ_DTYPE_TXTBOX, null);        
         $this->initVar('news_description', XOBJ_DTYPE_TXTAREA);
         $this->initVar('news_news', XOBJ_DTYPE_TXTAREA);
+		// use html
+        $this->initVar('dohtml', XOBJ_DTYPE_INT, 1, false);
         $this->initVar('news_mkeyword', XOBJ_DTYPE_TXTAREA);
         $this->initVar('news_logo', XOBJ_DTYPE_TXTBOX, null);
 		$this->initVar('news_userid', XOBJ_DTYPE_INT, 0);
