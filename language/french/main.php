@@ -120,8 +120,10 @@ define('_MA_XMNEWS_NEWS_WFV', 'En attente de validation');
 define('_MA_XMNEWS_BLOCKS_DATE', 'Date');
 
 // permission
-define('_MA_XMNEWS_PERMISSION_VIEW', 'Autorisation de voir');
-define('_MA_XMNEWS_PERMISSION_VIEW_DSC', 'Choisissez les groupes qui peuvent voir les news dans ces catégories');
+define('_MA_XMNEWS_PERMISSION_VIEW_ABSTRACT', 'Autorisation de voir uniquement le résumé d\'une news');
+define('_MA_XMNEWS_PERMISSION_VIEW_ABSTRACT_DSC', 'Choisissez les groupes qui peuvent voir uniquement le résumé d\'une news dans ces catégories');
+define('_MA_XMNEWS_PERMISSION_VIEW_NEWS', 'Autorisation de voir une news complète');
+define('_MA_XMNEWS_PERMISSION_VIEW_NEWS_DSC', 'Choisissez les groupes qui peuvent voir une news complète dans ces catégories');
 define('_MA_XMNEWS_PERMISSION_VIEW_THIS', 'Sélectionner les groupes pouvant voir dans ces catégorie');
 define('_MA_XMNEWS_PERMISSION_SUBMIT', 'Autorisation de soumettre');
 define('_MA_XMNEWS_PERMISSION_SUBMIT_DSC', 'Sélectionner les groupes pouvant soumettre des news dans ces catégories');

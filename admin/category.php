@@ -148,7 +148,8 @@ switch ($op) {
                     }
                     // Del permissions
                     $permHelper = new \Xmf\Module\Helper\Permission();
-                    $permHelper->deletePermissionForItem('xmnews_view', $category_id);
+                    $permHelper->deletePermissionForItem('xmnews_viewabstract', $category_id);
+                    $permHelper->deletePermissionForItem('xmnews_viewnews', $category_id);
                     $permHelper->deletePermissionForItem('xmnews_submit', $category_id);
                     $permHelper->deletePermissionForItem('xmnews_editapprove', $category_id);
                     $permHelper->deletePermissionForItem('xmnews_delete', $category_id);

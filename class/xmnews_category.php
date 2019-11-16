@@ -110,9 +110,12 @@ class xmnews_category extends XoopsObject
                     $perm_id = $this->get_new_enreg();
                 }
                 $permHelper = new \Xmf\Module\Helper\Permission();
-                // permission view
-                $groups_view = \Xmf\Request::getArray('xmnews_view_perms', [], 'POST');
-                $permHelper->savePermissionForItem('xmnews_view', $perm_id, $groups_view);
+                // permission view abstract
+                $groups_view = \Xmf\Request::getArray('xmnews_viewabstract_perms', [], 'POST');
+                $permHelper->savePermissionForItem('xmnews_viewabstract', $perm_id, $groups_view);
+				// permission viewnews
+                $groups_view = \Xmf\Request::getArray('xmnews_viewnews_perms', [], 'POST');
+                $permHelper->savePermissionForItem('xmnews_viewnews', $perm_id, $groups_view);
                 // permission submit
                 $groups_submit = \Xmf\Request::getArray('xmnews_submit_perms', [], 'POST');
                 $permHelper->savePermissionForItem('xmnews_submit', $perm_id, $groups_submit);
@@ -239,7 +242,8 @@ class xmnews_category extends XoopsObject
 
         // permission
         $permHelper = new \Xmf\Module\Helper\Permission();
-        $form->addElement($permHelper->getGroupSelectFormForItem('xmnews_view', $this->getVar('category_id'), _MA_XMNEWS_PERMISSION_VIEW_THIS, 'xmnews_view_perms', true));
+        $form->addElement($permHelper->getGroupSelectFormForItem('xmnews_viewabstract', $this->getVar('category_id'), _MA_XMNEWS_PERMISSION_VIEW_THIS, 'xmnews_viewabstract_perms', true));
+        $form->addElement($permHelper->getGroupSelectFormForItem('xmnews_viewnews', $this->getVar('category_id'), _MA_XMNEWS_PERMISSION_VIEW_THIS, 'xmnews_viewnews_perms', true));
         $form->addElement($permHelper->getGroupSelectFormForItem('xmnews_submit', $this->getVar('category_id'), _MA_XMNEWS_PERMISSION_SUBMIT_THIS, 'xmnews_submit_perms', true));
         $form->addElement($permHelper->getGroupSelectFormForItem('xmnews_editapprove', $this->getVar('category_id'), _MA_XMNEWS_PERMISSION_EDITAPPROVE_THIS, 'xmnews_editapprove_perms', true));
         $form->addElement($permHelper->getGroupSelectFormForItem('xmnews_delete', $this->getVar('category_id'), _MA_XMNEWS_PERMISSION_DELETE_THIS, 'xmnews_delete_perms', true));

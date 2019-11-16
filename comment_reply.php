@@ -25,7 +25,7 @@ if ($com_itemid > 0) {
 	$news = $newsHandler->get($com_itemid);
     // permission to view
 	$permHelper = new \Xmf\Module\Helper\Permission();
-	$permHelper->checkPermissionRedirect('xmnews_view', $news->getVar('news_cid'), 'index.php', 2, _NOPERM);
+	$permHelper->checkPermissionRedirect('xmnews_viewnews', $news->getVar('news_cid'), 'index.php', 2, _NOPERM);
     $gpermHandler = xoops_getHandler('groupperm');
         
     $com_replytitle = $news->getVar('news_title');

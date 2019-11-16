@@ -45,7 +45,7 @@ if (empty($category)) {
     redirect_header('index.php', 2, _MA_XMNEWS_ERROR_NOCATEGORY);
 }
 // permission to view
-$permHelper->checkPermissionRedirect('xmnews_view', $category_id, 'index.php', 2, _NOPERM);
+$permHelper->checkPermissionRedirect('xmnews_viewnews', $category_id, 'index.php', 2, _NOPERM);
 
 // permission edit and approve submitted news
 $permission_editapprove = $permHelper->checkPermission('xmnews_editapprove', $category_id);

@@ -27,13 +27,13 @@ $moduleAdmin->displayNavigation('permission.php');
 
 // Get permission
 $permission = Request::getInt('permission', 1);
-$tab_perm   = [1 => _MA_XMNEWS_PERMISSION_VIEW, 2 => _MA_XMNEWS_PERMISSION_SUBMIT, 3 => _MA_XMNEWS_PERMISSION_EDITAPPROVE, 4 => _MA_XMNEWS_PERMISSION_DELETE];
+$tab_perm   = [1 => _MA_XMNEWS_PERMISSION_VIEW_ABSTRACT, 2 => _MA_XMNEWS_PERMISSION_VIEW_NEWS, 3 => _MA_XMNEWS_PERMISSION_SUBMIT, 4 => _MA_XMNEWS_PERMISSION_EDITAPPROVE, 5 => _MA_XMNEWS_PERMISSION_DELETE];
 
 // Category
 $criteria = new CriteriaCompo();
 $category_arr = $categoryHandler->getall($criteria);
 if (count($category_arr) > 0) {
-    $tab_perm = [1 => _MA_XMNEWS_PERMISSION_VIEW, 2 => _MA_XMNEWS_PERMISSION_SUBMIT, 3 => _MA_XMNEWS_PERMISSION_EDITAPPROVE, 4 => _MA_XMNEWS_PERMISSION_DELETE];
+    $tab_perm = [1 => _MA_XMNEWS_PERMISSION_VIEW_ABSTRACT, 2 => _MA_XMNEWS_PERMISSION_VIEW_NEWS, 3 => _MA_XMNEWS_PERMISSION_SUBMIT, 4 => _MA_XMNEWS_PERMISSION_EDITAPPROVE, 5 => _MA_XMNEWS_PERMISSION_DELETE];
 } else {
     /*$tab_perm = [5 => _MA_XMNEWS_PERMISSION_OTHER];
     $permission = 5;*/
@@ -45,16 +45,25 @@ foreach (array_keys($tab_perm) as $i) {
 $xoopsTpl->assign('permission_options', $permission_options);
 
 switch ($permission) {
-    case 1:    // View permission
-        $formTitle = _MA_XMNEWS_PERMISSION_VIEW;
-        $permissionName = 'xmnews_view';
-        $permissionDescription = _MA_XMNEWS_PERMISSION_VIEW_DSC;
+    case 1:    // View permission abstract
+        $formTitle = _MA_XMNEWS_PERMISSION_VIEW_ABSTRACT;
+        $permissionName = 'xmnews_viewabstract';
+        $permissionDescription = _MA_XMNEWS_PERMISSION_VIEW_ABSTRACT_DSC;
+        foreach (array_keys($category_arr) as $i) {
+            $global_perms_array[$i] = $category_arr[$i]->getVar('category_name');
+        }
+        break;
+		
+	case 2:    // View permission news
+        $formTitle = _MA_XMNEWS_PERMISSION_VIEW_NEWS;
+        $permissionName = 'xmnews_viewnews';
+        $permissionDescription = _MA_XMNEWS_PERMISSION_VIEW_NEWS_DSC;
         foreach (array_keys($category_arr) as $i) {
             $global_perms_array[$i] = $category_arr[$i]->getVar('category_name');
         }
         break;
 
-    case 2:    // Submit permission
+    case 3:    // Submit permission
         $formTitle = _MA_XMNEWS_PERMISSION_SUBMIT;
         $permissionName = 'xmnews_submit';
         $permissionDescription = _MA_XMNEWS_PERMISSION_SUBMIT_DSC;
@@ -63,7 +72,7 @@ switch ($permission) {
         }
         break;
 
-	case 3:    // Edit/appove permission
+	case 4:    // Edit/appove permission
         $formTitle = _MA_XMNEWS_PERMISSION_EDITAPPROVE;
         $permissionName = 'xmnews_editapprove';
         $permissionDescription = _MA_XMNEWS_PERMISSION_EDITAPPROVE_DSC;
@@ -72,7 +81,7 @@ switch ($permission) {
         }
         break;
 
-	case 4:    // Delete permission
+	case 5:    // Delete permission
         $formTitle = _MA_XMNEWS_PERMISSION_DELETE;
         $permissionName = 'xmnews_delete';
         $permissionDescription = _MA_XMNEWS_PERMISSION_DELETE_DSC;

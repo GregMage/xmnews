@@ -25,9 +25,9 @@ include_once XOOPS_ROOT_PATH . '/header.php';
 
 $xoTheme->addStylesheet(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname', 'n') . '/assets/css/styles.css', null);
 
-// Get Permission to view
-$viewPermissionCat = XmnewsUtility::getPermissionCat('xmarticle_view');
-
+// Get Permission to view abstract
+$viewPermissionCat = XmnewsUtility::getPermissionCat('xmnews_viewabstract');
+var_dump($viewPermissionCat);
 $keywords = '';
 // Get start pager
 $start = Request::getInt('start', 0);
@@ -55,6 +55,7 @@ $criteria->setStart($start);
 $criteria->setLimit($nb_limit);
 $criteria->add(new Criteria('news_status', 1));
 $criteria->add(new Criteria('news_date', time(),'<='));
+$criteria->add(new Criteria('news_cid', '(' . implode(',', $viewPermissionCat) . ')', 'IN'));
 if ($news_cid != 0){
 	$criteria->add(new Criteria('news_cid', $news_cid));
 	$xoopsTpl->assign('category_name', $category_arr[$news_cid]->getVar('category_name'));

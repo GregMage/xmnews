@@ -27,7 +27,7 @@ class XmnewsUtility
      * @param string   $permtype	Type de permission
      * @return array   $cat		    Liste des catégorie qui correspondent à la permission
      */
-	public static function getPermissionCat($permtype = 'xmnews_view')
+	public static function getPermissionCat($permtype = 'xmnews_viewnews')
     {
         global $xoopsUser;
         $cat = array();

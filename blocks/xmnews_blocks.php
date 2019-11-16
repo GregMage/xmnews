@@ -24,8 +24,8 @@ function block_xmnews_show($options) {
 	$helper = Helper::getHelper('xmnews');
 	$helper->loadLanguage('main');
 	
-	// Get Permission to view
-	$viewPermissionCat = XmnewsUtility::getPermissionCat('xmnews_view');
+	// Get Permission to view abstract
+	$viewPermissionCat = XmnewsUtility::getPermissionCat('xmnews_viewabstract');
 	
 	$block = array();
 	
