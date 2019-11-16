@@ -201,6 +201,15 @@ $modversion['config'][] = [
 ];
 
 $modversion['config'][] = [
+    'name'        => 'general_redirect',
+    'title'       => '_MI_XMNEWS_PREF_REDIRECT',
+    'description' => '_MI_XMNEWS_PREF_REDIRECT_DESC',
+    'formtype'    => 'textbox',
+    'valuetype'   => 'string',
+    'default'     => ''
+];
+
+$modversion['config'][] = [
     'name'        => 'break',
     'title'       => '_MI_XMNEWS_PREF_HEAD_ADMIN',
     'description' => '',

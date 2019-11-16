@@ -53,6 +53,8 @@ define('_MI_XMNEWS_PREF_COUNTERTIME_DESC', 'Mettre "0" si vous ne voulez de limi
 define('_MI_XMNEWS_PREF_MAXUPLOADSIZE', 'Taille maximale des fichiers uploadé');
 define('_MI_XMNEWS_PREF_MAXUPLOADSIZE_DESC', 'Cela concerne les logos uploadés pour les catégories et les actualités');
 define('_MI_XMNEWS_PREF_MAXUPLOADSIZE_MBYTES', 'Mb');
+define('_MI_XMNEWS_PREF_REDIRECT', 'Url de redirection si le visiteur n\'a pas accès à une news');
+define('_MI_XMNEWS_PREF_REDIRECT_DESC', 'Vide, la redirection par défaut est utilisée (index.php). Cette option peut être utile pour rediriger le visiteur sur une page de souscription d\'un compte premium pour obtenir un accès total à la news désirée');
 define('_MI_XMNEWS_PREF_HEAD_ADMIN', '<span style="font-size: large;  font-weight: bold;">Administration</span>');
 define('_MI_XMNEWS_PREF_EDITOR', 'Éditeur de texte');
 define('_MI_XMNEWS_PREF_ITEMPERPAGE', 'Nombre d\'éléments par page dans la vue d\'administration');

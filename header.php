@@ -33,3 +33,4 @@ $helper->loadLanguage('main');
 
 // Config
 $nb_limit = $helper->getConfig('general_perpage', 15);
+$general_redirect = $helper->getConfig('general_redirect', '');
