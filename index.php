@@ -28,7 +28,6 @@ $xoTheme->addStylesheet(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname'
 
 // Get Permission to view abstract
 $viewPermissionCat = XmnewsUtility::getPermissionCat('xmnews_viewabstract');
-var_dump($viewPermissionCat);
 $keywords = '';
 // Get start pager
 $start = Request::getInt('start', 0);
