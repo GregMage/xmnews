@@ -16,7 +16,7 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-
+use Xmf\Module\Helper;
 /**
  * Class XmnewsUtility
  */
@@ -31,7 +31,7 @@ class XmnewsUtility
     {
         global $xoopsUser;
         $cat = array();
-        $helper = Xmf\Module\Helper::getHelper('xmnews');
+        $helper = Helper::getHelper('xmnews');
         $moduleHandler = $helper->getModule();
         $groups = is_object($xoopsUser) ? $xoopsUser->getGroups() : XOOPS_GROUP_ANONYMOUS;
         $gpermHandler = xoops_getHandler('groupperm');

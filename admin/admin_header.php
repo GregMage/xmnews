@@ -34,5 +34,5 @@ $helper = Helper::getHelper(basename(dirname(__DIR__)));
 $helper->loadLanguage('main');
 
 // Config
-$nb_limit  = $helper->getConfig('admin_perpage', 15);
+$nb_limit = $helper->getConfig('admin_perpage', 15);
 xoops_cp_header();
