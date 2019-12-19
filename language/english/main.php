@@ -41,6 +41,7 @@ define('_MA_XMNEWS_ERROR_WEIGHT', 'Weight must be a number');
 // Info message
 define('_MA_XMNEWS_INFO_NEWSDISABLE', 'The news is disabled, you see it because you are allowed to change its status');
 define('_MA_XMNEWS_INFO_NEWSWAITING', 'The news is pending validation, you see it because you are allowed to change its status');
+define('_MA_XMNEWS_INFO_NEWSNOTPUBLISHED', 'The news is not yet published (the publication date is higher than the current date), you see it because you are authorized to modify its publication date');
 
 // Shared
 define('_MA_XMNEWS_ACTION', 'Action');

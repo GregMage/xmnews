@@ -79,6 +79,9 @@ $xoopsTpl->assign('category_name', $category->getVar('category_name'));
 $xoopsTpl->assign('category_id', $category_id);
 
 // News
+if ($news->getVar('news_date') > time()) {
+	$xoopsTpl->assign('warning_date', true);
+}
 $xoopsTpl->assign('news_id', $news_id);
 $xoopsTpl->assign('title', $news->getVar('news_title'));
 $xoopsTpl->assign('news', $news->getVar('news_news'));

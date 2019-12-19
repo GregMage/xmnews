@@ -41,6 +41,7 @@ define('_MA_XMNEWS_ERROR_WEIGHT', 'Le poids doit être un nombre');
 // Info message
 define('_MA_XMNEWS_INFO_NEWSDISABLE', 'La news est désactivée, vous la voyez car vous êtes autorisé à modifier son statut.');
 define('_MA_XMNEWS_INFO_NEWSWAITING', 'La news est en attente de validation, vous la voyez car vous êtes autorisé à modifier son statut');
+define('_MA_XMNEWS_INFO_NEWSNOTPUBLISHED', 'La news est n\'est pas encore publiée (la date de publication est plus élevée que la date actuelle), vous la voyez car vous êtes autorisé à modifier sa date de publiation');
 
 // Shared
 define('_MA_XMNEWS_ACTION', 'Action');

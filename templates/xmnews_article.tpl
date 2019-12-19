@@ -5,14 +5,19 @@
         <li class="active"><{$title}></li>
     </ol>
 	<{if $status == 2}>
-	<div class="alert alert-warning" role="alert">
-		<{$smarty.const._MA_XMNEWS_INFO_NEWSWAITING}>
-	</div>
+		<div class="alert alert-warning" role="alert">
+			<{$smarty.const._MA_XMNEWS_INFO_NEWSWAITING}>
+		</div>
 	<{/if}>
 	<{if $status == 0}>
-	<div class="alert alert-danger" role="alert">
-		<{$smarty.const._MA_XMNEWS_INFO_NEWSDISABLE}>
-	</div>
+		<div class="alert alert-danger" role="alert">
+			<{$smarty.const._MA_XMNEWS_INFO_NEWSDISABLE}>
+		</div>
+	<{/if}>
+	<{if $warning_date}>
+		<div class="alert alert-warning" role="alert">
+			<{$smarty.const._MA_XMNEWS_INFO_NEWSNOTPUBLISHED}>
+		</div>
 	<{/if}>
     <div class="media">
         <div class="media-left">
