@@ -46,16 +46,21 @@
 					</div>
 					<div class="media-body">
 						<h2 class="media-heading"><{$news.title}></h2>
-						
+						<{if $news.douser == 1}>
 						<div class="xmnews-index-info"><span class="glyphicon glyphicon-user" title="<{$smarty.const._MA_XMNEWS_NEWS_PUBLISHEDBY}>"></span>
 							<{$smarty.const._MA_XMNEWS_NEWS_PUBLISHEDBY}> <{$news.author}>
 						</div>
+						<{/if}>
+						<{if $news.dodate == 1}>
 						<div class="xmnews-index-info"><span class="glyphicon glyphicon-calendar" title="<{$smarty.const._MA_XMNEWS_NEWS_DATE}>"></span>
 							<{$smarty.const._MA_XMNEWS_NEWS_ON}> <{$news.date}>
 						</div>
+						<{/if}>
+						<{if $news.dohits == 1}>
 						<div class="xmnews-index-info"><span class="glyphicon glyphicon-repeat" title="<{$smarty.const._MA_XMNEWS_NEWS_READING}>"></span>
 							<{$smarty.const._MA_XMNEWS_NEWS_READING}> <{$news.counter}>
 						</div>
+						<{/if}>
 					</div>
 					<{$news.description}>
 				</div>		

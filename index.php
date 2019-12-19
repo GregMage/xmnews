@@ -84,6 +84,9 @@ if ($news_count > 0) {
 		$news['date']       	 = formatTimestamp($news_arr[$i]->getVar('news_date'), 'm');
 		$news['description']     = $news_arr[$i]->getVar('news_description');
 		$news['counter']         = $news_arr[$i]->getVar('news_counter');
+		$news['douser']          = $news_arr[$i]->getVar('news_douser');
+		$news['dodate']          = $news_arr[$i]->getVar('news_dodate');
+		$news['dohits']          = $news_arr[$i]->getVar('news_dohits');
 		$news_img                = $news_arr[$i]->getVar('news_logo');
 		if ($news_img == ''){
 			$news['logo']        = '';
