@@ -24,8 +24,6 @@ include_once __DIR__ . '/include/common.php';
 
 xoops_load('utility', basename(__DIR__));
 
-
-
 $helper     = Helper::getHelper('xmnews');
 $permHelper = new Helper\Permission();
 
