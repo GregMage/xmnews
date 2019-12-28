@@ -36,6 +36,7 @@ $xoopsTpl->assign('start', $start);
 $news_cid = Request::getInt('news_cid', 0);
 $xoopsTpl->assign('news_cid', $news_cid);
 $criteria = new CriteriaCompo();
+$criteria->add(new Criteria('category_status', 1));
 $criteria->setSort('category_weight ASC, category_name');
 $criteria->setOrder('ASC');
 $category_arr = $categoryHandler->getall($criteria);		
@@ -45,8 +46,7 @@ if (count($category_arr) > 0) {
 		$news_cid_options .= '<option value="' . $i . '"' . ($news_cid == $i ? ' selected="selected"' : '') . '>' . $category_arr[$i]->getVar('category_name') . '</option>';
 	}
 	$xoopsTpl->assign('news_cid_options', $news_cid_options);
-}	
-
+}
 // Criteria
 $criteria = new CriteriaCompo();
 $criteria->setSort('news_title');
@@ -57,6 +57,14 @@ $criteria->add(new Criteria('news_status', 1));
 $criteria->add(new Criteria('news_date', time(),'<='));
 $criteria->add(new Criteria('news_cid', '(' . implode(',', $viewPermissionCat) . ')', 'IN'));
 if ($news_cid != 0){
+	// vérification si la categorie est activée
+	$check_category = $categoryHandler->get($news_cid);
+	if (empty($check_category)) {
+		redirect_header('index.php', 2, _MA_XMNEWS_ERROR_NOCATEGORY);
+	}
+	if ($check_category->getVar('category_status') != 1){
+		redirect_header('index.php', 2, _MA_XMNEWS_ERROR_NACTIVE);
+	}	
 	$criteria->add(new Criteria('news_cid', $news_cid));
 	$xoopsTpl->assign('category_name', $category_arr[$news_cid]->getVar('category_name'));
 	$category_img  = $category_arr[$news_cid]->getVar('category_logo');
