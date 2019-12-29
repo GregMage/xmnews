@@ -19,4 +19,4 @@
 // index.php
 define('_MB_XMNEWS_ALLCATEGORY', 'Toutes les catégories');
 define('_MB_XMNEWS_CATEGORY', 'Afficher les catégories:');
-define('_MB_XMNEWS_NBNEWS', 'Nombre de news à afficher');
+define('_MB_XMNEWS_NBNEWS', 'Nombre d\'articles à afficher');

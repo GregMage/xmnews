@@ -17,30 +17,30 @@
  * @author          Mage Gregory (AKA Mage)
  */
 // The name of this module
-define('_MI_XMNEWS_NAME', 'News');
-define('_MI_XMNEWS_DESC', 'Gestion de news');
+define('_MI_XMNEWS_NAME', 'Article');
+define('_MI_XMNEWS_DESC', 'Gestion des article');
 
 // Menu
 define('_MI_XMNEWS_MENU_HOME', 'Index');
 define('_MI_XMNEWS_MENU_CATEGORY', 'Categories');
-define('_MI_XMNEWS_MENU_NEWS', 'News');
+define('_MI_XMNEWS_MENU_NEWS', 'Articles');
 define('_MI_XMNEWS_MENU_PERMISSION', 'Autorisations');
 define('_MI_XMNEWS_MENU_ABOUT', 'À propos');
 
 // Sub menu
-define('_MI_XMNEWS_SUB_ADD', 'Soumettre une news');
+define('_MI_XMNEWS_SUB_ADD', 'Soumettre un article');
 
 // Block
-define('_MI_XMNEWS_BLOCK_DATE', 'News récentes');
-define('_MI_XMNEWS_BLOCK_DATE_DESC', 'Afficher les news récentes');
-define('_MI_XMNEWS_BLOCK_HITS', 'Top News (lectures)');
-define('_MI_XMNEWS_BLOCK_HITS_DESC', 'Afficher les top news (lectures)');
-define('_MI_XMNEWS_BLOCK_RATING', 'News les mieux notées');
-define('_MI_XMNEWS_BLOCK_RATING_DESC', 'Afficher les news les mieux notées');
-define('_MI_XMNEWS_BLOCK_RANDOM', 'News aléatoire');
-define('_MI_XMNEWS_BLOCK_RANDOM_DESC', 'Afficher les news aléatoirement');
-define('_MI_XMNEWS_BLOCK_WAITING', 'News en attente de validation');
-define('_MI_XMNEWS_BLOCK_WAITING_DESC', 'Afficher les news en attente de validation');
+define('_MI_XMNEWS_BLOCK_DATE', 'Articles récentes');
+define('_MI_XMNEWS_BLOCK_DATE_DESC', 'Afficher les articles récentes');
+define('_MI_XMNEWS_BLOCK_HITS', 'Top articles (lectures)');
+define('_MI_XMNEWS_BLOCK_HITS_DESC', 'Afficher les top articles (lectures)');
+define('_MI_XMNEWS_BLOCK_RATING', 'Articles les mieux notées');
+define('_MI_XMNEWS_BLOCK_RATING_DESC', 'Afficher les articles les mieux notées');
+define('_MI_XMNEWS_BLOCK_RANDOM', 'Articles aléatoire');
+define('_MI_XMNEWS_BLOCK_RANDOM_DESC', 'Afficher les articles aléatoirement');
+define('_MI_XMNEWS_BLOCK_WAITING', 'Articles en attente de validation');
+define('_MI_XMNEWS_BLOCK_WAITING_DESC', 'Afficher les articles en attente de validation');
 
 // Pref
 define('_MI_XMNEWS_PREF_HEAD_GENERAL', '<span style="font-size: large;  font-weight: bold;">Général</span>');
@@ -48,40 +48,40 @@ define('_MI_XMNEWS_PREF_GENERALITEMPERPAGE', 'Nombre d\'éléments par page dans
 define('_MI_XMNEWS_PREF_GENERALXMDOC', 'Utiliser le module xmdoc pour ajouter un document');
 define('_MI_XMNEWS_PREF_CAPTCHA', 'Utiliser Captcha?');
 define('_MI_XMNEWS_PREF_CAPTCHA_DESC', 'Sélectionnez Oui pour utiliser Captcha dans le formulaire de soumission.');
-define('_MI_XMNEWS_PREF_COUNTERTIME', 'Sélectionnez le temps à laquelle le compteur de lecture de news peut être incrémenté par la même personne. [min]');
+define('_MI_XMNEWS_PREF_COUNTERTIME', 'Sélectionnez le temps à laquelle le compteur de lecture d\'article peut être incrémenté par la même personne. [min]');
 define('_MI_XMNEWS_PREF_COUNTERTIME_DESC', 'Mettre "0" si vous ne voulez de limitation');
 define('_MI_XMNEWS_PREF_MAXUPLOADSIZE', 'Taille maximale des fichiers uploadé');
 define('_MI_XMNEWS_PREF_MAXUPLOADSIZE_DESC', 'Cela concerne les logos uploadés pour les catégories et les actualités');
 define('_MI_XMNEWS_PREF_MAXUPLOADSIZE_MBYTES', 'Mb');
-define('_MI_XMNEWS_PREF_REDIRECT', 'Url de redirection si le visiteur n\'a pas accès à une news');
-define('_MI_XMNEWS_PREF_REDIRECT_DESC', 'Vide, la redirection par défaut est utilisée (index.php). Cette option peut être utile pour rediriger le visiteur sur une page de souscription d\'un compte premium pour obtenir un accès total à la news désirée');
+define('_MI_XMNEWS_PREF_REDIRECT', 'Url de redirection si le visiteur n\'a pas accès à un article');
+define('_MI_XMNEWS_PREF_REDIRECT_DESC', 'Vide, la redirection par défaut est utilisée (index.php). Cette option peut être utile pour rediriger le visiteur sur une page de souscription d\'un compte premium pour obtenir un accès total à l\'article désiré');
 define('_MI_XMNEWS_PREF_HEAD_ADMIN', '<span style="font-size: large;  font-weight: bold;">Administration</span>');
 define('_MI_XMNEWS_PREF_EDITOR', 'Éditeur de texte');
 define('_MI_XMNEWS_PREF_ITEMPERPAGE', 'Nombre d\'éléments par page dans la vue d\'administration');
 define('_MI_XMNEWS_PREF_HEAD_COMNOTI', '<span style="font-size: large;  font-weight: bold;">Commentaires et notifications</span>');
 define('_MI_XMNEWS_NOTIFICATION_GLOBAL', 'Globale');
-define('_MI_XMNEWS_NOTIFICATION_GLOBAL_DESC', 'GOptions de notification globales pour les news.');
-define('_MI_XMNEWS_NOTIFICATION_GLOBAL_NEWNEWS', 'Nouvelle news');
-define('_MI_XMNEWS_NOTIFICATION_GLOBAL_NEWNEWS_CAP', 'Prévenez-moi quand une nouvelle news est publiée.');
-define('_MI_XMNEWS_NOTIFICATION_GLOBAL_NEWNEWS_DESC', 'Recevoir une notification lorsqu\'une nouvelle news est publiée.');
-define('_MI_XMNEWS_NOTIFICATION_GLOBAL_NEWNEWS_SBJ', '[{X_SITENAME}] {X_MODULE} notification automatique: Nouvelles news');
-define('_MI_XMNEWS_NOTIFICATION_GLOBAL_SUBMITNEWS', 'News soumise');
-define('_MI_XMNEWS_NOTIFICATION_GLOBAL_SUBMITNEWS_CAP', 'Prévenez-moi quand une nouvelle news est soumise (en attente d\'approbation).');
-define('_MI_XMNEWS_NOTIFICATION_GLOBAL_SUBMITNEWS_DESC', 'Recevoir une notification lorsqu\'une nouvelle new est soumise (en attente d\'approbation).');
+define('_MI_XMNEWS_NOTIFICATION_GLOBAL_DESC', 'Options de notification globales pour les articles.');
+define('_MI_XMNEWS_NOTIFICATION_GLOBAL_NEWNEWS', 'Nouvel article');
+define('_MI_XMNEWS_NOTIFICATION_GLOBAL_NEWNEWS_CAP', 'Prévenez-moi quand un nouvel article est publié.');
+define('_MI_XMNEWS_NOTIFICATION_GLOBAL_NEWNEWS_DESC', 'Recevoir une notification lorsqu\'un nouvel article est publié.');
+define('_MI_XMNEWS_NOTIFICATION_GLOBAL_NEWNEWS_SBJ', '[{X_SITENAME}] {X_MODULE} notification automatique: Nouveaux articles');
+define('_MI_XMNEWS_NOTIFICATION_GLOBAL_SUBMITNEWS', 'Article soumis');
+define('_MI_XMNEWS_NOTIFICATION_GLOBAL_SUBMITNEWS_CAP', 'Prévenez-moi quand un nouvel article est soumis (en attente d\'approbation).');
+define('_MI_XMNEWS_NOTIFICATION_GLOBAL_SUBMITNEWS_DESC', 'Recevoir une notification lorsqu\'un nouvel article est soumis (en attente d\'approbation).');
 define('_MI_XMNEWS_NOTIFICATION_GLOBAL_SUBMITNEWS_SBJ', '[{X_SITENAME}] {X_MODULE} auto-notifier: nouvel article soumis (en attente d\'approbation)');
 define('_MI_XMNEWS_NOTIFICATION_CATEGORY', 'Categorie');
-define('_MI_XMNEWS_NOTIFICATION_CATEGORY_DESC', 'Options de notification qui s\'appliquent à la catégorie de news actuelle.');
-define('_MI_XMNEWS_NOTIFICATION_CATEGORY_NEWNEWS', 'Nouvelle news');
-define('_MI_XMNEWS_NOTIFICATION_CATEGORY_NEWNEWS_CAP', 'Prévenez-moi quand une nouvelle news est publiée dans la catégorie actuelle.');
-define('_MI_XMNEWS_NOTIFICATION_CATEGORY_NEWNEWS_DESC', 'Recevoir une notification lorsqu\'une nouvelle news est publiée dans la catégorie actuelle.');
-define('_MI_XMNEWS_NOTIFICATION_CATEGORY_NEWNEWS_SBJ', '[{X_SITENAME}] {X_MODULE} notification automatique: nouvelle news dans la catégorie');
-define('_MI_XMNEWS_NOTIFICATION_NEWS', 'News');
-define('_MI_XMNEWS_NOTIFICATION_NEWS_DESC', 'Options de notification qui s\'appliquent aux nouvelles news.');
-define('_MI_XMNEWS_NOTIFICATION_NEWS_MODIFIEDNEWS', 'News modifiée');
-define('_MI_XMNEWS_NOTIFICATION_NEWS_MODIFIEDNEWS_CAP', 'M\'avertir lorsque cette news est modifiée');
-define('_MI_XMNEWS_NOTIFICATION_NEWS_MODIFIEDNEWS_DESC', 'Recevoir une notification lorsque cette news est modifiée.');
-define('_MI_XMNEWS_NOTIFICATION_NEWS_MODIFIEDNEWS_SBJ', '[{X_SITENAME}] {X_MODULE} notification automatique: news modifiée');
-define('_MI_XMNEWS_NOTIFICATION_NEWS_APPROVE', 'News approuvée');
-define('_MI_XMNEWS_NOTIFICATION_NEWS_APPROVE_CAP', 'Me prévenir lorsque cette news est approuvée');
-define('_MI_XMNEWS_NOTIFICATION_NEWS_APPROVE_DESC', 'Recevoir une notification lorsque cette nouvelle est approuvée.');
-define('_MI_XMNEWS_NOTIFICATION_NEWS_APPROVE_SBJ', '[{X_SITENAME}] {X_MODULE} notification automatique: News approuvée');
+define('_MI_XMNEWS_NOTIFICATION_CATEGORY_DESC', 'Options de notification qui s\'appliquent à la catégorie d\'article actuel.');
+define('_MI_XMNEWS_NOTIFICATION_CATEGORY_NEWNEWS', 'Nouvel article');
+define('_MI_XMNEWS_NOTIFICATION_CATEGORY_NEWNEWS_CAP', 'Prévenez-moi quand un nouvel article est publié dans la catégorie actuelle.');
+define('_MI_XMNEWS_NOTIFICATION_CATEGORY_NEWNEWS_DESC', 'Recevoir une notification lorsqu\'un nouvel article est publié dans la catégorie actuelle.');
+define('_MI_XMNEWS_NOTIFICATION_CATEGORY_NEWNEWS_SBJ', '[{X_SITENAME}] {X_MODULE} notification automatique: nouvel article dans la catégorie');
+define('_MI_XMNEWS_NOTIFICATION_NEWS', 'Articles');
+define('_MI_XMNEWS_NOTIFICATION_NEWS_DESC', 'Options de notification qui s\'appliquent aux nouveaux articles.');
+define('_MI_XMNEWS_NOTIFICATION_NEWS_MODIFIEDNEWS', 'Article modifié');
+define('_MI_XMNEWS_NOTIFICATION_NEWS_MODIFIEDNEWS_CAP', 'M\'avertir lorsque cet article est modifié');
+define('_MI_XMNEWS_NOTIFICATION_NEWS_MODIFIEDNEWS_DESC', 'Recevoir une notification lorsque cet article est modifié.');
+define('_MI_XMNEWS_NOTIFICATION_NEWS_MODIFIEDNEWS_SBJ', '[{X_SITENAME}] {X_MODULE} notification automatique: article modifié');
+define('_MI_XMNEWS_NOTIFICATION_NEWS_APPROVE', 'Article approuvé');
+define('_MI_XMNEWS_NOTIFICATION_NEWS_APPROVE_CAP', 'Me prévenir lorsque cet article est approuvé');
+define('_MI_XMNEWS_NOTIFICATION_NEWS_APPROVE_DESC', 'Recevoir une notification lorsque cet article est approuvé.');
+define('_MI_XMNEWS_NOTIFICATION_NEWS_APPROVE_SBJ', '[{X_SITENAME}] {X_MODULE} notification automatique: Article approuvé');
