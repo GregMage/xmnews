@@ -59,8 +59,8 @@ class XmnewsUtility
         $newobj  = $newsHandler->create();
         $rand_id = rand(1, 10000);
         $newobj->setVar('news_title', _MA_XMNEWS_CLONE_NAME . $rand_id . '- ' . $news->getVar('news_title'));
-        $newobj->setVar('news_description', $news->getVar('news_description', 'e'));
-        $newobj->setVar('news_news', $news->getVar('news_news', 'e'));
+        $newobj->setVar('news_description', $news->getVar('news_description', 'n'));
+        $newobj->setVar('news_news', $news->getVar('news_news', 'n'));
         $newobj->setVar('news_cid', $news->getVar('news_cid'));
         $newobj->setVar('news_logo', $news->getVar('news_logo'));
 		$newobj->setVar('news_mkeyword', $news->getVar('news_mkeyword'));
