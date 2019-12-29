@@ -27,10 +27,12 @@ function block_xmnews_show($options) {
 	// Get Permission to view abstract
 	$viewPermissionCat = XmnewsUtility::getPermissionCat('xmnews_viewabstract');
 	
-	$block = array();
+	$permNewsHelper = new Helper\Permission('xmnews');
 	
+	$block = array();
+	$block['full'] = $options[2];
 	$criteria = new CriteriaCompo();
-	switch ($options[2]) {
+	switch ($options[3]) {
         case "date":
 			$criteria->add(new Criteria('news_status', 1));
 			$criteria->setSort('news_date DESC, news_title');
@@ -78,7 +80,11 @@ function block_xmnews_show($options) {
 			$news['cid']             = $news_arr[$i]->getVar('news_cid');
 			$news['title']           = $news_arr[$i]->getVar('news_title');
 			$news['description']     = $news_arr[$i]->getVar('news_description');
-			$news['date']            = formatTimestamp($news_arr[$i]->getVar('news_date'), 's');
+			$news['news']            = $news_arr[$i]->getVar('news_news');
+			$news['date']            = formatTimestamp($news_arr[$i]->getVar('news_date'), 'm');
+			if ($news_arr[$i]->getVar('news_mdate') != 0) {
+				$news['mdate'] = formatTimestamp($news_arr[$i]->getVar('news_mdate'), 's');
+			}
 			$news['author']          = XoopsUser::getUnameFromId($news_arr[$i]->getVar('news_userid'));
 			$news_img                = $news_arr[$i]->getVar('news_logo');
 			if ($news_img == ''){
@@ -88,8 +94,16 @@ function block_xmnews_show($options) {
 			}
 			$news['hits']            = $news_arr[$i]->getVar('news_counter');
 			$news['rating']          = $news_arr[$i]->getVar('news_rating');
-			$news['votes']           = $news_arr[$i]->getVar('news_votes');
-			$news['type']            = $options[2];
+			$news['votes']           = sprintf(_MA_XMNEWS_NEWS_VOTES, $news_arr[$i]->getVar('news_votes'));
+			$news['douser']     	 = $news_arr[$i]->getVar('news_douser');
+			$news['dodate']     	 = $news_arr[$i]->getVar('news_dodate');
+			$news['domdate']    	 = $news_arr[$i]->getVar('news_domdate');
+			$news['dohits']     	 = $news_arr[$i]->getVar('news_dohits');
+			$news['dorating'] 		 = $news_arr[$i]->getVar('news_dorating');
+			$news['perm_clone']      = $permNewsHelper->checkPermission('xmnews_editapprove', $news['cid']);
+			$news['perm_edit']       = $permNewsHelper->checkPermission('xmnews_editapprove', $news['cid']);
+			$news['perm_del']        = $permNewsHelper->checkPermission('xmnews_delete', $news['cid']);
+			$news['type']            = $options[3];
 			$block['news'][] = $news;
 			unset($news);
 		}
@@ -120,7 +134,8 @@ function block_xmnews_edit($options) {
 	
 	$form->addElement($category);
 	$form->addElement(new XoopsFormText(_MB_XMNEWS_NBNEWS, 'options[1]', 5, 5, $options[1]), true);
-	$form->addElement(new XoopsFormHidden('options[2]', $options[2]));
+	$form->addElement(new XoopsFormRadioYN(_MB_XMNEWS_FULL, 'options[2]', $options[2]), true);
+	$form->addElement(new XoopsFormHidden('options[3]', $options[3]));
 
 	return $form->render();
 }

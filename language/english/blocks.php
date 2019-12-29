@@ -20,3 +20,4 @@
 define('_MB_XMNEWS_ALLCATEGORY', 'All Categories');
 define('_MB_XMNEWS_CATEGORY', 'Display category:');
 define('_MB_XMNEWS_NBNEWS', 'Number of news to display');
+define('_MB_XMNEWS_FULL', 'See the full news');

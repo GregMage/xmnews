@@ -83,7 +83,7 @@ $modversion['blocks'][] = array(
     'description' => _MI_XMNEWS_BLOCK_DATE_DESC,
     'show_func'   => 'block_xmnews_show',
     'edit_func'   => 'block_xmnews_edit',
-	'options'     => '0|5|date',
+	'options'     => '0|5|0|date',
     'template'    => 'xmnews_block.tpl'
 );
 $modversion['blocks'][] = array(
@@ -92,7 +92,7 @@ $modversion['blocks'][] = array(
     'description' => _MI_XMNEWS_BLOCK_HITS_DESC,
     'show_func'   => 'block_xmnews_show',
     'edit_func'   => 'block_xmnews_edit',
-	'options'     => '0|5|hits',
+	'options'     => '0|5|0|hits',
     'template'    => 'xmnews_block.tpl'
 );
 $modversion['blocks'][] = array(
@@ -101,7 +101,7 @@ $modversion['blocks'][] = array(
     'description' => _MI_XMNEWS_BLOCK_RATING_DESC,
     'show_func'   => 'block_xmnews_show',
     'edit_func'   => 'block_xmnews_edit',
-	'options'     => '0|5|rating',
+	'options'     => '0|5|0|rating',
     'template'    => 'xmnews_block.tpl'
 );
 $modversion['blocks'][] = array(
@@ -110,7 +110,7 @@ $modversion['blocks'][] = array(
     'description' => _MI_XMNEWS_BLOCK_RANDOM_DESC,
     'show_func'   => 'block_xmnews_show',
     'edit_func'   => 'block_xmnews_edit',
-	'options'     => '0|5|random',
+	'options'     => '0|5|0|random',
     'template'    => 'xmnews_block.tpl'
 );
 $modversion['blocks'][] = array(
@@ -119,7 +119,7 @@ $modversion['blocks'][] = array(
     'description' => _MI_XMNEWS_BLOCK_WAITING_DESC,
     'show_func'   => 'block_xmnews_show',
     'edit_func'   => 'block_xmnews_edit',
-	'options'     => '0|5|waiting',
+	'options'     => '0|5|0|waiting',
     'template'    => 'xmnews_block_waiting.tpl'
 );
 
