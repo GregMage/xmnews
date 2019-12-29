@@ -27,7 +27,6 @@ $moduleAdmin->displayNavigation('permission.php');
 
 // Get permission
 $permission = Request::getInt('permission', 1);
-//$tab_perm   = [1 => _MA_XMNEWS_PERMISSION_VIEW_ABSTRACT, 2 => _MA_XMNEWS_PERMISSION_VIEW_NEWS, 3 => _MA_XMNEWS_PERMISSION_SUBMIT, 4 => _MA_XMNEWS_PERMISSION_EDITAPPROVE, 5 => _MA_XMNEWS_PERMISSION_DELETE];
 
 // Category
 $criteria = new CriteriaCompo();
