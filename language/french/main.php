@@ -30,7 +30,7 @@ define('_MA_XMNEWS_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE', 'Vous devez activer da
  
 // Error message
 define('_MA_XMNEWS_ERROR', 'Erreur');
-define('_MA_XMNEWS_ERROR_NACTIVE', 'Erreur: Contenu désactivé!');
+define('_MA_XMNEWS_ERROR_NACTIVE', 'Erreur : Contenu désactivé!');
 define('_MA_XMNEWS_ERROR_NOACESSCATEGORY', 'Vous n\'avez accès à aucune catégorie');
 define('_MA_XMNEWS_ERROR_NOCATEGORY', 'Il n\'y a pas de catégories dans la base de données');
 define('_MA_XMNEWS_ERROR_NONEWS', 'Il n\'y a pas d\'article dans la base de données');
@@ -59,9 +59,9 @@ define('_MA_XMNEWS_INDEX_IMAGEINFO', 'Statut du serveur');
 define('_MA_XMNEWS_INDEX_SPHPINI', "<span style='font-weight: bold;'>Informations extraites du fichier php.ini:</span>");
 define('_MA_XMNEWS_INDEX_ON', "<span style='font-weight: bold;'>ON</span>");
 define('_MA_XMNEWS_INDEX_OFF', "<span style='font-weight: bold;'>OFF</span>");
-define('_MA_XMNEWS_INDEX_SERVERUPLOADSTATUS', 'Statut d\'upload du serveur: ');
+define('_MA_XMNEWS_INDEX_SERVERUPLOADSTATUS', 'Statut d\'envoi du serveur : ');
 define('_MA_XMNEWS_INDEX_MAXPOSTSIZE', 'Taille d\'envoi maximal autorisé (directive post_max_size dans php.ini): ');
-define('_MA_XMNEWS_INDEX_MAXUPLOADSIZE', 'Taille d\'upload maximal autorisé (directive upload_max_filesize dans le fichier php.ini): ');
+define('_MA_XMNEWS_INDEX_MAXUPLOADSIZE', 'Taille d\'envoi maximal autorisé (directive upload_max_filesize dans le fichier php.ini): ');
 define('_MA_XMNEWS_INDEX_MEMORYLIMIT', 'Limite de mémoire (directive memory_limit dans php.ini): ');
 define('_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED', 'Vous n\'avez pas installé le module xmsocial, ce module est requis si vous souhaitez évaluer les articles');
 define('_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE', 'Vous devez activer dans les préférences du module xmnews l\'utilisation de xmsocial (si vous souhaitez évaluer les articles)');
@@ -76,7 +76,7 @@ define('_MA_XMNEWS_CATEGORY_DOMDATE', 'Afficher la date de modification');
 define('_MA_XMNEWS_CATEGORY_DORATING', 'Afficher l\évaluation');
 define('_MA_XMNEWS_CATEGORY_DOUSER', 'Afficher l\'auteur');
 define('_MA_XMNEWS_CATEGORY_EMPTY', 'Vide');
-define('_MA_XMNEWS_CATEGORY_FORMPATH', 'Les fichiers sont dans: %s');
+define('_MA_XMNEWS_CATEGORY_FORMPATH', 'Les fichiers sont dans : %s');
 define('_MA_XMNEWS_CATEGORY_LOGO', 'Logo');
 define('_MA_XMNEWS_CATEGORY_LOGOFILE', 'Fichier de logo');
 define('_MA_XMNEWS_CATEGORY_LOGOFILE_DSC', 'Logo par défaut pour les articles dans cette catégorie');
@@ -84,7 +84,7 @@ define('_MA_XMNEWS_CATEGORY_NAME', 'Nom');
 define('_MA_XMNEWS_CATEGORY_SUREDEL', 'Êtes-vous sûr de vouloir supprimer cette catégorie? %s');
 define('_MA_XMNEWS_CATEGORY_THEREARENEWS', 'Il y a <strong>%s</strong> articles dans cette catégorie!');
 define('_MA_XMNEWS_CATEGORY_UPLOAD', 'Upload');
-define('_MA_XMNEWS_CATEGORY_UPLOADSIZE', 'Taille maximum: %s Kb');
+define('_MA_XMNEWS_CATEGORY_UPLOADSIZE', 'Taille maximum : %s Kb');
 define('_MA_XMNEWS_CATEGORY_WARNINGDELNEWS', '<strong>Attention, les éléments suivants seront également supprimés!</strong>');
 define('_MA_XMNEWS_CATEGORY_WEIGHT', 'Poids');
 
