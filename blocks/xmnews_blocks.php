@@ -45,11 +45,11 @@ function block_xmnews_show($options) {
 			$criteria->setOrder('ASC');
         break;
 
-        case "rating":
+        /*case "rating":
 			$criteria->add(new Criteria('news_status', 1));
 			$criteria->setSort('news_rating DESC, news_title');
 			$criteria->setOrder('ASC');
-        break;
+        break;*/
 
         case "random":
 			$criteria->add(new Criteria('news_status', 1));
