@@ -19,4 +19,5 @@
 // index.php
 define('_MB_XMNEWS_ALLCATEGORY', 'Toutes les catégories');
 define('_MB_XMNEWS_CATEGORY', 'Afficher les catégories:');
+define('_MB_XMNEWS_NBNEWS', 'Nombre d\'article à afficher');
 define('_MB_XMNEWS_FULL', 'Voir l\'article complet');
