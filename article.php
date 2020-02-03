@@ -73,7 +73,6 @@ $xoopsTpl->assign('perm_clone', $permHelper->checkPermission('xmnews_editapprove
 $xoopsTpl->assign('perm_edit', $permHelper->checkPermission('xmnews_editapprove', $category_id));
 $xoopsTpl->assign('perm_del', $permHelper->checkPermission('xmnews_delete', $category_id));
 
-
 // Category
 $xoopsTpl->assign('category_name', $category->getVar('category_name'));
 $xoopsTpl->assign('category_id', $category_id);
@@ -82,6 +81,7 @@ $xoopsTpl->assign('category_id', $category_id);
 if ($news->getVar('news_date') > time()) {
 	$xoopsTpl->assign('warning_date', true);
 }
+$xoopsTpl->assign('index_module', $helper->getModule()->getVar('name'));
 $xoopsTpl->assign('news_id', $news_id);
 $xoopsTpl->assign('title', $news->getVar('news_title'));
 $xoopsTpl->assign('news', $news->getVar('news_news'));

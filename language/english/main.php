@@ -138,6 +138,5 @@ define('_MA_XMNEWS_PERMISSION_DELETE_DSC', 'Select groups that can delete a news
 define('_MA_XMNEWS_PERMISSION_DELETE_THIS', 'Select groups that can delete in this category');
 
 // user
-define('_MA_XMNEWS_HOME', 'News home page');
 define('_MA_XMNEWS_SELECTCATEGORY', 'Select a category to add an item to');
 

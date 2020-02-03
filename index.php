@@ -32,6 +32,8 @@ $keywords = '';
 // Get start pager
 $start = Request::getInt('start', 0);
 $xoopsTpl->assign('start', $start);
+
+$xoopsTpl->assign('index_module', $helper->getModule()->getVar('name'));
 // Category
 $news_cid = Request::getInt('news_cid', 0);
 $xoopsTpl->assign('news_cid', $news_cid);

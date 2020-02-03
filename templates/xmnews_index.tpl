@@ -1,7 +1,7 @@
 <div class="xmnews">
 	<{if $filter}>
 	    <ol class="breadcrumb">
-			<li class="active"><{$smarty.const._MA_XMNEWS_HOME}></li>
+			<li class="active"><{$index_module}></li>
 		</ol>
 		<div align="center">
 			<form class="form-inline" id="form_news_tri" name="form_news_tri" method="get" action="index.php">
@@ -17,7 +17,7 @@
 		<br>
 	<{else}>
 		<ol class="breadcrumb">
-			<li><a href="index.php"><{$smarty.const._MA_XMNEWS_HOME}></a></li>
+			<li><a href="index.php"><{$index_module}></a></li>
 			<li class="active"><{$category_name}></li>
 		</ol>
 		<div class="media">

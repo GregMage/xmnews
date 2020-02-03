@@ -4,7 +4,7 @@
     <{/if}>
     <{if $form}>
         <ol class="breadcrumb">
-            <li><a href="index.php"><{$smarty.const._MA_XMNEWS_HOME}></a></li>
+            <li><a href="index.php"><{$index_module}></a></li>
             <li><a href="action.php?op=add"><{$smarty.const._MA_XMNEWS_SELECTCATEGORY}></a></li>
             <li class="active"><{$smarty.const._MA_XMNEWS_ADD}></li>
         </ol>
@@ -14,7 +14,7 @@
     <{/if}>
     <{if $categories > 0}>
         <ol class="breadcrumb">
-            <li><a href="index.php"><{$smarty.const._MA_XMNEWS_HOME}></a></li>
+            <li><a href="index.php"><{$index_module}></a></li>
             <li class="active"><{$smarty.const._MA_XMNEWS_SELECTCATEGORY}></li>
         </ol>
 		<div class="xmnews-category row">

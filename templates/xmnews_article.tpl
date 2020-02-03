@@ -1,6 +1,6 @@
 <div class="xmmews">
     <ol class="breadcrumb">
-        <li><a href="index.php"><{$smarty.const._MA_XMNEWS_HOME}></a></li>
+        <li><a href="index.php"><{$index_module}></a></li>
         <li><a href="index.php?news_cid=<{$category_id}>"><{$category_name}></a></li>
         <li class="active"><{$title}></li>
     </ol>

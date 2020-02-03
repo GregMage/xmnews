@@ -138,6 +138,5 @@ define('_MA_XMNEWS_PERMISSION_DELETE_DSC', 'Sélectionner les groupes pouvant su
 define('_MA_XMNEWS_PERMISSION_DELETE_THIS', 'Sélectionner les groupes pouvant supprimer dans ces catégories');
 
 // user
-define('_MA_XMNEWS_HOME', 'Page d\'accueil des articles');
 define('_MA_XMNEWS_SELECTCATEGORY', 'Sélectionnez une catégorie pour ajouter un élément à');
 
