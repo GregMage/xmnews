@@ -19,7 +19,6 @@
 
 use Xmf\Module\Admin;
 use Xmf\Request;
-use Xmf\Metagen;
 use Xmf\Module\Helper;
 
 require __DIR__ . '/admin_header.php';
@@ -52,7 +51,7 @@ switch ($op) {
                 $category_id                 = $category_arr[$i]->getVar('category_id');
                 $category['id']              = $category_id;
                 $category['name']            = $category_arr[$i]->getVar('category_name');
-                $category['description']     = Metagen::generateDescription($category_arr[$i]->getVar('category_description', 'show'), 30);
+				$category['description']     = substr($category_arr[$i]->getVar('category_description', 'e'), 0, 300) . '...';
                 $category['weight']          = $category_arr[$i]->getVar('category_weight');
                 $category['status']          = $category_arr[$i]->getVar('category_status');
                 $category_img                = $category_arr[$i]->getVar('category_logo');
