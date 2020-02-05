@@ -173,7 +173,7 @@ class xmnews_news extends XoopsObject
         
         // logo        
 		$uploadirectory      = str_replace(XOOPS_URL, '', $url_logo);
-        $imgtray_img         = new XoopsFormElementTray(_MA_XMNEWS_CATEGORY_LOGOFILE . '<br><br>' . sprintf(_MA_XMNEWS_CATEGORY_UPLOADSIZE, $upload_size / 1000), '<br>');
+        $imgtray_img         = new XoopsFormElementTray(_MA_XMNEWS_NEWS_LOGO . '<br><br>' . sprintf(_MA_XMNEWS_CATEGORY_UPLOADSIZE, $upload_size / 1000), '<br>');
         $imgpath_img         = sprintf(_MA_XMNEWS_CATEGORY_FORMPATH, $uploadirectory);
         $imageselect_img     = new XoopsFormSelect($imgpath_img, 'news_logo', $blank_img);
         $image_array_img = XoopsLists::getImgListAsArray($path_logo . 'news/');
