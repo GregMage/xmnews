@@ -61,7 +61,7 @@
 									<i class="fa fa-rotate-right" aria-hidden="true"></i> <{$smarty.const._MA_XMNEWS_NEWS_READING}>: <{$counter}>
 								</div>
 								<{/if}>
-								<{if $dorating == 0}>
+								<{if $dorating == 1}>
 								<div class="col-12 col-lg-6">
 									<i class="fa fa-star" aria-hidden="true"></i> <{$smarty.const._MA_XMNEWS_NEWS_RATING}>: <{$rating}> <{$votes}>
 								</div>
