@@ -22,7 +22,7 @@
     <div class="media">
         <div class="media-left">
 			<{if $logo != ''}>
-            <img class="media-object" src="<{$logo}>" alt="<{$title}>" style="max-width:150px">
+			<{if $CAT == true}><a href="index.php?news_cid=<{$category_id}>"><{/if}><img class="media-object" src="<{$logo}>" alt="<{$title}>" style="max-width:150px"><{if $CAT == true}></a><{/if}>
 			<{/if}>
         </div>
         <div class="media-body">
