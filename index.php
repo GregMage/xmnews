@@ -98,10 +98,12 @@ if ($news_count > 0) {
 		$news['dodate']          = $news_arr[$i]->getVar('news_dodate');
 		$news['dohits']          = $news_arr[$i]->getVar('news_dohits');
 		$news_img                = $news_arr[$i]->getVar('news_logo');
+		$news['logo']        	 = $url_logo . $news_img;
 		if ($news_img == ''){
 			$news['logo']        = '';
-		} else {
-			$news['logo']        = $url_logo . $news_img;
+		}
+		if ($news_img == 'CAT'){
+			$news['logo']        = $url_logo . $news_arr[$i]->getVar('category_logo');
 		}
 		$xoopsTpl->append_by_ref('news', $news);
 		$keywords .= Metagen::generateSeoTitle($news['title']) . ',';
