@@ -101,10 +101,12 @@ switch ($op) {
                 $news['description']     = substr($news_arr[$i]->getVar('news_description', 'e'), 0, 300) . '...';
                 $news['status']          = $news_arr[$i]->getVar('news_status');
                 $news_img                = $news_arr[$i]->getVar('news_logo');
+				$news['logo']        	 = $url_logo . $news_img;
 				if ($news_img == ''){
 					$news['logo']        = '';
-				} else {
-					$news['logo']        = $url_logo . $news_img;
+				}
+				if ($news_img == 'CAT'){
+					$news['logo']        = $url_logo . $news_arr[$i]->getVar('category_logo');
 				}
                 $xoopsTpl->append_by_ref('news', $news);
                 unset($news);

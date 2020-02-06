@@ -96,9 +96,12 @@ $xoopsTpl->assign('author', XoopsUser::getUnameFromId($news->getVar('news_userid
 $news_img = $news->getVar('news_logo');
 if ($news_img == ''){
 	$xoopsTpl->assign('logo', '');
+} elseif($news_img == 'CAT') {
+	$xoopsTpl->assign('logo', $url_logo . $category->getVar('category_logo'));
 } else {
 	$xoopsTpl->assign('logo', $url_logo . $news_img);
 }
+
 $xoopsTpl->assign('status', $news->getVar('news_status'));
 $xoopsTpl->assign('douser', $news->getVar('news_douser'));
 $xoopsTpl->assign('dodate', $news->getVar('news_dodate'));

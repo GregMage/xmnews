@@ -56,6 +56,7 @@ class xmnews_news extends XoopsObject
 		$this->initVar('news_docomment', XOBJ_DTYPE_INT, 1, false, 1);
         $this->initVar('news_status', XOBJ_DTYPE_INT, 1);
 		$this->initVar('category_name', XOBJ_DTYPE_TXTBOX, null, false);
+		$this->initVar('category_logo', XOBJ_DTYPE_TXTBOX, null, false);
     }
 	
     /**
@@ -121,7 +122,6 @@ class xmnews_news extends XoopsObject
         if (!$this->isNew() || $clone == true) {
             $form->addElement(new XoopsFormHidden('news_id', $this->getVar('news_id')));
             $category_id = $this->getVar('news_cid');
-			$blank_img = $this->getVar('news_logo');
 			// category
 			$criteria = new CriteriaCompo();
 			$criteria->add(new Criteria('category_status', 1));
@@ -139,10 +139,14 @@ class xmnews_news extends XoopsObject
 
         } else {
 			$category = $categoryHandler->get($category_id);
-			$blank_img = $category->getVar('category_logo');
 			// category        
 			$category_img = $category->getVar('category_logo');
-			$form->addElement(new xoopsFormLabel (_MA_XMNEWS_NEWS_CATEGORY, '<img src="' . $url_logo .  $category_img . '" alt="' . $category_img . '" style="max-width:100px" /> <strong>' . $category->getVar('category_name') . '</strong>'));
+			if ($category_img == ''){
+				$category_logo = '';
+			} else {
+				$category_logo = '<img src="' . $url_logo .  $category_img . '" alt="' . $category_img . '" style="max-width:100px" /> ';
+			}			
+			$form->addElement(new xoopsFormLabel (_MA_XMNEWS_NEWS_CATEGORY, $category_logo . '<strong>' . $category->getVar('category_name') . '</strong>'));
 			$form->addElement(new XoopsFormHidden('news_cid', $category_id));
 		}
         
@@ -171,22 +175,16 @@ class xmnews_news extends XoopsObject
         $editor_configs['editor'] = $helper->getConfig('general_editor', 'Plain Text');
         $form->addElement(new XoopsFormEditor(_MA_XMNEWS_NEWS_NEWS, 'news_news', $editor_configs), true);
         
-        // logo        
+        // logo
+		$blank_img 			 = $this->getVar('news_logo') ?: 'no-image.png';		
 		$uploadirectory      = str_replace(XOOPS_URL, '', $url_logo);
         $imgtray_img         = new XoopsFormElementTray(_MA_XMNEWS_NEWS_LOGO . '<br><br>' . sprintf(_MA_XMNEWS_CATEGORY_UPLOADSIZE, $upload_size / 1000), '<br>');
         $imgpath_img         = sprintf(_MA_XMNEWS_CATEGORY_FORMPATH, $uploadirectory);
         $imageselect_img     = new XoopsFormSelect($imgpath_img, 'news_logo', $blank_img);
         $image_array_img = XoopsLists::getImgListAsArray($path_logo . 'news/');
-        $imageselect_img->addOption("", _MA_XMNEWS_CATEGORY_EMPTY);
-		if ($blank_img != ''){
-			$imageselect_img->addOption("$blank_img", $blank_img);
-		}
-		if (!$this->isNew() || $clone == true) {
-			if (strpos($this->getVar('news_logo'), 'category') === False){
-				$img_cat = $category->getVar('category_logo');
-				$imageselect_img->addOption("$img_cat", $img_cat);
-			}
-		}		
+        $imageselect_img->addOption("no-image.png", _MA_XMNEWS_CATEGORY_EMPTY);
+		$img_cat = $category->getVar('category_logo');
+        $imageselect_img->addOption("$img_cat", _MA_XMNEWS_NEWS_USELOGOCATEGORY);
         foreach ($image_array_img as $image_img) {			
 			$image_tmp = 'news/' . $image_img;
             $imageselect_img->addOption("$image_tmp", $image_tmp);
@@ -325,7 +323,14 @@ class xmnews_news extends XoopsObject
                 $error_message .= $uploader_news_img->getErrors();
             }
         } else {
-            $this->setVar('news_logo', Request::getString('news_logo', ''));
+			$news_logo = Request::getString('news_logo', '');
+			if ($news_logo == 'no-image.png'){
+				$news_logo = '';
+			}
+			if (substr($news_logo, 0, 8) == 'category'){
+				$news_logo = 'CAT';
+			}	
+            $this->setVar('news_logo', $news_logo);
         }
         $this->setVar('news_title', Request::getString('news_title', ''));
         $this->setVar('news_description', Request::getText('news_description', ''));

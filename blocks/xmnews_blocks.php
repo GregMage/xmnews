@@ -87,11 +87,14 @@ function block_xmnews_show($options) {
 			}
 			$news['author']          = XoopsUser::getUnameFromId($news_arr[$i]->getVar('news_userid'));
 			$news_img                = $news_arr[$i]->getVar('news_logo');
+			$news['logo']        	 = $url_logo . $news_img;
 			if ($news_img == ''){
 				$news['logo']        = '';
-			} else {
-				$news['logo']        = $url_logo . $news_img;
 			}
+			if ($news_img == 'CAT'){
+				$news['logo']        = $url_logo . $news_arr[$i]->getVar('category_logo');
+			}
+			
 			$news['hits']            = $news_arr[$i]->getVar('news_counter');
 			$news['rating']          = $news_arr[$i]->getVar('news_rating');
 			$news['votes']           = sprintf(_MA_XMNEWS_NEWS_VOTES, $news_arr[$i]->getVar('news_votes'));

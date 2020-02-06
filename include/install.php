@@ -55,6 +55,10 @@ function xoops_module_install_xmnews()
     copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/index.html');
     copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/category/index.html');
     copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/news/index.html');
+	
+	//Copy no-image.png
+    $blankFile = XOOPS_ROOT_PATH . '/modules/' . $namemodule . '/assets/images/no-image.png';
+    copy($blankFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/no-image.png');
 
     return true;
 }

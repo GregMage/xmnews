@@ -90,7 +90,11 @@ class xmnews_category extends XoopsObject
                 $error_message .= $uploader_category_img->getErrors();
             }
         } else {
-            $this->setVar('category_logo', Request::getString('category_logo', ''));
+			$category_logo = Request::getString('category_logo', '');
+			if ($category_logo == 'no-image.png'){
+				$category_logo = '';
+			}
+            $this->setVar('category_logo', $category_logo);
         }
         $this->setVar('category_name', Request::getString('category_name', ''));
         $this->setVar('category_description', Request::getText('category_description', ''));
@@ -178,16 +182,13 @@ class xmnews_category extends XoopsObject
         $editor_configs['editor'] = $helper->getConfig('general_editor', 'Plain Text');
         $form->addElement(new XoopsFormEditor(_MA_XMNEWS_CATEGORY_DESC, 'category_description', $editor_configs), false);
         // logo
-        $blank_img           = $this->getVar('category_logo');
+		$blank_img      	 = $this->getVar('category_logo') ?: 'no-image.png';
 		$uploadirectory      = str_replace(XOOPS_URL, '', $url_logo);
         $imgtray_img         = new XoopsFormElementTray(_MA_XMNEWS_CATEGORY_LOGO . '<br><br>' . sprintf(_MA_XMNEWS_CATEGORY_UPLOADSIZE, $upload_size / 1024), '<br>');
         $imgpath_img         = sprintf(_MA_XMNEWS_CATEGORY_FORMPATH, $uploadirectory);
         $imageselect_img     = new XoopsFormSelect($imgpath_img, 'category_logo', $blank_img);
         $image_array_img = XoopsLists::getImgListAsArray($path_logo . 'category/');
-		$imageselect_img->addOption("", _MA_XMNEWS_CATEGORY_EMPTY);
-		if ($blank_img != ''){
-			$imageselect_img->addOption("$blank_img", $blank_img);
-		}
+		$imageselect_img->addOption("no-image.png", _MA_XMNEWS_CATEGORY_EMPTY);
         foreach ($image_array_img as $image_img) {			
 			$image_tmp = 'category/' . $image_img;
             $imageselect_img->addOption("$image_tmp", $image_tmp);
@@ -199,7 +200,6 @@ class xmnews_category extends XoopsObject
         $fileseltray_img->addElement(new XoopsFormFile(_MA_XMNEWS_CATEGORY_UPLOAD, 'category_logo', $upload_size), false);
         $fileseltray_img->addElement(new XoopsFormLabel(''), false);
         $imgtray_img->addElement($fileseltray_img);
-		$imgtray_img->setDescription(_MA_XMNEWS_CATEGORY_LOGOFILE_DSC);
         $form->addElement($imgtray_img);
 		
 		// douser
