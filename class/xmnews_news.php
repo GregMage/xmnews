@@ -176,14 +176,21 @@ class xmnews_news extends XoopsObject
         $form->addElement(new XoopsFormEditor(_MA_XMNEWS_NEWS_NEWS, 'news_news', $editor_configs), true);
         
         // logo
-		$blank_img 			 = $this->getVar('news_logo') ?: 'no-image.png';		
+		$blank_img = $this->getVar('news_logo');
+		$img_cat = $category->getVar('category_logo');
+		if ($blank_img == ''){
+			$blank_img = 'no-image.png';
+		} elseif($blank_img == 'CAT'){
+			$blank_img = $category->getVar('category_logo');
+		}
+		
 		$uploadirectory      = str_replace(XOOPS_URL, '', $url_logo);
         $imgtray_img         = new XoopsFormElementTray(_MA_XMNEWS_NEWS_LOGO . '<br><br>' . sprintf(_MA_XMNEWS_CATEGORY_UPLOADSIZE, $upload_size / 1000), '<br>');
         $imgpath_img         = sprintf(_MA_XMNEWS_CATEGORY_FORMPATH, $uploadirectory);
         $imageselect_img     = new XoopsFormSelect($imgpath_img, 'news_logo', $blank_img);
         $image_array_img = XoopsLists::getImgListAsArray($path_logo . 'news/');
         $imageselect_img->addOption("no-image.png", _MA_XMNEWS_CATEGORY_EMPTY);
-		$img_cat = $category->getVar('category_logo');
+		
         $imageselect_img->addOption("$img_cat", _MA_XMNEWS_NEWS_USELOGOCATEGORY);
         foreach ($image_array_img as $image_img) {			
 			$image_tmp = 'news/' . $image_img;
