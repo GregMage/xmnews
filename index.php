@@ -89,6 +89,7 @@ if ($news_count > 0) {
 	foreach (array_keys($news_arr) as $i) {
 		$news_id                 = $news_arr[$i]->getVar('news_id');
 		$news['id']              = $news_id;
+		$news['cid']             = $news_arr[$i]->getVar('news_cid');
 		$news['title']           = $news_arr[$i]->getVar('news_title');
 		$news['author']          = XoopsUser::getUnameFromId($news_arr[$i]->getVar('news_userid'));
 		$news['date']       	 = formatTimestamp($news_arr[$i]->getVar('news_date'), 'm');
