@@ -102,6 +102,7 @@ define('_MA_XMNEWS_NEWS_MDATE', 'Modification date');
 define('_MA_XMNEWS_NEWS_MDATEUPDATE', 'Update the modification date');
 define('_MA_XMNEWS_NEWS_MORE', 'Read the complete news');
 define('_MA_XMNEWS_NEWS_NEWS', 'News');
+define('_MA_XMNEWS_NEWS_NOTIFY', 'Notify me of the publication?');
 define('_MA_XMNEWS_NEWS_ON', 'on');
 define('_MA_XMNEWS_NEWS_PUBLISHEDBY', 'Published by');
 define('_MA_XMNEWS_NEWS_RATING', 'Rating');

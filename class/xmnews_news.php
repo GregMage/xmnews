@@ -287,7 +287,7 @@ class xmnews_news extends XoopsObject
             $form->addElement($form_status);
         } else {
 			// Notification news:approve_news
-			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_NOTIFY, 'news_notify', true));	
+			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_NEWS_NOTIFY, 'news_notify', true));	
 		}
 		//captcha		
 		if ($helper->getConfig('general_captcha', 0) == 1) {
