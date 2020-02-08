@@ -39,8 +39,8 @@ define('_MI_XMNEWS_BLOCK_RATING', 'Top Rated News');
 define('_MI_XMNEWS_BLOCK_RATING_DESC', 'Display Top Rated News');
 define('_MI_XMNEWS_BLOCK_RANDOM', 'Random News');
 define('_MI_XMNEWS_BLOCK_RANDOM_DESC', 'Display news randomly');
-define('_MI_XMNEWS_BLOCK_WAITING', 'Waitting News');
-define('_MI_XMNEWS_BLOCK_WAITING_DESC', 'Display waitting news');
+define('_MI_XMNEWS_BLOCK_WAITING', 'Waiting News');
+define('_MI_XMNEWS_BLOCK_WAITING_DESC', 'Display waiting news');
 
 // Pref
 define('_MI_XMNEWS_PREF_HEAD_GENERAL', '<span style="font-size: large;  font-weight: bold;">General</span>');
