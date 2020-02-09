@@ -8,13 +8,13 @@
 		</tr>
 	</thead>
 	<tbody>
-<{foreach item=news from=$block.news}>
+<{foreach item=waitingnews from=$block.news}>
 	<tr>
-		<td><{$news.title}></td>
-		<td><{$news.description|truncateHtml:50:'...'}></td>
-		<td><{$news.author}></td>
+		<td><{$waitingnews.title}></td>
+		<td><{$waitingnews.description|truncateHtml:50:'...'}></td>
+		<td><{$waitingnews.author}></td>
 		<td>
-			<a href="<{$xoops_url}>/modules/xmnews/action.php?op=edit&amp;news_id=<{$news.id}>">
+			<a href="<{$xoops_url}>/modules/xmnews/action.php?op=edit&amp;news_id=<{$waitingnews.id}>">
 				<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span> <{$smarty.const._MA_XMNEWS_EDIT}></button>
 			</a>
 		</td>
