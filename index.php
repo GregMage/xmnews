@@ -57,7 +57,9 @@ $criteria->setStart($start);
 $criteria->setLimit($nb_limit);
 $criteria->add(new Criteria('news_status', 1));
 $criteria->add(new Criteria('news_date', time(),'<='));
-$criteria->add(new Criteria('news_cid', '(' . implode(',', $viewPermissionCat) . ')', 'IN'));
+if (!empty($viewPermissionCat)){
+	$criteria->add(new Criteria('news_cid', '(' . implode(',', $viewPermissionCat) . ')', 'IN'));
+}
 if ($news_cid != 0){
 	// vérification si la categorie est activée
 	$check_category = $categoryHandler->get($news_cid);
@@ -85,7 +87,7 @@ $newsHandler->field_object = "news_cid";
 $news_arr = $newsHandler->getByLink($criteria);
 $news_count = $newsHandler->getCount($criteria);
 $xoopsTpl->assign('news_count', $news_count);
-if ($news_count > 0) {
+if ($news_count > 0 && !empty($viewPermissionCat)) {
 	foreach (array_keys($news_arr) as $i) {
 		$news_id                 = $news_arr[$i]->getVar('news_id');
 		$news['id']              = $news_id;
