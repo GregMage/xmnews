@@ -76,8 +76,8 @@
 				</div>
 				<{/if}>
 				<{if $dorating == 1}>
-				<div class="col-xs-12 col-sm-6 col-md-6"><span class="glyphicon glyphicon-star-empty" title="<{$smarty.const._MA_XMNEWS_NEWS_RATING}>"></span>
-					<{$smarty.const._MA_XMNEWS_NEWS_RATING}>: <{$rating}> <{$votes}>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<{include file="db:xmsocial_rating.tpl"}>
 				</div>
 				<{/if}>
 			</div>

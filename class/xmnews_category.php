@@ -223,10 +223,9 @@ class xmnews_category extends XoopsObject
 		$form->addElement($dohits, false);
 		
 		// dorating 
-		/*$dorating = new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'category_dorating', $this->getVar('category_dorating'));
+		$dorating = new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'category_dorating', $this->getVar('category_dorating'));
 		$dorating->setDescription(_MA_XMNEWS_CATEGORY_DODSC);
-		$form->addElement($dorating, false);*/
-		$form->addElement(new XoopsFormHidden('category_dorating', 0));
+		$form->addElement($dorating, false);
 		
 		// docomment
 		$docomment = new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOCOMMENT, 'category_docomment', $this->getVar('category_docomment'));

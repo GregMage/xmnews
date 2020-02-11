@@ -41,6 +41,16 @@ if (xoops_isActiveModule('xmdoc')){
 } else {
 	$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_XMDOC_WARNINGNOTINSTALLED);
 }
+// xmsocial
+if (xoops_isActiveModule('xmsocial')){
+	if ($helper->getConfig('general_xmsocial', 0) == 1) {
+		$moduleAdmin->addConfigModuleVersion('xmsocial', 100);
+	} else {
+		$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE);
+	}
+} else {
+	$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED);
+}
 
 $folder[] = $path_logo;
 foreach (array_keys( $folder) as $i) {

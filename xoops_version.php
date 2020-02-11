@@ -95,7 +95,7 @@ $modversion['blocks'][] = array(
 	'options'     => '0|5|0|hits',
     'template'    => 'xmnews_block.tpl'
 );
-/*$modversion['blocks'][] = array(
+$modversion['blocks'][] = array(
     'file'        => 'xmnews_blocks.php',
     'name'        => _MI_XMNEWS_BLOCK_RATING,
     'description' => _MI_XMNEWS_BLOCK_RATING_DESC,
@@ -103,7 +103,7 @@ $modversion['blocks'][] = array(
     'edit_func'   => 'block_xmnews_edit',
 	'options'     => '0|5|0|rating',
     'template'    => 'xmnews_block.tpl'
-);*/
+);
 $modversion['blocks'][] = array(
     'file'        => 'xmnews_blocks.php',
     'name'        => _MI_XMNEWS_BLOCK_RANDOM,
@@ -159,6 +159,15 @@ $modversion['config'][] = [
 $modversion['config'][] = [
     'name'        => 'general_xmdoc',
     'title'       => '_MI_XMNEWS_PREF_GENERALXMDOC',
+    'description' => '',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0
+];
+
+$modversion['config'][] = [
+    'name'        => 'general_xmsocial',
+    'title'       => '_MI_XMNEWS_PREF_GENERALXMSOCIAL',
     'description' => '',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',

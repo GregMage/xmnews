@@ -225,8 +225,7 @@ class xmnews_news extends XoopsObject
 			// dohits
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOHITS, 'news_dohits', $this->getVar('news_dohits')));		
 			// dorating 
-			//$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'news_dorating', $this->getVar('news_dorating')));
-			$form->addElement(new XoopsFormHidden('news_dorating', 0));		
+			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'news_dorating', $this->getVar('news_dorating')));	
 			// docomment
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOCOMMENT, 'news_docomment', $this->getVar('news_docomment')));
 		 } else {
@@ -239,8 +238,7 @@ class xmnews_news extends XoopsObject
 			// dohits
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOHITS, 'news_dohits', $category->getVar('category_dohits')));		
 			// dorating 
-			//$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'news_dorating', $category->getVar('category_dorating')));
-			$form->addElement(new XoopsFormHidden('news_dorating', 0));		
+			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'news_dorating', $category->getVar('category_dorating')));	
 			// docomment
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOCOMMENT, 'news_docomment', $category->getVar('category_docomment')));
 		 }			 

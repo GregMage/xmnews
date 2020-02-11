@@ -86,8 +86,7 @@ $xoopsTpl->assign('news_id', $news_id);
 $xoopsTpl->assign('title', $news->getVar('news_title'));
 $xoopsTpl->assign('news', $news->getVar('news_news'));
 $xoopsTpl->assign('counter', $news->getVar('news_counter'));
-$xoopsTpl->assign('rating', number_format($news->getVar('news_rating'), 1));
-$xoopsTpl->assign('votes', sprintf(_MA_XMNEWS_NEWS_VOTES, $news->getVar('news_votes')));
+
 $xoopsTpl->assign('date', formatTimestamp($news->getVar('news_date'), 'm'));
 if ($news->getVar('news_mdate') != 0) {
     $xoopsTpl->assign('mdate', formatTimestamp($news->getVar('news_mdate'), 's'));
@@ -110,8 +109,18 @@ $xoopsTpl->assign('douser', $news->getVar('news_douser'));
 $xoopsTpl->assign('dodate', $news->getVar('news_dodate'));
 $xoopsTpl->assign('domdate', $news->getVar('news_domdate'));
 $xoopsTpl->assign('dohits', $news->getVar('news_dohits'));
-$xoopsTpl->assign('dodorating', $news->getVar('news_dorating'));
 $xoopsTpl->assign('docomment', $news->getVar('news_docomment'));
+
+//xmsocial
+if (xoops_isActiveModule('xmsocial') && $helper->getConfig('general_xmsocial', 0) == 1) {
+    xoops_load('utility', 'xmsocial');
+	XmsocialUtility::renderRating($xoopsTpl, $xoTheme, 'xmsocial', $news_id, 5, $news->getVar('news_rating'), $news->getVar('news_votes'), 'xmnews');
+	$xoopsTpl->assign('dorating', $news->getVar('news_dorating'));
+	echo 'dsfdsf';
+} else {
+    $xoopsTpl->assign('dorating', 0);
+	echo 'zut';
+}
 
 //counter
 $counterUpdate = false;

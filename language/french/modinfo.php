@@ -46,6 +46,7 @@ define('_MI_XMNEWS_BLOCK_WAITING_DESC', 'Afficher les articles en attente de val
 define('_MI_XMNEWS_PREF_HEAD_GENERAL', '<span style="font-size: large;  font-weight: bold;">Général</span>');
 define('_MI_XMNEWS_PREF_GENERALITEMPERPAGE', 'Nombre d\'éléments par page dans la vue générale');
 define('_MI_XMNEWS_PREF_GENERALXMDOC', 'Utiliser le module xmdoc pour ajouter un document');
+define('_MI_XMNEWS_PREF_GENERALXMSOCIAL', 'Utiliser le module xmdoc pour noter un article');
 define('_MI_XMNEWS_PREF_CAPTCHA', 'Utiliser Captcha?');
 define('_MI_XMNEWS_PREF_CAPTCHA_DESC', 'Sélectionnez Oui pour utiliser Captcha dans le formulaire de soumission.');
 define('_MI_XMNEWS_PREF_COUNTERTIME', 'Sélectionnez le temps à laquelle le compteur de lecture d\'article peut être incrémenté par la même personne. [min]');

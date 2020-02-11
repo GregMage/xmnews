@@ -45,11 +45,11 @@ function block_xmnews_show($options) {
 			$criteria->setOrder('ASC');
         break;
 
-        /*case "rating":
+        case "rating":
 			$criteria->add(new Criteria('news_status', 1));
 			$criteria->setSort('news_rating DESC, news_title');
 			$criteria->setOrder('ASC');
-        break;*/
+        break;
 
         case "random":
 			$criteria->add(new Criteria('news_status', 1));
@@ -96,7 +96,7 @@ function block_xmnews_show($options) {
 			}
 			
 			$news['hits']            = $news_arr[$i]->getVar('news_counter');
-			$news['rating']          = $news_arr[$i]->getVar('news_rating');
+			$news['rating']          = number_format($news_arr[$i]->getVar('news_rating'), 1);
 			$news['votes']           = sprintf(_MA_XMNEWS_NEWS_VOTES, $news_arr[$i]->getVar('news_votes'));
 			$news['douser']     	 = $news_arr[$i]->getVar('news_douser');
 			$news['dodate']     	 = $news_arr[$i]->getVar('news_dodate');
