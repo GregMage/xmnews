@@ -114,12 +114,10 @@ $xoopsTpl->assign('docomment', $news->getVar('news_docomment'));
 //xmsocial
 if (xoops_isActiveModule('xmsocial') && $helper->getConfig('general_xmsocial', 0) == 1) {
     xoops_load('utility', 'xmsocial');
-	XmsocialUtility::renderRating($xoopsTpl, $xoTheme, 'xmsocial', $news_id, 5, $news->getVar('news_rating'), $news->getVar('news_votes'), 'xmnews');
+	XmsocialUtility::renderRating($xoopsTpl, $xoTheme, 'xmnews', $news_id, 5, $news->getVar('news_rating'), $news->getVar('news_votes'), 'xmnews');
 	$xoopsTpl->assign('dorating', $news->getVar('news_dorating'));
-	echo 'dsfdsf';
 } else {
     $xoopsTpl->assign('dorating', 0);
-	echo 'zut';
 }
 
 //counter
