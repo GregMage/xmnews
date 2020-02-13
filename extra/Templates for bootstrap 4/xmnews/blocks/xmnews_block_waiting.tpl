@@ -1,3 +1,4 @@
+<{if $block.news != ''}>
 <div class="table-responsive">
 	<table class="table table-hover table-sm">
 	<thead>
@@ -22,3 +23,6 @@
 	</tbody>
 </table>
 </div>
+<{else}>
+	<div class="alert alert-warning"><{$smarty.const._MA_XMNEWS_BLOCKS_NOWAITING}></div>
+<{/if}>

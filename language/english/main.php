@@ -120,6 +120,7 @@ define('_MA_XMNEWS_NEWS_WFV', 'Waiting for validation');
 
 // blocks
 define('_MA_XMNEWS_BLOCKS_DATE', 'Date');
+define('_MA_XMNEWS_BLOCKS_NOWAITING', 'There are no news awaiting validation');
 
 // permission
 define('_MA_XMNEWS_PERMISSION_VIEW_ABSTRACT', 'View abstract permissions');

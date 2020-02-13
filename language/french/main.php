@@ -120,6 +120,7 @@ define('_MA_XMNEWS_NEWS_WFV', 'En attente de validation');
 
 // blocks
 define('_MA_XMNEWS_BLOCKS_DATE', 'Date');
+define('_MA_XMNEWS_BLOCKS_NOWAITING', 'Il n\'y a pas d\'articles en attente de validation');
 
 // permission
 define('_MA_XMNEWS_PERMISSION_VIEW_ABSTRACT', 'Autorisation de voir le résumé d\'un article');
