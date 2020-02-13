@@ -137,7 +137,11 @@ function block_xmnews_edit($options) {
 	
 	$form->addElement($category);
 	$form->addElement(new XoopsFormText(_MB_XMNEWS_NBNEWS, 'options[1]', 5, 5, $options[1]), true);
-	$form->addElement(new XoopsFormRadioYN(_MB_XMNEWS_FULL, 'options[2]', $options[2]), true);
+	if ($options[3] != 'waiting'){
+		$form->addElement(new XoopsFormRadioYN(_MB_XMNEWS_FULL, 'options[2]', $options[2]), true);
+	} else {
+		$form->addElement(new XoopsFormHidden('options[2]', 0));
+	}
 	$form->addElement(new XoopsFormHidden('options[3]', $options[3]));
 
 	return $form->render();
