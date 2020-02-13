@@ -31,13 +31,13 @@ define('_MI_XMNEWS_MENU_ABOUT', 'À propos');
 define('_MI_XMNEWS_SUB_ADD', 'Soumettre un article');
 
 // Block
-define('_MI_XMNEWS_BLOCK_DATE', 'Articles récentes');
-define('_MI_XMNEWS_BLOCK_DATE_DESC', 'Afficher les articles récentes');
+define('_MI_XMNEWS_BLOCK_DATE', 'Articles récents');
+define('_MI_XMNEWS_BLOCK_DATE_DESC', 'Afficher les articles récents');
 define('_MI_XMNEWS_BLOCK_HITS', 'Top articles (lectures)');
 define('_MI_XMNEWS_BLOCK_HITS_DESC', 'Afficher les top articles (lectures)');
-define('_MI_XMNEWS_BLOCK_RATING', 'Articles les mieux notées');
-define('_MI_XMNEWS_BLOCK_RATING_DESC', 'Afficher les articles les mieux notées');
-define('_MI_XMNEWS_BLOCK_RANDOM', 'Articles aléatoire');
+define('_MI_XMNEWS_BLOCK_RATING', 'Articles les mieux notés');
+define('_MI_XMNEWS_BLOCK_RATING_DESC', 'Afficher les articles les mieux notés');
+define('_MI_XMNEWS_BLOCK_RANDOM', 'Articles aléatoires');
 define('_MI_XMNEWS_BLOCK_RANDOM_DESC', 'Afficher les articles aléatoirement');
 define('_MI_XMNEWS_BLOCK_WAITING', 'Articles en attente de validation');
 define('_MI_XMNEWS_BLOCK_WAITING_DESC', 'Afficher les articles en attente de validation');
