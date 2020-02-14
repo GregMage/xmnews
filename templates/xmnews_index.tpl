@@ -1,25 +1,27 @@
 <div class="xmnews">
-	<{if $filter}>
-	    <ol class="breadcrumb">
-			<li class="active"><{$index_module}></li>
-		</ol>
-		<div align="center">
-			<form class="form-inline" id="form_news_tri" name="form_news_tri" method="get" action="index.php">
-				<div class="form-group">
-					<label><{$smarty.const._MA_XMNEWS_NEWS_SELECTCATEGORY}></label>
-					<select class="form-control form-control-sm" name="news_filter" id="news_filter" onchange="location='index.php?news_cid='+this.options[this.selectedIndex].value">
-						<{$news_cid_options}>
-					<select>
-				</div>
-			</form>
-		</div>
-		<br>		
-		<br>
-	<{else}>
+	<{if $cat}>
 		<ol class="breadcrumb">
 			<li><a href="index.php"><{$index_module}></a></li>
 			<li class="active"><{$category_name}></li>
 		</ol>
+	<{else}>
+		<ol class="breadcrumb">
+			<li class="active"><{$index_module}></li>
+		</ol>
+	<{/if}>
+	<div align="center">
+		<form class="form-inline" id="form_news_tri" name="form_news_tri" method="get" action="index.php">
+			<div class="form-group">
+				<label><{$smarty.const._MA_XMNEWS_NEWS_SELECTCATEGORY}></label>
+				<select class="form-control form-control-sm" name="news_filter" id="news_filter" onchange="location='index.php?news_cid='+this.options[this.selectedIndex].value">
+					<{$news_cid_options}>
+				<select>
+			</div>
+		</form>
+	</div>
+	<br>		
+	<br>
+	<{if $cat}>
 		<div class="media">
 			<div class="media-left">
 				<{if $category_logo != ''}>
@@ -32,7 +34,7 @@
 			</div>
 		</div>
 		<br>		
-		<br>		
+		<br>	
 	<{/if}>
 	<{if $news_count != 0}>
 		<{foreach item=news from=$news}>

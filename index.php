@@ -78,8 +78,9 @@ if ($news_cid != 0){
 		$xoopsTpl->assign('category_logo', $url_logo . $category_img);
 	}
 	$xoopsTpl->assign('category_description', $category_arr[$news_cid]->getVar('category_description'));
-} else {
-	$xoopsTpl->assign('filter', true);
+	$xoopsTpl->assign('cat', true);
+}else {
+	$xoopsTpl->assign('cat', false);
 }
 $newsHandler->table_link = $newsHandler->db->prefix("xmnews_category");
 $newsHandler->field_link = "category_id";
