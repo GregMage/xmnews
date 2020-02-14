@@ -28,7 +28,7 @@
 		</div>
 
 		<div class="xmnews-short-description">
-			<{$blocknews.description|truncateHtml:20:'...'}>
+			<{$blocknews.description|truncateHtml:$block.desclenght:'...'}>
 		</div>
 
 		<a class="btn btn-primary col-xs-12 col-sm-10 col-md-8" title="<{$blocknews.title}>"

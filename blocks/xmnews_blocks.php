@@ -24,15 +24,12 @@ function block_xmnews_show($options) {
 	$helper = Helper::getHelper('xmnews');
 	$helper->loadLanguage('main');
 	
-	// Get Permission to view abstract
-	$viewPermissionCat = XmnewsUtility::getPermissionCat('xmnews_viewabstract');
-	
 	$permNewsHelper = new Helper\Permission('xmnews');
 	
 	$block = array();
-	$block['full'] = $options[2];
+	$block['desclenght'] = $options[3];
 	$criteria = new CriteriaCompo();
-	switch ($options[3]) {
+	switch ($options[4]) {
         case "date":
 			$criteria->add(new Criteria('news_status', 1));
 			$criteria->setSort('news_date DESC, news_title');
@@ -55,19 +52,36 @@ function block_xmnews_show($options) {
 			$criteria->add(new Criteria('news_status', 1));
             $criteria->setSort('RAND()');
         break;
-		
+
 		case "waiting":
 			$criteria->add(new Criteria('news_status', 2));
             $criteria->setSort('news_date DESC, news_title');
         break;
+
+		case "onenews":
+			$criteria->add(new Criteria('news_status', 1));
+            $criteria->add(new Criteria('news_id', $options[0]));;
+        break;
     }
-	$category_ids = explode(',', $options[0]);
-	if (!in_array(0, $category_ids)) {
-        $criteria->add(new Criteria('category_id', '(' . $options[0] . ')', 'IN'));
-    }
-	$criteria->setLimit($options[1]);
-	if (!empty($viewPermissionCat)) {
-		$criteria->add(new Criteria('news_cid', '(' . implode(',', $viewPermissionCat) . ')', 'IN'));
+	if ($options[4] != 'onenews'){
+		$category_ids = explode(',', $options[0]);
+		if (!in_array(0, $category_ids)) {
+			$criteria->add(new Criteria('category_id', '(' . $options[0] . ')', 'IN'));
+		}
+		$criteria->setLimit($options[1]);
+		// Get Permission to view abstract
+		$viewPermissionCat = XmnewsUtility::getPermissionCat('xmnews_viewabstract');
+		if (!empty($viewPermissionCat)) {
+			$criteria->add(new Criteria('news_cid', '(' . implode(',', $viewPermissionCat) . ')', 'IN'));
+		}
+		$block['full'] = $options[2];
+	} else {
+		// Get Permission to view
+		$viewPermissionCat = XmnewsUtility::getPermissionCat('xmnews_viewnews');
+		if (!empty($viewPermissionCat)) {
+			$criteria->add(new Criteria('news_cid', '(' . implode(',', $viewPermissionCat) . ')', 'IN'));
+		}
+		$block['full'] = 1;
 	}
 	$newsHandler->table_link = $newsHandler->db->prefix("xmnews_category");
 	$newsHandler->field_link = "category_id";
@@ -106,7 +120,8 @@ function block_xmnews_show($options) {
 			$news['perm_clone']      = $permNewsHelper->checkPermission('xmnews_editapprove', $news['cid']);
 			$news['perm_edit']       = $permNewsHelper->checkPermission('xmnews_editapprove', $news['cid']);
 			$news['perm_del']        = $permNewsHelper->checkPermission('xmnews_delete', $news['cid']);
-			$news['type']            = $options[3];
+			
+			$news['type']            = $options[4];
 			$block['news'][] = $news;
 			unset($news);
 		}
@@ -117,32 +132,49 @@ function block_xmnews_show($options) {
 
 function block_xmnews_edit($options) {
 	include __DIR__ . '/../include/common.php';
-
-	// Criteria
-	$criteria = new CriteriaCompo();
-	$criteria->setSort('category_weight ASC, category_name');
-	$criteria->setOrder('ASC');
-	$criteria->add(new Criteria('category_status', 1));
-	$category_arr = $categoryHandler->getall($criteria);
-	
 	include_once XOOPS_ROOT_PATH . '/modules/xmnews/class/blockform.php';
-    xoops_load('XoopsFormLoader');
+	xoops_load('XoopsFormLoader');
+	$form = new XmnewsBlockForm();
 
-    $form = new XmnewsBlockForm();
-	$category = new XoopsFormSelect(_MB_XMNEWS_CATEGORY, 'options[0]', $options[0], 5, true);
-	$category->addOption(0, _MB_XMNEWS_ALLCATEGORY);
-	foreach (array_keys($category_arr) as $i) {
-		$category->addOption($category_arr[$i]->getVar('category_id'), $category_arr[$i]->getVar('category_name'));
-	}
-	
-	$form->addElement($category);
-	$form->addElement(new XoopsFormText(_MB_XMNEWS_NBNEWS, 'options[1]', 5, 5, $options[1]), true);
-	if ($options[3] != 'waiting'){
-		$form->addElement(new XoopsFormRadioYN(_MB_XMNEWS_FULL, 'options[2]', $options[2]), true);
+	if ($options[4] != 'onenews'){
+		// Criteria
+		$criteria = new CriteriaCompo();
+		$criteria->setSort('category_weight ASC, category_name');
+		$criteria->setOrder('ASC');
+		$criteria->add(new Criteria('category_status', 1));
+		$category_arr = $categoryHandler->getall($criteria);
+		$category = new XoopsFormSelect(_MB_XMNEWS_CATEGORY, 'options[0]', $options[0], 5, true);
+		$category->addOption(0, _MB_XMNEWS_ALLCATEGORY);
+		foreach (array_keys($category_arr) as $i) {
+			$category->addOption($category_arr[$i]->getVar('category_id'), $category_arr[$i]->getVar('category_name'));
+		}
+		
+		$form->addElement($category);
+		$form->addElement(new XoopsFormText(_MB_XMNEWS_NBNEWS, 'options[1]', 5, 5, $options[1]), true);
+		if ($options[4] != 'waiting'){
+			$form->addElement(new XoopsFormRadioYN(_MB_XMNEWS_FULL, 'options[2]', $options[2]), true);
+		} else {
+			$form->addElement(new XoopsFormHidden('options[2]', 0));
+		}
+		$form->addElement(new XoopsFormText(_MB_XMNEWS_ABSTRACT, 'options[3]', 5, 5, $options[3]), true);
+		$form->addElement(new XoopsFormHidden('options[4]', $options[4]));
 	} else {
-		$form->addElement(new XoopsFormHidden('options[2]', 0));
+		// Criteria
+		$criteria = new CriteriaCompo();
+		$criteria->setSort('news_title');
+		$criteria->setOrder('ASC');
+		$criteria->add(new Criteria('news_status', 1));
+		$news_arr = $newsHandler->getall($criteria);
+		$form = new XmnewsBlockForm();
+		$news = new XoopsFormSelect(_MB_XMNEWS_NEWS, 'options[0]', $options[0], 5, true);
+		foreach (array_keys($news_arr) as $i) {
+			$news->addOption($news_arr[$i]->getVar('news_id'), $news_arr[$i]->getVar('news_title'));
+		}
+		$form->addElement($news);
+		$form->addElement(new XoopsFormHidden('options[1]', $options[1]));
+		$form->addElement(new XoopsFormHidden('options[2]', $options[2]));
+		$form->addElement(new XoopsFormHidden('options[3]', $options[3]));
+		$form->addElement(new XoopsFormHidden('options[4]', $options[4]));		
 	}
-	$form->addElement(new XoopsFormHidden('options[3]', $options[3]));
-
 	return $form->render();
 }

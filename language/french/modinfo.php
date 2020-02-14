@@ -41,6 +41,8 @@ define('_MI_XMNEWS_BLOCK_RANDOM', 'Articles aléatoires');
 define('_MI_XMNEWS_BLOCK_RANDOM_DESC', 'Afficher les articles aléatoirement');
 define('_MI_XMNEWS_BLOCK_WAITING', 'Articles en attente de validation');
 define('_MI_XMNEWS_BLOCK_WAITING_DESC', 'Afficher les articles en attente de validation');
+define('_MI_XMNEWS_BLOCK_ONENEWS', 'Afficher un article');
+define('_MI_XMNEWS_BLOCK_ONENEWS_DESC', 'Afficher l\'article sélectionné');
 
 // Pref
 define('_MI_XMNEWS_PREF_HEAD_GENERAL', '<span style="font-size: large;  font-weight: bold;">Général</span>');

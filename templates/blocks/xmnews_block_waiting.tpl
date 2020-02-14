@@ -12,7 +12,7 @@
 <{foreach item=waitingnews from=$block.news}>
 	<tr>
 		<td><{$waitingnews.title}></td>
-		<td><{$waitingnews.description|truncateHtml:50:'...'}></td>
+		<td><{$waitingnews.description|truncateHtml:$block.desclenght:'...'}></td>
 		<td><{$waitingnews.author}></td>
 		<td>
 			<a href="<{$xoops_url}>/modules/xmnews/action.php?op=edit&amp;news_id=<{$waitingnews.id}>">

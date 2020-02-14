@@ -17,7 +17,9 @@
  * @author          Mage Gregory (AKA Mage)
  */
 // index.php
+define('_MB_XMNEWS_ABSTRACT', 'Nombre de mots à afficher pour le résumé de l\'article (0 pas de limite)');
 define('_MB_XMNEWS_ALLCATEGORY', 'Toutes les catégories');
 define('_MB_XMNEWS_CATEGORY', 'Afficher les catégories:');
 define('_MB_XMNEWS_NBNEWS', 'Nombre d\'article à afficher');
+define('_MB_XMNEWS_NEWS', 'Afficher l\'article:');
 define('_MB_XMNEWS_FULL', 'Voir l\'article complet');
