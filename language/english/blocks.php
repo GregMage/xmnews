@@ -17,7 +17,7 @@
  * @author          Mage Gregory (AKA Mage)
  */
 // index.php
-define('_MB_XMNEWS_ABSTRACT', 'Number of words to display for the abstract of the news (0 no limit)');
+define('_MB_XMNEWS_ABSTRACT', 'Number of words to display for the abstract of the news (Put "all" to have no limit and "0" to not display the description)');
 define('_MB_XMNEWS_ALLCATEGORY', 'All Categories');
 define('_MB_XMNEWS_CATEGORY', 'Display category:');
 define('_MB_XMNEWS_NBNEWS', 'Number of news to display');

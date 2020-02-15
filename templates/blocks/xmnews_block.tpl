@@ -26,11 +26,16 @@
 			</div>
 			<{/if}>
 		</div>
-
 		<div class="xmnews-short-description">
+			<{if $block.desclenght != '0'}>
+			<{if $block.desclenght != 'all'}>
 			<{$blocknews.description|truncateHtml:$block.desclenght:'...'}>
+			<{else}>
+			<{$blocknews.description}>
+			<{/if}>
+			<{/if}>
 		</div>
-
+				
 		<a class="btn btn-primary col-xs-12 col-sm-10 col-md-8" title="<{$blocknews.title}>"
 		   href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
 			<{$smarty.const._MA_XMNEWS_NEWS_MORE}>
