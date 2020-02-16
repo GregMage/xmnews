@@ -334,8 +334,8 @@ $modversion['notification']['event'][] = [
 ];
 
 // About stuff
-$modversion['module_status'] = 'RC 2';
-$modversion['release_date']  = '2020/02/05';
+$modversion['module_status'] = 'RC 3';
+$modversion['release_date']  = '2020/02/16';
 
 $modversion['developer_lead']      = 'Mage';
 $modversion['module_website_url']  = 'github.com/GregMage';

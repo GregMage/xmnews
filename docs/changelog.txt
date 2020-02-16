@@ -1,14 +1,8 @@
 ﻿-------------------------------------------------
-Version: 1.0 Beta
-Date:    10.11.2019
+Version: 1.0 RC 3
+Date:    16.02.2020
 -------------------------------------------------
 
-Première version du module utilisable.
+Première version du module.
 
-
--------------------------------------------------
-Version: 1.0 Alpha
-Date:    26.10.2019
--------------------------------------------------
-
-Lancement du projet xmnews
+First version of the module.
