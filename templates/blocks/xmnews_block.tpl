@@ -3,7 +3,7 @@
 	<div class="col-xs-12 col-sm-6 col-md-4 xmnews-minibox">
 		<div class="xmnews-logo">
 			<{if $blocknews.logo != ''}>
-			<img src="<{$blocknews.logo}>" alt="<{$blocknews.title}>">
+			<img src="<{$blocknews.logo}>" alt="<{$blocknews.title}>" style="max-width:120px">
 			<{/if}>
 		</div>
 		<a class="xmnews-title" title="<{$blocknews.title}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
