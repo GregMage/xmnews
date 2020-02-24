@@ -18,7 +18,7 @@
  */
 // The name of this module
 define('_MI_XMNEWS_NAME', 'Article');
-define('_MI_XMNEWS_DESC', 'Gestion des article');
+define('_MI_XMNEWS_DESC', 'Gestion des articles');
 
 // Menu
 define('_MI_XMNEWS_MENU_HOME', 'Index');
