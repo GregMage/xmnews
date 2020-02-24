@@ -98,7 +98,11 @@ switch ($op) {
 				$news['cid']             = $news_arr[$i]->getVar('news_cid');
                 $news['title']           = $news_arr[$i]->getVar('news_title');
                 $news['date']       	 = formatTimestamp($news_arr[$i]->getVar('news_date'), 'm');
-                $news['description']     = substr($news_arr[$i]->getVar('news_description', 'e'), 0, 300) . '...';
+				if (strlen($news_arr[$i]->getVar('news_description', 'e')) > 300){
+					$news['description'] = substr($news_arr[$i]->getVar('news_description', 'e'), 0, 300) . '...';
+				} else {
+					$news['description'] = $news_arr[$i]->getVar('news_description', 'e');
+				}
                 $news['status']          = $news_arr[$i]->getVar('news_status');
                 $news_img                = $news_arr[$i]->getVar('news_logo');
 				$news['logo']        	 = $url_logo . $news_img;
