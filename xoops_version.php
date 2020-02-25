@@ -75,6 +75,7 @@ $modversion['templates'][] = ['file' => 'xmnews_admin_permission.tpl', 'descript
 $modversion['templates'][] = ['file' => 'xmnews_index.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'xmnews_article.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'xmnews_action.tpl', 'description' => ''];
+$modversion['templates'][] = ['file' => 'xmnews_rss.tpl', 'description' => ''];
 
 // Blocks
 $modversion['blocks'][] = array(
