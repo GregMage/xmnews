@@ -29,10 +29,6 @@ if (function_exists('mb_http_output')) {
     mb_http_output('pass');
 }
 
-xoops_load('utility', basename(__DIR__));
-$helper     = Helper::getHelper('xmnews');
-include_once __DIR__ . '/include/common.php';
-
 // Get Permission to view abstract
 $viewPermissionCat = XmnewsUtility::getPermissionCat('xmnews_viewabstract');
 
