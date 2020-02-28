@@ -458,10 +458,16 @@ class xmnews_news extends XoopsObject
 			//Del logo
 			if ($this->getVar('news_logo') != 'category/blank.gif') {
 				if (strpos($this->getVar('news_logo'), 'category') === False){
-					$urlfile = $path_logo . $this->getVar('news_logo');
-					if (is_file($urlfile)) {
-						chmod($urlfile, 0777);
-						unlink($urlfile);
+					// Test if the image is used
+					$criteria = new CriteriaCompo();
+					$criteria->add(new Criteria('news_logo', $this->getVar('news_logo')));
+					$news_count = $newsHandler->getCount($criteria);
+					if ($news_count == 0){
+						$urlfile = $path_logo . $this->getVar('news_logo');
+						if (is_file($urlfile)) {
+							chmod($urlfile, 0777);
+							unlink($urlfile);
+						}
 					}
 				}
 			}
