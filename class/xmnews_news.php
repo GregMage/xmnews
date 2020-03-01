@@ -273,6 +273,8 @@ class xmnews_news extends XoopsObject
 			} else {
 				$form->addElement(new XoopsFormDateTime(_MA_XMNEWS_NEWS_DATE, 'news_tempdate', '', time()), false);
 			}
+			// reset hits
+			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_NEWS_RESETHITS, 'news_resethits', 0, _YES, _NO  . ' (' . $this->getVar('news_counter') . ')'));
 		}
         // permission edit and approve submitted news		
         $permHelper = new Helper\Permission();
@@ -373,6 +375,9 @@ class xmnews_news extends XoopsObject
 				$this->setVar('news_mdate', 0);
 			}
         }
+		if (Request::getInt('news_resethits', 0) == 1){
+			$this->setVar('news_counter', 0);
+		}
 		// permission edit and approve submitted news		
         $permHelper = new Helper\Permission();
 		$permission = $permHelper->checkPermission('xmnews_editapprove', $news_cid);

@@ -107,6 +107,7 @@ define('_MA_XMNEWS_NEWS_ON', 'on');
 define('_MA_XMNEWS_NEWS_PUBLISHEDBY', 'Published by');
 define('_MA_XMNEWS_NEWS_RATING', 'Rating');
 define('_MA_XMNEWS_NEWS_READING', 'Reading');
+define('_MA_XMNEWS_NEWS_RESETHITS', 'Reset the reading counter');
 define('_MA_XMNEWS_NEWS_RESETMDATE', 'Reset (empty date)');
 define('_MA_XMNEWS_NEWS_SELECTCATEGORY', 'Select a category to filter news');
 define('_MA_XMNEWS_NEWS_SUREDEL', 'Sure to delete this news? %s');

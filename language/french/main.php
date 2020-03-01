@@ -83,7 +83,7 @@ define('_MA_XMNEWS_CATEGORY_NAME', 'Nom');
 define('_MA_XMNEWS_CATEGORY_SUREDEL', 'Êtes-vous sûr de vouloir supprimer cette catégorie? %s');
 define('_MA_XMNEWS_CATEGORY_THEREARENEWS', 'Il y a <strong>%s</strong> articles dans cette catégorie!');
 define('_MA_XMNEWS_CATEGORY_UPLOAD', 'Upload');
-define('_MA_XMNEWS_CATEGORY_UPLOADSIZE', 'Taille maximum : %s Kb');
+define('_MA_XMNEWS_CATEGORY_UPLOADSIZE', 'Taille maximum : %s Ko');
 define('_MA_XMNEWS_CATEGORY_WARNINGDELNEWS', '<strong>Attention, les éléments suivants seront également supprimés!</strong>');
 define('_MA_XMNEWS_CATEGORY_WEIGHT', 'Poids');
 
@@ -107,6 +107,7 @@ define('_MA_XMNEWS_NEWS_ON', 'le');
 define('_MA_XMNEWS_NEWS_PUBLISHEDBY', 'Publié par');
 define('_MA_XMNEWS_NEWS_RATING', 'Évaluation');
 define('_MA_XMNEWS_NEWS_READING', 'Lecture');
+define('_MA_XMNEWS_NEWS_RESETHITS', 'Réinitialiser le compteur de lecture');
 define('_MA_XMNEWS_NEWS_RESETMDATE', 'Réinitialiser (date vide)');
 define('_MA_XMNEWS_NEWS_SELECTCATEGORY', 'Sélectionnez une catégorie pour filtrer les articles');
 define('_MA_XMNEWS_NEWS_SUREDEL', 'Êtes-vous sûr de vouloir supprimer cet article? %s');
