@@ -56,13 +56,13 @@ define('_MA_XMNEWS_VIEW', 'Afficher');
 
 //Index
 define('_MA_XMNEWS_INDEX_IMAGEINFO', 'Statut du serveur');
-define('_MA_XMNEWS_INDEX_SPHPINI', "<span style='font-weight: bold;'>Informations extraites du fichier php.ini:</span>");
+define('_MA_XMNEWS_INDEX_SPHPINI', "<span style='font-weight: bold;'>Informations extraites du fichier php.ini :</span>");
 define('_MA_XMNEWS_INDEX_ON', "<span style='font-weight: bold;'>ON</span>");
 define('_MA_XMNEWS_INDEX_OFF', "<span style='font-weight: bold;'>OFF</span>");
 define('_MA_XMNEWS_INDEX_SERVERUPLOADSTATUS', 'Statut d\'envoi du serveur : ');
-define('_MA_XMNEWS_INDEX_MAXPOSTSIZE', 'Taille d\'envoi maximal autorisé (directive post_max_size dans php.ini): ');
-define('_MA_XMNEWS_INDEX_MAXUPLOADSIZE', 'Taille d\'envoi maximal autorisé (directive upload_max_filesize dans le fichier php.ini): ');
-define('_MA_XMNEWS_INDEX_MEMORYLIMIT', 'Limite de mémoire (directive memory_limit dans php.ini): ');
+define('_MA_XMNEWS_INDEX_MAXPOSTSIZE', 'Taille d\'envoi maximal autorisé (directive post_max_size dans php.ini) : ');
+define('_MA_XMNEWS_INDEX_MAXUPLOADSIZE', 'Taille d\'envoi maximal autorisé (directive upload_max_filesize dans le fichier php.ini) : ');
+define('_MA_XMNEWS_INDEX_MEMORYLIMIT', 'Limite de mémoire (directive memory_limit dans php.ini) : ');
 define('_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED', 'Vous n\'avez pas installé le module xmsocial, ce module est requis si vous souhaitez évaluer les articles');
 define('_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE', 'Vous devez activer dans les préférences du module xmnews l\'utilisation de xmsocial (si vous souhaitez évaluer les articles)');
 
@@ -98,7 +98,7 @@ define('_MA_XMNEWS_GENINFORMATION', 'Informations générales');
 define('_MA_XMNEWS_NEWS_KEYWORD', 'Meta keywords');
 define('_MA_XMNEWS_NEWS_KEYWORD_DSC', 'La balise méta keywords est une série de mots clés qui représentent le contenu de vos actualités. Tapez des mots-clés séparés par une virgule. (Ex. XOOPS, PHP, MySQL, système de portail)');
 define('_MA_XMNEWS_NEWS_LOGO', 'Logo pour la news');
-define('_MA_XMNEWS_NEWS_MDATE', 'Date de modification');
+define('_MA_XMNEWS_NEWS_MDATE', 'Date de modification ');
 define('_MA_XMNEWS_NEWS_MDATEUPDATE', 'Mettre à jour la date de modification');
 define('_MA_XMNEWS_NEWS_MORE', 'Lire l\'article complet');
 define('_MA_XMNEWS_NEWS_NEWS', 'Article');
@@ -106,7 +106,7 @@ define('_MA_XMNEWS_NEWS_NOTIFY', 'Me prévenir de la publication?');
 define('_MA_XMNEWS_NEWS_ON', 'le');
 define('_MA_XMNEWS_NEWS_PUBLISHEDBY', 'Publié par');
 define('_MA_XMNEWS_NEWS_RATING', 'Évaluation');
-define('_MA_XMNEWS_NEWS_READING', 'Lecture');
+define('_MA_XMNEWS_NEWS_READING', 'Lecture ');
 define('_MA_XMNEWS_NEWS_RESETHITS', 'Réinitialiser le compteur de lecture');
 define('_MA_XMNEWS_NEWS_RESETMDATE', 'Réinitialiser (date vide)');
 define('_MA_XMNEWS_NEWS_SELECTCATEGORY', 'Sélectionnez une catégorie pour filtrer les articles');
@@ -120,24 +120,24 @@ define('_MA_XMNEWS_NEWS_WAITING', 'Il y a <strong>%s</strong> articles en attent
 define('_MA_XMNEWS_NEWS_WFV', 'En attente de validation');
 
 // blocks
-define('_MA_XMNEWS_BLOCKS_DATE', 'Date');
+define('_MA_XMNEWS_BLOCKS_DATE', 'Date ');
 define('_MA_XMNEWS_BLOCKS_NOWAITING', 'Il n\'y a pas d\'articles en attente de validation');
 
 // permission
 define('_MA_XMNEWS_PERMISSION_VIEW_ABSTRACT', 'Autorisation de voir le résumé d\'un article');
 define('_MA_XMNEWS_PERMISSION_VIEW_ABSTRACT_DSC', 'Choisissez les groupes qui peuvent voir le résumé d\'un article dans ces catégories');
-define('_MA_XMNEWS_PERMISSION_VIEW_ABSTRACT_THIS', 'Sélectionner les groupes pouvant voir le résumé dans ces catégories');
+define('_MA_XMNEWS_PERMISSION_VIEW_ABSTRACT_THIS', 'Sélectionnez les groupes pouvant voir le résumé dans ces catégories');
 define('_MA_XMNEWS_PERMISSION_VIEW_NEWS', 'Autorisation de voir un article complet');
 define('_MA_XMNEWS_PERMISSION_VIEW_NEWS_DSC', 'Choisissez les groupes qui peuvent voir un article complet dans ces catégories');
-define('_MA_XMNEWS_PERMISSION_VIEW_NEWS_THIS', 'Sélectionner les groupes pouvant voir un article complet dans ces catégories');
+define('_MA_XMNEWS_PERMISSION_VIEW_NEWS_THIS', 'Sélectionnez les groupes pouvant voir un article complet dans ces catégories');
 define('_MA_XMNEWS_PERMISSION_SUBMIT', 'Autorisation de soumettre');
-define('_MA_XMNEWS_PERMISSION_SUBMIT_DSC', 'Sélectionner les groupes pouvant soumettre des articles dans ces catégories');
-define('_MA_XMNEWS_PERMISSION_SUBMIT_THIS', 'Sélectionner les groupes pouvant soumettre dans ces catégorie');
+define('_MA_XMNEWS_PERMISSION_SUBMIT_DSC', 'Sélectionnez les groupes pouvant soumettre des articles dans ces catégories');
+define('_MA_XMNEWS_PERMISSION_SUBMIT_THIS', 'Sélectionnez les groupes pouvant soumettre dans ces catégories');
 define('_MA_XMNEWS_PERMISSION_EDITAPPROVE', 'Autorisation de modifier et d\'aprouver');
-define('_MA_XMNEWS_PERMISSION_EDITAPPROVE_DSC', 'Sélectionner les groupes pouvant éditer et aprouver des articles dans ces catégories');
-define('_MA_XMNEWS_PERMISSION_EDITAPPROVE_THIS', 'Sélectionner les groupes pouvant éditer et aprouver dans ces catégorie');
+define('_MA_XMNEWS_PERMISSION_EDITAPPROVE_DSC', 'Sélectionnez les groupes pouvant éditer et aprouver des articles dans ces catégories');
+define('_MA_XMNEWS_PERMISSION_EDITAPPROVE_THIS', 'Sélectionnez les groupes pouvant éditer et aprouver dans ces catégories');
 define('_MA_XMNEWS_PERMISSION_DELETE', 'Autorisation de supprimer');
-define('_MA_XMNEWS_PERMISSION_DELETE_DSC', 'Sélectionner les groupes pouvant supprimer des articles dans ces catégories');
+define('_MA_XMNEWS_PERMISSION_DELETE_DSC', 'Sélectionnez les groupes pouvant supprimer des articles dans ces catégories');
 define('_MA_XMNEWS_PERMISSION_DELETE_THIS', 'Sélectionner les groupes pouvant supprimer dans ces catégories');
 
 // user
