@@ -51,9 +51,9 @@ define('_MI_XMNEWS_PREF_GENERALXMDOC', 'Utiliser le module xmdoc pour ajouter un
 define('_MI_XMNEWS_PREF_GENERALXMSOCIAL', 'Utiliser le module xmsocial pour noter un article');
 define('_MI_XMNEWS_PREF_CAPTCHA', 'Utiliser Captcha?');
 define('_MI_XMNEWS_PREF_CAPTCHA_DESC', 'Sélectionnez Oui pour utiliser Captcha dans le formulaire de soumission.');
-define('_MI_XMNEWS_PREF_COUNTERTIME', 'Sélectionnez le temps à laquelle le compteur de lecture d\'article peut être incrémenté par la même personne. [min]');
-define('_MI_XMNEWS_PREF_COUNTERTIME_DESC', 'Mettre "0" si vous ne voulez de limitation');
-define('_MI_XMNEWS_PREF_MAXUPLOADSIZE', 'Taille maximale des fichiers uploadé');
+define('_MI_XMNEWS_PREF_COUNTERTIME', 'Sélectionnez le temps pour lequel le compteur de lecture d\'article peut être incrémenté par la même personne. [min]');
+define('_MI_XMNEWS_PREF_COUNTERTIME_DESC', 'Mettre "0" si vous ne voulez pas de limitation');
+define('_MI_XMNEWS_PREF_MAXUPLOADSIZE', 'Taille maximale des fichiers uploadés');
 define('_MI_XMNEWS_PREF_MAXUPLOADSIZE_DESC', 'Cela concerne les logos uploadés pour les catégories et les actualités');
 define('_MI_XMNEWS_PREF_MAXUPLOADSIZE_MBYTES', 'Mb');
 define('_MI_XMNEWS_PREF_REDIRECT', 'Url de redirection si le visiteur n\'a pas accès à un article');
