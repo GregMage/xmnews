@@ -96,6 +96,9 @@ if ($news_count > 0 && !empty($viewPermissionCat)) {
 		$news['title']           = $news_arr[$i]->getVar('news_title');
 		$news['author']          = XoopsUser::getUnameFromId($news_arr[$i]->getVar('news_userid'));
 		$news['date']       	 = formatTimestamp($news_arr[$i]->getVar('news_date'), 'm');
+		if ($news_arr[$i]->getVar('news_mdate') != 0) {
+			$news['mdate'] 		 = formatTimestamp($news_arr[$i]->getVar('news_mdate'), 's');
+		}
 		$news['description']     = $news_arr[$i]->getVar('news_description');
 		$news['counter']         = $news_arr[$i]->getVar('news_counter');
 		$news['douser']          = $news_arr[$i]->getVar('news_douser');
