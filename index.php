@@ -101,9 +101,12 @@ if ($news_count > 0 && !empty($viewPermissionCat)) {
 		}
 		$news['description']     = $news_arr[$i]->getVar('news_description');
 		$news['counter']         = $news_arr[$i]->getVar('news_counter');
+		$news['rating']          = number_format($news_arr[$i]->getVar('news_rating'), 1);
+		$news['votes']           = sprintf(_MA_XMNEWS_NEWS_VOTES, $news_arr[$i]->getVar('news_votes'));
 		$news['douser']          = $news_arr[$i]->getVar('news_douser');
 		$news['dodate']          = $news_arr[$i]->getVar('news_dodate');
 		$news['dohits']          = $news_arr[$i]->getVar('news_dohits');
+		$news['dorating']        = $news_arr[$i]->getVar('news_dorating');
 		$news_img                = $news_arr[$i]->getVar('news_logo');
 		$news['logo']        	 = $url_logo . $news_img;
 		if ($news_img == ''){
