@@ -99,12 +99,15 @@ define('_MA_XMNEWS_NEWS_KEYWORD', 'Meta keywords');
 define('_MA_XMNEWS_NEWS_KEYWORD_DSC', 'The keywords meta tag is a series of keywords that represents the content of your news. Type in keywords with each separated by a comma in between. (Ex. XOOPS, PHP, mySQL, portal system)');
 define('_MA_XMNEWS_NEWS_LOGO', 'News logo');
 define('_MA_XMNEWS_NEWS_MDATE', 'Modification date');
+define('_MA_XMNEWS_NEWS_MDATE_BT', 'Update');
 define('_MA_XMNEWS_NEWS_MDATEUPDATE', 'Update the modification date');
 define('_MA_XMNEWS_NEWS_MORE', 'Read the complete news');
 define('_MA_XMNEWS_NEWS_NEWS', 'News');
 define('_MA_XMNEWS_NEWS_NOTIFY', 'Notify me of the publication?');
 define('_MA_XMNEWS_NEWS_ON', 'on');
 define('_MA_XMNEWS_NEWS_PUBLISHEDBY', 'Published by');
+define('_MA_XMNEWS_NEWS_PUBLISHEDBY_BT', 'Author');
+define('_MA_XMNEWS_NEWS_PUBLISHED_BT', 'Publication');
 define('_MA_XMNEWS_NEWS_RATING', 'Rating');
 define('_MA_XMNEWS_NEWS_READING', 'Reading');
 define('_MA_XMNEWS_NEWS_RESETHITS', 'Reset the reading counter');
@@ -115,7 +118,8 @@ define('_MA_XMNEWS_NEWS_TITLE', 'Title');
 define('_MA_XMNEWS_NEWS_USELOGOCATEGORY', 'Use the category logo');
 define('_MA_XMNEWS_NEWS_USERID', 'Author');
 define('_MA_XMNEWS_NEWS_XMDOC', 'Documents');
-define('_MA_XMNEWS_NEWS_VOTES', '(%s Votes)');
+define('_MA_XMNEWS_NEWS_VOTES', '(%s votes)');
+define('_MA_XMNEWS_NEWS_VOTE', '(%s vote)');
 define('_MA_XMNEWS_NEWS_WAITING', 'There are <strong>%s</strong> news waiting for validation!');
 define('_MA_XMNEWS_NEWS_WFV', 'Waiting for validation');
 
@@ -141,5 +145,5 @@ define('_MA_XMNEWS_PERMISSION_DELETE_DSC', 'Select groups that can delete a news
 define('_MA_XMNEWS_PERMISSION_DELETE_THIS', 'Select groups that can delete in this category');
 
 // user
-define('_MA_XMNEWS_SELECTCATEGORY', 'Select a category to add an item to');
+define('_MA_XMNEWS_SELECTCATEGORY', 'Submit a news - Select a category');
 
