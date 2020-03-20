@@ -73,7 +73,6 @@ define('_MA_XMNEWS_CATEGORY_DODSC', 'Valeur par défaut pour les nouveaux articl
 define('_MA_XMNEWS_CATEGORY_DODATE', 'Afficher la date');
 define('_MA_XMNEWS_CATEGORY_DOHITS', 'Afficher les lectures');
 define('_MA_XMNEWS_CATEGORY_DOMDATE', 'Afficher la date de modification');
-define('_MA_XMNEWS_CATEGORY_DORATING', 'Afficher l\'évaluation');
 define('_MA_XMNEWS_CATEGORY_DORATING', 'Afficher la note');
 define('_MA_XMNEWS_CATEGORY_DOUSER', 'Afficher l\'auteur');
 define('_MA_XMNEWS_CATEGORY_EMPTY', 'Vide');
