@@ -92,7 +92,7 @@ define('_MA_XMNEWS_CLONE_NAME', 'CLONE');
 define('_MA_XMNEWS_NEWS_CATEGORY', 'Categorie');
 define('_MA_XMNEWS_NEWS_AUTHOR', 'Auteur');
 define('_MA_XMNEWS_NEWS_DATE', 'Date de publication');
-define('_MA_XMNEWS_NEWS_DATEUPDATE', 'Mise à jour de la date de publication');
+define('_MA_XMNEWS_NEWS_DATEUPDATE', 'Mettre à jour la date de publication');
 define('_MA_XMNEWS_NEWS_DESC', 'Résumé');
 define('_MA_XMNEWS_GENINFORMATION', 'Informations générales');
 define('_MA_XMNEWS_NEWS_KEYWORD', 'Meta keywords');
