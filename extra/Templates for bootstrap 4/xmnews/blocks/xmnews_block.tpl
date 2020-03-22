@@ -79,7 +79,7 @@
 					<{if ($blocknews.douser == 1) || ($blocknews.dodate == 1) || ($blocknews.domdate == 1) || ($blocknews.dorating) == 1}> 
 						<div class="row border-bottom pl-3">
 							<{if $blocknews.douser == 1}>
-								<figure class="figure text-muted m-1 pr-2 border-right">
+								<figure class="figure text-muted m-1 pr-2 text-center border-right">
 									  <span class="fa fa-user fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_PUBLISHEDBY_BT}>
 									  <figcaption class="figure-caption text-center"><{$blocknews.author}></figcaption>
 								</figure>
@@ -87,13 +87,13 @@
 
 							<{if ($blocknews.dodate == 1) && ($blocknews.domdate == 1) && ($blocknews.douser == 1)}>
 								<span class="d-none d-md-block">
-									<figure class="figure text-muted m-1 pr-2 border-right">
+									<figure class="figure text-muted m-1 pr-2 text-center border-right">
 										  <span class="fa fa-newspaper-o fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_PUBLISHED_BT}>
 										  <figcaption class="figure-caption text-center d-none d-md-block"><{$blocknews.date|replace:'-':'/'}></figcaption>
 										  <figcaption class="figure-caption text-center d-block d-md-none"><{$blocknews.date|truncate:10:''|replace:'-':'/'}> </figcaption>
 									</figure>
 								</span>	
-								<figure class="figure text-muted m-1 pr-2 border-right">
+								<figure class="figure text-muted m-1 pr-2 text-center border-right">
 									<span class="d-md-block d-none">
 										<span class="fa fa-calendar fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_MDATE_BT}>
 									</span>
@@ -104,7 +104,7 @@
 								</figure>
 							<{else}>
 								<{if $blocknews.dodate == 1}>
-									<figure class="figure text-muted m-1 pr-2 border-right">
+									<figure class="figure text-muted m-1 pr-2 text-center border-right">
 										  <span class="fa fa-newspaper-o fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_PUBLISHED_BT}>
 										  <figcaption class="figure-caption text-center d-none d-md-block"><{$blocknews.date|replace:'-':'/'}></figcaption>
 										  <figcaption class="figure-caption text-center d-block d-md-none"><{$blocknews.date|truncate:10:''|replace:'-':'/'}> </figcaption>
@@ -112,7 +112,7 @@
 								<{/if}>
 								<{if $blocknews.domdate == 1}>
 									<{if $blocknews.mdate}>
-										<figure class="figure text-muted m-1 pr-2 border-right">
+										<figure class="figure text-muted m-1 pr-2 text-center border-right">
 											<span class="fa fa-calendar fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_MDATE}>
 											<figcaption class="figure-caption text-center"><{$blocknews.mdate|replace:'-':'/'}></figcaption>
 										</figure>
@@ -120,9 +120,9 @@
 								<{/if}>
 							<{/if}>
 							<{if $blocknews.dorating == 1}>
-								<figure class="text-muted m-1 pr-2 border-right">
-									<{include file="db:xmsocial_rating.tpl" down_xmsocial=$xmsocial_arr}>
-									<figcaption class="figure-caption text-center"></figcaption>
+								<figure class="text-muted m-1 pr-2 text-center border-right">
+									<{$smarty.const._MA_XMNEWS_NEWS_RATING}> 
+									<figcaption class="figure-caption text-center"><{$blocknews.rating}> <{$blocknews.votes}></figcaption>
 								</span>	
 							<{/if}>
 						</div>
