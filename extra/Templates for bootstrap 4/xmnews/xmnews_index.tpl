@@ -100,8 +100,8 @@
 									<{/if}>
 									<{if $news.dorating == 1}>
 										<figure class="text-muted m-1 pr-2 border-right">
-											<span class="fa fa-star" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_RATING}>: <{$news.rating}> <{$news.votes}>
-											<figcaption class="figure-caption text-center"></figcaption>	
+											<span class="fa fa-star" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_RATING}>
+											<figcaption class="figure-caption text-center"><{$news.rating}> <{$news.votes}></figcaption>	
 										</span>	
 									<{/if}>
 								</div>

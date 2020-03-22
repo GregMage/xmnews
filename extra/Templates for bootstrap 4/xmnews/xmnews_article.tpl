@@ -23,7 +23,7 @@
 	<{/if}>
 	<div class="row mb-2">
 		<div class="col-md-12">
-			<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-0 shadow-sm h-md-250 position-relative">
+			<div class="no-gutters border rounded overflow-hidden flex-md-row mb-0 shadow-sm h-md-250 position-relative">
 				<div class="card">
 					<div class="card-header">
 						<div class="d-flex justify-content-between">
