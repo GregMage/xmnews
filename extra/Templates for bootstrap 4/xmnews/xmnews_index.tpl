@@ -41,11 +41,11 @@
 		<div class="row">
 			<{foreach item=news from=$news}>
 				<div class="col-md-12 mb-3">
-					<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-0 shadow-sm h-md-250 position-relative">
+<!--				<div class="row no-gutters rounded overflow-hidden flex-md-row mb-0 shadow-sm h-md-250 position-relative">-->
 						<div class="card">
 							<div class="card-header">
 								<div class="d-flex justify-content-between">
-									<h3 class="mb-0"><{$news.title}></h3>
+									<h3 class="mb-0 text-white"><{$news.title}></h3>
 									<{if $news.dohits == 1}>
 										<div class="row align-items-center text-right">
 											<div class="col">
@@ -56,9 +56,9 @@
 								</div>
 							</div>
 							<{if ($news.douser == 1) || ($news.dodate == 1) || ($news.domdate == 1) || ($news.dorating) == 1}> 
-								<div class="row border-bottom pl-3">
+								<div class="row border-bottom border-secondary mx-1 pl-1">
 									<{if $news.douser == 1}>
-										<figure class="figure text-muted m-1 pr-2 text-center border-right">
+										<figure class="figure text-muted my-1 pr-2 text-center border-right border-secondary">
 											  <span class="fa fa-user fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_PUBLISHEDBY_BT}>
 											  <figcaption class="figure-caption text-center"><{$news.author}></figcaption>
 										</figure>
@@ -66,13 +66,13 @@
 
 									<{if ($news.dodate == 1) && ($news.domdate == 1) && ($news.douser == 1)}>
 										<span class="d-none d-md-block">
-											<figure class="figure text-muted m-1 pr-2 text-center border-right">
+											<figure class="figure text-muted m-1 pr-2 text-center border-right border-secondary">
 												  <span class="fa fa-newspaper-o fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_PUBLISHED_BT}>
 												  <figcaption class="figure-caption text-center d-none d-md-block"><{$news.date|replace:'-':'/'}></figcaption>
 												  <figcaption class="figure-caption text-center d-block d-md-none"><{$news.date|truncate:10:''|replace:'-':'/'}> </figcaption>
 											</figure>
 										</span>	
-										<figure class="figure text-muted m-1 pr-2 text-center border-right">
+										<figure class="figure text-muted m-1 pr-2 text-center border-right border-secondary">
 											<span class="d-md-block d-none">
 												<span class="fa fa-calendar fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_MDATE_BT}>
 											</span>
@@ -83,7 +83,7 @@
 										</figure>
 									<{else}>
 										<{if $news.dodate == 1}>
-											<figure class="figure text-muted m-1 pr-2 text-center border-right">
+											<figure class="figure text-muted m-1 pr-2 text-center border-right border-secondary">
 												  <span class="fa fa-newspaper-o fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_PUBLISHED_BT}>
 												  <figcaption class="figure-caption text-center d-none d-md-block"><{$news.date|replace:'-':'/'}></figcaption>
 												  <figcaption class="figure-caption text-center d-block d-md-none"><{$news.date|truncate:10:''|replace:'-':'/'}> </figcaption>
@@ -91,7 +91,7 @@
 										<{/if}>
 										<{if $news.domdate == 1}>
 											<{if $news.mdate}>
-												<figure class="figure text-muted m-1 pr-2 text-center border-right">
+												<figure class="figure text-muted m-1 pr-2 text-center border-right border-secondary">
 													<span class="fa fa-calendar fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_MDATE}>
 													<figcaption class="figure-caption text-center"><{$news.mdate|replace:'-':'/'}></figcaption>
 												</figure>
@@ -99,7 +99,7 @@
 										<{/if}>
 									<{/if}>
 									<{if $news.dorating == 1}>
-										<figure class="text-muted m-1 pr-2 text-center border-right">
+										<figure class="text-muted m-1 pr-2 text-center border-right border-secondary">
 											<span class="fa fa-star" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_RATING}>
 											<figcaption class="figure-caption text-center"><{$news.rating}> <{$news.votes}></figcaption>	
 										</span>	
@@ -153,7 +153,7 @@
 								<{/if}>
 							</div>
 						</div>
-					</div>
+<!--				</div>-->
 				</div>				
 			
 			<{/foreach}>
