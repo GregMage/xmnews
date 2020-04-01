@@ -45,44 +45,23 @@
 									  <figcaption class="figure-caption text-center"><{$author}></figcaption>
 								</figure>
 							<{/if}>
-
-							<{if ($dodate == 1) && ($domdate == 1) && ($douser == 1)}>
-								<span class="d-none d-md-block">
-									<figure class="figure text-muted m-1 pr-2 text-center border-right border-secondary">
-										  <span class="fa fa-newspaper-o fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_PUBLISHED_BT}>
-										  <figcaption class="figure-caption text-center"><{$date|replace:'-':'/'}></figcaption>
-									</figure>
-								</span>	
+							<{if $dodate == 1}>
 								<figure class="figure text-muted m-1 pr-2 text-center border-right border-secondary">
-									<span class="d-md-block d-none">
-										<span class="fa fa-calendar fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_MDATE_BT}>
-									</span>
-									<span class="d-block d-md-none">
-										<span class="fa fa-newspaper-o fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_MDATE_BT}>
-									</span>
-									<figcaption class="figure-caption text-center"><{$mdate|replace:'-':'/'}></figcaption>
+									  <span class="fa fa-newspaper-o fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_PUBLISHED_BT}>
+									  <figcaption class="figure-caption text-center"><{$date|replace:'-':'/'}></figcaption>
 								</figure>
-							<{else}>
-								<{if $dodate == 1}>
+							<{/if}>
+							<{if $domdate == 1}>
+								<{if $mdate}>
 									<figure class="figure text-muted m-1 pr-2 text-center border-right border-secondary">
-										  <span class="fa fa-newspaper-o fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_PUBLISHED_BT}>
-										  <figcaption class="figure-caption text-center d-none d-md-block"><{$date|replace:'-':'/'}></figcaption>
-										  <figcaption class="figure-caption text-center d-block d-md-none"><{$date|truncate:10:''|replace:'-':'/'}> </figcaption>
+										<span class="fa fa-calendar fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_MDATE_BT}>
+										<figcaption class="figure-caption text-center"><{$mdate|replace:'-':'/'}></figcaption>
 									</figure>
-								<{/if}>
-								<{if $domdate == 1}>
-									<{if $mdate}>
-										<figure class="figure text-muted m-1 pr-2 text-center border-right border-secondary">
-											<span class="fa fa-calendar fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_MDATE}>
-											<figcaption class="figure-caption text-center"><{$mdate|replace:'-':'/'}></figcaption>
-										</figure>
-									<{/if}>
 								<{/if}>
 							<{/if}>
 							<{if $dorating == 1}>
 								<figure class="text-muted m-1 pr-2 text-center border-right border-secondary">
-									<span class="d-block d-md-none"><{include file="db:xmsocial_rating.tpl" down_xmsocial=$xmsocial_arr|truncate:8:''}></span>
-									<span class="d-none d-md-block"><{include file="db:xmsocial_rating.tpl" down_xmsocial=$xmsocial_arr}></span>
+									<span class="d-block"><{include file="db:xmsocial_rating.tpl" down_xmsocial=$xmsocial_arr}></span>
 									<figcaption class="figure-caption text-center"></figcaption>
 								</span>	
 							<{/if}>
