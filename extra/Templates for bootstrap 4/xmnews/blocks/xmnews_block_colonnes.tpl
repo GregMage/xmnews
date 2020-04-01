@@ -1,65 +1,75 @@
 <div class="row">
+<{if $block.full == 0}>
+<div class="card-columns">
 	<{foreach item=blocknews from=$block.news}>
-		<{if $block.full == 0}>
-			<div class="col-xs-12 col-sm-6 col-lg-3 mb-3 px-1 px-sm-2 mx-3 mx-sm-0">
-				<div class="card">
-					<div class="card-header text-center">
-						<a class="text-decoration-none d-none d-xl-block" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
-							<{$blocknews.title|truncate:41:'...'}>
+<!--
+	<div class="col-xs-12 col-sm-6 col-lg-3 mb-3">
+	<div class="col-xs-12 col-sm-6 col-lg-4 mb-3">
+-->
+		<div class="card">
+			<div class="card-header text-center">
+				<a class="text-decoration-none d-none d-xl-block" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
+					<{$blocknews.title|truncate:40:'...'}>
+				</a>
+				<a class="text-decoration-none d-none d-lg-block d-xl-none" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
+					<{$blocknews.title|truncate:41:'...'}>
+				</a>
+				<a class="text-decoration-none d-none d-md-block d-lg-none" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
+					<{$blocknews.title|truncate:45:'...'}>
+				</a>
+				<a class="text-decoration-none d-none d-sm-block d-md-none" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
+					<{$blocknews.title|truncate:33:'...'}>
+				</a>
+				<a class="text-decoration-none d-block d-sm-none" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
+					<{$blocknews.title}>
+				</a>
+			</div>
+			<div class="card-body text-center">
+				<div class="row" >
+					<div class="col-12" style="height: 150px;">
+						<{if $blocknews.logo != ''}>
+						<a title="<{$blocknews.title}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
+							<img class="rounded img-fluid mh-100" src="<{$blocknews.logo}>" alt="<{$blocknews.title}>">
 						</a>
-						<a class="text-decoration-none d-none d-lg-block d-xl-none" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
-							<{$blocknews.title|truncate:29:'...'}>
-						</a>
-						<a class="text-decoration-none d-none d-md-block d-lg-none" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
-							<{$blocknews.title|truncate:51:'...'}>
-						</a>
-						<a class="text-decoration-none d-none d-sm-block d-md-none" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
-							<{$blocknews.title|truncate:33:'...'}>
-						</a>
-						<a class="text-decoration-none d-block d-sm-none" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
-							<{$blocknews.title}>
-						</a>
+						<{/if}>
 					</div>
-					<div class="card-body text-center">
-						<div class="row" >
-							<div class="col-12" style="height: 150px;">
-								<{if $blocknews.logo != ''}>
-								<a title="<{$blocknews.title}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
-									<img class="rounded img-fluid mh-100" src="<{$blocknews.logo}>" alt="<{$blocknews.title}>">
-								</a>
-								<{/if}>
-							</div>
-							<div class="col-12 pt-2 text-left text-muted xmnews-data">
-								<{if $blocknews.type == "date" || $blocknews.type == "random"}>
-									<div class="d-block d-lg-none d-xl-block"><span class="fa fa-calendar" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_BLOCKS_DATE}>: <{$blocknews.date|replace:'-':'/'}></div>
-									<div class="d-none d-lg-block d-xl-none"><br /><span class="fa fa-calendar" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_BLOCKS_DATE}>: <{$blocknews.date|truncate:10:''|replace:'-':'/'}></div>
-								<{/if}>
-								<{if $blocknews.type == "hits"}>
-									<span class="fa fa-eye" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_READING}>: <{$blocknews.hits}>
-								<{/if}>
-								<{if $blocknews.type == "rating"}>
-								<span class="fa fa-star" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_RATING}>: <{$blocknews.rating}> <{$blocknews.votes}>
-								<{/if}>
-							</div>
-							<{if $block.desclenght != '0'}>
-							<div class="col-12 pt-2 text-left">					
-								<{if $block.desclenght != 'all'}>
-								<{$blocknews.description|truncateHtml:$block.desclenght:'...'}>
-								<{else}>
-								<{$blocknews.description}>
-								<{/if}>						
-							</div>
-							<{/if}>
-							<div class="col-12 pt-2">
-								<a class="btn btn-primary btn-sm" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>"><{$smarty.const._MA_XMNEWS_NEWS_MORE}></a>
-							</div>
-						</div>
+					<div class="col-12 pt-2 text-left text-muted xmnews-data">
+						<{if $blocknews.type == "date" || $blocknews.type == "random"}>
+							<div class="d-block d-lg-none d-xl-block"><span class="fa fa-calendar" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_BLOCKS_DATE}>: <{$blocknews.date|replace:'-':'/'}></div>
+							<div class="d-none d-lg-block d-xl-none"><br /><span class="fa fa-calendar" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_BLOCKS_DATE}>: <{$blocknews.date|truncate:10:''|replace:'-':'/'}></div>
+						<{/if}>
+						<{if $blocknews.type == "hits"}>
+							<span class="fa fa-eye" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_READING}>: <{$blocknews.hits}>
+						<{/if}>
+						<{if $blocknews.type == "rating"}>
+						<span class="fa fa-star" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_RATING}>: <{$blocknews.rating}> <{$blocknews.votes}>
+						<{/if}>
+					</div>
+					<{if $block.desclenght != '0'}>
+					<div class="col-12 pt-2 text-left">					
+						<{if $block.desclenght != 'all'}>
+						<{$blocknews.description|truncateHtml:$block.desclenght:'...'}>
+						<{else}>
+						<{$blocknews.description}>
+						<{/if}>						
+					</div>
+					<{/if}>
+					<div class="col-12 pt-2">
+						<a class="btn btn-primary btn-sm" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>"><{$smarty.const._MA_XMNEWS_NEWS_MORE}></a>
 					</div>
 				</div>
 			</div>
-		<{else}>
-			<div class="col-md-12">
-	<!--		<div class="row no-gutters rounded overflow-hidden flex-md-row mb-0 shadow-sm h-md-250 position-relative">-->
+		</div>
+
+<!--
+</div>
+-->
+	<{/foreach}>
+	</div>	
+	<{else}>
+	<{foreach item=blocknews from=$block.news}>
+		<div class="col-md-12">
+<!--		<div class="row no-gutters rounded overflow-hidden flex-md-row mb-0 shadow-sm h-md-250 position-relative">-->
 				<div class="card">
 					<div class="card-header">
 						<div class="d-flex justify-content-between">
@@ -168,7 +178,8 @@
 						<{/if}>
 					</div>
 				</div>
-			</div>				
-		<{/if}>
+<!--		</div>-->
+		</div>				
 	<{/foreach}>
+	<{/if}>
 </div>

@@ -102,7 +102,12 @@ if ($news_count > 0 && !empty($viewPermissionCat)) {
 		$news['description']     = $news_arr[$i]->getVar('news_description');
 		$news['counter']         = $news_arr[$i]->getVar('news_counter');
 		$news['rating']          = number_format($news_arr[$i]->getVar('news_rating'), 1);
-		$news['votes']           = sprintf(_MA_XMNEWS_NEWS_VOTES, $news_arr[$i]->getVar('news_votes'));
+		if ($news_arr[$i]->getVar('news_votes') < 2) {
+			$news['votes']		= sprintf(_MA_XMNEWS_NEWS_VOTE, $news_arr[$i]->getVar('news_votes'));
+		}
+		else {		
+			$news['votes']		= sprintf(_MA_XMNEWS_NEWS_VOTES, $news_arr[$i]->getVar('news_votes'));
+		}
 		$news['douser']          = $news_arr[$i]->getVar('news_douser');
 		$news['dodate']          = $news_arr[$i]->getVar('news_dodate');
 		$news['domdate']         = $news_arr[$i]->getVar('news_domdate');

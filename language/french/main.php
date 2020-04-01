@@ -41,11 +41,11 @@ define('_MA_XMNEWS_ERROR_WEIGHT', 'Le poids doit être un nombre');
 // Info message
 define('_MA_XMNEWS_INFO_NEWSDISABLE', 'L\'article est désactivé, vous le voyez car vous êtes autorisé à modifier son statut.');
 define('_MA_XMNEWS_INFO_NEWSWAITING', 'L\'article est en attente de validation, vous le voyez car vous êtes autorisé à modifier son statut');
-define('_MA_XMNEWS_INFO_NEWSNOTPUBLISHED', 'L\'article n\'est pas encore publié (la date de publication est plus élevée que la date actuelle), vous le voyez car vous êtes autorisé à modifier sa date de publiation');
+define('_MA_XMNEWS_INFO_NEWSNOTPUBLISHED', 'L\'article n\'est pas encore publié (la date de publication est plus élevée que la date actuelle), vous le voyez car vous êtes autorisé à modifier sa date de publication');
 
 // Shared
 define('_MA_XMNEWS_ACTION', 'Action');
-define('_MA_XMNEWS_ADD', 'Ajout');
+define('_MA_XMNEWS_ADD', 'Rédiger l\'article');
 define('_MA_XMNEWS_CLONE', 'Cloner');
 define('_MA_XMNEWS_DEL', 'Effacer');
 define('_MA_XMNEWS_EDIT', 'Modifier');
@@ -73,7 +73,7 @@ define('_MA_XMNEWS_CATEGORY_DODSC', 'Valeur par défaut pour les nouveaux articl
 define('_MA_XMNEWS_CATEGORY_DODATE', 'Afficher la date');
 define('_MA_XMNEWS_CATEGORY_DOHITS', 'Afficher les lectures');
 define('_MA_XMNEWS_CATEGORY_DOMDATE', 'Afficher la date de modification');
-define('_MA_XMNEWS_CATEGORY_DORATING', 'Afficher l\'évaluation');
+define('_MA_XMNEWS_CATEGORY_DORATING', 'Afficher la note');
 define('_MA_XMNEWS_CATEGORY_DOUSER', 'Afficher l\'auteur');
 define('_MA_XMNEWS_CATEGORY_EMPTY', 'Vide');
 define('_MA_XMNEWS_CATEGORY_FORMPATH', 'Les fichiers sont dans : %s');
@@ -92,30 +92,34 @@ define('_MA_XMNEWS_CLONE_NAME', 'CLONE');
 define('_MA_XMNEWS_NEWS_CATEGORY', 'Categorie');
 define('_MA_XMNEWS_NEWS_AUTHOR', 'Auteur');
 define('_MA_XMNEWS_NEWS_DATE', 'Date de publication');
-define('_MA_XMNEWS_NEWS_DATEUPDATE', 'Mise à jour de la date de publication');
+define('_MA_XMNEWS_NEWS_DATEUPDATE', 'Mettre à jour la date de publication');
 define('_MA_XMNEWS_NEWS_DESC', 'Résumé');
 define('_MA_XMNEWS_GENINFORMATION', 'Informations générales');
 define('_MA_XMNEWS_NEWS_KEYWORD', 'Meta keywords');
 define('_MA_XMNEWS_NEWS_KEYWORD_DSC', 'La balise méta keywords est une série de mots clés qui représentent le contenu de vos actualités. Tapez des mots-clés séparés par une virgule. (Ex. XOOPS, PHP, MySQL, système de portail)');
 define('_MA_XMNEWS_NEWS_LOGO', 'Logo pour la news');
 define('_MA_XMNEWS_NEWS_MDATE', 'Date de modification ');
+define('_MA_XMNEWS_NEWS_MDATE_BT', 'Mise à jour');
 define('_MA_XMNEWS_NEWS_MDATEUPDATE', 'Mettre à jour la date de modification');
 define('_MA_XMNEWS_NEWS_MORE', 'Lire l\'article complet');
 define('_MA_XMNEWS_NEWS_NEWS', 'Article');
 define('_MA_XMNEWS_NEWS_NOTIFY', 'Me prévenir de la publication?');
 define('_MA_XMNEWS_NEWS_ON', 'le');
 define('_MA_XMNEWS_NEWS_PUBLISHEDBY', 'Publié par');
-define('_MA_XMNEWS_NEWS_RATING', 'Évaluation');
+define('_MA_XMNEWS_NEWS_PUBLISHEDBY_BT', 'Auteur');
+define('_MA_XMNEWS_NEWS_PUBLISHED_BT', 'Publication');
+define('_MA_XMNEWS_NEWS_RATING', 'Note ');
 define('_MA_XMNEWS_NEWS_READING', 'Lecture ');
 define('_MA_XMNEWS_NEWS_RESETHITS', 'Réinitialiser le compteur de lecture');
 define('_MA_XMNEWS_NEWS_RESETMDATE', 'Réinitialiser (date vide)');
-define('_MA_XMNEWS_NEWS_SELECTCATEGORY', 'Sélectionnez une catégorie pour filtrer les articles');
+define('_MA_XMNEWS_NEWS_SELECTCATEGORY', 'Sélectionnez une catégorie à afficher ');
 define('_MA_XMNEWS_NEWS_SUREDEL', 'Êtes-vous sûr de vouloir supprimer cet article? %s');
 define('_MA_XMNEWS_NEWS_TITLE', 'Titre');
 define('_MA_XMNEWS_NEWS_USELOGOCATEGORY', 'Utiliser le logo de la catégorie');
 define('_MA_XMNEWS_NEWS_USERID', 'Auteur');
 define('_MA_XMNEWS_NEWS_XMDOC', 'Documents');
-define('_MA_XMNEWS_NEWS_VOTES', '(%s Votes)');
+define('_MA_XMNEWS_NEWS_VOTES', '(%s votes)');
+define('_MA_XMNEWS_NEWS_VOTE', '(%s vote)');
 define('_MA_XMNEWS_NEWS_WAITING', 'Il y a <strong>%s</strong> articles en attente de validation!');
 define('_MA_XMNEWS_NEWS_WFV', 'En attente de validation');
 
@@ -141,5 +145,8 @@ define('_MA_XMNEWS_PERMISSION_DELETE_DSC', 'Sélectionnez les groupes pouvant su
 define('_MA_XMNEWS_PERMISSION_DELETE_THIS', 'Sélectionner les groupes pouvant supprimer dans ces catégories');
 
 // user
-define('_MA_XMNEWS_SELECTCATEGORY', 'Sélectionnez une catégorie pour ajouter un élément à');
+define('_MA_XMNEWS_SELECTCATEGORY', 'Proposer un article - Choix de la catégorie');
+
+// Social
+define('_MA_XMSOCIAL_RATING_RATING', 'Note ');
 
