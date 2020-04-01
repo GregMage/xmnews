@@ -21,9 +21,11 @@
 			</div>
 			<{/if}>
 			<{if $blocknews.type == "rating"}>
+			<{if $block.xmsocial == true}>
 			<div class="col-md-8"><span class="glyphicon glyphicon-star-empty" title="<{$smarty.const._MA_XMNEWS_NEWS_RATING}>"></span>
-				<{$smarty.const._MA_XMNEWS_NEWS_RATING}>: <{$blocknews.rating}> <{$blocknews.votes}>
+				<{$smarty.const._MA_XMNEWS_NEWS_RATING}>: <{$blocknews.rating}>
 			</div>
+			<{/if}>
 			<{/if}>
 		</div>
 		<div class="xmnews-short-description">
@@ -89,9 +91,11 @@
 				</div>
 				<{/if}>
 				<{if $blocknews.dorating == 1}>
+				<{if $block.xmsocial == true}>
 				<div class="col-xs-12 col-sm-6 col-md-6"><span class="glyphicon glyphicon-star-empty" title="<{$smarty.const._MA_XMNEWS_NEWS_RATING}>"></span>
-					<{$smarty.const._MA_XMNEWS_NEWS_RATING}>: <{$blocknews.rating}> <{$blocknews.votes}>
+					<{$smarty.const._MA_XMNEWS_NEWS_RATING}>: <{$blocknews.rating}>
 				</div>
+				<{/if}>
 				<{/if}>
 			</div>
 			<div class="xmnews-general-button">

@@ -99,10 +99,12 @@
 										<{/if}>
 									<{/if}>
 									<{if $news.dorating == 1}>
+									<{if $xmsocial == true}>
 										<figure class="text-muted m-1 pr-2 text-center border-right border-secondary">
 											<span class="fa fa-star" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_RATING}>
-											<figcaption class="figure-caption text-center"><{$news.rating}> <{$news.votes}></figcaption>	
+											<figcaption class="figure-caption text-center"><{$news.rating}></figcaption>	
 										</span>	
+									<{/if}>
 									<{/if}>
 								</div>
 							<{/if}>

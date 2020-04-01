@@ -118,8 +118,6 @@ define('_MA_XMNEWS_NEWS_TITLE', 'Title');
 define('_MA_XMNEWS_NEWS_USELOGOCATEGORY', 'Use the category logo');
 define('_MA_XMNEWS_NEWS_USERID', 'Author');
 define('_MA_XMNEWS_NEWS_XMDOC', 'Documents');
-define('_MA_XMNEWS_NEWS_VOTES', '(%s votes)');
-define('_MA_XMNEWS_NEWS_VOTE', '(%s vote)');
 define('_MA_XMNEWS_NEWS_WAITING', 'There are <strong>%s</strong> news waiting for validation!');
 define('_MA_XMNEWS_NEWS_WFV', 'Waiting for validation');
 
@@ -146,4 +144,3 @@ define('_MA_XMNEWS_PERMISSION_DELETE_THIS', 'Select groups that can delete in th
 
 // user
 define('_MA_XMNEWS_SELECTCATEGORY', 'Submit a news - Select a category');
-

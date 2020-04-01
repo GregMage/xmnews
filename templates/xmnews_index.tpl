@@ -63,6 +63,13 @@
 							<{$smarty.const._MA_XMNEWS_NEWS_READING}> <{$news.counter}>
 						</div>
 						<{/if}>
+						<{if $news.dorating == 1}>
+						<{if $xmsocial == true}>
+						<div class="xmnews-index-info"><span class="glyphicon glyphicon-star-empty" title="<{$smarty.const._MA_XMNEWS_NEWS_RATING}>"></span>
+							<{$smarty.const._MA_XMNEWS_NEWS_RATING}>: <{$news.rating}>
+						</div>
+						<{/if}>
+						<{/if}>						
 					</div>
 					<{$news.description}>
 				</div>		

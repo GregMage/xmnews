@@ -87,6 +87,13 @@ function block_xmnews_show($options) {
 	$newsHandler->field_link = "category_id";
 	$newsHandler->field_object = "news_cid";
 	$news_arr = $newsHandler->getByLink($criteria);
+	//xmsocial
+	if (xoops_isActiveModule('xmsocial') && $helper->getConfig('general_xmsocial', 0) == 1) {
+		$block['xmsocial'] = true;
+		xoops_load('utility', 'xmsocial');
+	} else {
+		$block['xmsocial'] = false;
+	}
 	if (count($news_arr) > 0 && !empty($viewPermissionCat)) {
 		foreach (array_keys($news_arr) as $i) {
 			$news_id                 = $news_arr[$i]->getVar('news_id');
@@ -107,15 +114,10 @@ function block_xmnews_show($options) {
 			}
 			if ($news_img == 'CAT'){
 				$news['logo']        = $url_logo . $news_arr[$i]->getVar('category_logo');
-			}
-			
+			}			
 			$news['hits']            = $news_arr[$i]->getVar('news_counter');
-			$news['rating']          = number_format($news_arr[$i]->getVar('news_rating'), 1);
-			if ($news_arr[$i]->getVar('news_votes') < 2) {
-				$news['votes']		= sprintf(_MA_XMNEWS_NEWS_VOTE, $news_arr[$i]->getVar('news_votes'));
-			}
-			else {		
-				$news['votes']		= sprintf(_MA_XMNEWS_NEWS_VOTES, $news_arr[$i]->getVar('news_votes'));
+			if ($block['xmsocial'] == true){
+				$news['rating'] = XmsocialUtility::renderVotes($news_arr[$i]->getVar('news_rating'), $news_arr[$i]->getVar('news_votes'));
 			}
 			$news['douser']     	 = $news_arr[$i]->getVar('news_douser');
 			$news['dodate']     	 = $news_arr[$i]->getVar('news_dodate');

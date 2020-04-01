@@ -118,8 +118,6 @@ define('_MA_XMNEWS_NEWS_TITLE', 'Titre');
 define('_MA_XMNEWS_NEWS_USELOGOCATEGORY', 'Utiliser le logo de la catégorie');
 define('_MA_XMNEWS_NEWS_USERID', 'Auteur');
 define('_MA_XMNEWS_NEWS_XMDOC', 'Documents');
-define('_MA_XMNEWS_NEWS_VOTES', '(%s votes)');
-define('_MA_XMNEWS_NEWS_VOTE', '(%s vote)');
 define('_MA_XMNEWS_NEWS_WAITING', 'Il y a <strong>%s</strong> articles en attente de validation!');
 define('_MA_XMNEWS_NEWS_WFV', 'En attente de validation');
 
@@ -146,7 +144,3 @@ define('_MA_XMNEWS_PERMISSION_DELETE_THIS', 'Sélectionner les groupes pouvant s
 
 // user
 define('_MA_XMNEWS_SELECTCATEGORY', 'Proposer un article - Choix de la catégorie');
-
-// Social
-define('_MA_XMSOCIAL_RATING_RATING', 'Note ');
-

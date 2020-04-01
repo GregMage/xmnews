@@ -38,7 +38,9 @@
 									<span class="fa fa-eye" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_READING}>: <{$blocknews.hits}>
 								<{/if}>
 								<{if $blocknews.type == "rating"}>
-								<span class="fa fa-star" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_RATING}>: <{$blocknews.rating}> <{$blocknews.votes}>
+								<{if $block.xmsocial == true}>
+								<span class="fa fa-star" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_RATING}>: <{$blocknews.rating}>
+								<{/if}>
 								<{/if}>
 							</div>
 							<{if $block.desclenght != '0'}>
@@ -117,10 +119,12 @@
 								<{/if}>
 							<{/if}>
 							<{if $blocknews.dorating == 1}>
+							<{if $block.xmsocial == true}>
 								<figure class="text-muted m-1 pr-2 text-center border-right border-secondary">
-									<{$smarty.const._MA_XMNEWS_NEWS_RATING}> 
-									<figcaption class="figure-caption text-center"><{$blocknews.rating}> <{$blocknews.votes}></figcaption>
+									<span class="fa fa-star" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_RATING}>
+									<figcaption class="figure-caption text-center"><{$blocknews.rating}></figcaption>
 								</span>	
+							<{/if}>
 							<{/if}>
 						</div>
 					<{/if}>

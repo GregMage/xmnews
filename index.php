@@ -88,6 +88,14 @@ $newsHandler->field_object = "news_cid";
 $news_arr = $newsHandler->getByLink($criteria);
 $news_count = $newsHandler->getCount($criteria);
 $xoopsTpl->assign('news_count', $news_count);
+//xmsocial
+if (xoops_isActiveModule('xmsocial') && $helper->getConfig('general_xmsocial', 0) == 1) {
+	$xmsocial = true;
+	xoops_load('utility', 'xmsocial');
+} else {
+    $xmsocial = false;
+}
+$xoopsTpl->assign('xmsocial', $xmsocial);
 if ($news_count > 0 && !empty($viewPermissionCat)) {
 	foreach (array_keys($news_arr) as $i) {
 		$news_id                 = $news_arr[$i]->getVar('news_id');
@@ -101,12 +109,8 @@ if ($news_count > 0 && !empty($viewPermissionCat)) {
 		}
 		$news['description']     = $news_arr[$i]->getVar('news_description');
 		$news['counter']         = $news_arr[$i]->getVar('news_counter');
-		$news['rating']          = number_format($news_arr[$i]->getVar('news_rating'), 1);
-		if ($news_arr[$i]->getVar('news_votes') < 2) {
-			$news['votes']		= sprintf(_MA_XMNEWS_NEWS_VOTE, $news_arr[$i]->getVar('news_votes'));
-		}
-		else {		
-			$news['votes']		= sprintf(_MA_XMNEWS_NEWS_VOTES, $news_arr[$i]->getVar('news_votes'));
+		if ($xmsocial == true){
+			$news['rating'] = XmsocialUtility::renderVotes($news_arr[$i]->getVar('news_rating'), $news_arr[$i]->getVar('news_votes'));
 		}
 		$news['douser']          = $news_arr[$i]->getVar('news_douser');
 		$news['dodate']          = $news_arr[$i]->getVar('news_dodate');
