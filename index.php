@@ -110,7 +110,7 @@ if ($news_count > 0 && !empty($viewPermissionCat)) {
 		}
 		$news['douser']          = $news_arr[$i]->getVar('news_douser');
 		$news['dodate']          = $news_arr[$i]->getVar('news_dodate');
-		$news['domdate']          = $news_arr[$i]->getVar('news_domdate');
+		$news['domdate']         = $news_arr[$i]->getVar('news_domdate');
 		$news['dohits']          = $news_arr[$i]->getVar('news_dohits');
 		$news['dorating']        = $news_arr[$i]->getVar('news_dorating');
 		$news_img                = $news_arr[$i]->getVar('news_logo');
