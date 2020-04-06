@@ -3,20 +3,13 @@
 		<{if $block.full == 0}>
 			<div class="col-xs-12 col-sm-6 col-lg-3 mb-3 px-1 px-sm-2 mx-3 mx-sm-0">
 				<div class="card">
-					<div class="card-header text-center">
-						<a class="text-decoration-none d-none d-xl-block" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
-							<{$blocknews.title|truncate:41:'...'}>
+					<div class="card-header text-center text-truncate d-none d-sm-block">
+						<a class="text-decoration-none" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
+							<{$blocknews.title}>
 						</a>
-						<a class="text-decoration-none d-none d-lg-block d-xl-none" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
-							<{$blocknews.title|truncate:29:'...'}>
-						</a>
-						<a class="text-decoration-none d-none d-md-block d-lg-none" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
-							<{$blocknews.title|truncate:51:'...'}>
-						</a>
-						<a class="text-decoration-none d-none d-sm-block d-md-none" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
-							<{$blocknews.title|truncate:33:'...'}>
-						</a>
-						<a class="text-decoration-none d-block d-sm-none" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
+					</div>
+					<div class="card-header text-center d-block d-sm-none">
+						<a class="text-decoration-none" title="<{$category.name}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>">
 							<{$blocknews.title}>
 						</a>
 					</div>
