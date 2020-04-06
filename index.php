@@ -39,13 +39,18 @@ $news_cid = Request::getInt('news_cid', 0);
 $xoopsTpl->assign('news_cid', $news_cid);
 $criteria = new CriteriaCompo();
 $criteria->add(new Criteria('category_status', 1));
+if (!empty($viewPermissionCat)) {
+    $criteria->add(new Criteria('category_id', '(' . implode(',', $viewPermissionCat) . ')', 'IN'));
+}
 $criteria->setSort('category_weight ASC, category_name');
 $criteria->setOrder('ASC');
 $category_arr = $categoryHandler->getall($criteria);		
 if (count($category_arr) > 0) {
 	$news_cid_options = '<option value="0"' . ($news_cid == 0 ? ' selected="selected"' : '') . '>' . _ALL .'</option>';
-	foreach (array_keys($category_arr) as $i) {
-		$news_cid_options .= '<option value="' . $i . '"' . ($news_cid == $i ? ' selected="selected"' : '') . '>' . $category_arr[$i]->getVar('category_name') . '</option>';
+	if (!empty($viewPermissionCat)) {
+		foreach (array_keys($category_arr) as $i) {
+			$news_cid_options .= '<option value="' . $i . '"' . ($news_cid == $i ? ' selected="selected"' : '') . '>' . $category_arr[$i]->getVar('category_name') . '</option>';
+		}
 	}
 	$xoopsTpl->assign('news_cid_options', $news_cid_options);
 }
