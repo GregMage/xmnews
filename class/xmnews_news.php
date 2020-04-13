@@ -256,7 +256,7 @@ class xmnews_news extends XoopsObject
 			if (!$this->isNew()) {
 				$selection_date = new XoopsFormElementTray(_MA_XMNEWS_NEWS_DATEUPDATE);
 				$date = new XoopsFormRadio('', 'date_update', 'N');
-                $options        = ['N' => _NO . ' (' . str_replace ('-','/',formatTimestamp($this->getVar('news_date'), 'm')) . ')', 'Y' => _YES];
+                $options        = ['N' => _NO . ' (' . formatTimestamp($this->getVar('news_date'), 'm') . ')', 'Y' => _YES];
 				$date->addOptionArray($options);
 				$selection_date->addElement($date);
 				$selection_date->addElement(new XoopsFormDateTime('', 'news_date', '', time()));
@@ -264,7 +264,7 @@ class xmnews_news extends XoopsObject
 				if ($this->getVar('news_mdate') != 0){
 					$selection_mdate = new XoopsFormElementTray(_MA_XMNEWS_NEWS_MDATEUPDATE);
 					$mdate = new XoopsFormRadio('', 'mdate_update', 'N');
-                    $options         = ['N' => _NO . ' (' . str_replace ('-','/',formatTimestamp($this->getVar('news_mdate'), 's')) . ')', 'R' => _MA_XMNEWS_NEWS_RESETMDATE, 'Y' => _YES];
+                    $options         = ['N' => _NO . ' (' . formatTimestamp($this->getVar('news_mdate'), 's') . ')', 'R' => _MA_XMNEWS_NEWS_RESETMDATE, 'Y' => _YES];
 					$mdate->addOptionArray($options);
 					$selection_mdate->addElement($mdate);
 					$selection_mdate->addElement(new XoopsFormTextDateSelect('', 'news_mdate', '', time()));
