@@ -1,4 +1,33 @@
 ﻿-------------------------------------------------
+Version: 1.1 Final
+Date:    ??.04.2020
+-------------------------------------------------
+Bug fixes:
+	- Paypal did not work for donations (about.php).
+	- Problem encoding some files.
+
+Improvements:
+	- Improvement of the bootstrap 4 template (Alain).
+	- Removal of hybrid date format.
+
+Security:
+	- /
+
+
+
+Correction de bogues:	
+	- Paypal ne fonctionnait pas pour les donations (about.php).
+	- Problème d'encodage de certains fichiers.
+
+Améliorations:
+	- Amélioration des template bootstrap 4 (Alain).
+	- Suppression d'en format de date hybride.
+
+Sécurités:
+	- /
+
+
+-------------------------------------------------
 Version: 1.0 Final
 Date:    05.04.2020
 -------------------------------------------------
