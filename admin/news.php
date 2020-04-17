@@ -74,8 +74,8 @@ switch ($op) {
         
         // Criteria
         $criteria = new CriteriaCompo();
-        $criteria->setSort('news_title');
-        $criteria->setOrder('ASC');
+        $criteria->setSort('news_date');
+        $criteria->setOrder('DESC');
         $criteria->setStart($start);
         $criteria->setLimit($nb_limit);
 		if ($news_cid != 0){
