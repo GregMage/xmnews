@@ -1,14 +1,16 @@
 ﻿-------------------------------------------------
 Version: 1.1 Final
-Date:    ??.04.2020
+Date:    18.04.2020
 -------------------------------------------------
 Bug fixes:
 	- Paypal did not work for donations (about.php).
 	- Problem encoding some files.
+	- The news was displayed by title and not by date in the admin.
 
 Improvements:
-	- Improvement of the bootstrap 4 template (Alain).
-	- Removal of hybrid date format.
+	- Improvement of the bootstrap 4 templates (Alain).
+	- Remove hybrid date formats.
+	- Better integration of xmdoc.
 
 Security:
 	- /
@@ -18,10 +20,12 @@ Security:
 Correction de bogues:	
 	- Paypal ne fonctionnait pas pour les donations (about.php).
 	- Problème d'encodage de certains fichiers.
+	- Les news étaient affichées par titre et non par date dans l'admin.
 
 Améliorations:
-	- Amélioration des template bootstrap 4 (Alain).
-	- Suppression d'en format de date hybride.
+	- Amélioration des templates bootstrap 4 (Alain).
+	- Suppression des formats de date hybride.
+	- Meilleure intégration de xmdoc.
 
 Sécurités:
 	- /

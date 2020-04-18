@@ -335,8 +335,8 @@ $modversion['notification']['event'][] = [
 ];
 
 // About stuff
-$modversion['module_status'] = 'Alpha';
-$modversion['release_date']  = '2020/04/05';
+$modversion['module_status'] = 'Final';
+$modversion['release_date']  = '2020/04/18';
 
 $modversion['developer_lead']      = 'Mage';
 $modversion['module_website_url']  = 'www.monxoops.fr/';
