@@ -464,7 +464,12 @@ class xmnews_news extends XoopsObject
 			if (xoops_isActiveModule('xmdoc') && $helper->getConfig('general_xmdoc', 0) == 1) {
 				xoops_load('utility', 'xmdoc');
 				$error_message .= XmdocUtility::delDocdata('xmnews', $news_id);
-			}			
+			}
+			//xmsocial
+			if (xoops_isActiveModule('xmsocial') && $helper->getConfig('general_xmsocial', 0) == 1) {
+				xoops_load('utility', 'xmsocial');
+				$error_message .= XmsocialUtility::delRatingdata('xmnews', $news_id);
+			}
 			//Del logo
 			if ($this->getVar('news_logo') != 'category/blank.gif') {
 				if (strpos($this->getVar('news_logo'), 'category') === False){
