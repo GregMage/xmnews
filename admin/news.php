@@ -227,11 +227,14 @@ switch ($op) {
 					$xoopsTpl->assign('error_message', $error_message);
 				}
             } else {
-                $news_img = $obj->getVar('news_logo') ?: 'blank.gif';
-                xoops_confirm(['surdel' => true, 'news_id' => $news_id, 'op' => 'del'], $_SERVER['REQUEST_URI'], 
-                                    sprintf(_MA_XMNEWS_NEWS_SUREDEL, $obj->getVar('news_title')) . '<br>
-                                    <img src="' . $url_logo . $news_img . '" title="' . 
-                                    $obj->getVar('news_name') . '" style="max-width:100px"><br>');
+				$news_img = $obj->getVar('news_logo');
+				if ($news_img == '' || $news_img == 'CAT'){
+					$img = '';						
+				} else {
+					$img = '<img src="' . $url_logo . $news_img . '" title="' . $obj->getVar('news_name') . '" style="max-width:100px"><br>';
+				}
+				xoops_confirm(['surdel' => true, 'news_id' => $news_id, 'op' => 'del'], $_SERVER['REQUEST_URI'], 
+									sprintf(_MA_XMNEWS_NEWS_SUREDEL, $obj->getVar('news_title')) . '<br>' . $img);
             }
         }        
         break;
