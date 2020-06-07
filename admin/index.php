@@ -34,7 +34,7 @@ $moduleAdmin->addConfigModuleVersion('system', 212);
 // xmdoc
 if (xoops_isActiveModule('xmdoc')){
 	if ($helper->getConfig('general_xmdoc', 0) == 1) {
-		$moduleAdmin->addConfigModuleVersion('xmdoc', 50);
+		$moduleAdmin->addConfigModuleVersion('xmdoc', 100);
 	} else {
 		$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE);
 	}
