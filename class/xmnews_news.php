@@ -215,7 +215,14 @@ class xmnews_news extends XoopsObject
             xoops_load('utility', 'xmdoc');
             XmdocUtility::renderDocForm($form, 'xmnews', $this->getVar('news_id'));
         }
-		 if (!$this->isNew() || $clone == true) {		
+		
+		// xmsocial
+		if (xoops_isActiveModule('xmsocial') && $helper->getConfig('general_xmsocial_social', 0) == 1) {
+			xoops_load('utility', 'xmsocial');
+			XmsocialUtility::renderSocialForm($form, 'xmnews', $this->getVar('news_id'));
+		}
+		
+		if (!$this->isNew() || $clone == true) {		
 			// douser
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOUSER, 'news_douser', $this->getVar('news_douser')));		
 			// dodate
@@ -228,7 +235,7 @@ class xmnews_news extends XoopsObject
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'news_dorating', $this->getVar('news_dorating')));	
 			// docomment
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOCOMMENT, 'news_docomment', $this->getVar('news_docomment')));
-		 } else {
+			} else {
 			// douser
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOUSER, 'news_douser', $category->getVar('category_douser')));		
 			// dodate
@@ -241,7 +248,7 @@ class xmnews_news extends XoopsObject
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'news_dorating', $category->getVar('category_dorating')));	
 			// docomment
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOCOMMENT, 'news_docomment', $category->getVar('category_docomment')));
-		 }			 
+		}		 
 
 		if ($helper->isUserAdmin() == true){
 			if ($this->isNew()) {
@@ -406,6 +413,11 @@ class xmnews_news extends XoopsObject
                     xoops_load('utility', 'xmdoc');
                     $error_message .= XmdocUtility::saveDocuments('xmnews', $news_id);
                 }
+				// xmsocial
+				if (xoops_isActiveModule('xmsocial') && $helper->getConfig('general_xmsocial_social', 0) == 1) {
+					xoops_load('utility', 'xmsocial');
+					$error_message .= XmsocialUtility::saveSocial('xmnews', $news_id);
+				}
 				//Notification global: new_news, category: new_news, news: approve_news
 				$category = $categoryHandler->get($news_cid);
 				$tags = [];
@@ -469,6 +481,9 @@ class xmnews_news extends XoopsObject
 			if (xoops_isActiveModule('xmsocial') && $helper->getConfig('general_xmsocial', 0) == 1) {
 				xoops_load('utility', 'xmsocial');
 				$error_message .= XmsocialUtility::delRatingdata('xmnews', $news_id);
+				if ($helper->getConfig('general_xmsocial_social', 0) == 1) {
+					$error_message .= XmsocialUtility::delSocialdata('xmnews', $news_id);
+				}
 			}
 			//Del logo
 			if ($this->getVar('news_logo') != 'category/blank.gif') {
