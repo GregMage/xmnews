@@ -33,6 +33,8 @@ $keywords = '';
 $start = Request::getInt('start', 0);
 $xoopsTpl->assign('start', $start);
 
+$news_id = Request::getInt('news_id', 0);
+
 $xoopsTpl->assign('index_module', $helper->getModule()->getVar('name'));
 // Category
 $news_cid = Request::getInt('news_cid', 0);
@@ -67,6 +69,9 @@ $criteria->add(new Criteria('news_status', 1));
 $criteria->add(new Criteria('news_date', time(),'<='));
 if (!empty($viewPermissionCat)){
 	$criteria->add(new Criteria('news_cid', '(' . implode(',', $viewPermissionCat) . ')', 'IN'));
+}
+if ($news_id != 0){
+	$criteria->add(new Criteria('news_id', $news_id));
 }
 if ($news_cid != 0){
 	// vérification si la categorie est activée

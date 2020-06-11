@@ -43,14 +43,27 @@ function xmnews_search($queryarray, $andor, $limit, $offset, $userid)
     $result = $xoopsDB->query($sql,$limit,$offset);
     $ret = array();
     $i = 0;
+	xoops_load('utility', 'xmnews');
+	$viewPermissionCat = XmnewsUtility::getPermissionCat('xmnews_viewnews');
+	$viewabstractPermissionCat = XmnewsUtility::getPermissionCat('xmnews_viewabstract');
+	
     while($myrow = $xoopsDB->fetchArray($result))
     {
-        $ret[$i]["image"] = "assets/images/xmnews_search.png";
-        $ret[$i]["link"] = "article.php?news_id=" . $myrow["news_id"];
-        $ret[$i]["title"] = $myrow["news_title"];
-        $ret[$i]["time"] = $myrow["news_date"];
-        $ret[$i]["uid"] = $myrow["news_userid"];
-        $i++;
+        if (in_array($myrow["news_cid"], $viewPermissionCat)){
+			$ret[$i]["image"] = "assets/images/xmnews_search.png";
+			$ret[$i]["link"] = "article.php?news_id=" . $myrow["news_id"];
+			$ret[$i]["title"] = $myrow["news_title"];
+			$ret[$i]["time"] = $myrow["news_date"];
+			$ret[$i]["uid"] = $myrow["news_userid"];
+			 $i++;
+		} elseif (in_array($myrow["news_cid"], $viewabstractPermissionCat)){
+			$ret[$i]["image"] = "assets/images/xmnews_search.png";
+			$ret[$i]["link"] = "index.php?news_cid=" . $myrow["news_cid"] . "&news_id=" . $myrow["news_id"];
+			$ret[$i]["title"] = $myrow["news_title"];
+			$ret[$i]["time"] = $myrow["news_date"];
+			$ret[$i]["uid"] = $myrow["news_userid"];
+			 $i++;
+		}       
     }
 
     return $ret;
