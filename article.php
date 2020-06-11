@@ -26,7 +26,6 @@ include_once XOOPS_ROOT_PATH . '/header.php';
 
 $xoTheme->addStylesheet(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname', 'n') . '/assets/css/styles.css', null);
 
-$category_id = Request::getInt('category_id', 0);
 $news_id  = Request::getInt('news_id', 0);
 
 if ($news_id == 0) {
