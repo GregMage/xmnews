@@ -40,6 +40,9 @@ $xoopsTpl->assign('news_cid', $news_cid);
 $criteria = new CriteriaCompo();
 $criteria->add(new Criteria('category_status', 1));
 if (!empty($viewPermissionCat)) {
+	if (!in_array($news_cid , $viewPermissionCat) && $news_cid != 0){
+		redirect_header('index.php?news_cid=0',2, _NOPERM);
+	}
     $criteria->add(new Criteria('category_id', '(' . implode(',', $viewPermissionCat) . ')', 'IN'));
 }
 $criteria->setSort('category_weight ASC, category_name');
