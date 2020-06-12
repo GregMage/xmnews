@@ -135,9 +135,9 @@ define('_MA_XMNEWS_PERMISSION_VIEW_NEWS_THIS', 'Sélectionnez les groupes pouvan
 define('_MA_XMNEWS_PERMISSION_SUBMIT', 'Autorisation de soumettre');
 define('_MA_XMNEWS_PERMISSION_SUBMIT_DSC', 'Sélectionnez les groupes pouvant soumettre des articles dans ces catégories');
 define('_MA_XMNEWS_PERMISSION_SUBMIT_THIS', 'Sélectionnez les groupes pouvant soumettre dans ces catégories');
-define('_MA_XMNEWS_PERMISSION_EDITAPPROVE', 'Autorisation de modifier et d\'aprouver');
-define('_MA_XMNEWS_PERMISSION_EDITAPPROVE_DSC', 'Sélectionnez les groupes pouvant éditer et aprouver des articles dans ces catégories');
-define('_MA_XMNEWS_PERMISSION_EDITAPPROVE_THIS', 'Sélectionnez les groupes pouvant éditer et aprouver dans ces catégories');
+define('_MA_XMNEWS_PERMISSION_EDITAPPROVE', 'Autorisation de modifier et d\'approuver');
+define('_MA_XMNEWS_PERMISSION_EDITAPPROVE_DSC', 'Sélectionnez les groupes pouvant éditer et approuver des articles dans ces catégories');
+define('_MA_XMNEWS_PERMISSION_EDITAPPROVE_THIS', 'Sélectionnez les groupes pouvant éditer et approuver dans ces catégories');
 define('_MA_XMNEWS_PERMISSION_DELETE', 'Autorisation de supprimer');
 define('_MA_XMNEWS_PERMISSION_DELETE_DSC', 'Sélectionnez les groupes pouvant supprimer des articles dans ces catégories');
 define('_MA_XMNEWS_PERMISSION_DELETE_THIS', 'Sélectionner les groupes pouvant supprimer dans ces catégories');
