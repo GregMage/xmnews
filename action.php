@@ -97,10 +97,14 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
                 $xoopsTpl->assign('error_message', _MA_XMNEWS_ERROR_NONEWS);
             } else {
 				$obj  = $newsHandler->get($news_id);
-				// Get Permission to edit in category
-				$permHelper->checkPermissionRedirect('xmnews_editapprove', $obj->getVar('news_cid'), 'index.php', 2, _NOPERM);
-                $form = $obj->getForm();
-                $xoopsTpl->assign('form', $form->render());
+				if (empty($obj)) {
+					$xoopsTpl->assign('error_message', _MA_XMNEWS_ERROR_NONEWS);
+				} else {
+					// Get Permission to edit in category
+					$permHelper->checkPermissionRedirect('xmnews_editapprove', $obj->getVar('news_cid'), 'index.php', 2, _NOPERM);
+					$form = $obj->getForm();
+					$xoopsTpl->assign('form', $form->render());
+				}
             }
             break;
 
