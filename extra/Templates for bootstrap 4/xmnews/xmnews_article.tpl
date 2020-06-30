@@ -125,7 +125,7 @@
 	<{if ($perm_edit == true) || ($perm_clone == true) || ($perm_del == true)}> 
 	<div class="col-12 pl-4 pr-4 pb-2">
 				<div class="text-center pt-2">
-					<div class="btn-group text-center role="group">
+					<div class="btn-group text-center" role="group">
 						<{if $perm_edit == true}>
 							<a class="btn btn-secondary" href="action.php?op=edit&amp;news_id=<{$news_id}>"><span class="fa fa-edit" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_EDIT}></a>
 						<{/if}>
