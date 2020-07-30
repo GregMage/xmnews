@@ -260,13 +260,14 @@ class xmnews_news extends XoopsObject
 			$form->addElement(new XoopsFormSelectUser(_MA_XMNEWS_NEWS_USERID, 'news_userid', true, $userid, 1, false), true);
 			
 			// date and mdate
+			$time = time()-600;
 			if (!$this->isNew()) {
 				$selection_date = new XoopsFormElementTray(_MA_XMNEWS_NEWS_DATEUPDATE);
 				$date = new XoopsFormRadio('', 'date_update', 'N');
                 $options        = ['N' => _NO . ' (' . formatTimestamp($this->getVar('news_date'), 'm') . ')', 'Y' => _YES];
 				$date->addOptionArray($options);
 				$selection_date->addElement($date);
-				$selection_date->addElement(new XoopsFormDateTime('', 'news_date', '', time()));
+				$selection_date->addElement(new XoopsFormDateTime('', 'news_date', '', $time));
 				$form->addElement($selection_date);
 				if ($this->getVar('news_mdate') != 0){
 					$selection_mdate = new XoopsFormElementTray(_MA_XMNEWS_NEWS_MDATEUPDATE);
@@ -278,7 +279,7 @@ class xmnews_news extends XoopsObject
 					$form->addElement($selection_mdate);
 				}
 			} else {
-				$form->addElement(new XoopsFormDateTime(_MA_XMNEWS_NEWS_DATE, 'news_tempdate', '', time()), false);
+				$form->addElement(new XoopsFormDateTime(_MA_XMNEWS_NEWS_DATE, 'news_tempdate', '', $time), false);
 			}
 			// reset hits
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_NEWS_RESETHITS, 'news_resethits', 0, _YES, _NO  . ' (' . $this->getVar('news_counter') . ')'));
