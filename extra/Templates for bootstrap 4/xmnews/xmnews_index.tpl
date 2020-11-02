@@ -36,17 +36,8 @@
 		<div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 justify-content-center">
 			<{foreach item=news from=$news}>
 				<div class="col mb-3">
-					<div class="card h-100 <{if $news.cid == 1}> xoopsweb-border
-											<{elseif $news.cid == 2}> xoopscore-border
-											<{elseif $news.cid == 3}> xoopsmodules-border
-											<{elseif $news.cid == 4}> xoopsthemes-border
-											<{else}> border
-											<{/if}>">
-						<div class="card-header <{if $news.cid == 1}> xoopsweb-bg
-											<{elseif $news.cid == 2}> xoopscore-bg
-											<{elseif $news.cid == 3}> xoopsmodules-bg
-											<{elseif $news.cid == 4}> xoopsthemes-bg
-											<{/if}>">
+					<div class="card h-100 border">
+						<div class="card-header">
 							<div class="d-flex justify-content-center text-center">
 								<h5 class="mb-0 text-white"><{$news.title}></h5>
 							</div>
