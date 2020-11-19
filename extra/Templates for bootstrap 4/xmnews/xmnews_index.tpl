@@ -39,7 +39,7 @@
 					<div class="card h-100 border">
 						<div class="card-header">
 							<div class="d-flex justify-content-center text-center">
-								<h5 class="mb-0 text-white"><{$news.title}></h5>
+								<h5 class="mb-0"><{$news.title}></h5>
 							</div>
 						</div>
 
@@ -75,27 +75,27 @@
 						<div class="card-footer text-secondary">
 							<div class="row">
 								<{if $news.douser == 1}>
-									<div class="col text-left">
-										<span class="fa fa-user fa-fw" aria-hidden="true"></span> Alain
+									<div class="col-5 text-left">
+										<span class="fa fa-user fa-fw" aria-hidden="true"></span> <{$news.author}>
 									</div>
 								<{/if}>
 								<{if $news.dodate == 1}>
-									<div class="col text-right">
-										<span class="fa fa-calendar fa-fw" aria-hidden="true"></span> 25/02/2020
+									<div class="col-7 text-right">
+										<span class="fa fa-calendar fa-fw" aria-hidden="true"></span> <{$news.date}>
 									</div>
 								<{/if}>
 									
 							</div>
 							<div class="row">
 								<{if $news.dohits == 1}>
-									<div class="col text-left">
+									<div class="col-5 text-left">
 										<span class="fa fa-eye fa-fw" aria-hidden="true"></span> <{$news.counter}>
 									</div>
 								<{/if}>
 								<{if $news.domdate == 1}>
 									<{if $news.mdate}>
-										<div class="col text-right">
-											<span class="fa fa-repeat fa-fw" aria-hidden="true"></span> 30/03/2020
+										<div class="col-7 text-right">
+											<span class="fa fa-repeat fa-fw" aria-hidden="true"></span> <{$news.mdate}>
 										</div>
 									<{/if}>
 								<{/if}>										
