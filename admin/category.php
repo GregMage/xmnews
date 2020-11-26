@@ -165,7 +165,7 @@ switch ($op) {
                     if (!empty($news_arr)){
                         foreach (array_keys($news_arr) as $i) {
                             $objnews = $newsHandler->get($news_arr[$i]->getVar('news_id'));
-                            $newsHandler->delete($objnews) or $objarticle->getHtmlErrors();
+                            $newsHandler->delete($objnews) or $objnews->getHtmlErrors();
 							
 							//Del Notification and comment
 							$helper = Helper::getHelper('xmnews');
