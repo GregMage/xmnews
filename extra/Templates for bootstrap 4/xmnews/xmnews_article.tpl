@@ -16,7 +16,7 @@
 			<{$smarty.const._MA_XMNEWS_INFO_NEWSDISABLE}>
 		</div>
 	<{/if}>
-	<{if $warning_date}>
+	<{if $warning_date|default:false}>
 		<div class="alert alert-warning" role="alert">
 			<{$smarty.const._MA_XMNEWS_INFO_NEWSNOTPUBLISHED}>
 		</div>
@@ -45,7 +45,7 @@
 									  <figcaption class="figure-caption text-center"><{$author}></figcaption>
 								</figure>
 							<{/if}>
-							<{if ($dodate == 1) && (($domdate == 1) && ($mdate)) && ($douser == 1)}>
+							<{if ($dodate == 1) && (($domdate == 1) && ($mdate|default:false)) && ($douser == 1)}>
 								<figure class="figure text-muted m-1 pr-2 text-center border-right border-secondary">
 									  <span class="fa fa-calendar fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_PUBLISHED_BT}>
 									  <figcaption class="figure-caption text-center d-none d-md-block"><{$date}></figcaption>
@@ -60,7 +60,7 @@
 								<{/if}>
 							<{/if}>	
 							<{if $domdate == 1}>
-								<{if $mdate}>
+								<{if $mdate|default:false}>
 									<figure class="figure text-muted m-1 pr-2 text-center border-right border-secondary">
 										<span class="fa fa-repeat fa-fw" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_MDATE_BT}>
 										<figcaption class="figure-caption text-center"><{$mdate}></figcaption>
@@ -103,7 +103,7 @@
 							</p>
 						</div>
 						<div class="w-100"></div>
-						<{if $xmdoc_viewdocs == true}>
+						<{if $xmdoc_viewdocs|default:false == true}>
 						<div class="col-12 pl-4 pr-4 pb-4">
 							<div class="card">
 								<div class="card-header">

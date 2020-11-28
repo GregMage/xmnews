@@ -31,7 +31,7 @@
 		<div class="xmnews-short-description">
 			<{if $block.desclenght != '0'}>
 			<{if $block.desclenght != 'all'}>
-			<{$blocknews.description|truncateHtml:$block.desclenght:'...'}>
+			<{$blocknews.description|default:false|truncateHtml:$block.desclenght:'...'}>
 			<{else}>
 			<{$blocknews.description}>
 			<{/if}>
@@ -76,7 +76,7 @@
 				<{/if}>
 			</div>
 			<{if $blocknews.domdate == 1}>
-			<{if $blocknews.mdate}>
+			<{if $blocknews.mdate|default:false}>
 			<div class="row xmnews-general">
 				<div class="col-xs-12 col-sm-6 col-md-6"><span class="glyphicon glyphicon-calendar" title="<{$smarty.const._MA_XMNEWS_NEWS_MDATE}>"></span>
 					<{$smarty.const._MA_XMNEWS_NEWS_MDATE}>: <{$blocknews.mdate}>

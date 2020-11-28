@@ -1,5 +1,5 @@
 <div class="xmnews">
-	<{if $cat}>
+	<{if $cat|default:false}>
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="index.php"><{$index_module}></a></li>
@@ -21,7 +21,7 @@
 				</select>
 			</div>
 		</form>
-	<{if $cat}>
+	<{if $cat|default:false}>
 		<div class="row mb-2">
 			<div class="col-3 col-md-4 col-lg-3 text-center">
 				<img class="rounded img-fluid" src="<{$category_logo}>" alt="<{$category_name}>">
@@ -44,11 +44,11 @@
 						</div>
 
 						<{if $news.logo != ''}>
-							<{if $CAT == true}>
+							<{if $CAT|default:false == true}>
 								<a href="index.php?news_cid=<{$category_id}>">
 							<{/if}>
-							<img class="img-fluid" src="<{$news.logo}>" alt="<{$title}>">
-							<{if $CAT == true}>
+							<img class="img-fluid" src="<{$news.logo}>" alt="<{$news.title}>">
+							<{if $CAT|default:false == true}>
 								</a>
 							<{/if}>
 						<{/if}>
@@ -58,7 +58,7 @@
 							<div class="text-right mt-1 ">
 								<button type="button" class="btn btn-primary btn-sm text-right" onclick=window.location.href="article.php?news_id=<{$news.id}>"><span class="fa fa-book" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_MORE}></button>
 							</div>
-							<{if $xmdoc_viewdocs == true}>
+							<{if $xmdoc_viewdocs|default:false == true}>
 								<div class="col-12 pl-4 pr-4 pb-4"> 
 									<div class="card">
 										<div class="card-header">
@@ -93,7 +93,7 @@
 									</div>
 								<{/if}>
 								<{if $news.domdate == 1}>
-									<{if $news.mdate}>
+									<{if $news.mdate|default:false}>
 										<div class="col-7 text-right">
 											<span class="fa fa-repeat fa-fw" aria-hidden="true"></span> <{$news.mdate}>
 										</div>
@@ -116,7 +116,7 @@
 			<{/foreach}>
 		</div>
 		<div class="clear spacer"></div>
-		<{if $nav_menu}>
+		<{if $nav_menu|default:false}>
 			<div class="floatright"><{$nav_menu}></div>
 			<div class="clear spacer"></div>
 		<{/if}>

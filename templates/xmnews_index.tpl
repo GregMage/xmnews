@@ -1,5 +1,5 @@
 <div class="xmnews">
-	<{if $cat}>
+	<{if $cat|default:false}>
 		<ol class="breadcrumb">
 			<li><a href="index.php"><{$index_module}></a></li>
 			<li class="active"><{$category_name}></li>
@@ -21,7 +21,7 @@
 	</div>
 	<br>		
 	<br>
-	<{if $cat}>
+	<{if $cat|default:false}>
 		<div class="media">
 			<div class="media-left">
 				<{if $category_logo != ''}>
@@ -85,7 +85,7 @@
 
 		<{/foreach}>
 		<div class="clear spacer"></div>
-		<{if $nav_menu}>
+		<{if $nav_menu|default:false}>
 			<div class="floatright"><{$nav_menu}></div>
 			<div class="clear spacer"></div>
 		<{/if}>

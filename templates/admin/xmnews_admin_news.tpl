@@ -18,12 +18,12 @@
 		</a>
     </div>
 <{/if}>
-<{if $form}>
+<{if $form|default:false}>
     <div>
         <{$form}>
     </div>
 <{/if}>
-<{if $filter}>
+<{if $filter|default:false}>
 	<div align="right">
 		<form id="form_news_tri" name="form_news_tri" method="get" action="news.php">
 			<{$smarty.const._MA_XMNEWS_NEWS_CATEGORY}>
@@ -87,8 +87,8 @@
         </tbody>
     </table>
     <div class="clear spacer"></div>
-    <{if $nav_menu}>
-        <div class="floatright"><{$nav_menu}></div>
+    <{if $nav_menu|default:false}>
+        <div class="floatright"><{$nav_menu|default:false}></div>
         <div class="clear spacer"></div>
     <{/if}>
 <{/if}>
