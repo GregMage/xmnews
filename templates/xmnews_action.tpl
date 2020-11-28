@@ -12,7 +12,7 @@
             <{$form}>
         </div>
     <{/if}>
-    <{if $categories > 0}>
+    <{if $categories|default:0 > 0}>
         <ol class="breadcrumb">
             <li><a href="index.php"><{$index_module}></a></li>
             <li class="active"><{$smarty.const._MA_XMNEWS_SELECTCATEGORY}></li>

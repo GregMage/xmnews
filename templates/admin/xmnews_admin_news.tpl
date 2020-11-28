@@ -5,12 +5,12 @@
 <div>
     <{$renderbutton}>
 </div>
-<{if $error_message != ''}>
+<{if $error_message|default:'' != ''}>
     <div class="errorMsg" style="text-align: left;">
         <{$error_message}>
     </div>
 <{/if}>
-<{if $warning_message != ''}>
+<{if $warning_message|default:'' != ''}>
     <div class="xm-warning-msg xo-actions">
         <{$warning_message}>
 		<a class="tooltip" href="news.php?news_status=2" title="<{$smarty.const._MA_XMNEWS_VIEW}>">
@@ -37,7 +37,7 @@
 		</form>
 	</div>
 <{/if}>
-<{if $news_count != 0}>
+<{if $news_count|default:0 != 0}>
     <table id="xo-xmcontact-sorter" cellspacing="1" class="outer tablesorter">
         <thead>
         <tr>
