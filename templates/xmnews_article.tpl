@@ -14,7 +14,7 @@
 			<{$smarty.const._MA_XMNEWS_INFO_NEWSDISABLE}>
 		</div>
 	<{/if}>
-	<{if $warning_date}>
+	<{if $warning_date|default:false}>
 		<div class="alert alert-warning" role="alert">
 			<{$smarty.const._MA_XMNEWS_INFO_NEWSNOTPUBLISHED}>
 		</div>
@@ -33,6 +33,10 @@
 		<{$news}>
 	</div>
     <br>
+	<{if $social == true}>
+		<{include file="db:xmsocial_social.tpl"}>
+		<br>
+	<{/if}>
 	<{if $xmdoc_viewdocs == true}>
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -121,4 +125,4 @@
 	<div style="margin:3px; padding: 3px;">
 		<{include file='db:system_notification_select.tpl'}>
     </div>
-</div><!-- .xmarticle -->
+</div>

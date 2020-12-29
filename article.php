@@ -119,6 +119,12 @@ if (xoops_isActiveModule('xmsocial') && $helper->getConfig('general_xmsocial', 0
 } else {
     $xoopsTpl->assign('dorating', 0);
 }
+if (xoops_isActiveModule('xmsocial') && $helper->getConfig('general_xmsocial_social', 0) == 1) {
+    XmsocialUtility::renderSocial($xoopsTpl,'xmnews', $news_id, XOOPS_URL . '/modules/xmnews/article.php?news_id=' . $news_id);
+    $xoopsTpl->assign('social', true);
+} else {
+    $xoopsTpl->assign('social', false);
+}
 
 //counter
 $counterUpdate = false;

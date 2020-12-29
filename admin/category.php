@@ -166,7 +166,19 @@ switch ($op) {
                         foreach (array_keys($news_arr) as $i) {
                             $objnews = $newsHandler->get($news_arr[$i]->getVar('news_id'));
                             $newsHandler->delete($objnews) or $objnews->getHtmlErrors();
-							
+							//xmdoc
+							if (xoops_isActiveModule('xmdoc') && $helper->getConfig('general_xmdoc', 0) == 1) {
+								xoops_load('utility', 'xmdoc');
+								$xoopsTpl->assign('error_message', XmdocUtility::delDocdata('xmnews', $i));
+							}
+							//xmsocial
+							if (xoops_isActiveModule('xmsocial') && $helper->getConfig('general_xmsocial', 0) == 1) {
+								xoops_load('utility', 'xmsocial');
+								$xoopsTpl->assign('error_message', XmsocialUtility::delRatingdata('xmnews', $id));
+								if ($helper->getConfig('general_xmsocial_social', 0) == 1) {
+									$xoopsTpl->assign('error_message', XmsocialUtility::delSocialdata('xmnews', $id));
+								}
+							}							
 							//Del Notification and comment
 							$helper = Helper::getHelper('xmnews');
 							$moduleid = $helper->getModule()->getVar('mid');

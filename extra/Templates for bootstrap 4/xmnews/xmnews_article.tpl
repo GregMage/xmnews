@@ -103,6 +103,10 @@
 							</p>
 						</div>
 						<div class="w-100"></div>
+						<{if $social == true}>
+							<{include file="db:xmsocial_social.tpl"}>
+							<br>
+						<{/if}>
 						<{if $xmdoc_viewdocs|default:false == true}>
 						<div class="col-12 pl-4 pr-4 pb-4">
 							<div class="card">
