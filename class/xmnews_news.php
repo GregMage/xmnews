@@ -507,8 +507,9 @@ class xmnews_news extends XoopsObject
 			$moduleid = $helper->getModule()->getVar('mid');
 			xoops_notification_deletebyitem($moduleid, 'news', $news_id);
 			xoops_comment_delete($moduleid, $news_id);
-			redirect_header($action, 2, _MA_XMNEWS_REDIRECT_SAVE);
-			
+			if ($error_message == ''){
+				redirect_header($action, 2, _MA_XMNEWS_REDIRECT_SAVE);
+			}
 		} else {
 			$error_message .= $obj->getHtmlErrors();
 		}		
