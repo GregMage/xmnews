@@ -63,8 +63,9 @@ define('_MA_XMNEWS_INDEX_SERVERUPLOADSTATUS', 'Server uploads status: ');
 define('_MA_XMNEWS_INDEX_MAXPOSTSIZE', 'Max post size permitted (post_max_size directive in php.ini): ');
 define('_MA_XMNEWS_INDEX_MAXUPLOADSIZE', 'Max upload size permitted (upload_max_filesize directive in php.ini): ');
 define('_MA_XMNEWS_INDEX_MEMORYLIMIT', 'Memory limit (memory_limit directive in php.ini): ');
-define('_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED', 'You have not installed the xmsocial module, this module is required if you want to rate news');
+define('_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED', 'You have not installed the xmsocial module, this module is required if you want to rate news or to add social media');
 define('_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE', 'You must enable in xmnews preferences the use of xmsocial (if you want to rate news)');
+define('_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATESOCIAL', 'You must activate in the preferences of the xmnews module the use of xmsocial (if you want to add social media) ');
 
 // Category
 define('_MA_XMNEWS_CATEGORY_DESC', 'Description');

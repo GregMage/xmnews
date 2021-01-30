@@ -43,10 +43,15 @@ if (xoops_isActiveModule('xmdoc')){
 }
 // xmsocial
 if (xoops_isActiveModule('xmsocial')){
-	if ($helper->getConfig('general_xmsocial', 0) == 1) {
+	if ($helper->getConfig('general_xmsocial', 0) == 1 && $helper->getConfig('general_xmsocial_social', 0) == 1){
 		$moduleAdmin->addConfigModuleVersion('xmsocial', 100);
 	} else {
-		$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE);
+		if ($helper->getConfig('general_xmsocial', 0) != 1) {
+			$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE);
+		}
+		if ($helper->getConfig('general_xmsocial_social', 0) != 1) {
+			$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATESOCIAL);
+		}
 	}
 } else {
 	$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED);
