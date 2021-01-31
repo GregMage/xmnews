@@ -23,9 +23,11 @@
 		</form>
 	<{if $cat|default:false}>
 		<div class="row mb-2">
+			<{if $category_logo != ''}>
 			<div class="col-3 col-md-4 col-lg-3 text-center">
 				<img class="rounded img-fluid" src="<{$category_logo}>" alt="<{$category_name}>">
 			</div>
+			<{/if}>
 			<div class="col-9 col-md-8 col-lg-9 " style="padding-bottom: 5px; padding-top: 5px;">
 				<h4 class="mt-0"><{$category_name}></h4>
 				<{$category_description}>
