@@ -81,27 +81,24 @@
 						<{/if}>
 					</div>
 					<div class="card-body">
-						<div class="col d-flex flex-column position-static">
-
-							<p class="card-text mb-auto">
-								<div class="row">
-									<div class="col">
-										<{if $logo != ''}>
-										<{if $CAT == true}>
-										<a href="index.php?news_cid=<{$category_id}>">
-										<{/if}>
-										<img class="col-3 rounded float-right d-none d-md-block" src="<{$logo}>" alt="<{$title}>">
-										<{if $CAT == true}>
-										</a>
-										<{/if}>
-										<{/if}>
-										<p>
-										<{$news}>
-										</p>
-									</div>
+						<p class="card-text mb-auto">
+							<div class="row">
+								<div class="col">
+									<{if $logo != ''}>
+									<{if $CAT == true}>
+									<a href="index.php?news_cid=<{$category_id}>">
+									<{/if}>
+									<img class="col-3 rounded float-right d-none d-md-block" src="<{$logo}>" alt="<{$title}>">
+									<{if $CAT == true}>
+									</a>
+									<{/if}>
+									<{/if}>
+									<p>
+									<{$news}>
+									</p>
 								</div>
-							</p>
-						</div>
+							</div>
+						</p>
 						<div class="w-100"></div>
 						<{if $social == true}>
 							<{include file="db:xmsocial_social.tpl"}>
