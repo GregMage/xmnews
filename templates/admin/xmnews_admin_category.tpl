@@ -33,7 +33,7 @@
 					<img src="<{$category.logo}>" alt="<{$category.name}>" style="max-width:150px">
 					<{/if}>
 				</td>
-                <td class="txtleft"><{$category.name}></td>
+                <td class="txtleft"><a href="../index.php?news_cid=<{$category.id}>" title="<{$category.name}>"><{$category.name}></a></td>
                 <td class="txtleft"><{$category.description}></td>                
                 <td class="txtcenter"><{$category.weight}></td>
                 <td class="xo-actions txtcenter">

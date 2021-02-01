@@ -59,8 +59,8 @@
 					<img src="<{$news.logo}>" alt="<{$news.title}>" style="max-width:150px">
 					<{/if}>
 				</td>
-                <td class="txtleft"><{$news.category}></td>
-                <td class="txtleft"><{$news.title}></td>
+                <td class="txtleft"><a href="../index.php?news_cid=<{$news.cid}>" title="<{$news.category}>"><{$news.category}></a></td>
+                <td class="txtleft"><a href="../article.php?news_id=<{$news.id}>" title="<{$news.title}>"><{$news.title}></a></td>
                 <td class="txtleft"><{$news.description}></td>
 				<td class="txtcenter"><{$news.counter}></td>
 				<td class="txtcenter"><{$news.date}></td>
