@@ -34,54 +34,87 @@ function block_xmnews_show($options) {
 			$criteria->add(new Criteria('news_status', 1));
 			$criteria->setSort('news_date DESC, news_title');
 			$criteria->setOrder('ASC');
-        break;
+			$limit = $options[1];
+			$block['full'] = $options[2];
+			break;
 
         case "hits":
 			$criteria->add(new Criteria('news_status', 1));
 			$criteria->setSort('news_counter DESC, news_title');
 			$criteria->setOrder('ASC');
-        break;
+			$limit = $options[1];
+			$block['full'] = $options[2];
+			break;
 
         case "rating":
 			$criteria->add(new Criteria('news_status', 1));
 			$criteria->setSort('news_rating DESC, news_title');
 			$criteria->setOrder('ASC');
-        break;
+			$limit = $options[1];
+			break;
 
         case "random":
 			$criteria->add(new Criteria('news_status', 1));
             $criteria->setSort('RAND()');
-        break;
+			$limit = $options[1];
+			$block['full'] = $options[2];
+			break;
 
 		case "waiting":
 			$criteria->add(new Criteria('news_status', 2));
             $criteria->setSort('news_date DESC, news_title');
-        break;
+			$limit = $options[1];
+			break;
 
 		case "onenews":
 			$criteria->add(new Criteria('news_status', 1));
-            $criteria->add(new Criteria('news_id', $options[0]));;
-        break;
+            $criteria->add(new Criteria('news_id', $options[0]));
+			$block['full'] = 1;
+			break;
+
+		case "title":
+			$criteria->add(new Criteria('news_status', 1));
+			switch ($options[1]) {
+				case 0:
+					$criteria->setSort('news_date DESC, news_title');
+					$criteria->setOrder('ASC');
+					break;
+					
+				case 1:
+					$criteria->setSort('news_counter DESC, news_title');
+					$criteria->setOrder('ASC');
+					break;
+					
+				case 2:
+					$criteria->setSort('news_rating DESC, news_title');
+					$criteria->setOrder('ASC');
+					break;
+					
+				case 3:
+					$criteria->setSort('RAND()');
+					break;	
+			}
+			$limit = $options[2];
+			$block['logo'] = $options[5];
+			break;
     }
 	if ($options[4] != 'onenews'){
 		$category_ids = explode(',', $options[0]);
 		if (!in_array(0, $category_ids)) {
 			$criteria->add(new Criteria('category_id', '(' . $options[0] . ')', 'IN'));
 		}
-		$criteria->setLimit($options[1]);
+		$criteria->setLimit($limit);
 		// Get Permission to view abstract
 		$viewPermissionCat = XmnewsUtility::getPermissionCat('xmnews_viewabstract');
 		if (!empty($viewPermissionCat)) {
 			$criteria->add(new Criteria('news_cid', '(' . implode(',', $viewPermissionCat) . ')', 'IN'));
 		}
-		$block['full'] = $options[2];
 	} else {
 		// Get Permission to view
 		$viewPermissionCat = XmnewsUtility::getPermissionCat('xmnews_viewnews');
 		if (!empty($viewPermissionCat)) {
 			$criteria->add(new Criteria('news_cid', '(' . implode(',', $viewPermissionCat) . ')', 'IN'));
 		}
-		$block['full'] = 1;
 	}
 	$newsHandler->table_link = $newsHandler->db->prefix("xmnews_category");
 	$newsHandler->field_link = "category_id";
@@ -94,6 +127,7 @@ function block_xmnews_show($options) {
 	} else {
 		$block['xmsocial'] = false;
 	}
+	//var_dump($news_arr);
 	if (count($news_arr) > 0 && !empty($viewPermissionCat)) {
 		foreach (array_keys($news_arr) as $i) {
 			$news_id                 = $news_arr[$i]->getVar('news_id');
@@ -142,46 +176,74 @@ function block_xmnews_edit($options) {
 	include_once XOOPS_ROOT_PATH . '/modules/xmnews/class/blockform.php';
 	xoops_load('XoopsFormLoader');
 	$form = new XmnewsBlockForm();
-
-	if ($options[4] != 'onenews'){
-		// Criteria
-		$criteria = new CriteriaCompo();
-		$criteria->setSort('category_weight ASC, category_name');
-		$criteria->setOrder('ASC');
-		$criteria->add(new Criteria('category_status', 1));
-		$category_arr = $categoryHandler->getall($criteria);
-		$category = new XoopsFormSelect(_MB_XMNEWS_CATEGORY, 'options[0]', $options[0], 5, true);
-		$category->addOption(0, _MB_XMNEWS_ALLCATEGORY);
-		foreach (array_keys($category_arr) as $i) {
-			$category->addOption($category_arr[$i]->getVar('category_id'), $category_arr[$i]->getVar('category_name'));
-		}
+	switch ($options[4]) {
+		case 'onenews':
+				// Criteria
+			$criteria = new CriteriaCompo();
+			$criteria->setSort('news_title');
+			$criteria->setOrder('ASC');
+			$criteria->add(new Criteria('news_status', 1));
+			$news_arr = $newsHandler->getall($criteria);
+			$form = new XmnewsBlockForm();
+			$news = new XoopsFormSelect(_MB_XMNEWS_NEWS, 'options[0]', $options[0], 5, true);
+			foreach (array_keys($news_arr) as $i) {
+				$news->addOption($news_arr[$i]->getVar('news_id'), $news_arr[$i]->getVar('news_title'));
+			}
+			$form->addElement($news);
+			$form->addElement(new XoopsFormHidden('options[1]', $options[1]));
+			$form->addElement(new XoopsFormHidden('options[2]', $options[2]));
+			$form->addElement(new XoopsFormHidden('options[3]', $options[3]));
+			$form->addElement(new XoopsFormHidden('options[4]', $options[4]));
+			$form->addElement(new XoopsFormHidden('options[5]', 0));
+			break;
+			
+		case 'title':
+			// Criteria
+			$criteria = new CriteriaCompo();
+			$criteria->setSort('category_weight ASC, category_name');
+			$criteria->setOrder('ASC');
+			$criteria->add(new Criteria('category_status', 1));
+			$category_arr = $categoryHandler->getall($criteria);
+			$category = new XoopsFormSelect(_MB_XMNEWS_CATEGORY, 'options[0]', $options[0], 5, true);
+			$category->addOption(0, _MB_XMNEWS_ALLCATEGORY);
+			foreach (array_keys($category_arr) as $i) {
+				$category->addOption($category_arr[$i]->getVar('category_id'), $category_arr[$i]->getVar('category_name'));
+			}			
+			$form->addElement($category);
+			$type = new XoopsFormSelect(_MB_XMNEWS_TYPE, 'options[1]', $options[1]);
+			$type->addOption(0, _MB_XMNEWS_TYPE_DATE);
+			$type->addOption(1, _MB_XMNEWS_TYPE_HITS);
+			$type->addOption(2, _MB_XMNEWS_TYPE_RATING);
+			$type->addOption(3, _MB_XMNEWS_TYPE_RANDOM);
+			$form->addElement($type);
+			$form->addElement(new XoopsFormText(_MB_XMNEWS_NBNEWS, 'options[2]', 5, 5, $options[2]), true);
+			$form->addElement(new XoopsFormText(_MB_XMNEWS_TITLE, 'options[3]', 5, 5, $options[3]), true);
+			$form->addElement(new XoopsFormHidden('options[4]', 'title'));
+			$form->addElement(new XoopsFormRadioYN(_MB_XMNEWS_LOGO, 'options[5]', $options[5]), true);
+			break;
 		
-		$form->addElement($category);
-		$form->addElement(new XoopsFormText(_MB_XMNEWS_NBNEWS, 'options[1]', 5, 5, $options[1]), true);
-		if ($options[4] != 'waiting'){
-			$form->addElement(new XoopsFormRadioYN(_MB_XMNEWS_FULL, 'options[2]', $options[2]), true);
-		} else {
-			$form->addElement(new XoopsFormHidden('options[2]', 0));
-		}
-		$form->addElement(new XoopsFormText(_MB_XMNEWS_ABSTRACT, 'options[3]', 5, 5, $options[3]), true);
-		$form->addElement(new XoopsFormHidden('options[4]', $options[4]));
-	} else {
-		// Criteria
-		$criteria = new CriteriaCompo();
-		$criteria->setSort('news_title');
-		$criteria->setOrder('ASC');
-		$criteria->add(new Criteria('news_status', 1));
-		$news_arr = $newsHandler->getall($criteria);
-		$form = new XmnewsBlockForm();
-		$news = new XoopsFormSelect(_MB_XMNEWS_NEWS, 'options[0]', $options[0], 5, true);
-		foreach (array_keys($news_arr) as $i) {
-			$news->addOption($news_arr[$i]->getVar('news_id'), $news_arr[$i]->getVar('news_title'));
-		}
-		$form->addElement($news);
-		$form->addElement(new XoopsFormHidden('options[1]', $options[1]));
-		$form->addElement(new XoopsFormHidden('options[2]', $options[2]));
-		$form->addElement(new XoopsFormHidden('options[3]', $options[3]));
-		$form->addElement(new XoopsFormHidden('options[4]', $options[4]));		
+		default:
+			// Criteria
+			$criteria = new CriteriaCompo();
+			$criteria->setSort('category_weight ASC, category_name');
+			$criteria->setOrder('ASC');
+			$criteria->add(new Criteria('category_status', 1));
+			$category_arr = $categoryHandler->getall($criteria);
+			$category = new XoopsFormSelect(_MB_XMNEWS_CATEGORY, 'options[0]', $options[0], 5, true);
+			$category->addOption(0, _MB_XMNEWS_ALLCATEGORY);
+			foreach (array_keys($category_arr) as $i) {
+				$category->addOption($category_arr[$i]->getVar('category_id'), $category_arr[$i]->getVar('category_name'));
+			}
+			$form->addElement($category);
+			$form->addElement(new XoopsFormText(_MB_XMNEWS_NBNEWS, 'options[1]', 5, 5, $options[1]), true);
+			if ($options[4] != 'waiting'){
+				$form->addElement(new XoopsFormRadioYN(_MB_XMNEWS_FULL, 'options[2]', $options[2]), true);
+			} else {
+				$form->addElement(new XoopsFormHidden('options[2]', 0));
+			}
+			$form->addElement(new XoopsFormText(_MB_XMNEWS_ABSTRACT, 'options[3]', 5, 5, $options[3]), true);
+			$form->addElement(new XoopsFormHidden('options[4]', $options[4]));
+			$form->addElement(new XoopsFormHidden('options[5]', 0));			
 	}
 	return $form->render();
 }

@@ -84,7 +84,7 @@ $modversion['blocks'][] = array(
     'description' => _MI_XMNEWS_BLOCK_DATE_DESC,
     'show_func'   => 'block_xmnews_show',
     'edit_func'   => 'block_xmnews_edit',
-	'options'     => '0|5|0|20|date',
+	'options'     => '0|5|0|20|date|0',
     'template'    => 'xmnews_block.tpl'
 );
 $modversion['blocks'][] = array(
@@ -93,7 +93,7 @@ $modversion['blocks'][] = array(
     'description' => _MI_XMNEWS_BLOCK_HITS_DESC,
     'show_func'   => 'block_xmnews_show',
     'edit_func'   => 'block_xmnews_edit',
-	'options'     => '0|5|0|20|hits',
+	'options'     => '0|5|0|20|hits|0',
     'template'    => 'xmnews_block.tpl'
 );
 $modversion['blocks'][] = array(
@@ -102,7 +102,7 @@ $modversion['blocks'][] = array(
     'description' => _MI_XMNEWS_BLOCK_RATING_DESC,
     'show_func'   => 'block_xmnews_show',
     'edit_func'   => 'block_xmnews_edit',
-	'options'     => '0|5|0|20|rating',
+	'options'     => '0|5|0|20|rating|0',
     'template'    => 'xmnews_block.tpl'
 );
 $modversion['blocks'][] = array(
@@ -111,7 +111,7 @@ $modversion['blocks'][] = array(
     'description' => _MI_XMNEWS_BLOCK_RANDOM_DESC,
     'show_func'   => 'block_xmnews_show',
     'edit_func'   => 'block_xmnews_edit',
-	'options'     => '0|5|0|20|random',
+	'options'     => '0|5|0|20|random|0',
     'template'    => 'xmnews_block.tpl'
 );
 $modversion['blocks'][] = array(
@@ -120,7 +120,7 @@ $modversion['blocks'][] = array(
     'description' => _MI_XMNEWS_BLOCK_WAITING_DESC,
     'show_func'   => 'block_xmnews_show',
     'edit_func'   => 'block_xmnews_edit',
-	'options'     => '0|5|0|20|waiting',
+	'options'     => '0|5|0|20|waiting|0',
     'template'    => 'xmnews_block_waiting.tpl'
 );
 $modversion['blocks'][] = array(
@@ -129,8 +129,17 @@ $modversion['blocks'][] = array(
     'description' => _MI_XMNEWS_BLOCK_ONENEWS_DESC,
     'show_func'   => 'block_xmnews_show',
     'edit_func'   => 'block_xmnews_edit',
-	'options'     => '0|5|0|20|onenews',
+	'options'     => '0|5|0|20|onenews|0',
     'template'    => 'xmnews_block.tpl'
+);
+$modversion['blocks'][] = array(
+    'file'        => 'xmnews_blocks.php',
+    'name'        => _MI_XMNEWS_BLOCK_TITLE,
+    'description' => _MI_XMNEWS_BLOCK_TITLE_DESC,
+    'show_func'   => 'block_xmnews_show',
+    'edit_func'   => 'block_xmnews_edit',
+	'options'     => '0|0|5|20|title|0',
+    'template'    => 'xmnews_block_title.tpl'
 );
 
 // Configs

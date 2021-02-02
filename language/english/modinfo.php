@@ -43,6 +43,8 @@ define('_MI_XMNEWS_BLOCK_WAITING', 'Waiting News');
 define('_MI_XMNEWS_BLOCK_WAITING_DESC', 'Display waiting news');
 define('_MI_XMNEWS_BLOCK_ONENEWS', 'Display a news');
 define('_MI_XMNEWS_BLOCK_ONENEWS_DESC', 'Display selected news');
+define('_MI_XMNEWS_BLOCK_TITLE', 'News list (title)');
+define('_MI_XMNEWS_BLOCK_TITLE_DESC', 'Display news headlines as a list ');
 
 // Pref
 define('_MI_XMNEWS_PREF_HEAD_GENERAL', '<span style="font-size: large;  font-weight: bold;">General</span>');
