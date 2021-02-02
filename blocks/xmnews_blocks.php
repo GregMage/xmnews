@@ -96,6 +96,7 @@ function block_xmnews_show($options) {
 			}
 			$limit = $options[2];
 			$block['logo'] = $options[5];
+			$block['type'] = $options[1];
 			break;
     }
 	if ($options[4] != 'onenews'){
