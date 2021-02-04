@@ -141,6 +141,15 @@ $modversion['blocks'][] = array(
 	'options'     => '0|0|5|48|title|0',
     'template'    => 'xmnews_block_title.tpl'
 );
+$modversion['blocks'][] = array(
+    'file'        => 'xmnews_blocks.php',
+    'name'        => _MI_XMNEWS_BLOCK_CAROUSEL,
+    'description' => _MI_XMNEWS_BLOCK_CAROUSEL_DESC,
+    'show_func'   => 'block_xmnews_show',
+    'edit_func'   => 'block_xmnews_edit',
+	'options'     => '0|0|5|20|carousel|0',
+    'template'    => 'xmnews_block_carousel.tpl'
+);
 
 // Configs
 $modversion['config'] = [];

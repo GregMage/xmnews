@@ -45,6 +45,8 @@ define('_MI_XMNEWS_BLOCK_ONENEWS', 'Afficher un article');
 define('_MI_XMNEWS_BLOCK_ONENEWS_DESC', 'Afficher l\'article sélectionné');
 define('_MI_XMNEWS_BLOCK_TITLE', 'Liste d\'actualités (titre)');
 define('_MI_XMNEWS_BLOCK_TITLE_DESC', 'Affichage des titres des articles sous forme de liste');
+define('_MI_XMNEWS_BLOCK_CAROUSEL', 'Affichage des articles sous forme de carrousel');
+define('_MI_XMNEWS_BLOCK_CAROUSEL_DESC', 'Les articles sont affiché sous forme de carrousel');
 
 // Pref
 define('_MI_XMNEWS_PREF_HEAD_GENERAL', '<span style="font-size: large;  font-weight: bold;">Général</span>');
