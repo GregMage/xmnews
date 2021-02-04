@@ -27,7 +27,6 @@ function block_xmnews_show($options) {
 	$permNewsHelper = new Helper\Permission('xmnews');
 	
 	$block = array();
-	$block['desclenght'] = $options[3];
 	$criteria = new CriteriaCompo();
 	switch ($options[4]) {
         case "date":
@@ -36,6 +35,7 @@ function block_xmnews_show($options) {
 			$criteria->setOrder('ASC');
 			$limit = $options[1];
 			$block['full'] = $options[2];
+			$block['desclenght'] = $options[3];
 			break;
 
         case "hits":
@@ -44,6 +44,7 @@ function block_xmnews_show($options) {
 			$criteria->setOrder('ASC');
 			$limit = $options[1];
 			$block['full'] = $options[2];
+			$block['desclenght'] = $options[3];
 			break;
 
         case "rating":
@@ -51,6 +52,7 @@ function block_xmnews_show($options) {
 			$criteria->setSort('news_rating DESC, news_title');
 			$criteria->setOrder('ASC');
 			$limit = $options[1];
+			$block['desclenght'] = $options[3];
 			break;
 
         case "random":
@@ -58,12 +60,14 @@ function block_xmnews_show($options) {
             $criteria->setSort('RAND()');
 			$limit = $options[1];
 			$block['full'] = $options[2];
+			$block['desclenght'] = $options[3];
 			break;
 
 		case "waiting":
 			$criteria->add(new Criteria('news_status', 2));
             $criteria->setSort('news_date DESC, news_title');
 			$limit = $options[1];
+			$block['desclenght'] = $options[3];
 			break;
 
 		case "onenews":
@@ -97,6 +101,7 @@ function block_xmnews_show($options) {
 			$limit = $options[2];
 			$block['logo'] = $options[5];
 			$block['type'] = $options[1];
+			$block['size'] = $options[3];
 			break;
     }
 	if ($options[4] != 'onenews'){
@@ -218,7 +223,7 @@ function block_xmnews_edit($options) {
 			$type->addOption(3, _MB_XMNEWS_TYPE_RANDOM);
 			$form->addElement($type);
 			$form->addElement(new XoopsFormText(_MB_XMNEWS_NBNEWS, 'options[2]', 5, 5, $options[2]), true);
-			$form->addElement(new XoopsFormText(_MB_XMNEWS_TITLE, 'options[3]', 5, 5, $options[3]), true);
+			$form->addElement(new XoopsFormText(_MB_XMNEWS_SIZE, 'options[3]', 5, 5, $options[3]), true);
 			$form->addElement(new XoopsFormHidden('options[4]', 'title'));
 			$form->addElement(new XoopsFormRadioYN(_MB_XMNEWS_LOGO, 'options[5]', $options[5]), true);
 			break;

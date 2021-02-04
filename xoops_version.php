@@ -138,7 +138,7 @@ $modversion['blocks'][] = array(
     'description' => _MI_XMNEWS_BLOCK_TITLE_DESC,
     'show_func'   => 'block_xmnews_show',
     'edit_func'   => 'block_xmnews_edit',
-	'options'     => '0|0|5|20|title|0',
+	'options'     => '0|0|5|48|title|0',
     'template'    => 'xmnews_block_title.tpl'
 );
 

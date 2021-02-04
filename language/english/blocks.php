@@ -28,5 +28,5 @@ define('_MB_XMNEWS_TYPE_DATE', 'Recent News');
 define('_MB_XMNEWS_TYPE_HITS', 'Top News (hits)');
 define('_MB_XMNEWS_TYPE_RATING', 'Top Rated News');
 define('_MB_XMNEWS_TYPE_RANDOM', 'Random News');
-define('_MB_XMNEWS_TITLE', 'Number of words to display in the title of the article (Put "all" so as not to have a limit) ');
+define('_MB_XMNEWS_SIZE', 'Image size in pixel');
 define('_MB_XMNEWS_LOGO', 'Show logo');

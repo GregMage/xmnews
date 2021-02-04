@@ -28,5 +28,5 @@ define('_MB_XMNEWS_TYPE_DATE', 'Articles récents');
 define('_MB_XMNEWS_TYPE_HITS', 'Top articles (lectures)');
 define('_MB_XMNEWS_TYPE_RATING', 'Articles les mieux notés');
 define('_MB_XMNEWS_TYPE_RANDOM', 'Articles aléatoires');
-define('_MB_XMNEWS_TITLE', 'Nombre de mots à afficher dans le titre de l\'article (Mettre "all" pour ne pas avoir de limite)');
+define('_MB_XMNEWS_SIZE', 'Taille de l\'image en pixel');
 define('_MB_XMNEWS_LOGO', 'Afficher le logo');
