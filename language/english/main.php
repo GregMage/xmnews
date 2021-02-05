@@ -68,6 +68,7 @@ define('_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE', 'You must enable in
 define('_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATESOCIAL', 'You must activate in the preferences of the xmnews module the use of xmsocial (if you want to add social media) ');
 
 // Category
+define('_MA_XMNEWS_CATEGORY_COLOR', 'Color');
 define('_MA_XMNEWS_CATEGORY_DESC', 'Description');
 define('_MA_XMNEWS_CATEGORY_DOCOMMENT', 'View comments');
 define('_MA_XMNEWS_CATEGORY_DODSC', 'Default value for new news in this category');

@@ -19,7 +19,7 @@
 			<{$smarty.const._MA_XMNEWS_INFO_NEWSNOTPUBLISHED}>
 		</div>
 	<{/if}>
-    <div class="media">
+    <div class="media xmnews-border" <{if $category_color != false}>style="border-color : <{$category_color}>;"<{/if}>>
         <div class="media-left">
 			<{if $logo != ''}>
 			<{if $CAT == true}><a href="index.php?news_cid=<{$category_id}>"><{/if}><img class="media-object" src="<{$logo}>" alt="<{$title}>" style="max-width:150px"><{if $CAT == true}></a><{/if}>

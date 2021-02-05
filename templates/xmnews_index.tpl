@@ -15,14 +15,14 @@
 				<label><{$smarty.const._MA_XMNEWS_NEWS_SELECTCATEGORY}></label>
 				<select class="form-control form-control-sm" name="news_filter" id="news_filter" onchange="location='index.php?news_cid='+this.options[this.selectedIndex].value">
 					<{$news_cid_options}>
-				<select>
+				</select>
 			</div>
 		</form>
 	</div>
 	<br>		
 	<br>
 	<{if $cat|default:false}>
-		<div class="media">
+		<div class="media xmnews-border" <{if $category_color != false}>style="border-color : <{$category_color}>;"<{/if}>>
 			<div class="media-left">
 				<{if $category_logo != ''}>
 				<img class="media-object" src="<{$category_logo}>" alt="<{$category_name}>" style="max-width:150px">
@@ -38,7 +38,7 @@
 	<{/if}>
 	<{if $news_count != 0}>
 		<{foreach item=news from=$news}>
-		<div class="panel panel-default">
+		<div class="panel panel-default" <{if $news.color != false}>style="border-color : <{$news.color}>;"<{/if}>>
 			<div class="panel-body">
 				<div class="media">
 					<div class="media-left">

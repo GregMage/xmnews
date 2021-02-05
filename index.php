@@ -90,6 +90,14 @@ if ($news_cid != 0){
 	} else {
 		$xoopsTpl->assign('category_logo', $url_logo . $category_img);
 	}
+	$color = $category_arr[$news_cid]->getVar('category_color');
+	if ($color == '#ffffff'){
+		$xoopsTpl->assign('category_color', false);
+		echo 'ici';
+		
+	} else {
+		$xoopsTpl->assign('category_color', $color);
+	}
 	$xoopsTpl->assign('category_description', $category_arr[$news_cid]->getVar('category_description'));
 	$xoopsTpl->assign('cat', true);
 }else {
@@ -121,6 +129,12 @@ if ($news_count > 0 && !empty($viewPermissionCat)) {
 			$news['mdate'] 		 = formatTimestamp($news_arr[$i]->getVar('news_mdate'), 's');
 		}
 		$news['description']     = $news_arr[$i]->getVar('news_description');
+		$color					 = $news_arr[$i]->getVar('category_color');
+		if ($color == '#ffffff'){
+			$news['color']	 = false;
+		} else {
+			$news['color']	 = $color;
+		}
 		$news['counter']         = $news_arr[$i]->getVar('news_counter');
 		if ($xmsocial == true){
 			$news['rating'] = XmsocialUtility::renderVotes($news_arr[$i]->getVar('news_rating'), $news_arr[$i]->getVar('news_votes'));

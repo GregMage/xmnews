@@ -153,5 +153,10 @@ a.xmnews-category-image {
   }
 }
 
+.xmnews-border {
+border-style : solid;
+border-width : thin;
+}
+
 
 

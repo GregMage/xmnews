@@ -38,6 +38,7 @@ class xmnews_category extends XoopsObject
         // use html
         $this->initVar('dohtml', XOBJ_DTYPE_INT, 1, false);
         $this->initVar('category_logo', XOBJ_DTYPE_TXTBOX, null, false);
+		$this->initVar('category_color', XOBJ_DTYPE_TXTBOX, '#ffffff', false);
 		$this->initVar('category_douser', XOBJ_DTYPE_INT, 1, false, 1);
 		$this->initVar('category_dodate', XOBJ_DTYPE_INT, 1, false, 1);
 		$this->initVar('category_domdate', XOBJ_DTYPE_INT, 1, false, 1);
@@ -97,6 +98,7 @@ class xmnews_category extends XoopsObject
             $this->setVar('category_logo', $category_logo);
         }
         $this->setVar('category_name', Request::getString('category_name', ''));
+		$this->setVar('category_color', Request::getString('category_color', ''));
         $this->setVar('category_description', Request::getText('category_description', ''));
         $this->setVar('category_douser', Request::getInt('category_douser', 1));
         $this->setVar('category_dodate', Request::getInt('category_dodate', 1));
@@ -201,6 +203,9 @@ class xmnews_category extends XoopsObject
         $fileseltray_img->addElement(new XoopsFormLabel(''), false);
         $imgtray_img->addElement($fileseltray_img);
         $form->addElement($imgtray_img);
+		
+		//color
+		$form->addElement(new XoopsFormColorPicker(_MA_XMNEWS_CATEGORY_COLOR, 'category_color', $this->getVar('category_color')), false);
 		
 		// douser
 		$douser = new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOUSER, 'category_douser', $this->getVar('category_douser'));

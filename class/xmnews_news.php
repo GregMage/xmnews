@@ -57,6 +57,7 @@ class xmnews_news extends XoopsObject
         $this->initVar('news_status', XOBJ_DTYPE_INT, 1);
 		$this->initVar('category_name', XOBJ_DTYPE_TXTBOX, null, false);
 		$this->initVar('category_logo', XOBJ_DTYPE_TXTBOX, null, false);
+		$this->initVar('category_color', XOBJ_DTYPE_TXTBOX, '#ffffff', false);
     }
 	
     /**

@@ -75,6 +75,12 @@ $xoopsTpl->assign('perm_del', $permHelper->checkPermission('xmnews_delete', $cat
 // Category
 $xoopsTpl->assign('category_name', $category->getVar('category_name'));
 $xoopsTpl->assign('category_id', $category_id);
+$color = $category->getVar('category_color');
+if ($color == '#ffffff'){
+	$xoopsTpl->assign('category_color', false);
+} else {
+	$xoopsTpl->assign('category_color', $color);
+}
 
 // News
 if ($news->getVar('news_date') > time()) {
