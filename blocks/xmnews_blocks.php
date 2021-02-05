@@ -131,6 +131,7 @@ function block_xmnews_show($options) {
 			$block['type'] = $options[1];
 			$limit = $options[2];
 			$block['desclenght'] = $options[3];
+			$block['randid'] = rand();
 			if(!in_array('0', explode(',', $options[5]))){
 				$nocat = true;
 				$criteria->add(new Criteria('news_id', '(' . $options[5] . ')', 'IN'));
