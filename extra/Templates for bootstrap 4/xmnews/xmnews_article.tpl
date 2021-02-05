@@ -24,10 +24,10 @@
 	<div class="row mb-2">
 		<div class="col-md-12">
 <!--		<div class="no-gutters rounded overflow-hidden flex-md-row mb-0 shadow-sm h-md-250 position-relative">-->
-				<div class="card">
-					<div class="card-header">
+				<div class="card" <{if $category_color != false}>style="border-color : <{$category_color}>;"<{/if}>>
+					<div class="card-header category_color" <{if $category_color != false}>style="background-color : <{$category_color}>;"<{/if}>>
 						<div class="d-flex justify-content-between">
-							<h3 class="mb-0"><{$title}></h3>
+							<h3 class="mb-0 text-white"><{$title}></h3>
 							<{if $dohits == 1}>
 								<div class="row align-items-center text-right">
 									<div class="col">
