@@ -93,7 +93,6 @@ if ($news_cid != 0){
 	$color = $category_arr[$news_cid]->getVar('category_color');
 	if ($color == '#ffffff'){
 		$xoopsTpl->assign('category_color', false);
-		echo 'ici';
 		
 	} else {
 		$xoopsTpl->assign('category_color', $color);
