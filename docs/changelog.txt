@@ -1,8 +1,51 @@
 ﻿-------------------------------------------------
-Version: 1.2
-Date:    
+Version: 1.5
+Date: 06.02.2021
 -------------------------------------------------
+Bug fixes:
+	- Logo display problem when deleting a news message
+	- Logo display problem when message deleting a category if it did not have a logo
+	- An error message appeared if you tried to access a category without authorization
+	- The search displayed the results even if we did not have access rights
+	- An error message appeared if we tried to modify a news item with a false id
+	- The publication date was proposed at the next 10 minutes which prevented an instant publication
 
+Improvements:
+	- Better integration of xmsocial to rate an article
+	- Addition of the social media part of the xmsocial module
+	- Addition of the number of reading of a news in the administration (page which lists the news)
+	- Modification of the FR translation
+	- Optimization of Bt3 and Bt4 templates
+	- php8 compatibility
+	- Addition of a block which lists the titles of the news (with or without logo)
+	- Addition of a carousel type block
+	- You can now choose a color for a category. This option allows you to color a news according to its category. This improvement is especially visible with the Bt4 templates
+
+Security:
+	- Change index.html to index.php 
+
+
+Correction de bogues:	
+	- Problème d'affichage du logo lors du message de suppression d'une news
+	- Problème d'affichage du logo lors du message de suppression d'une catégorie si elle n'avait pas de logo
+	- Un message d'erreur apparaissait si on tentait d'accéder à une catégorie sans autorisation
+	- La recherche affichait les résultats même si on n'avait pas les droits d'accès
+	- Un message d'erreur apparaissait si on tentait de modifier une news avec une id fausse
+	- La date de publication était proposée au 10 minutes suivantes ce qui empêchait une publication instantanée
+
+Améliorations:
+	- Meilleure intégration de xmsocial pour noter un article
+	- Ajout de la partie médias sociaux du module xmsocial
+	- Ajout du nombre de lecture d'une news dans l'administration (page qui liste les news)
+	- Modification de la traduction FR
+	- Optimisation des templates Bt3 et Bt4
+	- Compatibilité php8
+	- Ajout d'un bloc qui liste les titres des news (avec ou sans logo)
+	- Ajout d'un bloc de type carrousel
+	- On peut maintenant choisir une couleur pour une catégorie. Cette option permet de colorier une news en fonction de sa catégorie. Cette amélioration est surtout visible avec les templates Bt4
+
+Sécurités:
+	- Changement index.html à index.php
 -------------------------------------------------
 Version: 1.1 Final
 Date:    18.04.2020
