@@ -201,7 +201,7 @@ switch ($op) {
                     $xoopsTpl->assign('error_message', $obj->getHtmlErrors());
                 }
             } else {
-                $category_img = $obj->getVar('category_logo') ?: 'blank.gif';
+                $category_img = $obj->getVar('category_logo') ?: 'no-image.png';
                 xoops_confirm(['surdel' => true, 'category_id' => $category_id, 'op' => 'del'], $_SERVER['REQUEST_URI'], sprintf(_MA_XMNEWS_CATEGORY_SUREDEL, $obj->getVar('category_name')) . '<br>
                                     <img src="' . $url_logo . $category_img . '" title="' . $obj->getVar('category_name') . '" style="max-width:100px"><br>' . XmnewsUtility::newsNamePerCat($category_id));
             }
