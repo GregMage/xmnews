@@ -10,7 +10,11 @@
   <div class="carousel-inner" role="listbox">
 	<{foreach item=blocknews from=$block.news}>
     <div class="item <{if $blocknews.active == true}>active<{/if}>">
-      <img src="<{$blocknews.logo}>" alt="<{$blocknews.title}>">
+		<{if $blocknews.logo != ''}>
+			<img src="<{$blocknews.logo}>" class="img-fluid block mx-auto rounded" alt="<{$blocknews.title}>" style="height:360px">
+		<{else}>
+			<img src="<{$xoops_url}>/modules/xmnews/assets/images/slide-no-image.png" class="img-fluid block mx-auto rounded" alt="<{$blocknews.title}>" style="height:360px">
+		<{/if}>
       <div class="carousel-caption">
 		<h3><{$blocknews.title}></h3>
 		<p>

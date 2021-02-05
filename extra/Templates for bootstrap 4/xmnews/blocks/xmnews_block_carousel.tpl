@@ -8,11 +8,11 @@
 		<{foreach item=blocknews from=$block.news}>
 			<div class="carousel-item <{if $blocknews.active == true}>active<{/if}>">
 				<{if $blocknews.logo != ''}>
-					<img src="<{$blocknews.logo}>" class="img-fluid block mx-auto rounded" alt="<{$blocknews.title}>" style="max-height:360px">
+					<img src="<{$blocknews.logo}>" class="img-fluid block mx-auto rounded" alt="<{$blocknews.title}>" style="height:360px">
 				<{else}>
-					<img src="<{$xoops_url}>/modules/xmnews/assets/images/slide-no-image.png" class="img-fluid block mx-auto rounded" alt="<{$blocknews.title}>" style="max-height:360px">
+					<img src="<{$xoops_url}>/modules/xmnews/assets/images/slide-no-image.png" class="img-fluid block mx-auto rounded" alt="<{$blocknews.title}>" style="height:360px">
 				<{/if}>
-				<div class="carousel-caption d-none d-md-block bg-info rounded">
+				<div class="carousel-caption d-none d-md-block rounded" style="background-color: hsla(0, 0%, 0%, .3);">
 					<h5><a class="" title="<{$blocknews.title}>" href="<{$xoops_url}>/modules/xmnews/article.php?news_id=<{$blocknews.id}>"><{$blocknews.title}></a></h5>
 					<p>
 						<{if $block.desclenght != '0'}>
