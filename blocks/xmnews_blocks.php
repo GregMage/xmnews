@@ -194,6 +194,12 @@ function block_xmnews_show($options) {
 			}
 			if ($news_img == 'CAT'){
 				$news['logo']        = $url_logo . $news_arr[$i]->getVar('category_logo');
+			}
+			$color = $news_arr[$i]->getVar('category_color');
+			if ($color == '#ffffff'){
+				$news['color'] = false;				
+			} else {
+				$news['color'] = $color;
 			}			
 			$news['hits']            = $news_arr[$i]->getVar('news_counter');
 			if ($block['xmsocial'] == true){
