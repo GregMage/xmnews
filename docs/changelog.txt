@@ -20,6 +20,7 @@ Improvements:
 	- Addition of a block which lists the titles of the news (with or without logo)
 	- Addition of a carousel type block
 	- You can now choose a color for a category. This option allows you to color a news according to its category. This improvement is especially visible with the Bt4 templates
+	- Plugin for the waiting module (directly integrated into the waiting module)
 
 Security:
 	- Change index.html to index.php 
@@ -43,6 +44,7 @@ Améliorations:
 	- Ajout d'un bloc qui liste les titres des news (avec ou sans logo)
 	- Ajout d'un bloc de type carrousel
 	- On peut maintenant choisir une couleur pour une catégorie. Cette option permet de colorier une news en fonction de sa catégorie. Cette amélioration est surtout visible avec les templates Bt4
+	- Plugin pour le module waiting (directement intégré dans le module waiting)
 
 Sécurités:
 	- Changement index.html à index.php
