@@ -30,7 +30,7 @@
         <{foreach item=category from=$category}>
             <tr class="<{cycle values='even,odd'}> alignmiddle">
 				<td class="txtcenter">
-					<{if $category.logo != ''}>		
+					<{if $category.logo != ''}>
 					<img src="<{$category.logo}>" alt="<{$category.name}>" style="max-width:150px">
 					<{/if}>
 				</td>
