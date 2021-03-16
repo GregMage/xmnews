@@ -162,7 +162,7 @@ if (xoops_isActiveModule('xmdoc') && $helper->getConfig('general_xmdoc', 0) == 1
 }
 //SEO
 // pagetitle
-$xoopsTpl->assign('xoops_pagetitle', Metagen::generateSeoTitle($news->getVar('news_title') . '-' . $xoopsModule->name()));
+$xoopsTpl->assign('xoops_pagetitle', $news->getVar('news_title') . '-' . $xoopsModule->name());
 //description
 $xoTheme->addMeta('meta', 'description', Metagen::generateDescription($news->getVar('news_description'), 30));
 //keywords
