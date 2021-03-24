@@ -128,6 +128,7 @@ if ($news_count > 0 && !empty($viewPermissionCat)) {
 			$news['mdate'] 		 = formatTimestamp($news_arr[$i]->getVar('news_mdate'), 's');
 		}
 		$news['description']     = $news_arr[$i]->getVar('news_description');
+		$news['cat_name']        = $news_arr[$i]->getVar('category_name');
 		$color					 = $news_arr[$i]->getVar('category_color');
 		if ($color == '#ffffff'){
 			$news['color']	 = false;

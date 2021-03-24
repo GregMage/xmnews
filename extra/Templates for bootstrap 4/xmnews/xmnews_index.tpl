@@ -41,7 +41,7 @@
 					<div class="card h-100 xmnews-border" <{if $news.color != false}>style="border-color : <{$news.color}>;"<{/if}>>
 						<div class="card-header" <{if $news.color != false}>style="background-color : <{$news.color}>;"<{/if}>>
 							<div class="d-flex justify-content-center text-center">
-								<h5 class="mb-0 text-white"><{$news.title}></h5>
+								<h5 class="mb-0 text-white"><{$news.title}><{if $news_cid == 0}> <span class="badge badge-pill badge-dark"><{$news.cat_name}></span><{/if}></h5>
 							</div>
 						</div>
 

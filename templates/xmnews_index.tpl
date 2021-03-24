@@ -47,7 +47,7 @@
 						<{/if}>
 					</div>
 					<div class="media-body">
-						<h2 class="media-heading"><{$news.title}></h2>
+						<h2 class="media-heading"><{$news.title}><{if $news_cid == 0}> <span class="badge badge-pill badge-dark"><{$news.cat_name}></span><{/if}></h2>
 						<{if $news.douser == 1}>
 						<div class="xmnews-index-info"><span class="glyphicon glyphicon-user" title="<{$smarty.const._MA_XMNEWS_NEWS_PUBLISHEDBY}>"></span>
 							<{$smarty.const._MA_XMNEWS_NEWS_PUBLISHEDBY}> <{$news.author}>
