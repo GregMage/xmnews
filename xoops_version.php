@@ -172,6 +172,19 @@ $modversion['config'][] = [
     'default'     => 15
 ];
 
+$optionNavigation[_MI_XMNEWS_PREF_NAVIGATION_0] = 0;
+$optionNavigation[_MI_XMNEWS_PREF_NAVIGATION_1] = 1;
+$optionNavigation[_MI_XMNEWS_PREF_NAVIGATION_2] = 2;
+$modversion['config'][] = [
+    'name'        => 'general_navigation',
+    'title'       => '_MI_XMNEWS_PREF_NAVIGATION',
+    'description' => '_MI_XMNEWS_PREF_NAVIGATION_DESC',
+    'formtype'    => 'select',
+    'valuetype'   => 'int',
+    'default'     => 0,
+	'options' => $optionNavigation,
+];
+
 xoops_load('xoopseditorhandler');
 $editorHandler = XoopsEditorHandler::getInstance();
 $modversion['config'][] = [
@@ -362,7 +375,7 @@ $modversion['notification']['event'][] = [
 ];
 
 // About stuff
-$modversion['module_status'] = 'Final';
+$modversion['module_status'] = 'Alpha';
 $modversion['release_date']  = '2021/03/20';
 
 $modversion['developer_lead']      = 'Mage';

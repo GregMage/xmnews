@@ -107,6 +107,26 @@
 			
         </div>
     </div>
+	<{if $navigation == true}>
+	<div class="row">
+		<div class="col-xs-6">
+			<{if $news_before_status == true}>
+				<a href="article.php?news_id=<{$news_before_id}>" class="btn btn-primary">
+					<span class="fa fa-arrow-left fa-2x mr-2"></span> <span class="d-block d-sm-none mr-5"></span>
+					<span class="d-none d-sm-block"><{$news_before_title}></span>
+				</a>
+			<{/if}>
+		</div>
+		<div class="col-xs-6 text-right">
+			<{if $news_after_status == true}>
+				<a href="article.php?news_id=<{$news_after_id}>" class="btn btn-primary">
+					<span class="fa fa-arrow-right fa-2x ml-2"></span> <span class="d-block d-sm-none ml-5"></span>
+					<span class="d-none d-sm-block"><{$news_after_title}></span>
+				</a>
+			<{/if}>
+		</div>
+	</div>
+	<{/if}>
 	<{if $docomment == 1}>
 	<div style="text-align: center; padding: 3px; margin:3px;">
         <{$commentsnav}>

@@ -51,6 +51,11 @@ define('_MI_XMNEWS_BLOCK_CAROUSEL_DESC', 'Les articles sont affiché sous forme 
 // Pref
 define('_MI_XMNEWS_PREF_HEAD_GENERAL', '<span style="font-size: large;  font-weight: bold;">Général</span>');
 define('_MI_XMNEWS_PREF_GENERALITEMPERPAGE', 'Nombre d\'éléments par page dans la vue générale');
+define('_MI_XMNEWS_PREF_NAVIGATION', 'Ajout de boutons de navigation pour lire les articles suivants et précédents');
+define('_MI_XMNEWS_PREF_NAVIGATION_DESC', 'Les articles suivants et précédents sont triés par dates et sont affichés sur la page de lecture d\'un article. La navigation peut être filtrée dans la catégorie de l\'article');
+define('_MI_XMNEWS_PREF_NAVIGATION_0', 'Navigation désactivée');
+define('_MI_XMNEWS_PREF_NAVIGATION_1', 'Pas de filtre de la catégorie');
+define('_MI_XMNEWS_PREF_NAVIGATION_2', 'Catégorie filtrée');
 define('_MI_XMNEWS_PREF_GENERALXMDOC', 'Utiliser le module xmdoc pour ajouter un document');
 define('_MI_XMNEWS_PREF_GENERALXMSOCIAL', 'Utiliser le module xmsocial pour noter un article');
 define('_MI_XMNEWS_PREF_GENERALXMSOCIALSOCIAL', 'Utiliser le module xmsocial pour afficher des liens de partage pour les réseaux sociaux');

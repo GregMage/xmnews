@@ -160,6 +160,64 @@ if (xoops_isActiveModule('xmdoc') && $helper->getConfig('general_xmdoc', 0) == 1
 } else {
     $xoopsTpl->assign('xmdoc_viewdocs', false);
 }
+
+//navigation
+$navigation = $helper->getConfig('general_navigation', 0);
+if ($navigation != 0){
+	$xoopsTpl->assign('navigation', true);
+	$viewPermissionCat = XmnewsUtility::getPermissionCat('xmnews_viewnews');
+	//before
+	$criteria = new CriteriaCompo();
+	if (!empty($viewPermissionCat)){
+		$criteria->add(new Criteria('news_cid', '(' . implode(',', $viewPermissionCat) . ')', 'IN'));
+	}
+	if ($navigation == 2){
+		$criteria->add(new Criteria('news_cid', $news->getVar('news_cid')));
+	}
+	$criteria->add(new Criteria('news_status', 1));
+	$criteria->add(new Criteria('news_date', $news->getVar('news_date'),'>'));
+	$criteria->add(new Criteria('news_date', time(),'<='));
+	$criteria->setSort('news_date');
+	$criteria->setOrder('ASC');
+	$criteria->setLimit(1);
+	$news_before_arr = $newsHandler->getall($criteria);
+	if (count($news_before_arr) == 0) {
+		$xoopsTpl->assign('news_before_status', false);
+	}else{
+		$xoopsTpl->assign('news_before_status', true);
+		foreach (array_keys($news_before_arr) as $i) {
+			$xoopsTpl->assign('news_before_title', $news_before_arr[$i]->getVar('news_title'));
+			$xoopsTpl->assign('news_before_id', $news_before_arr[$i]->getVar('news_id'));
+		}
+	}
+	//after
+	$criteria = new CriteriaCompo();
+	if (!empty($viewPermissionCat)){
+		$criteria->add(new Criteria('news_cid', '(' . implode(',', $viewPermissionCat) . ')', 'IN'));
+	}
+	if ($navigation == 2){
+		$criteria->add(new Criteria('news_cid', $news->getVar('news_cid')));
+	}
+	$criteria->add(new Criteria('news_status', 1));
+	$criteria->add(new Criteria('news_date', $news->getVar('news_date'),'<'));
+	$criteria->add(new Criteria('news_date', time(),'<='));
+	$criteria->setSort('news_date');
+	$criteria->setOrder('DESC');
+	$criteria->setLimit(1);
+	$news_after_arr = $newsHandler->getall($criteria);
+	if (count($news_after_arr) == 0) {
+		$xoopsTpl->assign('news_after_status', false);
+	}else{
+		$xoopsTpl->assign('news_after_status', true);
+		foreach (array_keys($news_after_arr) as $i) {
+			$xoopsTpl->assign('news_after_title', $news_after_arr[$i]->getVar('news_title'));
+			$xoopsTpl->assign('news_after_id', $news_after_arr[$i]->getVar('news_id'));
+		}
+	}
+} else {
+	$xoopsTpl->assign('navigation', false);
+}
+
 //SEO
 // pagetitle
 $xoopsTpl->assign('xoops_pagetitle', $news->getVar('news_title') . '-' . $xoopsModule->name());
