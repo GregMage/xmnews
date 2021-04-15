@@ -136,16 +136,24 @@ if (xoops_isActiveModule('xmsocial')){
 
 //counter
 $counterUpdate = false;
+$options = array(
+	'expires' => (time() + $helper->getConfig('general_countertime', 10) * 60),
+	'path'     => '/',
+	'domain'   => null,
+	'secure'   => false,
+	'httponly' => true,
+	'samesite' => 'strict',
+);
 if (isset($_COOKIE['xmnewsCounterId'])) {
 	$counterIds = unserialize($_COOKIE['xmnewsCounterId']);
 	if (!in_array($news_id, $counterIds)){
 		array_push($counterIds, $news_id);
-		setcookie("xmnewsCounterId", serialize($counterIds), time() + $helper->getConfig('general_countertime', 10) * 60);
+		setcookie("xmnewsCounterId", serialize($counterIds), $options);
 		$counterUpdate = true;
 	}
 } else {
 	$counterId[] = $news_id;
-	setcookie("xmnewsCounterId", serialize($counterId), time() + $helper->getConfig('general_countertime', 10) * 60);
+	setcookie("xmnewsCounterId", serialize($counterId), $options);
 	$counterUpdate = true;
 }
 if ($counterUpdate == true){
