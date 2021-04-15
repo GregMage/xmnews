@@ -383,5 +383,5 @@ $modversion['module_website_url']  = 'www.monxoops.fr/';
 $modversion['module_website_name'] = 'MonXoops';
 
 $modversion['min_xoops'] = '2.5.10';
-$modversion['min_php']   = '7.0';
+$modversion['min_php']   = '7.3';
 $modversion['min_db']    = ['mysql' => '5.5'];
