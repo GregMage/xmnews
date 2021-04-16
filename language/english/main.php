@@ -104,6 +104,8 @@ define('_MA_XMNEWS_NEWS_MDATE', 'Modification date');
 define('_MA_XMNEWS_NEWS_MDATE_BT', 'Update');
 define('_MA_XMNEWS_NEWS_MDATEUPDATE', 'Update the modification date');
 define('_MA_XMNEWS_NEWS_MORE', 'Read the complete news');
+define('_MA_XMNEWS_NEWS_NAV_BEFORE', 'Previous news');
+define('_MA_XMNEWS_NEWS_NAV_AFTER', 'Next news');
 define('_MA_XMNEWS_NEWS_NEWS', 'News');
 define('_MA_XMNEWS_NEWS_NOTIFY', 'Notify me of the publication?');
 define('_MA_XMNEWS_NEWS_ON', 'on');

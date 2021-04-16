@@ -104,6 +104,8 @@ define('_MA_XMNEWS_NEWS_MDATE', 'Date de modification ');
 define('_MA_XMNEWS_NEWS_MDATE_BT', 'Mise à jour');
 define('_MA_XMNEWS_NEWS_MDATEUPDATE', 'Mettre à jour la date de modification');
 define('_MA_XMNEWS_NEWS_MORE', 'Lire l\'article complet');
+define('_MA_XMNEWS_NEWS_NAV_BEFORE', 'Article précédent');
+define('_MA_XMNEWS_NEWS_NAV_AFTER', 'Article suivant');
 define('_MA_XMNEWS_NEWS_NEWS', 'Article');
 define('_MA_XMNEWS_NEWS_NOTIFY', 'Me prévenir de la publication?');
 define('_MA_XMNEWS_NEWS_ON', 'le');

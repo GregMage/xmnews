@@ -56,6 +56,10 @@ define('_MI_XMNEWS_PREF_NAVIGATION_DESC', 'Les articles suivants et précédents
 define('_MI_XMNEWS_PREF_NAVIGATION_0', 'Navigation désactivée');
 define('_MI_XMNEWS_PREF_NAVIGATION_1', 'Pas de filtre de la catégorie');
 define('_MI_XMNEWS_PREF_NAVIGATION_2', 'Catégorie filtrée');
+define('_MI_XMNEWS_PREF_ORDERNAVIGATION', 'Ordre de la navigation');
+define('_MI_XMNEWS_PREF_ORDERNAVIGATION_DESC', 'L\'affichage de la navigation peut se faire selon les 2 options suivantes :');
+define('_MI_XMNEWS_PREF_ORDERNAVIGATION_0', 'Article le plus récent à droite');
+define('_MI_XMNEWS_PREF_ORDERNAVIGATION_1', 'Article le plus récent à gauche');
 define('_MI_XMNEWS_PREF_GENERALXMDOC', 'Utiliser le module xmdoc pour ajouter un document');
 define('_MI_XMNEWS_PREF_GENERALXMSOCIAL', 'Utiliser le module xmsocial pour noter un article');
 define('_MI_XMNEWS_PREF_GENERALXMSOCIALSOCIAL', 'Utiliser le module xmsocial pour afficher des liens de partage pour les réseaux sociaux');

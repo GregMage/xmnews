@@ -56,6 +56,10 @@ define('_MI_XMNEWS_PREF_NAVIGATION_DESC', 'Subsequent and previous articles are 
 define('_MI_XMNEWS_PREF_NAVIGATION_0', 'Navigation disabled');
 define('_MI_XMNEWS_PREF_NAVIGATION_1', 'No category filter');
 define('_MI_XMNEWS_PREF_NAVIGATION_2', 'Filtered Category');
+define('_MI_XMNEWS_PREF_ORDERNAVIGATION', 'Order of navigation ');
+define('_MI_XMNEWS_PREF_ORDERNAVIGATION_DESC', 'The navigation display can be done according to the 2 following options:');
+define('_MI_XMNEWS_PREF_ORDERNAVIGATION_0', 'Most recent article on the right');
+define('_MI_XMNEWS_PREF_ORDERNAVIGATION_1', 'Most recent article on the left');
 define('_MI_XMNEWS_PREF_GENERALXMDOC', 'Use xmdoc module to add document');
 define('_MI_XMNEWS_PREF_GENERALXMSOCIAL', 'Use xmsocial module to rate news');
 define('_MI_XMNEWS_PREF_GENERALXMSOCIALSOCIAL', 'Use the xmsocial module to display sharing links for social networks');

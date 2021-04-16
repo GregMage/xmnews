@@ -37,7 +37,7 @@
 		<{include file="db:xmsocial_social.tpl"}>
 		<br>
 	<{/if}>
-	<{if $xmdoc_viewdocs == true}>
+	<{if $xmdoc_viewdocs|default:false == true}>
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title"><{$smarty.const._MA_XMNEWS_NEWS_XMDOC}></h3>
@@ -65,7 +65,7 @@
 				<{/if}>
 			</div>
 			<{if $domdate == 1}>
-			<{if $mdate}>
+			<{if $mdate|default:false}>
 			<div class="row xmnews-general">
 				<div class="col-xs-12 col-sm-6 col-md-6"><span class="glyphicon glyphicon-calendar" title="<{$smarty.const._MA_XMNEWS_NEWS_MDATE}>"></span>
 					<{$smarty.const._MA_XMNEWS_NEWS_MDATE}>: <{$mdate}>
@@ -111,16 +111,16 @@
 	<div class="row">
 		<div class="col-xs-6">
 			<{if $news_before_status == true}>
-				<a href="article.php?news_id=<{$news_before_id}>" class="btn btn-primary">
-					<span class="fa fa-arrow-left fa-2x mr-2"></span> <span class="d-block d-sm-none mr-5"></span>
+				<a href="article.php?news_id=<{$news_before_id}>" class="btn btn-primary" <{if $news_before_color != false}>style="background-color : <{$news_before_color}>;"<{/if}>>
+					<span class="fa fa-arrow-left fa-2x mr-2"></span> <{$news_before_text}><span class="d-block d-sm-none mr-5"></span><br>
 					<span class="d-none d-sm-block"><{$news_before_title}></span>
 				</a>
 			<{/if}>
 		</div>
 		<div class="col-xs-6 text-right">
 			<{if $news_after_status == true}>
-				<a href="article.php?news_id=<{$news_after_id}>" class="btn btn-primary">
-					<span class="fa fa-arrow-right fa-2x ml-2"></span> <span class="d-block d-sm-none ml-5"></span>
+				<a href="article.php?news_id=<{$news_after_id}>" class="btn btn-primary" <{if $news_after_color != false}>style="background-color : <{$news_after_color}>;"<{/if}>>
+					<span class="fa fa-arrow-right fa-2x ml-2"></span> <{$news_after_text}><span class="d-block d-sm-none ml-5"></span><br>
 					<span class="d-none d-sm-block"><{$news_after_title}></span>
 				</a>
 			<{/if}>

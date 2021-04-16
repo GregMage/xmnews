@@ -184,6 +184,17 @@ $modversion['config'][] = [
     'default'     => 0,
 	'options' => $optionNavigation,
 ];
+$optionOrderNavigation[_MI_XMNEWS_PREF_ORDERNAVIGATION_0] = 0;
+$optionOrderNavigation[_MI_XMNEWS_PREF_ORDERNAVIGATION_1] = 1;
+$modversion['config'][] = [
+    'name'        => 'general_ordernavigation',
+    'title'       => '_MI_XMNEWS_PREF_ORDERNAVIGATION',
+    'description' => '_MI_XMNEWS_PREF_ORDERNAVIGATION_DESC',
+    'formtype'    => 'select',
+    'valuetype'   => 'int',
+    'default'     => 0,
+	'options' => $optionOrderNavigation,
+];
 
 xoops_load('xoopseditorhandler');
 $editorHandler = XoopsEditorHandler::getInstance();

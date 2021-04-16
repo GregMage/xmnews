@@ -171,6 +171,7 @@ if (xoops_isActiveModule('xmdoc') && $helper->getConfig('general_xmdoc', 0) == 1
 
 //navigation
 $navigation = $helper->getConfig('general_navigation', 0);
+$orderNavigation = $helper->getConfig('general_ordernavigation', 0);
 if ($navigation != 0){
 	$xoopsTpl->assign('navigation', true);
 	$viewPermissionCat = XmnewsUtility::getPermissionCat('xmnews_viewnews');
@@ -183,12 +184,23 @@ if ($navigation != 0){
 		$criteria->add(new Criteria('news_cid', $news->getVar('news_cid')));
 	}
 	$criteria->add(new Criteria('news_status', 1));
-	$criteria->add(new Criteria('news_date', $news->getVar('news_date'),'>'));
+	if ($orderNavigation == 0){
+		$criteria->add(new Criteria('news_date', $news->getVar('news_date'),'<'));
+	} else {
+		$criteria->add(new Criteria('news_date', $news->getVar('news_date'),'>'));
+	}
 	$criteria->add(new Criteria('news_date', time(),'<='));
 	$criteria->setSort('news_date');
-	$criteria->setOrder('ASC');
+	if ($orderNavigation == 0){
+		$criteria->setOrder('DESC');
+	} else {
+		$criteria->setOrder('ASC');
+	}
 	$criteria->setLimit(1);
-	$news_before_arr = $newsHandler->getall($criteria);
+	$newsHandler->table_link = $newsHandler->db->prefix("xmnews_category");
+	$newsHandler->field_link = "category_id";
+	$newsHandler->field_object = "news_cid";
+	$news_before_arr = $newsHandler->getByLink($criteria);	
 	if (count($news_before_arr) == 0) {
 		$xoopsTpl->assign('news_before_status', false);
 	}else{
@@ -196,6 +208,17 @@ if ($navigation != 0){
 		foreach (array_keys($news_before_arr) as $i) {
 			$xoopsTpl->assign('news_before_title', $news_before_arr[$i]->getVar('news_title'));
 			$xoopsTpl->assign('news_before_id', $news_before_arr[$i]->getVar('news_id'));
+			$color = $news_before_arr[$i]->getVar('category_color');
+			if ($color == '#ffffff'){
+				$xoopsTpl->assign('news_before_color', false);
+			} else {
+				$xoopsTpl->assign('news_before_color', $color);
+			}
+			if ($orderNavigation == 0){
+				$xoopsTpl->assign('news_before_text', _MA_XMNEWS_NEWS_NAV_BEFORE);
+			} else {
+				$xoopsTpl->assign('news_before_text', _MA_XMNEWS_NEWS_NAV_AFTER);
+			}
 		}
 	}
 	//after
@@ -207,12 +230,23 @@ if ($navigation != 0){
 		$criteria->add(new Criteria('news_cid', $news->getVar('news_cid')));
 	}
 	$criteria->add(new Criteria('news_status', 1));
-	$criteria->add(new Criteria('news_date', $news->getVar('news_date'),'<'));
+	if ($orderNavigation == 0){
+		$criteria->add(new Criteria('news_date', $news->getVar('news_date'),'>'));
+	} else {
+		$criteria->add(new Criteria('news_date', $news->getVar('news_date'),'<'));
+	}
 	$criteria->add(new Criteria('news_date', time(),'<='));
 	$criteria->setSort('news_date');
-	$criteria->setOrder('DESC');
+	if ($orderNavigation == 0){
+		$criteria->setOrder('ASC');
+	} else {
+		$criteria->setOrder('DESC');
+	}
 	$criteria->setLimit(1);
-	$news_after_arr = $newsHandler->getall($criteria);
+	$newsHandler->table_link = $newsHandler->db->prefix("xmnews_category");
+	$newsHandler->field_link = "category_id";
+	$newsHandler->field_object = "news_cid";
+	$news_after_arr = $newsHandler->getByLink($criteria);	
 	if (count($news_after_arr) == 0) {
 		$xoopsTpl->assign('news_after_status', false);
 	}else{
@@ -220,6 +254,17 @@ if ($navigation != 0){
 		foreach (array_keys($news_after_arr) as $i) {
 			$xoopsTpl->assign('news_after_title', $news_after_arr[$i]->getVar('news_title'));
 			$xoopsTpl->assign('news_after_id', $news_after_arr[$i]->getVar('news_id'));
+			$color = $news_after_arr[$i]->getVar('category_color');
+			if ($color == '#ffffff'){
+				$xoopsTpl->assign('news_after_color', false);
+			} else {
+				$xoopsTpl->assign('news_after_color', $color);
+			}
+			if ($orderNavigation == 0){
+				$xoopsTpl->assign('news_after_text', _MA_XMNEWS_NEWS_NAV_AFTER);
+			} else {
+				$xoopsTpl->assign('news_after_text', _MA_XMNEWS_NEWS_NAV_BEFORE);
+			}
 		}
 	}
 } else {
