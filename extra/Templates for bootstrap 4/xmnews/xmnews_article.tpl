@@ -124,56 +124,34 @@
 	</div>
 
 	<{if $navigation == true}>
-		<{if ($news_before_status == true) || ($news_after_status == true) }> 
-			<div class="row justify-content-between mt-3 mb-2">
-				<div class="col-12 col-lg-6 mb-3">
-					<{if $news_before_status == true}>
-						<a href="article.php?news_id=<{$news_before_id}>" class="btn btn-primary btn-block" <{if news_before_color != false}>style="border-color : <{$news_before_color}>;"<{/if}>">
-							<div class="d-flex justify-content-between align-items-center">
-								<div class="text-left"><span class="fas fa-long-arrow-alt-left fa-2x"></span></div>
-								<div class="text-right">
-									<span class="text-muted"><span class="fas fa-newspaper"></span> <small><{$news_before_text}></small></span><br />
-									<h5><{$news_before_title}></h5>
-								</div>
+		<div class="row justify-content-between mt-3 mb-2">
+			<div class="col-12 col-lg-6 mb-3">
+				<{if $news_before_status == true}>
+					<a href="article.php?news_id=<{$news_before_id}>" class="btn btn-primary btn-block" <{if news_before_color != false}>style="border-color : <{$news_before_color}>;"<{/if}>">
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="text-left"><span class="fas fa-long-arrow-alt-left fa-2x"></span></div>
+							<div class="text-right">
+								<span class="text-muted"><span class="fas fa-newspaper"></span> <small><{$news_before_text}></small></span><br />
+								<h5><{$news_before_title}></h5>
 							</div>
-						</a>
-					<{else}>
-						<a href="" class="btn btn-primary btn-block disabled text-muted d-none d-lg-block">
-							<div class="d-flex justify-content-between align-items-center">
-								<div class="text-left"><span class="fas fa-long-arrow-alt-left fa-2x"></span></div>
-								<div class="text-right">
-									<span class="fas fa-newspaper"></span> <small><{$news_before_text}></small><br />
-									<h5><br /></h5>
-								</div>
-							</div>
-						</a>
-					<{/if}>
-				</div>
-				<div class="col-12 col-lg-6 mb-3">
-					<{if $news_after_status == true}>
-						<a href="article.php?news_id=<{$news_after_id}>" class="btn btn-primary btn-block" <{if $news_after_color != false}>style="border-color : <{$news_after_color}>;"<{/if}>">
-							<div class="d-flex justify-content-between align-items-center">
-								<div class="text-left">
-									<span class="text-muted"><span class="fas fa-newspaper"></span> <small><{$news_next_text}></small></span><br />
-									<h5><{$news_after_title}></h5>
-								</div>
-								<div class="text-right"><span class="fas fa-long-arrow-alt-right fa-2x"></span></div>
-							</div>
-						</a>
-					<{else}>
-						<a href="" class="btn btn-primary btn-block disabled text-muted d-none d-lg-block border-disabled">
-							<div class="d-flex justify-content-between align-items-center">
-								<div class="text-left">
-									<span class="fas fa-newspaper"></span> <small><{$news_next_text}></small><br />
-									<h5><br /></h5>
-								</div>
-								<div class="text-right"><span class="fas fa-long-arrow-alt-right fa-2x"></span></div>
-							</div>
-						</a>
-					<{/if}>
-				</div>
+						</div>
+					</a>
+				<{/if}>
 			</div>
-		<{/if}>
+			<div class="col-12 col-lg-6 mb-3">
+				<{if $news_after_status == true}>
+					<a href="article.php?news_id=<{$news_after_id}>" class="btn btn-primary btn-block" <{if $news_after_color != false}>style="border-color : <{$news_after_color}>;"<{/if}>">
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="text-left">
+								<span class="text-muted"><span class="fas fa-newspaper"></span> <small><{$news_after_text}></small></span><br />
+								<h5><{$news_after_title}></h5>
+							</div>
+							<div class="text-right"><span class="fas fa-long-arrow-alt-right fa-2x"></span></div>
+						</div>
+					</a>
+				<{/if}>
+			</div>
+		</div>
 	<{/if}>		
 
 	<{if ($perm_edit == true) || ($perm_clone == true) || ($perm_del == true)}> 
