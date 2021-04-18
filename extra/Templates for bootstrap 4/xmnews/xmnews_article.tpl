@@ -129,9 +129,9 @@
 				<{if $news_before_status == true}>
 					<a href="article.php?news_id=<{$news_before_id}>" class="btn btn-primary btn-block" <{if news_before_color != false}>style="border-color : <{$news_before_color}>;"<{/if}>">
 						<div class="d-flex justify-content-between align-items-center">
-							<div class="text-left"><span class="fas fa-long-arrow-alt-left fa-2x"></span></div>
+							<div class="text-left"><span class="fa fa-long-arrow-left fa-2x"></span></div>
 							<div class="text-right">
-								<span class="text-muted"><span class="fas fa-newspaper"></span> <small><{$news_before_text}></small></span><br />
+								<span class="text-muted"><span class="fa fa-newspaper-o"></span> <small><{$news_before_text}></small></span><br />
 								<h5><{$news_before_title}></h5>
 							</div>
 						</div>
@@ -143,10 +143,10 @@
 					<a href="article.php?news_id=<{$news_after_id}>" class="btn btn-primary btn-block" <{if $news_after_color != false}>style="border-color : <{$news_after_color}>;"<{/if}>">
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="text-left">
-								<span class="text-muted"><span class="fas fa-newspaper"></span> <small><{$news_after_text}></small></span><br />
+								<span class="text-muted"><span class="fa fa-newspaper-o"></span> <small><{$news_after_text}></small></span><br />
 								<h5><{$news_after_title}></h5>
 							</div>
-							<div class="text-right"><span class="fas fa-long-arrow-alt-right fa-2x"></span></div>
+							<div class="text-right"><span class="fa fa-long-arrow-right fa-2x"></span></div>
 						</div>
 					</a>
 				<{/if}>
