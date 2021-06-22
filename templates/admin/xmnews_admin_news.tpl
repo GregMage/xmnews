@@ -28,7 +28,7 @@
 		<form id="form_news_tri" name="form_news_tri" method="get" action="news.php">
 			<{$smarty.const._MA_XMNEWS_NEWS_CATEGORY}>
 			<select name="news_filter" id="news_filter" onchange="location='news.php?news_status=<{$news_status}>&news_cid='+this.options[this.selectedIndex].value">
-				<{$news_cid_options}>
+				<{$news_cid_options|default:''}>
 			<select>
 			<{$smarty.const._MA_XMNEWS_STATUS}>
 			<select name="news_filter" id="news_filter" onchange="location='news.php?news_cid=<{$news_cid}>&news_status='+this.options[this.selectedIndex].value">
