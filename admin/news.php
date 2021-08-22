@@ -26,6 +26,10 @@ $moduleAdmin->displayNavigation('news.php');
 
 // Get Action type
 $op = Request::getCmd('op', 'list');
+$fnews_status = Request::getInt('fnews_status', 10);
+$xoopsTpl->assign('fnews_status', $fnews_status);
+$fnews_cid = Request::getInt('fnews_cid', 0);
+$xoopsTpl->assign('fnews_cid', $fnews_cid);
 switch ($op) {
     case 'list':
         // Define Stylesheet
@@ -41,26 +45,22 @@ switch ($op) {
         
         $xoopsTpl->assign('filter', true);
 		// Category
-		$news_cid = Request::getInt('news_cid', 0);
-        $xoopsTpl->assign('news_cid', $news_cid);
 		$criteria = new CriteriaCompo();
 		$criteria->setSort('category_weight ASC, category_name');
 		$criteria->setOrder('ASC');
 		$category_arr = $categoryHandler->getall($criteria);	
 		if (count($category_arr) > 0) {
-			$news_cid_options = '<option value="0"' . ($news_cid == 0 ? ' selected="selected"' : '') . '>' . _ALL .'</option>';
+			$news_cid_options = '<option value="0"' . ($fnews_cid == 0 ? ' selected="selected"' : '') . '>' . _ALL .'</option>';
 			foreach (array_keys($category_arr) as $i) {
-				$news_cid_options .= '<option value="' . $i . '"' . ($news_cid == $i ? ' selected="selected"' : '') . '>' . $category_arr[$i]->getVar('category_name') . '</option>';
+				$news_cid_options .= '<option value="' . $i . '"' . ($fnews_cid == $i ? ' selected="selected"' : '') . '>' . $category_arr[$i]->getVar('category_name') . '</option>';
 			}
 			$xoopsTpl->assign('news_cid_options', $news_cid_options);
 		}
         // Status
-        $news_status = Request::getInt('news_status', 10);
-        $xoopsTpl->assign('news_status', $news_status);
         $status_options         = [1 => _MA_XMNEWS_STATUS_A, 0 => _MA_XMNEWS_STATUS_NA, 2 => _MA_XMNEWS_NEWS_WFV];
-		$news_status_options = '<option value="10"' . ($news_status == 0 ? ' selected="selected"' : '') . '>' . _ALL .'</option>';
+		$news_status_options = '<option value="10"' . ($fnews_status == 0 ? ' selected="selected"' : '') . '>' . _ALL .'</option>';
         foreach (array_keys($status_options) as $i) {
-            $news_status_options .= '<option value="' . $i . '"' . ($news_status == $i ? ' selected="selected"' : '') . '>' . $status_options[$i] . '</option>';
+            $news_status_options .= '<option value="' . $i . '"' . ($fnews_status == $i ? ' selected="selected"' : '') . '>' . $status_options[$i] . '</option>';
         }
         $xoopsTpl->assign('news_status_options', $news_status_options);
 		
@@ -78,11 +78,11 @@ switch ($op) {
         $criteria->setOrder('DESC');
         $criteria->setStart($start);
         $criteria->setLimit($nb_limit);
-		if ($news_cid != 0){
-			$criteria->add(new Criteria('news_cid', $news_cid));
+		if ($fnews_cid != 0){
+			$criteria->add(new Criteria('news_cid', $fnews_cid));
 		}
-        if ($news_status != 10){
-			$criteria->add(new Criteria('news_status', $news_status));
+        if ($fnews_status != 10){
+			$criteria->add(new Criteria('news_status', $fnews_status));
 		}    
         $newsHandler->table_link = $newsHandler->db->prefix("xmnews_category");
         $newsHandler->field_link = "category_id";
@@ -114,7 +114,7 @@ switch ($op) {
             }
             // Display Page Navigation
             if ($news_count > $nb_limit) {
-                $nav = new XoopsPageNav($news_count, $nb_limit, $start, 'start', 'news_cid=' . $news_cid . '&news_status=' . $news_status);
+                $nav = new XoopsPageNav($news_count, $nb_limit, $start, 'start', 'fnews_cid=' . $fnews_cid . '&fnews_status=' . $fnews_status);
                 $xoopsTpl->assign('nav_menu', $nav->renderNav(4));
             }
         } else {
@@ -198,7 +198,7 @@ switch ($op) {
         } else {
             $obj = $newsHandler->get($news_id);
         }
-        $error_message = $obj->saveNews($newsHandler, 'news.php');
+        $error_message = $obj->saveNews($newsHandler, '/modules/xmnews/admin/news.php?fnews_status=' . $fnews_status . '&fnews_cid=' . $fnews_cid);
         if ($error_message != ''){
             $xoopsTpl->assign('error_message', $error_message);
 			$news_cid = Request::getInt('news_cid', 0);

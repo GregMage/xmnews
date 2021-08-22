@@ -27,11 +27,11 @@
 	<div align="right">
 		<form id="form_news_tri" name="form_news_tri" method="get" action="news.php">
 			<{$smarty.const._MA_XMNEWS_NEWS_CATEGORY}>
-			<select name="news_filter" id="news_filter" onchange="location='news.php?news_status=<{$news_status}>&news_cid='+this.options[this.selectedIndex].value">
+			<select name="news_filter" id="news_filter" onchange="location='news.php?fnews_status=<{$fnews_status}>&fnews_cid='+this.options[this.selectedIndex].value">
 				<{$news_cid_options|default:''}>
 			<select>
 			<{$smarty.const._MA_XMNEWS_STATUS}>
-			<select name="news_filter" id="news_filter" onchange="location='news.php?news_cid=<{$news_cid}>&news_status='+this.options[this.selectedIndex].value">
+			<select name="news_filter" id="news_filter" onchange="location='news.php?fnews_cid=<{$fnews_cid}>&fnews_status='+this.options[this.selectedIndex].value">
 				<{$news_status_options}>
 			<select>
 		</form>
@@ -77,7 +77,7 @@
                         <img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._MA_XMNEWS_VIEW}>"></a>
 					<a class="tooltip" href="news.php?op=clone&amp;news_id=<{$news.id}>" title="<{$smarty.const._MA_XMNEWS_CLONE}>">
                         <img src="<{xoAdminIcons clone.png}>" alt="<{$smarty.const._MA_XMNEWS_CLONE}>"></a>
-                    <a class="tooltip" href="news.php?op=edit&amp;news_id=<{$news.id}>" title="<{$smarty.const._MA_XMNEWS_EDIT}>">
+                    <a class="tooltip" href="news.php?op=edit&amp;news_id=<{$news.id}>&amp;fnews_status=<{$fnews_status}>&amp;&fnews_cid=<{$fnews_cid}>" title="<{$smarty.const._MA_XMNEWS_EDIT}>">
                         <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._MA_XMNEWS_EDIT}>"></a>
                     <a class="tooltip" href="news.php?op=del&amp;news_id=<{$news.id}>" title="<{$smarty.const._MA_XMNEWS_DEL}>">
                         <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._MA_XMNEWS_DEL}>"></a>
