@@ -73,6 +73,7 @@ if (!empty($viewPermissionCat)){
 if ($news_id != 0){
 	$criteria->add(new Criteria('news_id', $news_id));
 }
+$description_SEO = '';
 if ($news_cid != 0){
 	// vérification si la categorie est activée
 	$check_category = $categoryHandler->get($news_cid);
@@ -98,6 +99,7 @@ if ($news_cid != 0){
 		$xoopsTpl->assign('category_color', $color);
 	}
 	$xoopsTpl->assign('category_description', $category_arr[$news_cid]->getVar('category_description'));
+	$description_SEO = XmnewsUtility::generateDescriptionTagSafe($category_arr[$news_cid]->getVar('category_description'), 80);
 	$xoopsTpl->assign('cat', true);
 }else {
 	$xoopsTpl->assign('cat', false);
@@ -167,7 +169,12 @@ if ($news_count > 0 && !empty($viewPermissionCat)) {
 
 //SEO
 // pagetitle
-$xoopsTpl->assign('xoops_pagetitle', $xoopsModule->name());
+$xoopsTpl->assign('xoops_pagetitle', strip_tags($xoopsModule->name()));
+//description
+if ($description_SEO == ''){
+	$description_SEO =strip_tags($xoopsModule->name());
+}
+$xoTheme->addMeta('meta', 'description', $description_SEO);
 //keywords
 $keywords = substr($keywords, 0, -1);   
 $xoTheme->addMeta('meta', 'keywords', $keywords);
