@@ -99,11 +99,7 @@ switch ($op) {
                 $news['title']           = $news_arr[$i]->getVar('news_title');
                 $news['date']       	 = formatTimestamp($news_arr[$i]->getVar('news_date'), 'm');
                 $news['counter']       	 = $news_arr[$i]->getVar('news_counter');
-				if (strlen($news_arr[$i]->getVar('news_description', 'e')) > 300){
-					$news['description'] = substr($news_arr[$i]->getVar('news_description', 'e'), 0, 300) . '...';
-				} else {
-					$news['description'] = $news_arr[$i]->getVar('news_description', 'e');
-				}
+				$news['description'] 	 = XmnewsUtility::generateDescriptionTagSafe($news_arr[$i]->getVar('news_description', 'e'), 50);
                 $news['status']          = $news_arr[$i]->getVar('news_status');
                 $news_img                = $news_arr[$i]->getVar('news_logo');
 				$news['logo']        	 = $url_logo . $news_img;
