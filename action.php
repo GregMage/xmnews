@@ -57,9 +57,15 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
 					$category['description']  = $category_arr[$i]->getVar('category_description', 'show');					
 					$category_img             = $category_arr[$i]->getVar('category_logo');
 					if ($category_img == ''){
-						$category['logo']        = '';
+						$category['logo']     = '';
 					} else {
-						$category['logo']        = $url_logo . $category_img;
+						$category['logo']     = $url_logo . $category_img;
+					}
+					$color					  = $category_arr[$i]->getVar('category_color');
+					if ($color == '#ffffff'){
+						$category['color']	  = false;
+					} else {
+						$category['color']	  = $color;
 					}
 					$xoopsTpl->append_by_ref('categories', $category);
 					unset($category);
