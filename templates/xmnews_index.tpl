@@ -9,16 +9,18 @@
 			<li class="active"><{$index_module}></li>
 		</ol>
 	<{/if}>
-	<div align="center">
-		<form class="form-inline" id="form_news_tri" name="form_news_tri" method="get" action="index.php">
-			<div class="form-group">
-				<label><{$smarty.const._MA_XMNEWS_NEWS_SELECTCATEGORY}></label>
-				<select class="form-control form-control-sm" name="news_filter" id="news_filter" onchange="location='index.php?news_cid='+this.options[this.selectedIndex].value">
-					<{$news_cid_options}>
-				</select>
-			</div>
-		</form>
-	</div>
+	<{if $news_cid_options|default:false}>
+		<div align="center">
+			<form class="form-inline" id="form_news_tri" name="form_news_tri" method="get" action="index.php">
+				<div class="form-group">
+					<label><{$smarty.const._MA_XMNEWS_NEWS_SELECTCATEGORY}></label>
+					<select class="form-control form-control-sm" name="news_filter" id="news_filter" onchange="location='index.php?news_cid='+this.options[this.selectedIndex].value">
+						<{$news_cid_options}>
+					</select>
+				</div>
+			</form>
+		</div>
+	<{/if}>
 	<br>		
 	<br>
 	<{if $cat|default:false}>
