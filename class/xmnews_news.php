@@ -236,7 +236,7 @@ class xmnews_news extends XoopsObject
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'news_dorating', $this->getVar('news_dorating')));	
 			// docomment
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOCOMMENT, 'news_docomment', $this->getVar('news_docomment')));
-			} else {
+		} else {
 			// douser
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOUSER, 'news_douser', $category->getVar('category_douser')));		
 			// dodate
@@ -249,7 +249,7 @@ class xmnews_news extends XoopsObject
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'news_dorating', $category->getVar('category_dorating')));	
 			// docomment
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOCOMMENT, 'news_docomment', $category->getVar('category_docomment')));
-		}		 
+		}
 
 		if ($helper->isUserAdmin() == true){
 			if ($this->isNew()) {
