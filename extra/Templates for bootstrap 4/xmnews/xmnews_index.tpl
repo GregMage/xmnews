@@ -62,18 +62,6 @@
 							<div class="text-right mt-1 ">
 								<button type="button" class="btn btn-primary btn-sm text-right" onclick=window.location.href="article.php?news_id=<{$news.id}>"><span class="fa fa-book" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_MORE}></button>
 							</div>
-							<{if $xmdoc_viewdocs|default:false == true}>
-								<div class="col-12 pl-4 pr-4 pb-4"> 
-									<div class="card">
-										<div class="card-header">
-											<{$smarty.const._MA_XMNEWS_NEWS_XMDOC}>
-										</div>
-										<div class="card-body">
-											<{include file="db:xmdoc_viewdoc.tpl"}>
-										</div>
-									</div>
-								</div>
-							<{/if}>
 						</div>
 
 						<div class="card-footer text-secondary">
