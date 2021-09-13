@@ -446,9 +446,6 @@ class xmnews_news extends XoopsObject
 				}
 				
 				if ($error_message == ''){
-					if ($this->getVar('news_status') == 2 && $action != 'news.php'){
-						redirect_header('index.php', 2, _MA_XMNEWS_REDIRECT_SAVE);
-					}
                     if ($action == 'article.php'){
                         redirect_header('article.php?news_id=' . $news_id, 2, _MA_XMNEWS_REDIRECT_SAVE);
                     } else {
