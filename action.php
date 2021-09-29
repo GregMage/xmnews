@@ -92,7 +92,7 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
 				$permHelper->checkPermissionRedirect('xmnews_submit', $category_id, 'action.php?op=add', 2, _NOPERM);
                 $obj  = $newsHandler->create();
                 $form = $obj->getForm($category_id);
-                $xoopsTpl->assign('form', $form->render());;
+                $xoopsTpl->assign('form', $form->render());
 			}
             break;
 
