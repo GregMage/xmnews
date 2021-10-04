@@ -28,8 +28,8 @@ if ($com_itemid > 0) {
 	$permHelper = new Helper\Permission();
 	$permHelper->checkPermissionRedirect('xmnews_viewnews', $news->getVar('news_cid'), 'index.php', 2, _NOPERM);
     $gpermHandler = xoops_getHandler('groupperm');
-        
-    $com_replytitle = $news->getVar('news_title');
+    xoops_load('utility', 'xmnews');
+    $com_replytitle = XmnewsUtility::TagSafe($news->getVar('news_title'));
 
     include_once $GLOBALS['xoops']->path('include/comment_new.php');
 }
