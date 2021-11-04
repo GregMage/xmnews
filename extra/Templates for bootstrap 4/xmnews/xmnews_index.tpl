@@ -1,28 +1,28 @@
 <div class="xmnews">
 	<{if $cat|default:false}>
 		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="index.php"><{$index_module}></a></li>
-			<li class="breadcrumb-item active" aria-current="page"><{$category_name}></li>
+		  <ol class="breadcrumb" <{if $category_color != false}>style="border-color : <{$category_color}>;"<{/if}>>
+			<li class="breadcrumb-item"><span class="fa fa-newspaper text-info fa-lg fa-fw mr-2 mt-1"></span><a href="index.php"><{$index_module}></a></li>
+			<li class="breadcrumb-item active" aria-current="page">
+				<{$category_name}>
+			</li>
 		  </ol>
 		</nav>
 	<{else}>
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb">
-			<li class="breadcrumb-item active" aria-current="page"><{$index_module}></li>
+			<li class="breadcrumb-item active" aria-current="page"><span class="fa fa-newspaper text-info fa-lg fa-fw mr-2 mt-1"></span> <{$index_module}></li>
 		  </ol>
 		</nav>
 	<{/if}>
-		<{if $news_cid_options|default:false}>
-			<form class="form-inline mb-3" id="form_news_tri" name="form_news_tri" method="get" action="index.php">
-				<div class="form-group">
-					<label><{$smarty.const._MA_XMNEWS_NEWS_SELECTCATEGORY}>&nbsp;</label>
-					<select class="form-control form-control-sm" name="news_filter" id="news_filter" onchange="location='index.php?news_cid='+this.options[this.selectedIndex].value">
-						<{$news_cid_options}>
-					</select>
-				</div>
-			</form>
-		<{/if}>
+		<form class="form-inline mb-3" id="form_news_tri" name="form_news_tri" method="get" action="index.php">
+			<div class="form-group">
+				<label><{$smarty.const._MA_XMNEWS_NEWS_SELECTCATEGORY}>&nbsp;</label>
+				<select class="form-control form-control-sm" name="news_filter" id="news_filter" onchange="location='index.php?news_cid='+this.options[this.selectedIndex].value">
+					<{$news_cid_options}>
+				</select>
+			</div>
+		</form>
 	<{if $cat|default:false}>
 		<div class="row mb-2">
 			<{if $category_logo != ''}>
@@ -41,12 +41,23 @@
 			<{foreach item=news from=$news}>
 				<div class="col mb-3">
 					<div class="card h-100 xmnews-border" <{if $news.color != false}>style="border-color : <{$news.color}>;"<{/if}>>
+						<div class="card-header pb-0" <{if $news.color != false}>style="background-color : <{$news.color}>;"<{/if}>>
+							<div class="d-flex flex-column justify-content-center text-center">
+								<div>
+									<h5 class="mb-0 text-white"><{$news.title}></h5>
+								</div>
+								<div>
+									<h6><a href="index.php?news_cid=<{$news.cid}>"><span class="px-3 badge badge-pill badge-dark"><span class="fas fa-grip-horizontal"></span> <{$news.cat_name}></span></a></h6>
+								</div>
+							</div>
+						</div>
+<!--
 						<div class="card-header" <{if $news.color != false}>style="background-color : <{$news.color}>;"<{/if}>>
 							<div class="d-flex justify-content-center text-center">
 								<h5 class="mb-0 text-white"><{$news.title}><{if $news_cid == 0}><br /><a href="index.php?news_cid=<{$news.cid}>"><span class="badge badge-pill badge-dark" style="font-weight: lighter;" ><{$news.cat_name}></span><{/if}></a></h5>
 							</div>
 						</div>
-
+-->
 						<{if $news.logo != ''}>
 							<{if $CAT|default:false == true}>
 								<a href="index.php?news_cid=<{$category_id}>">
@@ -62,6 +73,18 @@
 							<div class="text-right mt-1 ">
 								<button type="button" class="btn btn-primary btn-sm text-right" onclick=window.location.href="article.php?news_id=<{$news.id}>"><span class="fa fa-book" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_MORE}></button>
 							</div>
+							<{if $xmdoc_viewdocs|default:false == true}>
+								<div class="col-12 pl-4 pr-4 pb-4"> 
+									<div class="card">
+										<div class="card-header">
+											<{$smarty.const._MA_XMNEWS_NEWS_XMDOC}>
+										</div>
+										<div class="card-body">
+											<{include file="db:xmdoc_viewdoc.tpl"}>
+										</div>
+									</div>
+								</div>
+							<{/if}>
 						</div>
 
 						<div class="card-footer text-secondary">
