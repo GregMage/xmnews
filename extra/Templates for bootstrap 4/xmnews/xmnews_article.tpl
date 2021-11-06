@@ -1,7 +1,7 @@
 <div class="xmmews">
 	<nav aria-label="breadcrumb">
-	  <ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="index.php"><{$index_module}></a></li>
+	  <ol class="breadcrumb" <{if $category_color != false}>style="border-color : <{$category_color}>;"<{/if}>>
+		<li class="breadcrumb-item"><span class="fa fa-newspaper text-secondary fa-lg fa-fw mr-2 mt-1"></span><a href="index.php"><{$index_module}></a></li>
 		<li class="breadcrumb-item"><a href="index.php?news_cid=<{$category_id}>"><{$category_name}></a></li>
 		<li class="breadcrumb-item active" aria-current="page"><{$title}></li>
 	  </ol>
@@ -30,7 +30,7 @@
 						<{if $dohits == 1}>
 							<div class="row align-items-center text-right">
 								<div class="col">
-									<span class="badge badge-secondary fa-lg text-primary ml-2"><span class="fa fa-eye fa-lg" aria-hidden="true"></span><small> <{$counter}></small></span>
+									<span class="badge border border-primary fa-lg text-primary ml-2"><span class="fa fa-eye fa-lg" aria-hidden="true"></span><small> <{$counter}></small></span>
 								</div>	
 							</div>	
 						<{/if}>

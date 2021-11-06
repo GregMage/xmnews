@@ -1,15 +1,15 @@
 <div class="xmnews">
 	<{if $cat|default:false}>
 		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="index.php"><{$index_module}></a></li>
+		  <ol class="breadcrumb" <{if $category_color != false}>style="border-color : <{$category_color}>;"<{/if}>>
+			<li class="breadcrumb-item"><span class="fa fa-newspaper text-secondary fa-lg fa-fw mr-2 mt-1"></span><a href="index.php"><{$index_module}></a></li>
 			<li class="breadcrumb-item active" aria-current="page"><{$category_name}></li>
 		  </ol>
 		</nav>
 	<{else}>
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb">
-			<li class="breadcrumb-item active" aria-current="page"><{$index_module}></li>
+			<li class="breadcrumb-item active" aria-current="page"><span class="fa fa-newspaper text-secondary fa-lg fa-fw mr-2 mt-1"></span> <{$index_module}></li>
 		  </ol>
 		</nav>
 	<{/if}>
