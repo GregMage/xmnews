@@ -29,7 +29,6 @@ $iniUploadMaxFileSize = XmnewsUtility::returnBytes(ini_get('upload_max_filesize'
 if (min($iniPostMaxSize, $iniUploadMaxFileSize) < $helper->getConfig('general_maxuploadsize', 104858)) {
 	echo '<div class="errorMsg" style="text-align: left;">' . _MA_XMNEWS_ERROR_SIZE . '</div>';	
 }
-
 $moduleAdmin->addConfigModuleVersion('system', 212);
 // xmdoc
 if (xoops_isActiveModule('xmdoc')){
@@ -44,7 +43,7 @@ if (xoops_isActiveModule('xmdoc')){
 // xmsocial
 if (xoops_isActiveModule('xmsocial')){
 	if ($helper->getConfig('general_xmsocial', 0) == 1 && $helper->getConfig('general_xmsocial_social', 0) == 1){
-		$moduleAdmin->addConfigModuleVersion('xmsocial', 100);
+		$moduleAdmin->addConfigModuleVersion('xmsocial', 200);
 	} else {
 		if ($helper->getConfig('general_xmsocial', 0) != 1) {
 			$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE);
