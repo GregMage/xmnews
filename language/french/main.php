@@ -27,6 +27,8 @@ define('_MA_XMNEWS_REDIRECT_SAVE', 'Enregistré avec succès');
 // Admin
 define('_MA_XMNEWS_INDEXCONFIG_XMDOC_WARNINGNOTINSTALLED', 'Vous n\'avez pas installé le module xmdoc, ce module est requis si vous souhaitez ajouter des documents aux articles');
 define('_MA_XMNEWS_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE', 'Vous devez activer dans les préférences du module xmnews l\'utilisation de xmdoc (si vous souhaitez ajouter des documents)');
+define('_MA_XMNEWS_INDEXCONFIG_TAG_WARNINGNOTINSTALLED', 'Vous n\'avez pas installé le module tag, ce module est requis si vous souhaitez ajouter des tags aux articles');
+define('_MA_XMNEWS_INDEXCONFIG_TAG_WARNINGNOTACTIVATE', 'Vous devez activer dans les préférences du module xmnews l\'utilisation de tag (si vous souhaitez ajouter des tags)');
  
 // Error message
 define('_MA_XMNEWS_ERROR', 'Erreur');

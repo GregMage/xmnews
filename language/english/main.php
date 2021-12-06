@@ -27,6 +27,8 @@ define('_MA_XMNEWS_REDIRECT_SAVE', 'Successfully saved');
 // Admin
 define('_MA_XMNEWS_INDEXCONFIG_XMDOC_WARNINGNOTINSTALLED', 'You have not installed the xmdoc module, this module is required if you want to add documents to the news');
 define('_MA_XMNEWS_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE', 'You must enable in xmnews preferences the use of xmdoc (if you want to add documents)');
+define('_MA_XMNEWS_INDEXCONFIG_TAG_WARNINGNOTINSTALLED', 'You have not installed the tag module, this module is required if you want to add tags to the news');
+define('_MA_XMNEWS_INDEXCONFIG_TAG_WARNINGNOTACTIVATE', 'You must enable in xmnews preferences the use of tag (if you want to add tags)');
  
 // Error message
 define('_MA_XMNEWS_ERROR', 'Error');

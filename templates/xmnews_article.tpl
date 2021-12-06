@@ -107,6 +107,10 @@
 			
         </div>
     </div>
+	<{if $tag_viewtag == true}>
+		<{include file="db:tag_bar.tpl"}>
+		<br>
+	<{/if}>
 	<{if $navigation == true}>
 	<div class="row">
 		<div class="col-xs-6">

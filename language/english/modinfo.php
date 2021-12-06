@@ -63,6 +63,7 @@ define('_MI_XMNEWS_PREF_ORDERNAVIGATION_1', 'Most recent article on the left');
 define('_MI_XMNEWS_PREF_GENERALXMDOC', 'Use xmdoc module to add document');
 define('_MI_XMNEWS_PREF_GENERALXMSOCIAL', 'Use xmsocial module to rate news');
 define('_MI_XMNEWS_PREF_GENERALXMSOCIALSOCIAL', 'Use the xmsocial module to display sharing links for social networks');
+define('_MI_XMNEWS_PREF_GENERALTAG', 'Use tag module');
 define('_MI_XMNEWS_PREF_CAPTCHA', 'Use Captcha?');
 define('_MI_XMNEWS_PREF_CAPTCHA_DESC', 'Select Yes to use Captcha in the submit form');
 define('_MI_XMNEWS_PREF_COUNTERTIME', 'Select the time before the news reading counter can be incremented by the same person. [min]');

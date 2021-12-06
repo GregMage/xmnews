@@ -161,6 +161,15 @@ if ($counterUpdate == true){
 	$xoopsDB->queryF($sql);
 }
 
+//tag
+if (xoops_isActiveModule('tag') && $helper->getConfig('general_tag', 0) == 1) {
+	require_once $GLOBALS['xoops']->path('/modules/tag/include/tagbar.php');
+	$GLOBALS['xoopsTpl']->assign('tagbar', tagBar($news_id, $catid = 0));
+	$xoopsTpl->assign('tag_viewtag', true);
+} else {
+	 $xoopsTpl->assign('tag_viewtag', false);
+}
+
 //xmdoc
 if (xoops_isActiveModule('xmdoc') && $helper->getConfig('general_xmdoc', 0) == 1) {
     xoops_load('utility', 'xmdoc');

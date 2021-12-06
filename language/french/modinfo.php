@@ -63,6 +63,7 @@ define('_MI_XMNEWS_PREF_ORDERNAVIGATION_1', 'Article le plus récent à gauche')
 define('_MI_XMNEWS_PREF_GENERALXMDOC', 'Utiliser le module xmdoc pour ajouter un document');
 define('_MI_XMNEWS_PREF_GENERALXMSOCIAL', 'Utiliser le module xmsocial pour noter un article');
 define('_MI_XMNEWS_PREF_GENERALXMSOCIALSOCIAL', 'Utiliser le module xmsocial pour afficher des liens de partage pour les réseaux sociaux');
+define('_MI_XMNEWS_PREF_GENERALTAG', 'Utiliser le module tag');
 define('_MI_XMNEWS_PREF_CAPTCHA', 'Utiliser Captcha?');
 define('_MI_XMNEWS_PREF_CAPTCHA_DESC', 'Sélectionnez Oui pour utiliser Captcha dans le formulaire de soumission.');
 define('_MI_XMNEWS_PREF_COUNTERTIME', 'Sélectionnez le temps pour lequel le compteur de lecture d\'article peut être incrémenté par la même personne. [min]');

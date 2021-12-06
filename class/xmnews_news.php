@@ -211,6 +211,12 @@ class xmnews_news extends XoopsObject
 		$keyword->setDescription(_MA_XMNEWS_NEWS_KEYWORD_DSC);
 		$form->addElement($keyword, false);
 		
+		//tag
+        if (xoops_isActiveModule('tag') && $helper->getConfig('general_tag', 0) == 1) {
+			XoopsLoad::load('formtag', 'tag');  // get the TagFormTag class
+			$form->addElement(new \XoopsModules\Tag\FormTag('item_tag', 60, 255, $this->getVar('news_id'), $catid = 0));
+        }
+		
 		//xmdoc
         if (xoops_isActiveModule('xmdoc') && $helper->getConfig('general_xmdoc', 0) == 1) {
             xoops_load('utility', 'xmdoc');
@@ -410,7 +416,14 @@ class xmnews_news extends XoopsObject
 				} else {
 					$news_id = $this->get_new_enreg();
 				}
-                //xmdoc
+				//tag
+                if (xoops_isActiveModule('tag') && $helper->getConfig('general_tag', 0) == 1) {					
+					/** @var \XoopsModules\Tag\TagHandler $tagHandler */
+					$tagHandler = \XoopsModules\Tag\Helper::getInstance()->getHandler('Tag');
+					$tagHandler->updateByItem($_POST['item_tag'], $news_id, $GLOBALS['xoopsModule']->getVar('dirname'), $catid = 0);
+                }
+				
+				//xmdoc
                 if (xoops_isActiveModule('xmdoc') && $helper->getConfig('general_xmdoc', 0) == 1) {
                     xoops_load('utility', 'xmdoc');
                     $error_message .= XmdocUtility::saveDocuments('xmnews', $news_id);
@@ -471,6 +484,11 @@ class xmnews_news extends XoopsObject
 		$error_message = '';
 		include __DIR__ . '/../include/common.php';
 		if ($newsHandler->delete($this)) {
+			//tag
+			if (xoops_isActiveModule('tag') && $helper->getConfig('general_tag', 0) == 1) {
+				$tagHandler = \XoopsModules\Tag\Helper::getInstance()->getHandler('Tag');
+				$tagHandler->updateByItem('', $news_id, $GLOBALS['xoopsModule']->getVar('dirname'), $catid = 0);
+			}
 			//xmdoc
 			if (xoops_isActiveModule('xmdoc') && $helper->getConfig('general_xmdoc', 0) == 1) {
 				xoops_load('utility', 'xmdoc');

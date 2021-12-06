@@ -151,6 +151,10 @@
 			</div>
 		</div>
 	<{/if}>
+	<{if $tag_viewtag == true}>
+		<{include file="db:tag_bar.tpl"}>
+		<br>
+	<{/if}>
 
 	<{if ($perm_edit == true) || ($perm_clone == true) || ($perm_del == true)}> 
 	<div class="col-12 pl-4 pr-4 pb-2">

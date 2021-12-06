@@ -56,6 +56,17 @@ if (xoops_isActiveModule('xmsocial')){
 	$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED);
 }
 
+// tag
+if (xoops_isActiveModule('tag')){
+	if ($helper->getConfig('general_tag', 0) == 1) {
+		$moduleAdmin->addConfigModuleVersion('tag', 235);
+	} else {
+		$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_TAG_WARNINGNOTACTIVATE);
+	}
+} else {
+	$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_TAG_WARNINGNOTINSTALLED);
+}
+
 $folder[] = $path_logo;
 foreach (array_keys( $folder) as $i) {
     $moduleAdmin->addConfigBoxLine($folder[$i], 'folder');
@@ -64,4 +75,5 @@ foreach (array_keys( $folder) as $i) {
 $moduleAdmin->displayIndex();
 
 echo XmnewsUtility::getServerStats();
+
 require __DIR__ . '/admin_footer.php';
