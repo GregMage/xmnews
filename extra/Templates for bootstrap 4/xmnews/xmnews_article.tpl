@@ -120,12 +120,16 @@
 			</div>
 		</div>				
 	</div>
+	<{if $tag_viewtag == true}>
+		<{include file="db:tag_bar.tpl"}>
+		<br>
+	<{/if}>
 
 	<{if $navigation == true}>
 		<div class="row justify-content-between mt-3 mb-2">
 			<div class="col-12 col-lg-6 mb-3">
 				<{if $news_before_status == true}>
-					<a href="article.php?news_id=<{$news_before_id}>" class="btn btn-primary btn-block" <{if news_before_color != false}>style="border-color : <{$news_before_color}>;"<{/if}>">
+					<a href="article.php?news_id=<{$news_before_id}>" class="btn btn-primary btn-block" <{if $news_before_color != false}>style="border-color : <{$news_before_color}>;"<{/if}>">
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="text-left"><span class="fa fa-long-arrow-left fa-2x"></span></div>
 							<div class="text-right">
@@ -150,10 +154,6 @@
 				<{/if}>
 			</div>
 		</div>
-	<{/if}>
-	<{if $tag_viewtag == true}>
-		<{include file="db:tag_bar.tpl"}>
-		<br>
 	<{/if}>
 
 	<{if ($perm_edit == true) || ($perm_clone == true) || ($perm_del == true)}> 
