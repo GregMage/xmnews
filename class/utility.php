@@ -22,6 +22,9 @@ use Xmf\Module\Helper;
  */
 class XmnewsUtility
 {
+    
+     use XoopsModules\Xmnews\Common\FilesManagement;
+
 	/**
      * Fonction qui liste les catégories qui respectent la permission demandée
      * @param string   $permtype	Type de permission

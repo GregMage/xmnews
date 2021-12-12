@@ -1,0 +1,14 @@
+-
+    category_id: '1'
+    category_name: Testcategory
+    category_description: ''
+    category_logo: ''
+    category_color: '#ffffff'
+    category_douser: '1'
+    category_dodate: '1'
+    category_domdate: '1'
+    category_dohits: '1'
+    category_dorating: '1'
+    category_docomment: '1'
+    category_weight: '0'
+    category_status: '1'

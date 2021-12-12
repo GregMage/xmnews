@@ -16,6 +16,10 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
+
+$moduleDirName      = \basename(\dirname(__DIR__, 2));
+$moduleDirNameUpper = \mb_strtoupper($moduleDirName);
+
 $modversion['dirname']     = basename(__DIR__);
 $modversion['name']        = ucfirst(basename(__DIR__));
 $modversion['version']     = '1.6';
@@ -304,6 +308,16 @@ $modversion['config'][] = [
     'formtype'    => 'textbox',
     'valuetype'   => 'int',
     'default'     => 15
+];
+// Test data
+// Make Sample button visible?
+$modversion['config'][] = [
+    'name'        => 'displaySampleButton',
+    'title'       => 'CO_' . $moduleDirNameUpper . '_' . 'SHOW_SAMPLE_BUTTON',
+    'description' => 'CO_' . $moduleDirNameUpper . '_' . 'SHOW_SAMPLE_BUTTON_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
 ];
 // ------------------- Notifications -------------------
 $modversion['config'][] = [

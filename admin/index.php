@@ -19,6 +19,8 @@
 
 use Xmf\Module\Admin;
 
+require_once \dirname(__DIR__) . '/preloads/autoloader.php';
+
 require __DIR__ . '/admin_header.php';
 
 $moduleAdmin = Admin::getInstance();
@@ -72,6 +74,17 @@ foreach (array_keys( $folder) as $i) {
     $moduleAdmin->addConfigBoxLine($folder[$i], 'folder');
     $moduleAdmin->addConfigBoxLine(array($folder[$i], '777'), 'chmod');
 }
+
+// Test Data
+if ($helper->getConfig('displaySampleButton')) {
+    \xoops_loadLanguage('admin/modulesadmin', 'system');
+    require_once \dirname(__DIR__) . '/testdata/index.php';
+    $moduleAdmin->addItemButton(\constant('CO_' . $moduleDirNameUpper . '_ADD_SAMPLEDATA'), '__DIR__ . /../../testdata/index.php?op=load', 'add');
+    $moduleAdmin->addItemButton(\constant('CO_' . $moduleDirNameUpper . '_SAVE_SAMPLEDATA'), '__DIR__ . /../../testdata/index.php?op=save', 'add');
+//    $moduleAdmin->addItemButton(\constant('CO_' . $moduleDirNameUpper . '_EXPORT_SCHEMA'), '__DIR__ . /../../testdata/index.php?op=exportschema', 'add');
+    $moduleAdmin->displayButton('left');
+}
+
 $moduleAdmin->displayIndex();
 
 echo XmnewsUtility::getServerStats();
