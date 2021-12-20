@@ -17,6 +17,8 @@
  * @author          Mage Gregory (AKA Mage)
  */
 
+include_once('common.php');
+
 // Button
 define('_MA_XMNEWS_CATEGORY_ADD', 'Add category');
 define('_MA_XMNEWS_CATEGORY_LIST', 'Category list');

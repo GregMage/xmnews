@@ -1,0 +1,25 @@
+-
+    gperm_groupid: '1'
+    gperm_itemid: '1'
+    gperm_modid: '10'
+    gperm_name: xmnews_delete
+-
+    gperm_groupid: '1'
+    gperm_itemid: '1'
+    gperm_modid: '10'
+    gperm_name: xmnews_editapprove
+-
+    gperm_groupid: '1'
+    gperm_itemid: '1'
+    gperm_modid: '10'
+    gperm_name: xmnews_submit
+-
+    gperm_groupid: '1'
+    gperm_itemid: '1'
+    gperm_modid: '10'
+    gperm_name: xmnews_viewabstract
+-
+    gperm_groupid: '1'
+    gperm_itemid: '1'
+    gperm_modid: '10'
+    gperm_name: xmnews_viewnews
