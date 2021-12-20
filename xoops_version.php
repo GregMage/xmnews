@@ -17,10 +17,10 @@
  * @author          Mage Gregory (AKA Mage)
  */
 
-$moduleDirName      = \basename(\dirname(__DIR__, 2));
+$moduleDirName      = \basename(__DIR__);
 $moduleDirNameUpper = \mb_strtoupper($moduleDirName);
 
-$modversion['dirname']     = basename(__DIR__);
+$modversion['dirname']     = $moduleDirName;
 $modversion['name']        = ucfirst(basename(__DIR__));
 $modversion['version']     = '1.6';
 $modversion['description'] = _MI_XMNEWS_DESC;
