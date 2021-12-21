@@ -1,9 +1,9 @@
 -
     news_id: '1'
     news_cid: '1'
-    news_title: Testnews
-    news_description: 'Abstract of testnews'
-    news_news: 'Content of Testnews'
+    news_title: News 1
+    news_description: 'Abstract of news 1'
+    news_news: 'Content of news 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu venenatis neque. Nam sit amet ex posuere, congue purus id, eleifend nisi. Quisque facilisis eros sit amet sollicitudin suscipit. Quisque facilisis sed augue eu pretium. Ut sem nulla, dictum id erat a, tempor bibendum ex. Nullam malesuada lorem vel molestie congue. Curabitur ultricies tortor diam, sit amet porta urna interdum in. Vestibulum nec dignissim enim. Integer sit amet porta mi. Sed ultrices convallis magna, eget varius mi tempor vulputate. Proin augue urna, dictum vitae commodo id, sodales id arcu. Nam eget felis sed orci ultrices efficitur. Suspendisse condimentum lacus eget rhoncus scelerisque. Morbi sed sagittis justo, eu commodo dui. Pellentesque at imperdiet elit. Nulla bibendum erat non laoreet condimentum. Quisque ipsum neque, vulputate nec ante id, rhoncus aliquet nunc. Nullam congue eros leo, aliquam rhoncus odio luctus id. Suspendisse vitae felis id nibh tempor volutpat nec nec augue. Vestibulum molestie nulla et ultricies fringilla. Donec tincidunt lorem quam, eu dignissim massa pharetra vitae. Nullam tincidunt nisl sit amet odio dapibus, eget dignissim tortor fringilla. Vivamus ac est at nisi tempor gravida id id eros. Suspendisse efficitur ultrices enim, sed accumsan ipsum blandit sit amet. Vivamus lobortis urna non purus facilisis hendrerit. Quisque pharetra quam ac massa elementum auctor. Curabitur sit amet nisl erat. Suspendisse vel ornare odio, vel ullamcorper dui. Aenean aliquet erat eget eleifend placerat. In in rutrum mauris, eget iaculis risus. Cras tristique varius feugiat. Sed vestibulum mi id urna bibendum viverra. Aliquam elementum nec velit in vestibulum. Quisque mi ligula, viverra eget elit non, tristique scelerisque metus. Etiam sollicitudin tortor eu nisi eleifend finibus. Curabitur malesuada vulputate nunc eu scelerisque. Mauris a sollicitudin leo. In in fringilla dolor. Sed scelerisque mi non lorem varius mollis. Nunc facilisis libero at egestas tincidunt. Pellentesque quam mi, convallis ac sollicitudin sed, commodo eu velit. In magna lacus, ornare ac malesuada nec, vehicula et risus. Phasellus viverra convallis nisi, bibendum pellentesque ex interdum nec. Donec imperdiet at velit quis efficitur. Curabitur mauris lacus, congue eu feugiat at, iaculis a elit. Nam commodo, sem in lobortis auctor, turpis mi tempus massa, eget interdum erat justo sit amet metus. Donec massa tortor, varius porta tincidunt eget, dignissim non ex. Ut vel quam eget nunc sagittis laoreet a in ante. Donec porta orci eget vestibulum lacinia. Suspendisse gravida finibus nunc vel consequat. Donec ut nisl interdum leo tincidunt varius ac et justo. Donec suscipit, arcu in aliquam dignissim, neque dolor lacinia libero, sit amet sagittis nisl nibh eget dolor. Aenean venenatis consectetur tellus. Phasellus eget nulla sagittis quam iaculis tempus id volutpat nisl. Proin enim dolor, consequat vitae tempor eu, congue eu massa. Pellentesque sed condimentum tellus, ac laoreet urna. Sed placerat tellus id nulla imperdiet, sed tincidunt ex iaculis. Aliquam suscipit vulputate lorem, sed pulvinar sem tempus id. Fusce non sapien vehicula, pretium lorem ut, efficitur erat. Vivamus tincidunt risus sed elit vulputate, ut interdum eros porta. Sed maximus fringilla velit, eu molestie eros dapibus vel. Maecenas in sagittis purus. Vestibulum quis odio sit amet dolor vehicula ornare. Duis non ligula ut quam hendrerit ullamcorper. Donec mi felis, auctor eget nulla sed, faucibus ullamcorper lorem. Nulla condimentum augue ut congue scelerisque.'  
     news_mkeyword: ''
     news_logo: ''
     news_userid: '1'
@@ -11,7 +11,29 @@
     news_mdate: '0'
     news_rating: '0.0000'
     news_votes: '0'
-    news_counter: '0'
+    news_counter: '26'
+    news_douser: '1'
+    news_dodate: '1'
+    news_domdate: '1'
+    news_dohits: '1'
+    news_dorating: '1'
+    news_docomment: '1'
+    news_status: '1'
+
+-
+    news_id: '2'
+    news_cid: '2'
+    news_title: News 2
+    news_description: 'Abstract of news 2'
+    news_news: 'Content of news 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu venenatis neque. Nam sit amet ex posuere, congue purus id, eleifend nisi. Quisque facilisis eros sit amet sollicitudin suscipit. Quisque facilisis sed augue eu pretium. Ut sem nulla, dictum id erat a, tempor bibendum ex. Nullam malesuada lorem vel molestie congue. Curabitur ultricies tortor diam, sit amet porta urna interdum in. Vestibulum nec dignissim enim. Integer sit amet porta mi. Sed ultrices convallis magna, eget varius mi tempor vulputate. Proin augue urna, dictum vitae commodo id, sodales id arcu. Nam eget felis sed orci ultrices efficitur. Suspendisse condimentum lacus eget rhoncus scelerisque. Morbi sed sagittis justo, eu commodo dui. Pellentesque at imperdiet elit. Nulla bibendum erat non laoreet condimentum. Quisque ipsum neque, vulputate nec ante id, rhoncus aliquet nunc. Nullam congue eros leo, aliquam rhoncus odio luctus id. Suspendisse vitae felis id nibh tempor volutpat nec nec augue. Vestibulum molestie nulla et ultricies fringilla. Donec tincidunt lorem quam, eu dignissim massa pharetra vitae. Nullam tincidunt nisl sit amet odio dapibus, eget dignissim tortor fringilla. Vivamus ac est at nisi tempor gravida id id eros. Suspendisse efficitur ultrices enim, sed accumsan ipsum blandit sit amet. Vivamus lobortis urna non purus facilisis hendrerit. Quisque pharetra quam ac massa elementum auctor. Curabitur sit amet nisl erat. Suspendisse vel ornare odio, vel ullamcorper dui. Aenean aliquet erat eget eleifend placerat. In in rutrum mauris, eget iaculis risus. Cras tristique varius feugiat. Sed vestibulum mi id urna bibendum viverra. Aliquam elementum nec velit in vestibulum. Quisque mi ligula, viverra eget elit non, tristique scelerisque metus. Etiam sollicitudin tortor eu nisi eleifend finibus. Curabitur malesuada vulputate nunc eu scelerisque. Mauris a sollicitudin leo. In in fringilla dolor. Sed scelerisque mi non lorem varius mollis. Nunc facilisis libero at egestas tincidunt. Pellentesque quam mi, convallis ac sollicitudin sed, commodo eu velit. In magna lacus, ornare ac malesuada nec, vehicula et risus. Phasellus viverra convallis nisi, bibendum pellentesque ex interdum nec. Donec imperdiet at velit quis efficitur. Curabitur mauris lacus, congue eu feugiat at, iaculis a elit. Nam commodo, sem in lobortis auctor, turpis mi tempus massa, eget interdum erat justo sit amet metus. Donec massa tortor, varius porta tincidunt eget, dignissim non ex. Ut vel quam eget nunc sagittis laoreet a in ante. Donec porta orci eget vestibulum lacinia. Suspendisse gravida finibus nunc vel consequat. Donec ut nisl interdum leo tincidunt varius ac et justo. Donec suscipit, arcu in aliquam dignissim, neque dolor lacinia libero, sit amet sagittis nisl nibh eget dolor. Aenean venenatis consectetur tellus. Phasellus eget nulla sagittis quam iaculis tempus id volutpat nisl. Proin enim dolor, consequat vitae tempor eu, congue eu massa. Pellentesque sed condimentum tellus, ac laoreet urna. Sed placerat tellus id nulla imperdiet, sed tincidunt ex iaculis. Aliquam suscipit vulputate lorem, sed pulvinar sem tempus id. Fusce non sapien vehicula, pretium lorem ut, efficitur erat. Vivamus tincidunt risus sed elit vulputate, ut interdum eros porta. Sed maximus fringilla velit, eu molestie eros dapibus vel. Maecenas in sagittis purus. Vestibulum quis odio sit amet dolor vehicula ornare. Duis non ligula ut quam hendrerit ullamcorper. Donec mi felis, auctor eget nulla sed, faucibus ullamcorper lorem. Nulla condimentum augue ut congue scelerisque.'
+    news_mkeyword: ''
+    news_logo: ''
+    news_userid: '1'
+    news_date: '1639324800'
+    news_mdate: '0'
+    news_rating: '0.0000'
+    news_votes: '0'
+    news_counter: '15'
     news_douser: '1'
     news_dodate: '1'
     news_domdate: '1'

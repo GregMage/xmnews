@@ -1,14 +1,29 @@
 -
     category_id: '1'
-    category_name: Testcategory
-    category_description: ''
+    category_name: Category 1
+    category_description: 'Category 1 description '
     category_logo: ''
-    category_color: '#ffffff'
+    category_color: '#bae02e'
     category_douser: '1'
     category_dodate: '1'
     category_domdate: '1'
     category_dohits: '1'
     category_dorating: '1'
     category_docomment: '1'
-    category_weight: '0'
+    category_weight: '1'
+    category_status: '1'
+
+-
+    category_id: '2'
+    category_name: Category 2
+    category_description: 'Category 2 description '
+    category_logo: ''
+    category_color: '#2ebde0'
+    category_douser: '1'
+    category_dodate: '1'
+    category_domdate: '1'
+    category_dohits: '1'
+    category_dorating: '1'
+    category_docomment: '1'
+    category_weight: '2'
     category_status: '1'
