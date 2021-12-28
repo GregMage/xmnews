@@ -1,4 +1,56 @@
-﻿
+﻿-------------------------------------------------
+Version: 1.6
+Date: 28.12.2021
+-------------------------------------------------
+
+Bug fixes:
+	- The index.php file was not copied during installation (creation of folders in 'uploads')
+	- Cookies could be a problem with google chrome, they are now compatible
+	- Fixed PHP 8 errors
+	- The redirection (after editing) of an article awaiting validation returned to the index (now to the article in question)
+
+Improvements:
+	- Compatibility with the xlanguage module
+	- Added the name of the category next to the name on the index if the category is not filtered
+	- Improved category badge
+	- Addition of a navigation system in the news
+	- Improved bootsrap 4 templates (alain01)
+	- If you edit content in the administration, the filters activated before the modification are kept
+	- Improvement of description (SEO) on the module index
+	- Addition of category colors in action.php
+	- Compatibility with xmsocial 2.0
+	- Compatibility with the tag module 2.35.0
+	- Added a data insertion system (mainly to test the module) (ggoffy)
+
+Security:
+	/
+
+Important: The module needs at least PHP 7.3 and version 2.0 of xmsocial (if you use this module)
+
+
+Correction de bogues:	
+	- Le fichier index.php n'était pas copié à l'installation (création des dossiers dans 'uploads')
+	- Les cookies pouvaient poser problème avec google chrome, ils sont maitenant compatible
+	- Correction d'erreurs PHP 8
+	- La redirection (après l'édition) d'un article en attente de validation renvoyait sur l'index (maintenant sur l'article en question)
+	
+Améliorations:
+	- Compatibilité avec le module xlanguage
+	- Ajout du nom de la catégorie à côté du nom sur l'index si la catégorie n'est pas filtrée
+	- Amélioration du badge de catégorie
+	- Ajout d'un système de navigation dans les news
+	- Amélioration des templates bootsrap 4 (alain01)
+	- Si on édite un contenu dans l'administration, les filtres activés avant la modification sont conservés
+	- Amélioration des description (SEO) sur l'index du module
+	- Ajout des couleurs des catégories dans action.php
+	- Compatibilité avec xmsocial 2.0
+	- Compatibilité avec le module tag 2.35.0
+	- Ajout d'un système d'insertion de données (principalement pour tester le module) (ggoffy)
+	
+Sécurités:
+	/
+	
+Important: Le module à besoin de PHP 7.3 au minimum et la version 2.0 de xmsocial (si vous utilisez ce module)
 -------------------------------------------------
 Version: 1.5
 Date: 06.02.2021
