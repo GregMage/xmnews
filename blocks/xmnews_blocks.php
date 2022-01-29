@@ -28,6 +28,7 @@ function block_xmnews_show($options) {
 	
 	$block = array();
 	$criteria = new CriteriaCompo();
+	$criteria->add(new Criteria('news_date', time(),'<='));
 	$nocat = false;
 	switch ($options[4]) {
         case "date":
