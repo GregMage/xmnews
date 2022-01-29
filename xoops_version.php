@@ -22,7 +22,7 @@ $moduleDirNameUpper = \mb_strtoupper($moduleDirName);
 
 $modversion['dirname']     = $moduleDirName;
 $modversion['name']        = ucfirst(basename(__DIR__));
-$modversion['version']     = '1.6';
+$modversion['version']     = '1.61';
 $modversion['description'] = _MI_XMNEWS_DESC;
 $modversion['author']      = 'Grégory Mage (Mage)';
 $modversion['url']         = 'https://github.com/GregMage';
@@ -409,7 +409,7 @@ $modversion['notification']['event'][] = [
 ];
 
 // About stuff
-$modversion['module_status'] = 'Stable';
+$modversion['module_status'] = 'Alpha';
 $modversion['release_date']  = '2022/01/29';
 
 $modversion['developer_lead']      = 'Mage';
