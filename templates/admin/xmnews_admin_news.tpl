@@ -13,7 +13,7 @@
 <{if $warning_message|default:'' != ''}>
     <div class="xm-warning-msg xo-actions">
         <{$warning_message}>
-		<a class="tooltip" href="news.php?news_status=2" title="<{$smarty.const._MA_XMNEWS_VIEW}>">
+		<a class="tooltip" href="news.php?fnews_status=2" title="<{$smarty.const._MA_XMNEWS_VIEW}>">
 			<img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._MA_XMNEWS_VIEW}>">
 		</a>
     </div>
