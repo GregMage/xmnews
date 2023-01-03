@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    IMG_ON = '<{xoAdminIcons success.png}>';
-    IMG_OFF = '<{xoAdminIcons cancel.png}>';
+    IMG_ON = '<{xoAdminIcons "success.png"}>';
+    IMG_OFF = '<{xoAdminIcons "cancel.png"}>';
 </script>
 <div>
     <{$renderbutton|default:''}>
@@ -20,37 +20,37 @@
             <th class="txtcenter width10"><{$smarty.const._MA_XMNEWS_CATEGORY_LOGO}></th>
             <th class="txtleft width15"><{$smarty.const._MA_XMNEWS_CATEGORY_NAME}></th>
             <th class="txtleft"><{$smarty.const._MA_XMNEWS_CATEGORY_DESC}></th>
-			<th class="txtcenter width5"><{$smarty.const._MA_XMNEWS_CATEGORY_COLOR}></th>			
+			<th class="txtcenter width5"><{$smarty.const._MA_XMNEWS_CATEGORY_COLOR}></th>
             <th class="txtcenter width5"><{$smarty.const._MA_XMNEWS_CATEGORY_WEIGHT}></th>
             <th class="txtcenter width5"><{$smarty.const._MA_XMNEWS_STATUS}></th>
             <th class="txtcenter width10"><{$smarty.const._MA_XMNEWS_ACTION}></th>
         </tr>
         </thead>
         <tbody>
-        <{foreach item=category from=$category}>
+        <{foreach item=itemcategory from=$category}>
             <tr class="<{cycle values='even,odd'}> alignmiddle">
 				<td class="txtcenter">
-					<{if $category.logo != ''}>
-					<img src="<{$category.logo}>" alt="<{$category.name}>" style="max-width:150px">
+					<{if $itemcategory.logo != ''}>
+					<img src="<{$itemcategory.logo}>" alt="<{$itemcategory.name}>" style="max-width:150px">
 					<{/if}>
 				</td>
-                <td class="txtleft"><a href="../index.php?news_cid=<{$category.id}>" title="<{$category.name}>"><{$category.name}></a></td>
-                <td class="txtleft"><{$category.description}></td>
-				<td class="txtcenter"><{if $category.color != false}><div style="background-color:<{$category.color}>;width:50px; height:20px;margin-left: auto; margin-right: auto;"></div><{/if}></td> 				
-                <td class="txtcenter"><{$category.weight}></td>
+                <td class="txtleft"><a href="../index.php?news_cid=<{$itemcategory.id}>" title="<{$itemcategory.name}>"><{$itemcategory.name}></a></td>
+                <td class="txtleft"><{$itemcategory.description}></td>
+				<td class="txtcenter"><{if $itemcategory.color != false}><div style="background-color:<{$itemcategory.color}>;width:50px; height:20px;margin-left: auto; margin-right: auto;"></div><{/if}></td>
+                <td class="txtcenter"><{$itemcategory.weight}></td>
                 <td class="xo-actions txtcenter">
-                    <img id="loading_sml<{$category.id}>" src="../assets/images/spinner.gif" style="display:none;" title="<{$smarty.const._AM_SYSTEM_LOADING}>"
-                    alt="<{$smarty.const._AM_SYSTEM_LOADING}>"><img class="cursorpointer tooltip" id="sml<{$category.id}>"
-                    onclick="system_setStatus( { op: 'category_update_status', category_id: <{$category.id}> }, 'sml<{$category.id}>', 'category.php' )"
-                    src="<{if $category.status}><{xoAdminIcons success.png}><{else}><{xoAdminIcons cancel.png}><{/if}>"
-                    alt="<{if $category.status}><{$smarty.const._MA_XMNEWS_STATUS_NA}><{else}><{$smarty.const._MA_XMNEWS_STATUS_A}><{/if}>"
-                    title="<{if $category.status}><{$smarty.const._MA_XMNEWS_STATUS_NA}><{else}><{$smarty.const._MA_XMNEWS_STATUS_A}><{/if}>">
+                    <img id="loading_sml<{$itemcategory.id}>" src="../assets/images/spinner.gif" style="display:none;" title="<{$smarty.const._AM_SYSTEM_LOADING}>"
+                    alt="<{$smarty.const._AM_SYSTEM_LOADING}>"><img class="cursorpointer tooltip" id="sml<{$itemcategory.id}>"
+                    onclick="system_setStatus( { op: 'category_update_status', category_id: <{$itemcategory.id}> }, 'sml<{$itemcategory.id}>', 'category.php' )"
+                    src="<{if $itemcategory.status}><{xoAdminIcons 'success.png'}><{else}><{xoAdminIcons 'cancel.png'}><{/if}>"
+                    alt="<{if $itemcategory.status}><{$smarty.const._MA_XMNEWS_STATUS_NA}><{else}><{$smarty.const._MA_XMNEWS_STATUS_A}><{/if}>"
+                    title="<{if $itemcategory.status}><{$smarty.const._MA_XMNEWS_STATUS_NA}><{else}><{$smarty.const._MA_XMNEWS_STATUS_A}><{/if}>">
                 </td>
                 <td class="xo-actions txtcenter">
-                    <a class="tooltip" href="category.php?op=edit&amp;category_id=<{$category.id}>" title="<{$smarty.const._MA_XMNEWS_EDIT}>">
-                        <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._MA_XMNEWS_EDIT}>"></a>
-                    <a class="tooltip" href="category.php?op=del&amp;category_id=<{$category.id}>" title="<{$smarty.const._MA_XMNEWS_DEL}>">
-                        <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._MA_XMNEWS_DEL}>"></a>
+                    <a class="tooltip" href="category.php?op=edit&amp;category_id=<{$itemcategory.id}>" title="<{$smarty.const._MA_XMNEWS_EDIT}>">
+                        <img src="<{xoAdminIcons 'edit.png'}>" alt="<{$smarty.const._MA_XMNEWS_EDIT}>"></a>
+                    <a class="tooltip" href="category.php?op=del&amp;category_id=<{$itemcategory.id}>" title="<{$smarty.const._MA_XMNEWS_DEL}>">
+                        <img src="<{xoAdminIcons 'delete.png'}>" alt="<{$smarty.const._MA_XMNEWS_DEL}>"></a>
                 </td>
             </tr>
         <{/foreach}>
