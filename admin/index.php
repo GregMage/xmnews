@@ -31,11 +31,11 @@ $iniUploadMaxFileSize = XmnewsUtility::returnBytes(ini_get('upload_max_filesize'
 if (min($iniPostMaxSize, $iniUploadMaxFileSize) < $helper->getConfig('general_maxuploadsize', 104858)) {
 	echo '<div class="errorMsg" style="text-align: left;">' . _MA_XMNEWS_ERROR_SIZE . '</div>';	
 }
-$moduleAdmin->addConfigModuleVersion('system', 212);
+$moduleAdmin->addConfigModuleVersion('system', '2.1.2');
 // xmdoc
 if (xoops_isActiveModule('xmdoc')){
 	if ($helper->getConfig('general_xmdoc', 0) == 1) {
-		$moduleAdmin->addConfigModuleVersion('xmdoc', 100);
+		$moduleAdmin->addConfigModuleVersion('xmdoc', '1.4.0');
 	} else {
 		$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE);
 	}
@@ -45,7 +45,7 @@ if (xoops_isActiveModule('xmdoc')){
 // xmsocial
 if (xoops_isActiveModule('xmsocial')){
 	if ($helper->getConfig('general_xmsocial', 0) == 1 && $helper->getConfig('general_xmsocial_social', 0) == 1){
-		$moduleAdmin->addConfigModuleVersion('xmsocial', 200);
+		$moduleAdmin->addConfigModuleVersion('xmsocial', '2.1.0');
 	} else {
 		if ($helper->getConfig('general_xmsocial', 0) != 1) {
 			$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE);
@@ -61,7 +61,7 @@ if (xoops_isActiveModule('xmsocial')){
 // tag
 if (xoops_isActiveModule('tag')){
 	if ($helper->getConfig('general_tag', 0) == 1) {
-		$moduleAdmin->addConfigModuleVersion('tag', 235);
+		$moduleAdmin->addConfigModuleVersion('tag', '2.35.0');
 	} else {
 		$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_TAG_WARNINGNOTACTIVATE);
 	}
