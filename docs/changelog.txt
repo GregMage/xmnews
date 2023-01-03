@@ -3,7 +3,9 @@ Version: 1.7.0 Alpha
 Date:    03.01.2023
 -------------------------------------------------
 Bug fixes:
-	- /
+	- The link in the admin for news awaiting validation did not work
+	- Articles not yet published (the publication date is higher than the current date), were displayed in the blocks
+	- Problem with the old version 2.5.11, the robots were blocked for the indexing of the website
 
 Improvements:
 	- Compatibility with smarty 3 (xoops 2.5.11).
@@ -15,7 +17,9 @@ Important:	- The 1.7.0 series is only compatible under xoops 2.5.11.
 			- The default templates are only compatible with a bootstrap 4 theme, the templates for version 3 of boostrap are in the extra folder.
 
 Correction de bogues:
-	- /
+	- Le lien dans l'admin pour les news en attente de validation ne fonctionnait pas
+	- Les articles pas encore publiés (la date de publication est plus élevée que la date actuelle), étaient affichés dans les blocs
+	- Problème avec les anciennes version 2.5.11, les robots étaient bloqués pour l'indexation du site internet 
 
 Améliorations:
 	- Compatibilité avec smarty 3 (xoops 2.5.11).
