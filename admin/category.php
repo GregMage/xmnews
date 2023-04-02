@@ -34,7 +34,7 @@ switch ($op) {
         $xoTheme->addScript('modules/system/js/admin.js');
         // Module admin
         $moduleAdmin->addItemButton(_MA_XMNEWS_CATEGORY_ADD, 'category.php?op=add', 'add');
-        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());        
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Get start pager
         $start = Request::getInt('start', 0);
         // Criteria
@@ -66,7 +66,7 @@ switch ($op) {
 				} else {
 					$category['logo']        = $url_logo . $category_img;
 				}
-                $xoopsTpl->append_by_ref('category', $category);
+                $xoopsTpl->appendByRef('category', $category);
                 unset($category);
             }
             // Display Page Navigation
@@ -78,23 +78,23 @@ switch ($op) {
             $xoopsTpl->assign('error_message', _MA_XMNEWS_ERROR_NOCATEGORY);
         }
         break;
-    
+
     // Add
     case 'add':
         // Module admin
         $moduleAdmin->addItemButton(_MA_XMNEWS_CATEGORY_LIST, 'category.php', 'list');
-        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());        
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Form
         $obj  = $categoryHandler->create();
         $form = $obj->getForm();
         $xoopsTpl->assign('form', $form->render());
         break;
-        
+
     // Edit
     case 'edit':
         // Module admin
         $moduleAdmin->addItemButton(_MA_XMNEWS_CATEGORY_LIST, 'category.php', 'list');
-        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());        
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Form
         $category_id = Request::getInt('category_id', 0);
         if ($category_id == 0) {
@@ -102,7 +102,7 @@ switch ($op) {
         } else {
             $obj = $categoryHandler->get($category_id);
             $form = $obj->getForm();
-            $xoopsTpl->assign('form', $form->render()); 
+            $xoopsTpl->assign('form', $form->render());
         }
 
         break;
@@ -113,7 +113,7 @@ switch ($op) {
         }
         $category_id = Request::getInt('category_id', 0);
         if ($category_id == 0) {
-            $obj = $categoryHandler->create();            
+            $obj = $categoryHandler->create();
         } else {
             $obj = $categoryHandler->get($category_id);
         }
@@ -123,11 +123,11 @@ switch ($op) {
             $form = $obj->getForm();
             $xoopsTpl->assign('form', $form->render());
         }
-        
+
         break;
-        
+
     // del
-    case 'del':    
+    case 'del':
         $category_id = Request::getInt('category_id', 0);
         if ($category_id == 0) {
             $xoopsTpl->assign('error_message', _MA_XMNEWS_ERROR_NOCATEGORY);
@@ -180,7 +180,7 @@ switch ($op) {
 								if ($helper->getConfig('general_xmsocial_social', 0) == 1) {
 									$xoopsTpl->assign('error_message', XmsocialUtility::delSocialdata('xmnews', $id));
 								}
-							}							
+							}
 							//Del Notification and comment
 							$helper = Helper::getHelper('xmnews');
 							$moduleid = $helper->getModule()->getVar('mid');
@@ -188,10 +188,10 @@ switch ($op) {
 							xoops_comment_delete($moduleid, $i);
                         }
                     }
-					
+
 					//Del Notification
 					xoops_notification_deletebyitem($moduleid, 'category', $category_id);
-                    
+
                     redirect_header('category.php', 2, _MA_XMNEWS_REDIRECT_SAVE);
                 } else {
                     $xoopsTpl->assign('error_message', $obj->getHtmlErrors());
@@ -202,9 +202,9 @@ switch ($op) {
                                     <img src="' . $url_logo . $category_img . '" title="' . $obj->getVar('category_name') . '" style="max-width:100px"><br>' . XmnewsUtility::newsNamePerCat($category_id));
             }
         }
-        
+
         break;
-        
+
     // Update status
     case 'category_update_status':
         $category_id = Request::getInt('category_id', 0);

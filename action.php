@@ -33,12 +33,12 @@ $xoopsTpl->assign('index_module', $helper->getModule()->getVar('name'));
 if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'loadnews' || $op == 'save') {
     switch ($op) {
         // Add
-        case 'add':           
+        case 'add':
 			// Get Permission to submit
 			$submitPermissionCat = XmnewsUtility::getPermissionCat('xmnews_submit');
 			if (empty($submitPermissionCat)){
 				redirect_header('index.php', 2, _NOPERM);
-			}			
+			}
 			$criteria = new CriteriaCompo();
 			$criteria->add(new Criteria('category_status', 1));
 			$criteria->setSort('category_weight ASC, category_name');
@@ -54,7 +54,7 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
 					$category_id              = $category_arr[$i]->getVar('category_id');
 					$category['id']           = $category_id;
 					$category['name']         = $category_arr[$i]->getVar('category_name');
-					$category['description']  = $category_arr[$i]->getVar('category_description', 'show');					
+					$category['description']  = $category_arr[$i]->getVar('category_description', 'show');
 					$category_img             = $category_arr[$i]->getVar('category_logo');
 					if ($category_img == ''){
 						$category['logo']     = '';
@@ -67,7 +67,7 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
 					} else {
 						$category['color']	  = $color;
 					}
-					$xoopsTpl->append_by_ref('categories', $category);
+					$xoopsTpl->appendByRef('categories', $category);
 					unset($category);
 				}
 				// Display Page Navigation
@@ -78,13 +78,13 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
 			} else {
 				$xoopsTpl->assign('error_message', _MA_XMNEWS_ERROR_NOCATEGORY);
 			}
-            
-            
+
+
             break;
 
         // Loadtype
         case 'loadnews':
-			$category_id = Request::getInt('category_id', 0);		
+			$category_id = Request::getInt('category_id', 0);
 			if ($category_id == 0) {
 				$xoopsTpl->assign('error_message', _MA_XMNEWS_ERROR_NOCATEGORY);
 			} else {
@@ -160,7 +160,7 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
 				$surdel = Request::getBool('surdel', false);
 				$obj  = $newsHandler->get($news_id);
 				// Get Permission to delete in category
-				$permHelper->checkPermissionRedirect('xmnews_delete', $obj->getVar('news_cid'), 'index.php', 2, _NOPERM);	
+				$permHelper->checkPermissionRedirect('xmnews_delete', $obj->getVar('news_cid'), 'index.php', 2, _NOPERM);
 				if ($surdel === true) {
 					if (!$GLOBALS['xoopsSecurity']->check()) {
 						redirect_header('index.php', 3, implode('<br>', $GLOBALS['xoopsSecurity']->getErrors()));
@@ -172,14 +172,14 @@ if ($op == 'clone' || $op == 'edit' || $op == 'del' || $op == 'add' || $op == 'l
 				} else {
 					$news_img = $obj->getVar('news_logo');
 					if ($news_img == '' || $news_img == 'CAT'){
-						$img = '';						
+						$img = '';
 					} else {
 						$img = '<img src="' . $url_logo . $news_img . '" title="' . $obj->getVar('news_name') . '" style="max-width:100px"><br>';
 					}
-					xoops_confirm(['surdel' => true, 'news_id' => $news_id, 'op' => 'del'], $_SERVER['REQUEST_URI'], 
+					xoops_confirm(['surdel' => true, 'news_id' => $news_id, 'op' => 'del'], $_SERVER['REQUEST_URI'],
 										sprintf(_MA_XMNEWS_NEWS_SUREDEL, $obj->getVar('news_title')) . '<br>' . $img);
 				}
-			}        
+			}
 			break;
     }
 } else {

@@ -49,7 +49,7 @@ if (!empty($viewPermissionCat)) {
 }
 $criteria->setSort('category_weight ASC, category_name');
 $criteria->setOrder('ASC');
-$category_arr = $categoryHandler->getall($criteria);		
+$category_arr = $categoryHandler->getall($criteria);
 if (count($category_arr) > 0) {
 	$news_cid_options = '<option value="0"' . ($news_cid == 0 ? ' selected="selected"' : '') . '>' . _ALL .'</option>';
 	if (!empty($viewPermissionCat)) {
@@ -82,7 +82,7 @@ if ($news_cid != 0){
 	}
 	if ($check_category->getVar('category_status') != 1){
 		redirect_header('index.php', 2, _MA_XMNEWS_ERROR_NACTIVE);
-	}	
+	}
 	$criteria->add(new Criteria('news_cid', $news_cid));
 	$xoopsTpl->assign('category_name', $category_arr[$news_cid]->getVar('category_name'));
 	$category_img  = $category_arr[$news_cid]->getVar('category_logo');
@@ -94,7 +94,7 @@ if ($news_cid != 0){
 	$color = $category_arr[$news_cid]->getVar('category_color');
 	if ($color == '#ffffff'){
 		$xoopsTpl->assign('category_color', false);
-		
+
 	} else {
 		$xoopsTpl->assign('category_color', $color);
 	}
@@ -154,7 +154,7 @@ if ($news_count > 0 && !empty($viewPermissionCat)) {
 		if ($news_img == 'CAT'){
 			$news['logo']        = $url_logo . $news_arr[$i]->getVar('category_logo');
 		}
-		$xoopsTpl->append_by_ref('news', $news);
+		$xoopsTpl->appendByRef('news', $news);
 		$keywords .= Metagen::generateSeoTitle($news['title']) . ',';
 		unset($news);
 	}
@@ -176,6 +176,6 @@ if ($description_SEO == ''){
 }
 $xoTheme->addMeta('meta', 'description', $description_SEO);
 //keywords
-$keywords = substr($keywords, 0, -1);   
+$keywords = substr($keywords, 0, -1);
 $xoTheme->addMeta('meta', 'keywords', $keywords);
 include XOOPS_ROOT_PATH . '/footer.php';

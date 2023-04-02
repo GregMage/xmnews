@@ -41,14 +41,14 @@ $tpl->caching = 2;
 //$tpl->xoops_setCacheTime(0);
 $tpl->cache_lifetime = 0;
 $myts = \MyTextSanitizer::getInstance();
-if (!$tpl->is_cached('db:xmnews_rss.tpl')) {
+if (!$tpl->isCached('db:xmnews_rss.tpl')) {
 	// Category
 	$criteria = new CriteriaCompo();
 	$criteria->add(new Criteria('category_status', 1));
 	$criteria->setSort('category_weight ASC, category_name');
 	$criteria->setOrder('ASC');
 	$category_arr = $categoryHandler->getall($criteria);
-	
+
 	// Criteria
 	$criteria = new CriteriaCompo();
 	$criteria->setSort('news_date');
@@ -66,7 +66,7 @@ if (!$tpl->is_cached('db:xmnews_rss.tpl')) {
 			if ($check_category->getVar('category_status') != 1){
 				$criteria->add(new Criteria('news_cid', $news_cid));
 			}
-		}	
+		}
 	}
 	$newsHandler->table_link = $newsHandler->db->prefix("xmnews_category");
 	$newsHandler->field_link = "category_id";
@@ -116,7 +116,7 @@ if (!$tpl->is_cached('db:xmnews_rss.tpl')) {
                 'description' => htmlspecialchars($news_arr[$i]->getVar('news_description'), ENT_QUOTES | ENT_HTML5)
             ]);
 		}
-		
+
 	}
 }
 $tpl->display('db:xmnews_rss.tpl');

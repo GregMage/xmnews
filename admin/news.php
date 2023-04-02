@@ -42,13 +42,13 @@ switch ($op) {
 		// Get start pager
         $start = Request::getInt('start', 0);
 		$xoopsTpl->assign('start', $start);
-        
+
         $xoopsTpl->assign('filter', true);
 		// Category
 		$criteria = new CriteriaCompo();
 		$criteria->setSort('category_weight ASC, category_name');
 		$criteria->setOrder('ASC');
-		$category_arr = $categoryHandler->getall($criteria);	
+		$category_arr = $categoryHandler->getall($criteria);
 		if (count($category_arr) > 0) {
 			$news_cid_options = '<option value="0"' . ($fnews_cid == 0 ? ' selected="selected"' : '') . '>' . _ALL .'</option>';
 			foreach (array_keys($category_arr) as $i) {
@@ -63,15 +63,15 @@ switch ($op) {
             $news_status_options .= '<option value="' . $i . '"' . ($fnews_status == $i ? ' selected="selected"' : '') . '>' . $status_options[$i] . '</option>';
         }
         $xoopsTpl->assign('news_status_options', $news_status_options);
-		
+
 		// Waiting news
         $criteria = new CriteriaCompo();
 		$criteria->add(new Criteria('news_status', 2));
 		$Waiting_news = $newsHandler->getCount($criteria);
 		if ($Waiting_news > 0){
 			$xoopsTpl->assign('warning_message', sprintf(_MA_XMNEWS_NEWS_WAITING, $Waiting_news));
-		}		
-        
+		}
+
         // Criteria
         $criteria = new CriteriaCompo();
         $criteria->setSort('news_date');
@@ -83,7 +83,7 @@ switch ($op) {
 		}
         if ($fnews_status != 10){
 			$criteria->add(new Criteria('news_status', $fnews_status));
-		}    
+		}
         $newsHandler->table_link = $newsHandler->db->prefix("xmnews_category");
         $newsHandler->field_link = "category_id";
         $newsHandler->field_object = "news_cid";
@@ -109,7 +109,7 @@ switch ($op) {
 				if ($news_img == 'CAT'){
 					$news['logo']        = $url_logo . $news_arr[$i]->getVar('category_logo');
 				}
-                $xoopsTpl->append_by_ref('news', $news);
+                $xoopsTpl->appendByRef('news', $news);
                 unset($news);
             }
             // Display Page Navigation
@@ -121,7 +121,7 @@ switch ($op) {
             $xoopsTpl->assign('error_message', _MA_XMNEWS_ERROR_NONEWS);
         }
         break;
-   
+
 	// Add
 	case 'add':
         // Module admin
@@ -138,7 +138,7 @@ switch ($op) {
         } else {
             redirect_header('category.php?op=add', 2, _MA_XMNEWS_ERROR_NOCATEGORY);
         }
-        break;	
+        break;
 
     // Loadnews
     case 'loadnews':
@@ -147,7 +147,7 @@ switch ($op) {
         $xoTheme->addScript('modules/system/js/admin.js');
         // Module admin
         $moduleAdmin->addItemButton(_MA_XMNEWS_NEWS_LIST, 'news.php', 'list');
-        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());  
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         $news_category = Request::getInt('news_category', 0);
         if ($news_category == 0) {
             $xoopsTpl->assign('error_message', _MA_XMNEWS_ERROR_NOCATEGORY);
@@ -157,12 +157,12 @@ switch ($op) {
             $xoopsTpl->assign('form', $form->render());
         }
         break;
-        
+
     // Edit
     case 'edit':
         // Module admin
         $moduleAdmin->addItemButton(_MA_XMNEWS_NEWS_LIST, 'news.php', 'list');
-        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());        
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Form
         $news_id = Request::getInt('news_id', 0);
         if ($news_id == 0) {
@@ -170,11 +170,11 @@ switch ($op) {
         } else {
             $obj = $newsHandler->get($news_id);
             $form = $obj->getForm();
-            $xoopsTpl->assign('form', $form->render()); 
+            $xoopsTpl->assign('form', $form->render());
         }
 
         break;
-	
+
 	// Clone
     case 'clone':
         $news_id = Request::getInt('news_id', 0);
@@ -186,7 +186,7 @@ switch ($op) {
             $xoopsTpl->assign('form', $form->render());
         }
         break;
-		
+
     // Save
     case 'save':
         if (!$GLOBALS['xoopsSecurity']->check()) {
@@ -204,9 +204,9 @@ switch ($op) {
 			$news_cid = Request::getInt('news_cid', 0);
 			$form = $obj->getForm($news_cid);
             $xoopsTpl->assign('form', $form->render());
-        }        
+        }
         break;
-        
+
     // del
     case 'del':
         $news_id = Request::getInt('news_id', 0);
@@ -226,16 +226,16 @@ switch ($op) {
             } else {
 				$news_img = $obj->getVar('news_logo');
 				if ($news_img == '' || $news_img == 'CAT'){
-					$img = '';						
+					$img = '';
 				} else {
 					$img = '<img src="' . $url_logo . $news_img . '" title="' . $obj->getVar('news_name') . '" style="max-width:100px"><br>';
 				}
-				xoops_confirm(['surdel' => true, 'news_id' => $news_id, 'op' => 'del'], $_SERVER['REQUEST_URI'], 
+				xoops_confirm(['surdel' => true, 'news_id' => $news_id, 'op' => 'del'], $_SERVER['REQUEST_URI'],
 									sprintf(_MA_XMNEWS_NEWS_SUREDEL, $obj->getVar('news_title')) . '<br>' . $img);
             }
-        }        
+        }
         break;
-        
+
     // Update status
     case 'news_update_status':
         $news_id = Request::getInt('news_id', 0);
