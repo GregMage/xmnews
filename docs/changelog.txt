@@ -1,4 +1,31 @@
 ﻿-------------------------------------------------
+Version: 1.8.0 Alpha
+Date:    04.06.2024
+-------------------------------------------------
+Bug fixes:
+	-
+
+Improvements:
+	- On the index page, you can have one thumbnail per line (choice in preferences).
+
+Security:
+	- /
+
+Important:	- The 1.8.0 series is only compatible under xoops 2.5.11.
+
+Correction de bogues:
+	-
+
+Améliorations:
+	- Sur la page d'index, on peut avoir une vignette par ligne (choix dans les préférences).
+
+Sécurités:
+	- /
+
+Important:	- La série 1.8.0 est compatible uniquement sous xoops 2.5.11.
+
+
+-------------------------------------------------
 Version: 1.7.0 Stable
 Date:    04.06.2024
 -------------------------------------------------

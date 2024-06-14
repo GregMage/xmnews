@@ -176,6 +176,15 @@ $modversion['config'][] = [
     'default'     => 15
 ];
 
+$modversion['config'][] = [
+    'name'        => 'general_thumbnails',
+    'title'       => '_MI_XMNEWS_PREF_THUMBNAILS',
+    'description' => '_MI_XMNEWS_PREF_THUMBNAILS_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1
+];
+
 $optionNavigation[_MI_XMNEWS_PREF_NAVIGATION_0] = 0;
 $optionNavigation[_MI_XMNEWS_PREF_NAVIGATION_1] = 1;
 $optionNavigation[_MI_XMNEWS_PREF_NAVIGATION_2] = 2;

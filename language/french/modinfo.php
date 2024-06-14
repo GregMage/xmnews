@@ -54,6 +54,8 @@ define('_MI_XMNEWS_BLOCK_CAROUSEL_DESC', 'Les articles sont affiché sous forme 
 // Pref
 define('_MI_XMNEWS_PREF_HEAD_GENERAL', '<span style="font-size: large;  font-weight: bold;">Général</span>');
 define('_MI_XMNEWS_PREF_GENERALITEMPERPAGE', 'Nombre d\'éléments par page dans la vue générale');
+define('_MI_XMNEWS_PREF_THUMBNAILS', 'Plusieurs vignettes');
+define('_MI_XMNEWS_PREF_THUMBNAILS_DESC', 'Sur l\'index, afficher plusieurs vignettes d\'article par ligne');
 define('_MI_XMNEWS_PREF_NAVIGATION', 'Ajout de boutons de navigation pour lire les articles suivants et précédents');
 define('_MI_XMNEWS_PREF_NAVIGATION_DESC', 'Les articles suivants et précédents sont triés par dates et sont affichés sur la page de lecture d\'un article. La navigation peut être filtrée dans la catégorie de l\'article');
 define('_MI_XMNEWS_PREF_NAVIGATION_0', 'Navigation désactivée');

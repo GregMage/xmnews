@@ -37,7 +37,9 @@
 		</div>
 	<{/if}>
 	<{if $news_count != 0}>
+		<{if $thumbnails == 1}>
 		<div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 justify-content-center">
+		<{/if}>
 			<{foreach item=itemnews from=$news}>
 				<div class="col mb-3">
 					<div class="card h-100 xmnews-border" <{if $itemnews.color != false}>style="border-color : <{$itemnews.color}>;"<{/if}>>
@@ -106,7 +108,9 @@
 				</div>
 
 			<{/foreach}>
+		<{if $thumbnails == 1}>
 		</div>
+		<{/if}>
 		<div class="clear spacer"></div>
 		<{if $nav_menu|default:false}>
 			<div class="floatright"><{$nav_menu}></div>

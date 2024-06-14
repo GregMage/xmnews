@@ -36,6 +36,7 @@ $xoopsTpl->assign('start', $start);
 $news_id = Request::getInt('news_id', 0);
 
 $xoopsTpl->assign('index_module', $helper->getModule()->getVar('name'));
+$xoopsTpl->assign('thumbnails', $helper->getConfig('general_thumbnails', 1));
 // Category
 $news_cid = Request::getInt('news_cid', 0);
 $xoopsTpl->assign('news_cid', $news_cid);

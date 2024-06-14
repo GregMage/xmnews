@@ -54,6 +54,8 @@ define('_MI_XMNEWS_BLOCK_CAROUSEL_DESC', 'News is displayed as a carousel ');
 // Pref
 define('_MI_XMNEWS_PREF_HEAD_GENERAL', '<span style="font-size: large;  font-weight: bold;">General</span>');
 define('_MI_XMNEWS_PREF_GENERALITEMPERPAGE', 'Number of items per page in the general view');
+define('_MI_XMNEWS_PREF_THUMBNAILS', 'Several thumbnails');
+define('_MI_XMNEWS_PREF_THUMBNAILS_DESC', 'On the index, display several item thumbnails per line');
 define('_MI_XMNEWS_PREF_NAVIGATION', 'Added navigation buttons to read next and previous articles');
 define('_MI_XMNEWS_PREF_NAVIGATION_DESC', 'Subsequent and previous articles are sorted by date and are displayed on the article reading page. The navigation can be filtered in the category of the article ');
 define('_MI_XMNEWS_PREF_NAVIGATION_0', 'Navigation disabled');
