@@ -22,7 +22,7 @@ $moduleDirNameUpper = \mb_strtoupper($moduleDirName);
 
 $modversion['dirname']     = $moduleDirName;
 $modversion['name']        = ucfirst(basename(__DIR__));
-$modversion['version']     = '1.7.0-Stable';
+$modversion['version']     = '1.8.0-Alpha';
 $modversion['description'] = _MI_XMNEWS_DESC;
 $modversion['author']      = 'Grégory Mage (Mage)';
 $modversion['url']         = 'https://github.com/GregMage';
