@@ -64,7 +64,7 @@ if ($permission_editapprove != true || $helper->isUserAdmin() != true){
 	// redirection si la news n'est pas encore publiée
 	if ($news->getVar('news_date') > time()) {
 		redirect_header('index.php', 2, _MA_XMNEWS_ERROR_NPUBLISHED);
-	}	
+	}
 }
 
 //permission
@@ -132,6 +132,9 @@ if (xoops_isActiveModule('xmsocial')){
 	} else {
 		$xoopsTpl->assign('social', false);
 	}
+} else {
+	$xoopsTpl->assign('dorating', 0);
+	$xoopsTpl->assign('social', false);
 }
 
 //counter
@@ -209,7 +212,7 @@ if ($navigation != 0){
 	$newsHandler->table_link = $newsHandler->db->prefix("xmnews_category");
 	$newsHandler->field_link = "category_id";
 	$newsHandler->field_object = "news_cid";
-	$news_before_arr = $newsHandler->getByLink($criteria);	
+	$news_before_arr = $newsHandler->getByLink($criteria);
 	if (count($news_before_arr) == 0) {
 		$xoopsTpl->assign('news_before_status', false);
 	}else{
@@ -255,7 +258,7 @@ if ($navigation != 0){
 	$newsHandler->table_link = $newsHandler->db->prefix("xmnews_category");
 	$newsHandler->field_link = "category_id";
 	$newsHandler->field_object = "news_cid";
-	$news_after_arr = $newsHandler->getByLink($criteria);	
+	$news_after_arr = $newsHandler->getByLink($criteria);
 	if (count($news_after_arr) == 0) {
 		$xoopsTpl->assign('news_after_status', false);
 	}else{
@@ -287,7 +290,7 @@ $xoopsTpl->assign('xoops_pagetitle', strip_tags($news->getVar('news_title')) . '
 $xoTheme->addMeta('meta', 'description', XmnewsUtility::generateDescriptionTagSafe($news->getVar('news_description'), 80));
 //keywords
 if ('' == $news->getVar('news_mkeyword')) {
-    $keywords = Metagen::generateKeywords($news->getVar('news_news'), 10);    
+    $keywords = Metagen::generateKeywords($news->getVar('news_news'), 10);
     $xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
 } else {
     $xoTheme->addMeta('meta', 'keywords', $news->getVar('news_mkeyword'));
