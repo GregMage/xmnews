@@ -26,7 +26,7 @@
 			<div class="card" <{if $category_color != false}>style="border-color : <{$category_color}>;"<{/if}>>
 				<div class="card-header category_color" <{if $category_color != false}>style="background-color : <{$category_color}>;"<{/if}>>
 					<div class="d-flex justify-content-between">
-						<h3 class="mb-0 text-white"><{$title}></h3>
+						<h3 class="mb-0"><{$title}></h3>
 						<{if $dohits == 1}>
 							<div class="row align-items-center text-right">
 								<div class="col">
@@ -87,7 +87,7 @@
 								<{if $CAT == true}>
 								<a href="index.php?news_cid=<{$category_id}>">
 								<{/if}>
-								<img class="col-3 rounded float-right d-none d-md-block" src="<{$logo}>" alt="<{$title}>">
+								<img class="col-3 rounded float-right d-none d-md-block" src="<{$logo}>" alt="<{$title}> miam">
 								<{if $CAT == true}>
 								</a>
 								<{/if}>
