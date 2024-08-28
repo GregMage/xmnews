@@ -49,33 +49,35 @@
 							</div>
 						</div>
 						<div class="card-body">
-							<{if $itemnews.logo != ''}>
 								<{if $thumbnails == 1}>
-									<{if $CAT|default:false == true}>
-										<a href="index.php?news_cid=<{$category_id}>">
-									<{/if}>
-									<img class="img-fluid" src="<{$itemnews.logo}>" alt="<{$itemnews.title}>">
-									<{if $CAT|default:false == true}>
-										</a>
+									<{if $itemnews.logo != ''}>
+										<{if $CAT|default:false == true}>
+											<a href="index.php?news_cid=<{$category_id}>">
+										<{/if}>
+										<img class="img-fluid" src="<{$itemnews.logo}>" alt="<{$itemnews.title}>">
+										<{if $CAT|default:false == true}>
+											</a>
+										<{/if}>
 									<{/if}>
 									<{$itemnews.description}>
 								<{else}>
 									<p class="card-text mb-auto">
 										<div class="row">
 											<div class="col">
-												<{if $CAT|default:false == true}>
-												<a href="index.php?news_cid=<{$category_id}>">
-												<{/if}>
-												<img class="rounded float-right d-none d-md-block" src="<{$itemnews.logo}>" alt="<{$itemnews.title}>">
-												<{if $CAT|default:false == true}>
-												</a>
+												<{if $itemnews.logo != ''}>
+													<{if $CAT|default:false == true}>
+													<a href="index.php?news_cid=<{$category_id}>">
+													<{/if}>
+													<img class="rounded float-right d-none d-md-block" src="<{$itemnews.logo}>" alt="<{$itemnews.title}>">
+													<{if $CAT|default:false == true}>
+													</a>
+													<{/if}>
 												<{/if}>
 												<p class="card-text mb-auto"><{$itemnews.description}></p>
 											</div>
 										</div>
 									</p>
 								<{/if}>
-							<{/if}>
 							<div class="text-right mt-1 ">
 								<button type="button" class="btn btn-primary btn-sm text-right" onclick=window.location.href="article.php?news_id=<{$itemnews.id}>"><span class="fa fa-book" aria-hidden="true"></span> <{$smarty.const._MA_XMNEWS_NEWS_MORE}></button>
 							</div>
