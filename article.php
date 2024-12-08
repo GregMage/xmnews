@@ -153,13 +153,13 @@ if (isset($_COOKIE['xmnewsCounterId'])) {
 	if (json_last_error() === JSON_ERROR_NONE && is_array($counterIds)) {
 		if (!in_array($news_id, $counterIds)){
 			array_push($counterIds, $news_id);
-			setcookie("xmarticleCounterId", json_encode($counterIds), $options);
+			setcookie("xmnewsCounterId", json_encode($counterIds), $options);
 			$counterUpdate = true;
 		}
     }
 } else {
 	$counterId[] = $news_id;
-	setcookie("xmarticleCounterId",  json_encode($counterId), $options);
+	setcookie("xmnewsCounterId",  json_encode($counterId), $options);
 	$counterUpdate = true;
 }
 if ($counterUpdate == true){
