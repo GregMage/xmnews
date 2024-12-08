@@ -148,15 +148,18 @@ $options = array(
 	'samesite' => 'strict',
 );
 if (isset($_COOKIE['xmnewsCounterId'])) {
-	$counterIds = unserialize($_COOKIE['xmnewsCounterId']);
-	if (!in_array($news_id, $counterIds)){
-		array_push($counterIds, $news_id);
-		setcookie("xmnewsCounterId", serialize($counterIds), $options);
-		$counterUpdate = true;
-	}
+	$cookieValue = $_COOKIE['xmnewsCounterId'];
+	$counterIds = json_decode($cookieValue, true);
+	if (json_last_error() === JSON_ERROR_NONE && is_array($counterIds)) {
+		if (!in_array($news_id, $counterIds)){
+			array_push($counterIds, $news_id);
+			setcookie("xmarticleCounterId", json_encode($counterIds), $options);
+			$counterUpdate = true;
+		}
+    }
 } else {
 	$counterId[] = $news_id;
-	setcookie("xmnewsCounterId", serialize($counterId), $options);
+	setcookie("xmarticleCounterId",  json_encode($counterId), $options);
 	$counterUpdate = true;
 }
 if ($counterUpdate == true){
