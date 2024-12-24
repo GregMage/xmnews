@@ -293,7 +293,7 @@ $xoopsTpl->assign('xoops_pagetitle', strip_tags($news->getVar('news_title')) . '
 $xoTheme->addMeta('meta', 'description', XmnewsUtility::generateDescriptionTagSafe($news->getVar('news_description'), 80));
 //keywords
 if ('' == $news->getVar('news_mkeyword')) {
-    $keywords = Metagen::generateKeywords($news->getVar('news_news'), 10);
+    $keywords = Metagen::generateKeywords(XmnewsUtility::TagSafe($news->getVar('news_news')), 10);
     $xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
 } else {
     $xoTheme->addMeta('meta', 'keywords', $news->getVar('news_mkeyword'));

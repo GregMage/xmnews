@@ -156,7 +156,7 @@ if ($news_count > 0 && !empty($viewPermissionCat)) {
 			$news['logo']        = $url_logo . $news_arr[$i]->getVar('category_logo');
 		}
 		$xoopsTpl->appendByRef('news', $news);
-		$keywords .= Metagen::generateSeoTitle($news['title']) . ',';
+		$keywords .= Metagen::generateSeoTitle(XmnewsUtility::TagSafe($news['title'])) . ',';
 		unset($news);
 	}
 	// Display Page Navigation
