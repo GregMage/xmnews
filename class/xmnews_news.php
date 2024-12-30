@@ -25,8 +25,8 @@ defined('XOOPS_ROOT_PATH') || exit('Restricted access.');
  * Class xmnews_news
  */
 class xmnews_news extends XoopsObject
-{   
-    
+{
+
     // constructor
     /**
      * xmnews_news constructor.
@@ -35,7 +35,7 @@ class xmnews_news extends XoopsObject
     {
         $this->initVar('news_id', XOBJ_DTYPE_INT, null);
         $this->initVar('news_cid', XOBJ_DTYPE_INT, null);
-        $this->initVar('news_title', XOBJ_DTYPE_TXTBOX, null);        
+        $this->initVar('news_title', XOBJ_DTYPE_TXTBOX, null);
         $this->initVar('news_description', XOBJ_DTYPE_TXTAREA);
         $this->initVar('news_news', XOBJ_DTYPE_TXTAREA);
 		// use html
@@ -47,7 +47,7 @@ class xmnews_news extends XoopsObject
 		$this->initVar('news_mdate', XOBJ_DTYPE_INT, 0);
 		$this->initVar('news_rating', XOBJ_DTYPE_OTHER, null, false, 10);
         $this->initVar('news_votes', XOBJ_DTYPE_INT, null, false, 11);
-        $this->initVar('news_counter', XOBJ_DTYPE_INT, null, false, 8);		
+        $this->initVar('news_counter', XOBJ_DTYPE_INT, null, false, 8);
 		$this->initVar('news_douser', XOBJ_DTYPE_INT, 1, false, 1);
 		$this->initVar('news_dodate', XOBJ_DTYPE_INT, 1, false, 1);
 		$this->initVar('news_domdate', XOBJ_DTYPE_INT, 1, false, 1);
@@ -59,7 +59,7 @@ class xmnews_news extends XoopsObject
 		$this->initVar('category_logo', XOBJ_DTYPE_TXTBOX, null, false);
 		$this->initVar('category_color', XOBJ_DTYPE_TXTBOX, '#ffffff', false);
     }
-	
+
     /**
      * @param bool $action
      * @return XoopsThemeForm
@@ -70,13 +70,13 @@ class xmnews_news extends XoopsObject
             $action = $_SERVER['REQUEST_URI'];
         }
         include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
-        include __DIR__ . '/../include/common.php';  
+        include __DIR__ . '/../include/common.php';
 
         // Get Permission to submit
-        $submitPermissionCat = XmnewsUtility::getPermissionCat('xmnews_submit');        
-        
+        $submitPermissionCat = XmnewsUtility::getPermissionCat('xmnews_submit');
+
         $form = new XoopsThemeForm(_MA_XMNEWS_ADD, 'form', $action, 'post', true);
-        // category       
+        // category
         $category = new XoopsFormSelect(_MA_XMNEWS_NEWS_CATEGORY, 'news_category', $this->getVar('news_category'));
         $criteria = new CriteriaCompo();
 		$criteria->add(new Criteria('category_status', 1));
@@ -85,7 +85,7 @@ class xmnews_news extends XoopsObject
         if (!empty($submitPermissionCat)){
             $criteria->add(new Criteria('category_id', '(' . implode(',', $submitPermissionCat) . ')','IN'));
         }
-        $category_arr = $categoryHandler->getall($criteria);        
+        $category_arr = $categoryHandler->getall($criteria);
         if (count($category_arr) == 0 || empty($submitPermissionCat)){
             redirect_header('index.php', 3, _MA_XMNEWS_ERROR_NOACESSCATEGORY);
         }
@@ -93,8 +93,8 @@ class xmnews_news extends XoopsObject
             $category->addOption($category_arr[$i]->getVar('category_id'), $category_arr[$i]->getVar('category_name'));
         }
         $form->addElement($category, true);
-        
-        $form->addElement(new XoopsFormHidden('op', 'loadnews'));        
+
+        $form->addElement(new XoopsFormHidden('op', 'loadnews'));
         // submit
         $form->addElement(new XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
         return $form;
@@ -113,13 +113,13 @@ class xmnews_news extends XoopsObject
         }
         include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
         include __DIR__ . '/../include/common.php';
-        
+
         //form title
         $title = $this->isNew() ? sprintf(_MA_XMNEWS_ADD) : sprintf(_MA_XMNEWS_EDIT);
 
         $form = new XoopsThemeForm($title, 'form', $action, 'post', true);
         $form->setExtra('enctype="multipart/form-data"');
-		
+
         if (!$this->isNew() || $clone == true) {
             $form->addElement(new XoopsFormHidden('news_id', $this->getVar('news_id')));
             $category_id = $this->getVar('news_cid');
@@ -128,8 +128,8 @@ class xmnews_news extends XoopsObject
 			$criteria->add(new Criteria('category_status', 1));
 			$criteria->setSort('category_weight ASC, category_name');
 			$criteria->setOrder('ASC');
-			$category_arr = $categoryHandler->getall($criteria);			
-			$category_form = new XoopsFormSelect(_MA_XMNEWS_NEWS_CATEGORY, 'news_cid', $category_id);			
+			$category_arr = $categoryHandler->getall($criteria);
+			$category_form = new XoopsFormSelect(_MA_XMNEWS_NEWS_CATEGORY, 'news_cid', $category_id);
 			if (count($category_arr) > 0) {
 				foreach (array_keys($category_arr) as $i) {
 					$category_form->addOption($i, $category_arr[$i]->getVar('category_name'));
@@ -140,20 +140,20 @@ class xmnews_news extends XoopsObject
 
         } else {
 			$category = $categoryHandler->get($category_id);
-			// category        
+			// category
 			$category_img = $category->getVar('category_logo');
 			if ($category_img == ''){
 				$category_logo = '';
 			} else {
 				$category_logo = '<img src="' . $url_logo .  $category_img . '" alt="' . $category_img . '" style="max-width:100px" /> ';
-			}			
+			}
 			$form->addElement(new xoopsFormLabel (_MA_XMNEWS_NEWS_CATEGORY, $category_logo . '<strong>' . $category->getVar('category_name') . '</strong>'));
 			$form->addElement(new XoopsFormHidden('news_cid', $category_id));
 		}
-        
+
         // title
         $form->addElement(new XoopsFormText(_MA_XMNEWS_NEWS_TITLE, 'news_title', 50, 255, $this->getVar('news_title')), true);
-        
+
         // description
         $editor_configs           =array();
         $editor_configs['name']   = 'news_description';
@@ -164,7 +164,7 @@ class xmnews_news extends XoopsObject
         $editor_configs['height'] = '400px';
         $editor_configs['editor'] = $helper->getConfig('general_editor', 'Plain Text');
         $form->addElement(new XoopsFormEditor(_MA_XMNEWS_NEWS_DESC, 'news_description', $editor_configs), false);
-		
+
 		// news
         $editor_configs           =array();
         $editor_configs['name']   = 'news_news';
@@ -175,7 +175,7 @@ class xmnews_news extends XoopsObject
         $editor_configs['height'] = '400px';
         $editor_configs['editor'] = $helper->getConfig('general_editor', 'Plain Text');
         $form->addElement(new XoopsFormEditor(_MA_XMNEWS_NEWS_NEWS, 'news_news', $editor_configs), true);
-        
+
         // logo
 		$blank_img = $this->getVar('news_logo');
 		$img_cat = $category->getVar('category_logo');
@@ -184,16 +184,16 @@ class xmnews_news extends XoopsObject
 		} elseif($blank_img == 'CAT'){
 			$blank_img = $category->getVar('category_logo');
 		}
-		
+
 		$uploadirectory      = str_replace(XOOPS_URL, '', $url_logo);
         $imgtray_img         = new XoopsFormElementTray(_MA_XMNEWS_NEWS_LOGO . '<br><br>' . sprintf(_MA_XMNEWS_CATEGORY_UPLOADSIZE, $upload_size / 1000), '<br>');
         $imgpath_img         = sprintf(_MA_XMNEWS_CATEGORY_FORMPATH, $uploadirectory);
         $imageselect_img     = new XoopsFormSelect($imgpath_img, 'news_logo', $blank_img);
         $image_array_img = XoopsLists::getImgListAsArray($path_logo . 'news/');
         $imageselect_img->addOption("no-image.png", _MA_XMNEWS_CATEGORY_EMPTY);
-		
+
         $imageselect_img->addOption("$img_cat", _MA_XMNEWS_NEWS_USELOGOCATEGORY);
-        foreach ($image_array_img as $image_img) {			
+        foreach ($image_array_img as $image_img) {
 			$image_tmp = 'news/' . $image_img;
             $imageselect_img->addOption("$image_tmp", $image_tmp);
         }
@@ -205,54 +205,54 @@ class xmnews_news extends XoopsObject
         $fileseltray_img->addElement(new XoopsFormLabel(''), false);
         $imgtray_img->addElement($fileseltray_img);
         $form->addElement($imgtray_img);
-		
+
         // keyword
         $keyword = new XoopsFormTextArea(_MA_XMNEWS_NEWS_KEYWORD, 'news_mkeyword', $this->getVar('news_mkeyword', 'e'), 2, 60);
 		$keyword->setDescription(_MA_XMNEWS_NEWS_KEYWORD_DSC);
 		$form->addElement($keyword, false);
-		
+
 		//tag
         if (xoops_isActiveModule('tag') && $helper->getConfig('general_tag', 0) == 1) {
 			XoopsLoad::load('formtag', 'tag');  // get the TagFormTag class
 			$form->addElement(new \XoopsModules\Tag\FormTag('item_tag', 60, 255, $this->getVar('news_id'), $catid = 0));
         }
-		
+
 		//xmdoc
         if (xoops_isActiveModule('xmdoc') && $helper->getConfig('general_xmdoc', 0) == 1) {
             xoops_load('utility', 'xmdoc');
             XmdocUtility::renderDocForm($form, 'xmnews', $this->getVar('news_id'));
         }
-		
+
 		// xmsocial
 		if (xoops_isActiveModule('xmsocial') && $helper->getConfig('general_xmsocial_social', 0) == 1) {
 			xoops_load('utility', 'xmsocial');
 			XmsocialUtility::renderSocialForm($form, 'xmnews', $this->getVar('news_id'));
 		}
-		
-		if (!$this->isNew() || $clone == true) {		
+
+		if (!$this->isNew() || $clone == true) {
 			// douser
-			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOUSER, 'news_douser', $this->getVar('news_douser')));		
+			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOUSER, 'news_douser', $this->getVar('news_douser')));
 			// dodate
-			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DODATE, 'news_dodate', $this->getVar('news_dodate')));		
+			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DODATE, 'news_dodate', $this->getVar('news_dodate')));
 			// domdate
-			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOMDATE, 'news_domdate', $this->getVar('news_domdate')));		
+			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOMDATE, 'news_domdate', $this->getVar('news_domdate')));
 			// dohits
-			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOHITS, 'news_dohits', $this->getVar('news_dohits')));		
-			// dorating 
-			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'news_dorating', $this->getVar('news_dorating')));	
+			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOHITS, 'news_dohits', $this->getVar('news_dohits')));
+			// dorating
+			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'news_dorating', $this->getVar('news_dorating')));
 			// docomment
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOCOMMENT, 'news_docomment', $this->getVar('news_docomment')));
 		} else {
 			// douser
-			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOUSER, 'news_douser', $category->getVar('category_douser')));		
+			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOUSER, 'news_douser', $category->getVar('category_douser')));
 			// dodate
-			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DODATE, 'news_dodate', $category->getVar('category_dodate')));		
+			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DODATE, 'news_dodate', $category->getVar('category_dodate')));
 			// domdate
-			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOMDATE, 'news_domdate', $category->getVar('category_domdate')));		
+			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOMDATE, 'news_domdate', $category->getVar('category_domdate')));
 			// dohits
-			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOHITS, 'news_dohits', $category->getVar('category_dohits')));		
-			// dorating 
-			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'news_dorating', $category->getVar('category_dorating')));	
+			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOHITS, 'news_dohits', $category->getVar('category_dohits')));
+			// dorating
+			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DORATING, 'news_dorating', $category->getVar('category_dorating')));
 			// docomment
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_CATEGORY_DOCOMMENT, 'news_docomment', $category->getVar('category_docomment')));
 		}
@@ -265,7 +265,7 @@ class xmnews_news extends XoopsObject
 			}
 			// userid
 			$form->addElement(new XoopsFormSelectUser(_MA_XMNEWS_NEWS_USERID, 'news_userid', true, $userid, 1, false), true);
-			
+
 			// date and mdate
 			$time = time()-600;
 			if (!$this->isNew()) {
@@ -291,7 +291,7 @@ class xmnews_news extends XoopsObject
 			// reset hits
 			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_NEWS_RESETHITS, 'news_resethits', 0, _YES, _NO  . ' (' . $this->getVar('news_counter') . ')'));
 		}
-        // permission edit and approve submitted news		
+        // permission edit and approve submitted news
         $permHelper = new Helper\Permission();
 		$permission = $permHelper->checkPermission('xmnews_editapprove', $category_id);
         if ($permission == true || $helper->isUserAdmin() == true){
@@ -302,9 +302,9 @@ class xmnews_news extends XoopsObject
             $form->addElement($form_status);
         } else {
 			// Notification news:approve_news
-			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_NEWS_NOTIFY, 'news_notify', true));	
+			$form->addElement(new XoopsFormRadioYN(_MA_XMNEWS_NEWS_NOTIFY, 'news_notify', true));
 		}
-		//captcha		
+		//captcha
 		if ($helper->getConfig('general_captcha', 0) == 1) {
 			$form->addElement(new XoopsFormCaptcha(), true);
 		}
@@ -328,7 +328,7 @@ class xmnews_news extends XoopsObject
         include __DIR__ . '/../include/common.php';
         $helper = Helper::getHelper('xmnews');
         $error_message = '';
-		
+
         //logo
 		$uploadirectory = $path_logo . '/news';
         if ($_FILES['news_logo']['error'] != UPLOAD_ERR_NO_FILE) {
@@ -351,7 +351,7 @@ class xmnews_news extends XoopsObject
 			}
 			if (substr($news_logo, 0, 8) == 'category'){
 				$news_logo = 'CAT';
-			}	
+			}
             $this->setVar('news_logo', $news_logo);
         }
         $this->setVar('news_title', Request::getString('news_title', ''));
@@ -363,7 +363,7 @@ class xmnews_news extends XoopsObject
         $this->setVar('news_domdate', Request::getInt('news_domdate', 1));
         $this->setVar('news_dohits', Request::getInt('news_dohits', 1));
         $this->setVar('news_dorating', Request::getInt('news_dorating', 1));
-        $this->setVar('news_docomment', Request::getInt('news_docomment', 1));		
+        $this->setVar('news_docomment', Request::getInt('news_docomment', 1));
         $news_cid = Request::getInt('news_cid', 0);
         $this->setVar('news_cid', $news_cid);
 		if (isset($_POST['news_userid'])) {
@@ -374,7 +374,7 @@ class xmnews_news extends XoopsObject
 		if (isset($_POST['news_tempdate'])) {
 			$news_date = Request::getArray('news_tempdate', []);
 			$this->setVar('news_date', strtotime($news_date['date']) + $news_date['time']);
-        }		
+        }
 		if (isset($_POST['news_date'])) {
 			if ($_POST['date_update'] == 'Y'){
 				$news_date = Request::getArray('news_date', []);
@@ -393,14 +393,14 @@ class xmnews_news extends XoopsObject
 		if (Request::getInt('news_resethits', 0) == 1){
 			$this->setVar('news_counter', 0);
 		}
-		// permission edit and approve submitted news		
+		// permission edit and approve submitted news
         $permHelper = new Helper\Permission();
 		$permission = $permHelper->checkPermission('xmnews_editapprove', $news_cid);
         if ($permission == false){
             $this->setVar('news_status', 2);
         } else {
             $this->setVar('news_status', Request::getInt('news_status', 1));
-        }      
+        }
 		// Captcha
         if ($helper->getConfig('general_captcha', 0) == 1) {
             xoops_load('xoopscaptcha');
@@ -417,12 +417,12 @@ class xmnews_news extends XoopsObject
 					$news_id = $this->get_new_enreg();
 				}
 				//tag
-                if (xoops_isActiveModule('tag') && $helper->getConfig('general_tag', 0) == 1) {					
+                if (xoops_isActiveModule('tag') && $helper->getConfig('general_tag', 0) == 1) {
 					/** @var \XoopsModules\Tag\TagHandler $tagHandler */
 					$tagHandler = \XoopsModules\Tag\Helper::getInstance()->getHandler('Tag');
 					$tagHandler->updateByItem($_POST['item_tag'], $news_id, $GLOBALS['xoopsModule']->getVar('dirname'), $catid = 0);
                 }
-				
+
 				//xmdoc
                 if (xoops_isActiveModule('xmdoc') && $helper->getConfig('general_xmdoc', 0) == 1) {
                     xoops_load('utility', 'xmdoc');
@@ -441,13 +441,13 @@ class xmnews_news extends XoopsObject
 				$tags['CATEGORY_NAME'] = $category->getVar('category_name');
 				$tags['CATEGORY_URL'] =  XOOPS_URL . '/modules/xmnews/index.php?news_cid=' . $news_cid;
 				$notificationHandler = xoops_getHandler('notification');
-				$notificationHandler->triggerEvent('global', 0, 'new_news', $tags);
+				$notificationHandler->triggerEvent('global', 0, 'new_article', $tags);
 				$notificationHandler->triggerEvent('category', $news_cid, 'new_news', $tags);
 				$notificationHandler->triggerEvent('news', $news_id, 'approve_news', $tags);
 				//Notification global: submit_news
 				if ($this->getVar('news_status') == 2){
 					$tags['WAITINGARTICLE_URL'] = XOOPS_URL . '/modules/xmnews/admin/news.php?news_status=2';
-					$notificationHandler->triggerEvent('global', 0, 'submit_news', $tags);					
+					$notificationHandler->triggerEvent('global', 0, 'submit_news', $tags);
 				}
 				//Notification news: modified_news
 				if ($this->get_new_enreg() == 0){
@@ -457,7 +457,7 @@ class xmnews_news extends XoopsObject
 				if (Request::getInt('news_notify', 0) == 1){
 					$notificationHandler->subscribe('news', $news_id, 'approve_news', XOOPS_NOTIFICATION_MODE_SENDONCETHENDELETE);
 				}
-				
+
 				if ($error_message == ''){
                     if ($action == 'article.php'){
                         redirect_header('article.php?news_id=' . $news_id, 2, _MA_XMNEWS_REDIRECT_SAVE);
@@ -472,7 +472,7 @@ class xmnews_news extends XoopsObject
 
         return $error_message;
     }
-	
+
 	/**
      * @return mixed
      */
@@ -528,7 +528,7 @@ class xmnews_news extends XoopsObject
 			}
 		} else {
 			$error_message .= $obj->getHtmlErrors();
-		}		
+		}
 		return $error_message;
 	}
 
