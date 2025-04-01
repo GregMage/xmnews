@@ -27,6 +27,7 @@ define('_MI_XMNEWS_DESC', 'Management news');
 define('_MI_XMNEWS_MENU_HOME', 'Index');
 define('_MI_XMNEWS_MENU_CATEGORY', 'Categories');
 define('_MI_XMNEWS_MENU_NEWS', 'News');
+define('_MI_XMNEWS_MENU_CLONE', 'Clone');
 define('_MI_XMNEWS_MENU_PERMISSION', 'Permissions');
 define('_MI_XMNEWS_MENU_ABOUT', 'About');
 

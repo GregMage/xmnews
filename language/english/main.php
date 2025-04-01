@@ -152,3 +152,14 @@ define('_MA_XMNEWS_PERMISSION_DELETE_THIS', 'Select groups that can delete in th
 
 // user
 define('_MA_XMNEWS_SELECTCATEGORY', 'Submit a news - Select a category');
+
+// Clone feature
+\define('_MA_XMNEWS_CLONE_DSC', 'Cloning a module has never been this easy! Just type in the name you want for it and hit submit button!');
+\define('_MA_XMNEWS_CLONE_TITLE', 'Clone %s');
+\define('_MA_XMNEWS_CLONE_MNAME', 'Choose a name for the new module');
+\define('_MA_XMNEWS_CLONE_MNAME_DSC', 'Do not use special characters! <br>Do not choose an existing module dirname or database table name!');
+\define('_MA_XMNEWS_CLONE_INVALIDNAME', 'ERROR: Invalid module name, please try another one!');
+\define('_MA_XMNEWS_CLONE_EXISTS', 'ERROR: Module name already exists, please try another one!');
+\define('_MA_XMNEWS_CLONE_CONGRAT', 'Congratulations! %s was sucessfully created!<br>You may want to make changes in language files.');
+\define('_MA_XMNEWS_CLONE_IMAGEFAIL', 'Attention, we failed creating the new module logo. Please consider modifying assets/images/logo_module.png manually!');
+\define('_MA_XMNEWS_CLONE_FAIL', 'Sorry, we failed in creating the new clone. Maybe you need to temporally set write permissions (CHMOD 777) to modules folder and try again.');

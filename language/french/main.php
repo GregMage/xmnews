@@ -151,3 +151,14 @@ define('_MA_XMNEWS_PERMISSION_DELETE_THIS', 'Sélectionner les groupes pouvant s
 
 // user
 define('_MA_XMNEWS_SELECTCATEGORY', 'Proposer un article - Choix de la catégorie');
+
+// Clone feature
+\define('_MA_XMNEWS_CLONE_DSC', 'Cloner un module n’a jamais été aussi simple ! Tapez simplement le nom que vous voulez pour celui-ci et appuyez sur le bouton Soumettre!');
+\define('_MA_XMNEWS_CLONE_TITLE', 'Clone %s');
+\define('_MA_XMNEWS_CLONE_MNAME', 'Choisissez un nom pour le nouveau module');
+\define('_MA_XMNEWS_CLONE_MNAME_DSC', 'N’utilisez pas de caractères spéciaux ! <br>Ne choisissez pas un nom de répertoire de module ou de table de base de données existant !');
+\define('_MA_XMNEWS_CLONE_INVALIDNAME', 'ERREUR : Nom de module invalide, veuillez en essayer un autre !');
+\define('_MA_XMNEWS_CLONE_EXISTS', 'ERREUR : Le nom du module existe déjà, essayez-en un autre !');
+\define('_MA_XMNEWS_CLONE_CONGRAT', 'Félicitations! %s a été créé avec succès ! <br>Vous pouvez apporter des modifications aux fichiers de langue.');
+\define('_MA_XMNEWS_CLONE_IMAGEFAIL', 'Attention, nous avons échoué à créer le nouveau logo du module. Pensez à modifier manuellement les ressources/images/logo_module.png !');
+\define('_MA_XMNEWS_CLONE_FAIL', 'Désolé, nous n’avons pas réussi à créer le nouveau clone. Peut-être avez-vous besoin de définir temporairement les autorisations d’écriture (CHMOD 777) sur le dossier modules et d’essayer à nouveau.');
