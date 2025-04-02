@@ -74,6 +74,7 @@ $modversion['tables'][2] = 'xmnews_news';
 $modversion['templates'][] = ['file' => 'xmnews_admin_category.tpl', 'description' => '', 'type' => 'admin'];
 $modversion['templates'][] = ['file' => 'xmnews_admin_news.tpl', 'description' => '', 'type' => 'admin'];
 $modversion['templates'][] = ['file' => 'xmnews_admin_permission.tpl', 'description' => '', 'type' => 'admin'];
+$modversion['templates'][] = ['file' => 'xmnews_admin_clone.tpl', 'description' => '', 'type' => 'admin'];
 
 // User Templates
 $modversion['templates'][] = ['file' => 'xmnews_index.tpl', 'description' => ''];

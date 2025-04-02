@@ -41,6 +41,12 @@ $adminmenu[] = [
     'link'  => 'admin/news.php',
     'icon'  => $pathIcon32 . 'folder_txt.png'
 ];
+// Clone
+$adminmenu[] = [
+    'title' => _MI_XMNEWS_MENU_CLONE,
+    'link'  => 'admin/clone.php',
+    'icon'  => $pathIcon32 . 'page_copy.png'
+];
 // Permission
 $adminmenu[] = [
     'title' => _MI_XMNEWS_MENU_PERMISSION,
